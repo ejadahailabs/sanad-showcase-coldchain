@@ -1,0 +1,18 @@
+{
+  "total": 1,
+  "groups": [
+    {
+      "id": "sources",
+      "title": "Sources not read",
+      "rows": [
+        {
+          "rule": "impact-incomplete",
+          "engine": "impact",
+          "severity": "info",
+          "what": "Impact is bounded here by 1 limit — these numbers are not a clean result",
+          "why": "Impact analysis is bounded here: no symbol index took part in this run, so no blast radius above counts the code a change would reach — that number is absent, not zero."
+        }
+      ]
+    }
+  ]
+}

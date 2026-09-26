@@ -80,6 +80,16 @@ ids: "provided"
 # ADR-0001: every folder carries a README that says what lives there; it is not a requirement.
 ignore:
   - "README.md"
+# MANUAL (F-04): per-requirement IEC 62304 class, carried by the safetyClass field (dal role).
+criticality:
+  role: "dal"
+  scale: "iec62304"
+  default: "C"
+  inherit: "down"
+  map:
+    A: 0
+    B: 2
+    C: 4
 
 # Where each artifact type's files come from (ADR-0057). Most live here, in this
 # repository, and need no entry. Add one only when a type's source is NOT in this
@@ -152,7 +162,7 @@ design:
 # 'results:' lists verification-results folders, one per verification level;
 # the format is probed from the files. Engines read them in the Verification wave.
 producers:
-  # MANUAL (FINDINGS F-02): Setup has no glossary step; added by hand per CONFIGURATION.md section 4.
+  # MANUAL (F-02): Setup has no glossary step.
   glossary:
     - path: "01-data-dictionary/glossary.md"
   dataDictionary:
@@ -160,6 +170,22 @@ producers:
   results:
     - level: "systems-verification-results"
       path: "11-verification/results"
+
+# Repository-wide assurance target (ADR-0062, under ADR-0056). Sanad maps the level
+# below to its own internal rigour 0–4 (4 = most rigorous) and every analysis
+# consumes ONLY rigour — a third-party scheme name never reaches a finding, report
+# or dashboard (rule 11). `scheme` and `level` are YOUR programme's vocabulary;
+# edit `map` to match it, and the same commit then checks at the same rigour for
+# everyone.
+assurance:
+  domain: "medical-device"
+  scheme: "IEC 62304 software safety class"
+  level: "C"
+  # level -> internal rigour 0..4. Add every level your programme uses.
+  map:
+    "A": 0
+    "B": 2
+    "C": 4
 
 # The requirements-writing rule pack this repository adopted (FEAT-041). It names a
 # file under .ejadah/rew/rules/ (without the folder or the .yaml). Sanad runs its
