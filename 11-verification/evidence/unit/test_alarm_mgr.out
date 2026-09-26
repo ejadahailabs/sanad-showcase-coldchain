@@ -1,17 +1,19 @@
-firmware/components/alarm_mgr/test/test_alarm_mgr.c:176:test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz:PASS
-firmware/components/alarm_mgr/test/test_alarm_mgr.c:177:test_ack_stops_the_buzzer_in_the_same_step_and_logs:PASS
-firmware/components/alarm_mgr/test/test_alarm_mgr.c:178:test_re_sounds_15_minutes_after_the_ack:PASS
-firmware/components/alarm_mgr/test/test_alarm_mgr.c:179:test_end_returns_to_quiet_from_sounding_and_silenced:PASS
-firmware/components/alarm_mgr/test/test_alarm_mgr.c:180:test_probe_fault_sounds_1_s_on_1_s_off:PASS
-firmware/components/alarm_mgr/test/test_alarm_mgr.c:181:test_no_buzzer_current_for_5_steps_declares_buzzer_fault_red_4_hz:PASS
-firmware/components/alarm_mgr/test/test_alarm_mgr.c:182:test_button_debounce_50_ms:PASS
-firmware/components/alarm_mgr/test/test_alarm_mgr.c:183:test_button_held_60_s_is_a_button_fault_and_ignored:PASS
-firmware/components/alarm_mgr/test/test_alarm_mgr.c:184:test_unacknowledged_alarm_is_restored_after_a_restart:PASS
-firmware/components/alarm_mgr/test/test_alarm_mgr.c:185:test_acknowledged_alarm_is_not_restored_as_sounding:PASS
-firmware/components/alarm_mgr/test/test_alarm_mgr.c:186:test_battery_low_or_fail_safe_forces_the_buzzer:PASS
-firmware/components/alarm_mgr/test/test_alarm_mgr.c:187:test_heartbeat_moves_on_every_step:PASS
-firmware/components/alarm_mgr/test/test_alarm_mgr.c:188:test_error_codes_full_and_nvs:PASS
+firmware/components/alarm_mgr/test/test_alarm_mgr.c:200:test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz:PASS
+firmware/components/alarm_mgr/test/test_alarm_mgr.c:201:test_early_alarm_is_red_1_hz_without_buzzer_then_escalates:PASS
+firmware/components/alarm_mgr/test/test_alarm_mgr.c:202:test_early_alarm_clears_back_to_quiet:PASS
+firmware/components/alarm_mgr/test/test_alarm_mgr.c:203:test_ack_stops_the_buzzer_in_the_same_step_and_logs:PASS
+firmware/components/alarm_mgr/test/test_alarm_mgr.c:204:test_re_sounds_15_minutes_after_the_ack:PASS
+firmware/components/alarm_mgr/test/test_alarm_mgr.c:205:test_end_returns_to_quiet_from_sounding_and_silenced:PASS
+firmware/components/alarm_mgr/test/test_alarm_mgr.c:206:test_probe_fault_sounds_1_s_on_1_s_off:PASS
+firmware/components/alarm_mgr/test/test_alarm_mgr.c:207:test_no_buzzer_current_for_5_steps_declares_buzzer_fault_red_4_hz:PASS
+firmware/components/alarm_mgr/test/test_alarm_mgr.c:208:test_button_debounce_50_ms:PASS
+firmware/components/alarm_mgr/test/test_alarm_mgr.c:209:test_button_held_60_s_is_a_button_fault_and_ignored:PASS
+firmware/components/alarm_mgr/test/test_alarm_mgr.c:210:test_unacknowledged_alarm_is_restored_after_a_restart:PASS
+firmware/components/alarm_mgr/test/test_alarm_mgr.c:211:test_acknowledged_alarm_is_not_restored_as_sounding:PASS
+firmware/components/alarm_mgr/test/test_alarm_mgr.c:212:test_battery_low_or_fail_safe_forces_the_buzzer:PASS
+firmware/components/alarm_mgr/test/test_alarm_mgr.c:213:test_heartbeat_moves_on_every_step:PASS
+firmware/components/alarm_mgr/test/test_alarm_mgr.c:214:test_error_codes_full_and_nvs:PASS
 
 -----------------------
-13 Tests 0 Failures 0 Ignored 
+15 Tests 0 Failures 0 Ignored 
 OK

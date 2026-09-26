@@ -15,7 +15,7 @@ With one sample every 10 s the monitor can be blind for 10 s — longer than the
 - Probe average current 0.11 → 0.56 mA; battery life still far above the 4 h of ENV-001 (09-hardware/power-budget.md regenerated). **EE-REVIEW:** probe self-heating at 37 % conversion duty; 1-Wire bus load.
 - Probe-fault time (30 s, MRTM-SYS-012) now spans 15 samples instead of 3 — unchanged in seconds.
 - Five times more samples through `sensor_sampler`; the sensor task deadline (1 s) still holds (host timing only; target untested, A-30).
-- Tests that counted "7" now use the constant; test names changed (seventh → nth), so two old cases left the matrix and two new ones came in.
+- Tests that counted "7" now use the constant; test names changed (seventh → nth), so three old cases left the matrix and three new names came in.
 
 ## Four blocks
 - **Assumptions:** A-04 (numbers synthetic), A-37. **Risks:** R-17. **Open questions:** Q-14 (EE reviewer).

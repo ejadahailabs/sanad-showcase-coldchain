@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuite name="test_config_mgr" tests="5" failures="0" errors="0" skipped="0" timestamp="2026-09-27T00:00:00">
   <properties>
-    <property name="tester" value="DOGFOOD-5 (agent, no independence)"/>
+    <property name="tester" value="DOGFOOD-6 (agent, no independence)"/>
     <property name="date" value="2026-09-27"/>
-    <property name="build" value="6d35bae"/>
+    <property name="build" value="c32f4f1"/>
     <property name="environment" value="host: gcc 15.2 + Unity v2.6.1 + hal_host stubs"/>
     <property name="evidence" value="11-verification/evidence/unit/test_config_mgr.out"/>
   </properties>

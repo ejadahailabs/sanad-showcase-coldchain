@@ -1,0 +1,5 @@
+erew: Error: ENOENT: no such file or directory, open '/home/masood/.cache/tmp-dogfood1/vsix/extension/docs/EXPORT_FORMATS.md'
+    at readFileSync (node:fs:441:20)
+    at catalogueRows (/home/masood/.cache/tmp-dogfood1/vsix/extension/dist/analysis/catalogue.js:166:48)
+    at reportCatalogue (/home/masood/.cache/tmp-dogfood1/vsix/extension/dist/analysis/catalogue.js:243:18)
+    at run (/home/masood/.cache/tmp-dogfood1/vsix/extension/dist/cli.js:1537:60)

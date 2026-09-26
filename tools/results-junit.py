@@ -4,7 +4,7 @@
 runner's trace. Rows Sanad joins on the case id `classname.name` (unit/integration) or the bare SP id.
 Every suite carries tester, date, build and evidence as properties (stage-5 style row facts).
 Usage (repo root): python3 tools/results-junit.py <build-sha> <date> <unity-out-dir> <sp01-trace>"""
-import csv, pathlib, re, sys
+import csv, os, pathlib, re, sys
 from xml.sax.saxutils import quoteattr as q
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sha, date, outdir, trace = sys.argv[1], sys.argv[2], pathlib.Path(sys.argv[3]), pathlib.Path(sys.argv[4])

@@ -1,0 +1,6 @@
+baseline REQ-BL-1 at 1f9fd908dcd34a2894f43de40728858d50240b88: 24 finding keys then; 77 findings now
+new since baseline: 60 {"sysml-project/sysml-unresolved-import":21,"graph/undeclared-id-prefix":1,"validation/link-role-unreadable":4,"quality/indefinite-article":7,"quality/logical-expression":1,"quality/requirement-pattern":2,"structure/under-decomposition":2,"verification/missing-result":16,"safety/single-point-failure":1,"impact/wide-impact":5}
+gone since baseline: 7 {"impact/impact-incomplete":1,"structure/under-decomposition":6}
+  new on MRTM-SYS-024: graph/undeclared-id-prefix — 1 reference(s) use the prefix "CR", which no type declares
+  new on MRTM-SYS-024: quality/indefinite-article — an indefinite article leaves which one open - use "the" and name the item
+  new on MRTM-SYS-024: impact/wide-impact — Changing MRTM-STK-002 reaches 23 other artifacts — 3 already implemented, 5 code symbols traced to them. MRTM-STK-002 re

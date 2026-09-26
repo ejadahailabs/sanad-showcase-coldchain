@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="test_alarm_mgr" tests="13" failures="0" errors="0" skipped="0" timestamp="2026-09-27T00:00:00">
+<testsuite name="test_alarm_mgr" tests="15" failures="0" errors="0" skipped="0" timestamp="2026-09-27T00:00:00">
   <properties>
-    <property name="tester" value="DOGFOOD-5 (agent, no independence)"/>
+    <property name="tester" value="DOGFOOD-6 (agent, no independence)"/>
     <property name="date" value="2026-09-27"/>
-    <property name="build" value="6d35bae"/>
+    <property name="build" value="c32f4f1"/>
     <property name="environment" value="host: gcc 15.2 + Unity v2.6.1 + hal_host stubs"/>
     <property name="evidence" value="11-verification/evidence/unit/test_alarm_mgr.out"/>
   </properties>
   <testcase classname="test_alarm_mgr" name="test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz" time="0"/>
+  <testcase classname="test_alarm_mgr" name="test_early_alarm_is_red_1_hz_without_buzzer_then_escalates" time="0"/>
+  <testcase classname="test_alarm_mgr" name="test_early_alarm_clears_back_to_quiet" time="0"/>
   <testcase classname="test_alarm_mgr" name="test_ack_stops_the_buzzer_in_the_same_step_and_logs" time="0"/>
   <testcase classname="test_alarm_mgr" name="test_re_sounds_15_minutes_after_the_ack" time="0"/>
   <testcase classname="test_alarm_mgr" name="test_end_returns_to_quiet_from_sounding_and_silenced" time="0"/>

@@ -4,9 +4,9 @@
 
 | Field | Value |
 |---|---|
-| Build (git sha of the code) | 6d35bae |
+| Build (git sha of the code) | c32f4f1 |
 | Date | 2026-09-27 |
-| Tester | DOGFOOD-5 (agent, no independence) — **independence: none** (owner order 3: not required) |
+| Tester | DOGFOOD-6 (agent, no independence) — **independence: none** (owner order 3: not required) |
 | Environment | host: gcc 15.2 + Unity v2.6.1 + hal_host stubs (see ../strategy/verification-strategy.md §4) |
 | Evidence | 11-verification/evidence/ (11-verification/evidence/integration/test_int_chains.out) |
 | Totals | pass 5 · fail 0 · blocked 0 |

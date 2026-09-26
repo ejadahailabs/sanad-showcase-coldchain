@@ -1,0 +1,6 @@
+| Requirements (Sanad traceability audit) | 70 |
+|---|---|
+| reached by code (non-empty 'Implemented by') | 53 |
+| not reached — hardware / labelling, in Sanad's accepted not-implemented list | 9: MRTM-ENV-001, MRTM-ENV-002, MRTM-ENV-003, MRTM-ENV-004, MRTM-MNT-001, MRTM-SAF-001, MRTM-SAF-013, MRTM-SAF-020, MRTM-SYS-016 |
+| not reached — stakeholder level (reached through their children; type not code-bearing) | 8 |
+| not reached — unexplained | 0 |

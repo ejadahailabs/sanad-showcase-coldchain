@@ -4,9 +4,9 @@
 
 | Field | Value |
 |---|---|
-| Build (git sha of the code) | 6d35bae |
+| Build (git sha of the code) | c32f4f1 |
 | Date | 2026-09-27 |
-| Tester | DOGFOOD-5 (agent, no independence) — **independence: none** (owner order 3: not required) |
+| Tester | DOGFOOD-6 (agent, no independence) — **independence: none** (owner order 3: not required) |
 | Environment | host dry run (SP-01-H); bench cases blocked (see ../strategy/verification-strategy.md §4) |
 | Evidence | 11-verification/evidence/ (11-verification/evidence/system/SP-01-H-sim_main-excursion.log) |
 | Totals | pass 1 · fail 0 · blocked 14 |

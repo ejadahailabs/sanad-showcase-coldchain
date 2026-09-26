@@ -4,23 +4,23 @@
 
 | Field | Value |
 |---|---|
-| Build (git sha of the code) | 6d35bae |
+| Build (git sha of the code) | c32f4f1 |
 | Date | 2026-09-27 |
-| Tester | DOGFOOD-5 (agent, no independence) — **independence: none** (owner order 3: not required) |
+| Tester | DOGFOOD-6 (agent, no independence) — **independence: none** (owner order 3: not required) |
 | Environment | host: gcc 15.2 + Unity v2.6.1 + hal_host stubs (see ../strategy/verification-strategy.md §4) |
 | Evidence | 11-verification/evidence/ (11-verification/evidence/unit/test_wdt_kicker.out) |
-| Totals | pass 75 · fail 0 · blocked 0 |
+| Totals | pass 80 · fail 0 · blocked 0 |
 | Anomalies found on the way | DEF-001 (ring size), DEF-005 (stale objects) — closed before this run |
 
 | Runner | Tests | Pass | Fail | Blocked | Result file (Sanad reads it) |
 |---|---|---|---|---|---|
-| test_alarm_mgr | 13 | 13 | 0 | 0 | 11-verification/results/unit/test_alarm_mgr.xml |
+| test_alarm_mgr | 15 | 15 | 0 | 0 | 11-verification/results/unit/test_alarm_mgr.xml |
 | test_config_mgr | 5 | 5 | 0 | 0 | 11-verification/results/unit/test_config_mgr.xml |
 | test_diagnostics | 3 | 3 | 0 | 0 | 11-verification/results/unit/test_diagnostics.xml |
 | test_display_mgr | 7 | 7 | 0 | 0 | 11-verification/results/unit/test_display_mgr.xml |
 | test_event_log | 5 | 5 | 0 | 0 | 11-verification/results/unit/test_event_log.xml |
 | test_history_ring | 8 | 8 | 0 | 0 | 11-verification/results/unit/test_history_ring.xml |
-| test_limit_evaluator | 9 | 9 | 0 | 0 | 11-verification/results/unit/test_limit_evaluator.xml |
+| test_limit_evaluator | 12 | 12 | 0 | 0 | 11-verification/results/unit/test_limit_evaluator.xml |
 | test_mrtm_common | 3 | 3 | 0 | 0 | 11-verification/results/unit/test_mrtm_common.xml |
 | test_power_mon | 2 | 2 | 0 | 0 | 11-verification/results/unit/test_power_mon.xml |
 | test_rtc_clock | 3 | 3 | 0 | 0 | 11-verification/results/unit/test_rtc_clock.xml |

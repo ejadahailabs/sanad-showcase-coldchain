@@ -1,0 +1,3 @@
+Configuration check — 0 refusals, 0 warnings
+
+No refusals.
