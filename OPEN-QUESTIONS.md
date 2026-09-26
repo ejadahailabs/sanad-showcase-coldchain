@@ -12,3 +12,4 @@
 | Q-08 | 2026-09-27 | 1 | Does the clinic need the history as a file (CSV/PDF) or only on screen? | IFC history export format | |
 | Q-09 | 2026-09-27 | 1 | Which language(s) must the screen show? | display requirement | |
 | Q-10 | 2026-09-27 | 2 | How is the monitor's UTC clock set and kept accurate (RTC + manual set, or USB host sync)? | TBD-SYS-clock; SYS-008/010 time stamps | |
+| Q-11 | 2026-09-27 | 3 | Which platform and project will hold this repo's pull requests (GitHub or GitLab; name)? | `review:` block; real review rounds from round 2 | |

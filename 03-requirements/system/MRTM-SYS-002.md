@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, DOGFOOD-1)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-STK-002"]
 safetyClass: "C"
@@ -16,7 +16,7 @@ derived: false
 
 ## Description
 
-The monitor shall confirm the excursion when consecutive samples stay outside the allowed band for 60 s.
+The monitor shall confirm the excursion when 7 consecutive samples, spanning 60 s, are outside the allowed band.
 
 ## Rationale
 

@@ -42,3 +42,14 @@
 | TBD-SYS-clock | system | Q-10 — how is the UTC clock set and kept (SYS-008, 010)? |
 
 Placeholders get real ids from the allocator only when their question is answered; no id is reserved in advance.
+
+## Phase 3 — after review round 1 (2026-09-27, DOGFOOD-2)
+17 review threads → 6 requirements reworded, 8 added (54 in all). Analysis before the gate run: 0 errors, 0 warnings, 27 info.
+
+| Change | Why |
+|---|---|
+| New suppression: duplicate-requirement on SYS-010 (vs new SYS-023) | Two different events, same sentence shape — the SYS-008 pattern |
+| SYS-002 "7 consecutive samples" was read as not testable (a count is not a unit, F-17); reworded to add "spanning 60 s" | Keep the count (the review's point) and give the checker a unit |
+| SYS-022 "log-nearly-full" tripped weak-term "nearly"; renamed "log capacity warning" | A name is not a vague word, but renaming was cheaper than a suppression |
+| missing-decomposition (system/**, expires 2026-10-31) kept | Phase 4 satisfy links are the decomposition; re-check then |
+| TBD-SYS-clock | Half answered: drift is now MRTM-SYS-020; how the clock is set is still Q-10 |

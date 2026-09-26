@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, DOGFOOD-1)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-SYS-001"]
 safetyClass: "C"
@@ -16,7 +16,7 @@ derived: false
 
 ## Description
 
-The monitor shall declare the probe fault when a sample falls outside the range -40 °C to 60 °C.
+The monitor shall declare the probe fault when a sample falls outside the range -30 °C to 50 °C.
 
 ## Rationale
 

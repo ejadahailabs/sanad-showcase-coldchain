@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, DOGFOOD-1)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-STK-001"]
 safetyClass: "C"
@@ -16,7 +16,7 @@ derived: false
 
 ## Description
 
-The monitor shall flash the red indicator within 5 s of excursion confirmation.
+The monitor shall flash the red indicator at 2 Hz within 5 s of excursion confirmation.
 
 ## Rationale
 

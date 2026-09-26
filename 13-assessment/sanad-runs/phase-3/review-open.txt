@@ -1,0 +1,19 @@
+# Review explorer (open) — request github-1 @ c50894a
+files: 46  status counts: {"anomalies-open":17,"not-reviewed":29}
+anomalies-open         03-requirements/environmental/MRTM-ENV-001.md
+anomalies-open         03-requirements/performance/MRTM-PRF-001.md
+anomalies-open         03-requirements/performance/MRTM-PRF-003.md
+anomalies-open         03-requirements/safety/MRTM-SAF-001.md
+anomalies-open         03-requirements/safety/MRTM-SAF-003.md
+anomalies-open         03-requirements/safety/MRTM-SAF-004.md
+anomalies-open         03-requirements/safety/MRTM-SAF-005.md
+anomalies-open         03-requirements/stakeholder/MRTM-STK-001.md
+anomalies-open         03-requirements/system/MRTM-SYS-002.md
+anomalies-open         03-requirements/system/MRTM-SYS-004.md
+anomalies-open         03-requirements/system/MRTM-SYS-006.md
+anomalies-open         03-requirements/system/MRTM-SYS-007.md
+anomalies-open         03-requirements/system/MRTM-SYS-008.md
+anomalies-open         03-requirements/system/MRTM-SYS-012.md
+anomalies-open         03-requirements/system/MRTM-SYS-014.md
+anomalies-open         03-requirements/system/MRTM-SYS-015.md
+anomalies-open         03-requirements/system/MRTM-SYS-016.md

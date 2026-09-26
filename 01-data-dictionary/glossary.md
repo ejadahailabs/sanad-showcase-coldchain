@@ -9,7 +9,7 @@ Defined by: MRTM-SYS-002
 Aliases: temperature excursion, out-of-band event
 
 A period during which the measured fridge temperature is outside the allowed band.
-It starts with the first sample outside the band and ends with the first sample back inside it.
+It starts with the first sample outside the band. It ends when the excursion end is confirmed (MRTM-SYS-018, review round 1 T08).
 
 ## Allowed Band
 Defined by: MRTM-STK-001

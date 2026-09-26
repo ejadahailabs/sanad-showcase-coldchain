@@ -24,4 +24,4 @@ An audit readout must not keep staff waiting.
 
 ## Verification
 
-Test: fill the log to 10000 events and time the readout.
+Test: fill the log to 10000 events and time the readout. Run with the event log holding 10000 events (review round 1, T07).
