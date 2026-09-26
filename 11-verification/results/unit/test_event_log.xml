@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test_event_log" tests="5" failures="0" errors="0" skipped="0" timestamp="2026-09-27T00:00:00">
+  <properties>
+    <property name="tester" value="DOGFOOD-5 (agent, no independence)"/>
+    <property name="date" value="2026-09-27"/>
+    <property name="build" value="6d35bae"/>
+    <property name="environment" value="host: gcc 15.2 + Unity v2.6.1 + hal_host stubs"/>
+    <property name="evidence" value="11-verification/evidence/unit/test_event_log.out"/>
+  </properties>
+  <testcase classname="test_event_log" name="test_time_stamp_is_the_utc_second_of_the_post" time="0"/>
+  <testcase classname="test_event_log" name="test_end_record_carries_the_peak_in_tenths" time="0"/>
+  <testcase classname="test_event_log" name="test_step_numbers_checksums_and_stores_every_queued_record" time="0"/>
+  <testcase classname="test_event_log" name="test_error_code_full_after_32" time="0"/>
+  <testcase classname="test_event_log" name="test_flash_failure_does_not_loop" time="0"/>
+</testsuite>

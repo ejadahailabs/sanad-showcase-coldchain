@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test_config_mgr" tests="5" failures="0" errors="0" skipped="0" timestamp="2026-09-27T00:00:00">
+  <properties>
+    <property name="tester" value="DOGFOOD-5 (agent, no independence)"/>
+    <property name="date" value="2026-09-27"/>
+    <property name="build" value="6d35bae"/>
+    <property name="environment" value="host: gcc 15.2 + Unity v2.6.1 + hal_host stubs"/>
+    <property name="evidence" value="11-verification/evidence/unit/test_config_mgr.out"/>
+  </properties>
+  <testcase classname="test_config_mgr" name="test_valid_record_loads_the_2_to_8_degree_band" time="0"/>
+  <testcase classname="test_config_mgr" name="test_bad_crc_is_refused_with_err_crc" time="0"/>
+  <testcase classname="test_config_mgr" name="test_missing_record_is_err_nvs" time="0"/>
+  <testcase classname="test_config_mgr" name="test_band_outside_2_to_8_is_refused" time="0"/>
+  <testcase classname="test_config_mgr" name="test_store_writes_a_fresh_crc_and_logs_config_changed" time="0"/>
+</testsuite>

@@ -1,0 +1,12 @@
+firmware/components/history_ring/test/test_history_ring.c:114:test_append_writes_copy_a_and_copy_b:PASS
+firmware/components/history_ring/test/test_history_ring.c:115:test_retains_10000_records_after_wrapping:PASS
+firmware/components/history_ring/test/test_history_ring.c:116:test_retains_10000_straight_after_an_erase_ahead:PASS
+firmware/components/history_ring/test/test_history_ring.c:117:test_corrupt_copy_a_is_read_from_copy_b:PASS
+firmware/components/history_ring/test/test_history_ring.c:118:test_both_copies_corrupt_reports_err_crc_and_logs_it:PASS
+firmware/components/history_ring/test/test_history_ring.c:119:test_capacity_warning_once_at_9000:PASS
+firmware/components/history_ring/test/test_history_ring.c:120:test_init_finds_the_head_again_after_a_restart:PASS
+firmware/components/history_ring/test/test_history_ring.c:121:test_error_codes_flash_arg:PASS
+
+-----------------------
+8 Tests 0 Failures 0 Ignored 
+OK

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test_alarm_mgr" tests="13" failures="0" errors="0" skipped="0" timestamp="2026-09-27T00:00:00">
+  <properties>
+    <property name="tester" value="DOGFOOD-5 (agent, no independence)"/>
+    <property name="date" value="2026-09-27"/>
+    <property name="build" value="6d35bae"/>
+    <property name="environment" value="host: gcc 15.2 + Unity v2.6.1 + hal_host stubs"/>
+    <property name="evidence" value="11-verification/evidence/unit/test_alarm_mgr.out"/>
+  </properties>
+  <testcase classname="test_alarm_mgr" name="test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz" time="0"/>
+  <testcase classname="test_alarm_mgr" name="test_ack_stops_the_buzzer_in_the_same_step_and_logs" time="0"/>
+  <testcase classname="test_alarm_mgr" name="test_re_sounds_15_minutes_after_the_ack" time="0"/>
+  <testcase classname="test_alarm_mgr" name="test_end_returns_to_quiet_from_sounding_and_silenced" time="0"/>
+  <testcase classname="test_alarm_mgr" name="test_probe_fault_sounds_1_s_on_1_s_off" time="0"/>
+  <testcase classname="test_alarm_mgr" name="test_no_buzzer_current_for_5_steps_declares_buzzer_fault_red_4_hz" time="0"/>
+  <testcase classname="test_alarm_mgr" name="test_button_debounce_50_ms" time="0"/>
+  <testcase classname="test_alarm_mgr" name="test_button_held_60_s_is_a_button_fault_and_ignored" time="0"/>
+  <testcase classname="test_alarm_mgr" name="test_unacknowledged_alarm_is_restored_after_a_restart" time="0"/>
+  <testcase classname="test_alarm_mgr" name="test_acknowledged_alarm_is_not_restored_as_sounding" time="0"/>
+  <testcase classname="test_alarm_mgr" name="test_battery_low_or_fail_safe_forces_the_buzzer" time="0"/>
+  <testcase classname="test_alarm_mgr" name="test_heartbeat_moves_on_every_step" time="0"/>
+  <testcase classname="test_alarm_mgr" name="test_error_codes_full_and_nvs" time="0"/>
+</testsuite>

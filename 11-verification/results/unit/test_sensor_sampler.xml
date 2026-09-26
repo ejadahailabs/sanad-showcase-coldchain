@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test_sensor_sampler" tests="7" failures="0" errors="0" skipped="0" timestamp="2026-09-27T00:00:00">
+  <properties>
+    <property name="tester" value="DOGFOOD-5 (agent, no independence)"/>
+    <property name="date" value="2026-09-27"/>
+    <property name="build" value="6d35bae"/>
+    <property name="environment" value="host: gcc 15.2 + Unity v2.6.1 + hal_host stubs"/>
+    <property name="evidence" value="11-verification/evidence/unit/test_sensor_sampler.out"/>
+  </properties>
+  <testcase classname="test_sensor_sampler" name="test_good_scratchpad_gives_a_valid_sample" time="0"/>
+  <testcase classname="test_sensor_sampler" name="test_bad_crc_is_invalid_but_not_out_of_range" time="0"/>
+  <testcase classname="test_sensor_sampler" name="test_reading_outside_minus30_to_50_declares_the_fault_at_once" time="0"/>
+  <testcase classname="test_sensor_sampler" name="test_fault_after_30_s_without_a_correct_crc" time="0"/>
+  <testcase classname="test_sensor_sampler" name="test_fault_clears_on_the_next_valid_sample" time="0"/>
+  <testcase classname="test_sensor_sampler" name="test_conversion_rounds_to_a_tenth_and_adds_the_offset" time="0"/>
+  <testcase classname="test_sensor_sampler" name="test_error_codes_arg_and_bus" time="0"/>
+</testsuite>

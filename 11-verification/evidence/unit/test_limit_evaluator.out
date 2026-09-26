@@ -1,0 +1,13 @@
+firmware/components/limit_evaluator/test/test_limit_evaluator.c:95:test_seventh_consecutive_out_sample_confirms:PASS
+firmware/components/limit_evaluator/test/test_limit_evaluator.c:96:test_six_out_then_one_in_does_not_confirm:PASS
+firmware/components/limit_evaluator/test/test_limit_evaluator.c:97:test_invalid_sample_neither_counts_nor_resets:PASS
+firmware/components/limit_evaluator/test/test_limit_evaluator.c:98:test_band_edges_two_and_eight_degrees_are_inside:PASS
+firmware/components/limit_evaluator/test/test_limit_evaluator.c:99:test_seventh_consecutive_in_sample_ends_excursion:PASS
+firmware/components/limit_evaluator/test/test_limit_evaluator.c:100:test_out_sample_restarts_the_in_run:PASS
+firmware/components/limit_evaluator/test/test_limit_evaluator.c:101:test_hysteresis_knob_is_zero:PASS
+firmware/components/limit_evaluator/test/test_limit_evaluator.c:102:test_peak_is_the_most_extreme_sample:PASS
+firmware/components/limit_evaluator/test/test_limit_evaluator.c:103:test_peak_below_band_counts_distance_downwards:PASS
+
+-----------------------
+9 Tests 0 Failures 0 Ignored 
+OK

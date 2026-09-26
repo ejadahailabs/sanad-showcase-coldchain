@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test_int_chains" tests="5" failures="0" errors="0" skipped="0" timestamp="2026-09-27T00:00:00">
+  <properties>
+    <property name="tester" value="DOGFOOD-5 (agent, no independence)"/>
+    <property name="date" value="2026-09-27"/>
+    <property name="build" value="6d35bae"/>
+    <property name="environment" value="host: gcc 15.2 + Unity v2.6.1 + hal_host stubs"/>
+    <property name="evidence" value="11-verification/evidence/integration/test_int_chains.out"/>
+  </properties>
+  <testcase classname="test_int_chains" name="test_int01_excursion_chain" time="0"/>
+  <testcase classname="test_int_chains" name="test_int02_watchdog_chain" time="0"/>
+  <testcase classname="test_int_chains" name="test_int03_corrupt_config_fail_safe" time="0"/>
+  <testcase classname="test_int_chains" name="test_int04_restart_restores_the_alarm" time="0"/>
+  <testcase classname="test_int_chains" name="test_int05_power_loss_logged_within_1_s" time="0"/>
+</testsuite>

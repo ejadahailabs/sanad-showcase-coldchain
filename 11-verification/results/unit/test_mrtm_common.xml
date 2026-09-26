@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test_mrtm_common" tests="3" failures="0" errors="0" skipped="0" timestamp="2026-09-27T00:00:00">
+  <properties>
+    <property name="tester" value="DOGFOOD-5 (agent, no independence)"/>
+    <property name="date" value="2026-09-27"/>
+    <property name="build" value="6d35bae"/>
+    <property name="environment" value="host: gcc 15.2 + Unity v2.6.1 + hal_host stubs"/>
+    <property name="evidence" value="11-verification/evidence/unit/test_mrtm_common.out"/>
+  </properties>
+  <testcase classname="test_mrtm_common" name="test_crc_check_values" time="0"/>
+  <testcase classname="test_mrtm_common" name="test_crc8_over_a_scratchpad" time="0"/>
+  <testcase classname="test_mrtm_common" name="test_generated_codes_match_the_model" time="0"/>
+</testsuite>

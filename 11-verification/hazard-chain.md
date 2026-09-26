@@ -6,33 +6,35 @@
 
 | Hazard | Risk-control requirement | Unit | Integration | System | Verdicts |
 |---|---|---|---|---|---|
-| HAZ-001 Excursion not detected | MRTM-SAF-002 Probe fault raises alert | 1 | 0 | SP-02 | no result 2 |
-| HAZ-001 Excursion not detected | MRTM-SAF-003 Implausible sample | 1 | 0 | SP-02 | no result 2 |
-| HAZ-001 Excursion not detected | MRTM-SAF-020 Probe placement in the instructions | 0 | 0 | SP-14 | no result 1 |
-| HAZ-002 Alarm fatigue | MRTM-SAF-011 Fault tone differs from excursion tone | 1 | 0 | SP-02 | no result 2 |
-| HAZ-003 Silent failure | MRTM-SAF-004 Watchdog restart | 1 | 0 | SP-03 | no result 2 |
-| HAZ-003 Silent failure | MRTM-SAF-006 Alert survives restart | 3 | 1 | SP-05 | no result 5 |
-| HAZ-003 Silent failure | MRTM-SAF-009 Backup alarm on firmware silence | 0 | 1 | SP-03 | no result 2 |
-| HAZ-003 Silent failure | MRTM-SAF-010 Watchdog tied to the alarm service | 3 | 1 | SP-03 | no result 5 |
-| HAZ-003 Silent failure | MRTM-SAF-013 Alarm on total power loss | 0 | 0 | SP-03 | no result 1 |
-| HAZ-003 Silent failure | MRTM-SAF-023 Backup alarm power-up test | 3 | 0 | SP-05 | no result 4 |
-| HAZ-004 Sensor drift | MRTM-SAF-003 Implausible sample | 1 | 0 | SP-02 | no result 2 |
-| HAZ-004 Sensor drift | MRTM-SAF-012 Probe calibration due | 1 | 0 | SP-09 | no result 2 |
-| HAZ-005 Power loss | MRTM-SAF-005 Log power loss | 1 | 1 | SP-04 | no result 3 |
-| HAZ-005 Power loss | MRTM-SAF-006 Alert survives restart | 3 | 1 | SP-05 | no result 5 |
-| HAZ-005 Power loss | MRTM-SAF-008 Low battery alarm | 2 | 0 | SP-04 | no result 3 |
-| HAZ-005 Power loss | MRTM-SAF-013 Alarm on total power loss | 0 | 0 | SP-03 | no result 1 |
-| HAZ-006 Annunciator failure | MRTM-SAF-001 Buzzer loudness | 0 | 0 | SP-06 | no result 1 |
-| HAZ-006 Annunciator failure | MRTM-SAF-007 Buzzer self-test | 2 | 0 | SP-05 | no result 3 |
-| HAZ-006 Annunciator failure | MRTM-SAF-014 Buzzer open-circuit detection | 1 | 0 | SP-06 | no result 2 |
-| HAZ-006 Annunciator failure | MRTM-SAF-015 Diverse signal for buzzer fault | 1 | 0 | SP-06 | no result 2 |
-| HAZ-006 Annunciator failure | MRTM-SAF-019 Stuck acknowledge button | 1 | 0 | SP-01 | no result 2 |
-| HAZ-006 Annunciator failure | MRTM-SAF-021 I2C bus recovery | 1 | 0 | SP-09 | no result 2 |
-| HAZ-007 Wrong limits | MRTM-SAF-016 Show the band at power-up | 1 | 0 | SP-05 | no result 2 |
-| HAZ-007 Wrong limits | MRTM-SAF-017 Band integrity check | 4 | 1 | SP-05 | no result 6 |
-| HAZ-008 History loss | MRTM-SAF-005 Log power loss | 1 | 1 | SP-04 | no result 3 |
-| HAZ-008 History loss | MRTM-SAF-018 Two copies of every record | 6 | 0 | SP-07 | no result 7 |
-| HAZ-008 History loss | MRTM-SAF-021 I2C bus recovery | 1 | 0 | SP-09 | no result 2 |
-| HAZ-008 History loss | MRTM-SAF-022 Clock stop detection | 2 | 0 | SP-05 | no result 3 |
+| HAZ-001 Excursion not detected | MRTM-SAF-002 Probe fault raises alert | 1 | 0 | SP-02 | pass 1, blocked 1 |
+| HAZ-001 Excursion not detected | MRTM-SAF-003 Implausible sample | 1 | 0 | SP-02 | pass 1, blocked 1 |
+| HAZ-001 Excursion not detected | MRTM-SAF-020 Probe placement in the instructions | 0 | 0 | SP-14 | blocked 1 |
+| HAZ-002 Alarm fatigue | MRTM-SAF-011 Fault tone differs from excursion tone | 1 | 0 | SP-02 | pass 1, blocked 1 |
+| HAZ-003 Silent failure | MRTM-SAF-004 Watchdog restart | 1 | 0 | SP-03 | pass 1, blocked 1 |
+| HAZ-003 Silent failure | MRTM-SAF-006 Alert survives restart | 3 | 1 | SP-05 | pass 4, blocked 1 |
+| HAZ-003 Silent failure | MRTM-SAF-009 Backup alarm on firmware silence | 0 | 1 | SP-03 | pass 1, blocked 1 |
+| HAZ-003 Silent failure | MRTM-SAF-010 Watchdog tied to the alarm service | 3 | 1 | SP-03 | pass 4, blocked 1 |
+| HAZ-003 Silent failure | MRTM-SAF-013 Alarm on total power loss | 0 | 0 | SP-03 | blocked 1 |
+| HAZ-003 Silent failure | MRTM-SAF-023 Backup alarm power-up test | 3 | 0 | SP-05 | pass 3, blocked 1 |
+| HAZ-004 Sensor drift | MRTM-SAF-003 Implausible sample | 1 | 0 | SP-02 | pass 1, blocked 1 |
+| HAZ-004 Sensor drift | MRTM-SAF-012 Probe calibration due | 1 | 0 | SP-09 | pass 1, blocked 1 |
+| HAZ-005 Power loss | MRTM-SAF-005 Log power loss | 1 | 1 | SP-04 | pass 2, blocked 1 |
+| HAZ-005 Power loss | MRTM-SAF-006 Alert survives restart | 3 | 1 | SP-05 | pass 4, blocked 1 |
+| HAZ-005 Power loss | MRTM-SAF-008 Low battery alarm | 2 | 0 | SP-04 | pass 2, blocked 1 |
+| HAZ-005 Power loss | MRTM-SAF-013 Alarm on total power loss | 0 | 0 | SP-03 | blocked 1 |
+| HAZ-006 Annunciator failure | MRTM-SAF-001 Buzzer loudness | 0 | 0 | SP-06 | blocked 1 |
+| HAZ-006 Annunciator failure | MRTM-SAF-007 Buzzer self-test | 2 | 0 | SP-05 | pass 2, blocked 1 |
+| HAZ-006 Annunciator failure | MRTM-SAF-014 Buzzer open-circuit detection | 1 | 0 | SP-06 | pass 1, blocked 1 |
+| HAZ-006 Annunciator failure | MRTM-SAF-015 Diverse signal for buzzer fault | 1 | 0 | SP-06 | pass 1, blocked 1 |
+| HAZ-006 Annunciator failure | MRTM-SAF-019 Stuck acknowledge button | 1 | 0 | SP-01 | pass 1, blocked 1 |
+| HAZ-006 Annunciator failure | MRTM-SAF-021 I2C bus recovery | 1 | 0 | SP-09 | pass 1, blocked 1 |
+| HAZ-007 Wrong limits | MRTM-SAF-016 Show the band at power-up | 1 | 0 | SP-05 | pass 1, blocked 1 |
+| HAZ-007 Wrong limits | MRTM-SAF-017 Band integrity check | 4 | 1 | SP-05 | pass 5, blocked 1 |
+| HAZ-008 History loss | MRTM-SAF-005 Log power loss | 1 | 1 | SP-04 | pass 2, blocked 1 |
+| HAZ-008 History loss | MRTM-SAF-018 Two copies of every record | 6 | 0 | SP-07 | pass 6, blocked 1 |
+| HAZ-008 History loss | MRTM-SAF-021 I2C bus recovery | 1 | 0 | SP-09 | pass 1, blocked 1 |
+| HAZ-008 History loss | MRTM-SAF-022 Clock stop detection | 2 | 0 | SP-05 | pass 2, blocked 1 |
 
 **Counts:** 8 hazards, 28 hazard→control links, 23 risk-control requirements. Gaps: 0 (every control has unit or integration evidence planned and a system procedure).
+
+**Risk controls with no passing evidence yet** (bench blocked): MRTM-SAF-001, MRTM-SAF-013, MRTM-SAF-020.

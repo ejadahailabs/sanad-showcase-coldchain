@@ -1,0 +1,9 @@
+test/integration/test_int_chains.c:100:test_int01_excursion_chain:PASS
+test/integration/test_int_chains.c:101:test_int02_watchdog_chain:PASS
+test/integration/test_int_chains.c:102:test_int03_corrupt_config_fail_safe:PASS
+test/integration/test_int_chains.c:103:test_int04_restart_restores_the_alarm:PASS
+test/integration/test_int_chains.c:104:test_int05_power_loss_logged_within_1_s:PASS
+
+-----------------------
+5 Tests 0 Failures 0 Ignored 
+OK

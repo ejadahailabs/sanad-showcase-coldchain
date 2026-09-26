@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test_wdt_kicker" tests="4" failures="0" errors="0" skipped="0" timestamp="2026-09-27T00:00:00">
+  <properties>
+    <property name="tester" value="DOGFOOD-5 (agent, no independence)"/>
+    <property name="date" value="2026-09-27"/>
+    <property name="build" value="6d35bae"/>
+    <property name="environment" value="host: gcc 15.2 + Unity v2.6.1 + hal_host stubs"/>
+    <property name="evidence" value="11-verification/evidence/unit/test_wdt_kicker.out"/>
+  </properties>
+  <testcase classname="test_wdt_kicker" name="test_task_watchdog_armed_at_5_s" time="0"/>
+  <testcase classname="test_wdt_kicker" name="test_pulses_while_the_heartbeat_moves" time="0"/>
+  <testcase classname="test_wdt_kicker" name="test_pulses_stop_within_2_s_of_a_missed_alarm_cycle" time="0"/>
+  <testcase classname="test_wdt_kicker" name="test_hold_stops_pulses_and_release_resumes" time="0"/>
+</testsuite>

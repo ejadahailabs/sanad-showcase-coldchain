@@ -1,0 +1,11 @@
+firmware/components/sensor_sampler/test/test_sensor_sampler.c:89:test_good_scratchpad_gives_a_valid_sample:PASS
+firmware/components/sensor_sampler/test/test_sensor_sampler.c:90:test_bad_crc_is_invalid_but_not_out_of_range:PASS
+firmware/components/sensor_sampler/test/test_sensor_sampler.c:91:test_reading_outside_minus30_to_50_declares_the_fault_at_once:PASS
+firmware/components/sensor_sampler/test/test_sensor_sampler.c:92:test_fault_after_30_s_without_a_correct_crc:PASS
+firmware/components/sensor_sampler/test/test_sensor_sampler.c:93:test_fault_clears_on_the_next_valid_sample:PASS
+firmware/components/sensor_sampler/test/test_sensor_sampler.c:94:test_conversion_rounds_to_a_tenth_and_adds_the_offset:PASS
+firmware/components/sensor_sampler/test/test_sensor_sampler.c:95:test_error_codes_arg_and_bus:PASS
+
+-----------------------
+7 Tests 0 Failures 0 Ignored 
+OK

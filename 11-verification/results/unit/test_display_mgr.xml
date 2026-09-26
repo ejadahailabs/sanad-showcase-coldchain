@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test_display_mgr" tests="7" failures="0" errors="0" skipped="0" timestamp="2026-09-27T00:00:00">
+  <properties>
+    <property name="tester" value="DOGFOOD-5 (agent, no independence)"/>
+    <property name="date" value="2026-09-27"/>
+    <property name="build" value="6d35bae"/>
+    <property name="environment" value="host: gcc 15.2 + Unity v2.6.1 + hal_host stubs"/>
+    <property name="evidence" value="11-verification/evidence/unit/test_display_mgr.out"/>
+  </properties>
+  <testcase classname="test_display_mgr" name="test_band_and_version_shown_in_the_first_3_s" time="0"/>
+  <testcase classname="test_display_mgr" name="test_excursion_warning_for_the_whole_excursion" time="0"/>
+  <testcase classname="test_display_mgr" name="test_probe_fault_message" time="0"/>
+  <testcase classname="test_display_mgr" name="test_calibration_due_and_log_capacity_messages" time="0"/>
+  <testcase classname="test_display_mgr" name="test_temperature_refreshes_every_10_s_in_tenths" time="0"/>
+  <testcase classname="test_display_mgr" name="test_battery_shown_in_steps_of_10_percent" time="0"/>
+  <testcase classname="test_display_mgr" name="test_i2c_timeout_resets_the_bus_within_1_s" time="0"/>
+</testsuite>
