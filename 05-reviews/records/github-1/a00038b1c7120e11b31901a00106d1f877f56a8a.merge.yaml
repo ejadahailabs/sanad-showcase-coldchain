@@ -1,0 +1,526 @@
+schema: sanad/review-record/1
+tool_version: 0.6.3
+config_hash: efdf8bd48cbf7e729e728490f81be809ff693712e6d5a2864ac0544a4bb09e81
+input_hash: 9f8fa5c8e79e72af4081ac9f68b6bc85d254851eb7473be553d05b27a0c74c15
+platform: github
+request: 1
+title: Review round 1 — requirements baseline REQ-BL-1 (46 requirements)
+url: (no remote — local replica 05-reviews/round-1/round.json)
+occasion: merge
+reviewed_commit: a00038b1c7120e11b31901a00106d1f877f56a8a
+base_commit: e0f7a569b88b06a2394b1282c9ac73459cee3013
+approved_by: dogfood-2-reviewer
+approved_at: 2026-09-27T03:01:00Z
+verdict: approved
+state: merged
+recorded_at: 2026-09-27T03:05:00Z
+anomalies:
+  - artefact: 03-requirements/system/MRTM-SYS-002.md
+    line: 1
+    thread: T01
+    comment: T01-c1
+    revision: c50894ac2b7a672f54abcc175f953663576dece2
+    severity: minor
+    disposition: fixed
+    fixed_in: a00038b
+    raised_by: dogfood-2-reviewer
+    at: 2026-09-27T01:01:00Z
+  - artefact: 03-requirements/stakeholder/MRTM-STK-001.md
+    line: 1
+    thread: T02
+    comment: T02-c1
+    revision: c50894ac2b7a672f54abcc175f953663576dece2
+    severity: major
+    disposition: fixed
+    fixed_in: a00038b
+    raised_by: dogfood-2-reviewer
+    at: 2026-09-27T01:02:00Z
+  - artefact: 03-requirements/safety/MRTM-SAF-003.md
+    line: 1
+    thread: T03
+    comment: T03-c1
+    revision: c50894ac2b7a672f54abcc175f953663576dece2
+    severity: major
+    disposition: fixed
+    fixed_in: a00038b
+    raised_by: dogfood-2-reviewer
+    at: 2026-09-27T01:03:00Z
+  - artefact: 03-requirements/system/MRTM-SYS-004.md
+    line: 1
+    thread: T04
+    comment: T04-c1
+    revision: c50894ac2b7a672f54abcc175f953663576dece2
+    severity: minor
+    disposition: fixed
+    fixed_in: a00038b
+    raised_by: dogfood-2-reviewer
+    at: 2026-09-27T01:04:00Z
+  - artefact: 03-requirements/system/MRTM-SYS-012.md
+    line: 1
+    thread: T05
+    comment: T05-c1
+    revision: c50894ac2b7a672f54abcc175f953663576dece2
+    severity: minor
+    disposition: fixed
+    fixed_in: a00038b
+    raised_by: dogfood-2-reviewer
+    at: 2026-09-27T01:05:00Z
+  - artefact: 03-requirements/safety/MRTM-SAF-001.md
+    line: 1
+    thread: T06
+    comment: T06-c1
+    revision: c50894ac2b7a672f54abcc175f953663576dece2
+    severity: minor
+    disposition: fixed
+    fixed_in: a00038b
+    raised_by: dogfood-2-reviewer
+    at: 2026-09-27T01:06:00Z
+  - artefact: 03-requirements/performance/MRTM-PRF-003.md
+    line: 1
+    thread: T07
+    comment: T07-c1
+    revision: c50894ac2b7a672f54abcc175f953663576dece2
+    severity: note
+    disposition: fixed
+    fixed_in: a00038b
+    raised_by: dogfood-2-reviewer
+    at: 2026-09-27T01:07:00Z
+  - artefact: 03-requirements/system/MRTM-SYS-007.md
+    line: 1
+    thread: T08
+    comment: T08-c1
+    revision: c50894ac2b7a672f54abcc175f953663576dece2
+    severity: major
+    disposition: fixed
+    fixed_in: a00038b
+    raised_by: dogfood-2-reviewer
+    at: 2026-09-27T01:08:00Z
+  - artefact: 03-requirements/system/MRTM-SYS-006.md
+    line: 1
+    thread: T09
+    comment: T09-c1
+    revision: c50894ac2b7a672f54abcc175f953663576dece2
+    severity: major
+    disposition: fixed
+    fixed_in: a00038b
+    raised_by: dogfood-2-reviewer
+    at: 2026-09-27T01:09:00Z
+  - artefact: 03-requirements/system/MRTM-SYS-008.md
+    line: 1
+    thread: T10
+    comment: T10-c1
+    revision: c50894ac2b7a672f54abcc175f953663576dece2
+    severity: major
+    disposition: fixed
+    fixed_in: a00038b
+    raised_by: dogfood-2-reviewer
+    at: 2026-09-27T01:10:00Z
+  - artefact: 03-requirements/system/MRTM-SYS-016.md
+    line: 1
+    thread: T11
+    comment: T11-c1
+    revision: c50894ac2b7a672f54abcc175f953663576dece2
+    severity: major
+    disposition: fixed
+    fixed_in: a00038b
+    raised_by: dogfood-2-reviewer
+    at: 2026-09-27T01:11:00Z
+  - artefact: 03-requirements/system/MRTM-SYS-014.md
+    line: 1
+    thread: T12
+    comment: T12-c1
+    revision: c50894ac2b7a672f54abcc175f953663576dece2
+    severity: minor
+    disposition: fixed
+    fixed_in: a00038b
+    raised_by: dogfood-2-reviewer
+    at: 2026-09-27T01:12:00Z
+  - artefact: 03-requirements/system/MRTM-SYS-015.md
+    line: 1
+    thread: T13
+    comment: T13-c1
+    revision: c50894ac2b7a672f54abcc175f953663576dece2
+    severity: minor
+    disposition: fixed
+    fixed_in: a00038b
+    raised_by: dogfood-2-reviewer
+    at: 2026-09-27T01:13:00Z
+  - artefact: 03-requirements/safety/MRTM-SAF-004.md
+    line: 1
+    thread: T14
+    comment: T14-c1
+    revision: c50894ac2b7a672f54abcc175f953663576dece2
+    severity: minor
+    disposition: noted
+    noted_in: T14-c2
+    raised_by: dogfood-2-reviewer
+    at: 2026-09-27T01:14:00Z
+  - artefact: 03-requirements/environmental/MRTM-ENV-001.md
+    line: 1
+    thread: T15
+    comment: T15-c1
+    revision: c50894ac2b7a672f54abcc175f953663576dece2
+    severity: note
+    disposition: noted
+    noted_in: T15-c2
+    raised_by: dogfood-2-reviewer
+    at: 2026-09-27T01:15:00Z
+  - artefact: 03-requirements/performance/MRTM-PRF-001.md
+    line: 1
+    thread: T16
+    comment: T16-c1
+    revision: c50894ac2b7a672f54abcc175f953663576dece2
+    severity: minor
+    disposition: noted
+    noted_in: T16-c2
+    raised_by: dogfood-2-reviewer
+    at: 2026-09-27T01:16:00Z
+  - artefact: 03-requirements/safety/MRTM-SAF-005.md
+    line: 1
+    thread: T17
+    comment: T17-c1
+    revision: c50894ac2b7a672f54abcc175f953663576dece2
+    severity: minor
+    disposition: fixed
+    fixed_in: a00038b
+    raised_by: dogfood-2-reviewer
+    at: 2026-09-27T01:17:00Z
+open_anomalies:
+  major: 0
+  minor: 0
+  note: 0
+  unstated: 0
+artefacts:
+  - path: 03-requirements/environmental/MRTM-ENV-001.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/environmental/MRTM-ENV-002.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/environmental/MRTM-ENV-003.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/environmental/MRTM-ENV-004.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/interface/MRTM-IFC-001.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/interface/MRTM-IFC-002.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/interface/MRTM-IFC-003.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/interface/MRTM-IFC-004.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/maintainability/MRTM-MNT-001.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/maintainability/MRTM-MNT-002.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/maintainability/MRTM-MNT-003.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/performance/MRTM-PRF-001.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/performance/MRTM-PRF-002.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/performance/MRTM-PRF-003.md
+    status: accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/performance/MRTM-PRF-004.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/safety/MRTM-SAF-001.md
+    status: accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/safety/MRTM-SAF-002.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/safety/MRTM-SAF-003.md
+    status: accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/safety/MRTM-SAF-004.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/safety/MRTM-SAF-005.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/safety/MRTM-SAF-006.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/safety/MRTM-SAF-007.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/safety/MRTM-SAF-008.md
+    status: accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/stakeholder/MRTM-STK-001.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/stakeholder/MRTM-STK-002.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/stakeholder/MRTM-STK-003.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/stakeholder/MRTM-STK-004.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/stakeholder/MRTM-STK-005.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/stakeholder/MRTM-STK-006.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/stakeholder/MRTM-STK-007.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/stakeholder/MRTM-STK-008.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/system/MRTM-SYS-001.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/system/MRTM-SYS-002.md
+    status: accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/system/MRTM-SYS-003.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/system/MRTM-SYS-004.md
+    status: accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/system/MRTM-SYS-005.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/system/MRTM-SYS-006.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/system/MRTM-SYS-007.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/system/MRTM-SYS-008.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/system/MRTM-SYS-009.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/system/MRTM-SYS-010.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/system/MRTM-SYS-011.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/system/MRTM-SYS-012.md
+    status: accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/system/MRTM-SYS-013.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/system/MRTM-SYS-014.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/system/MRTM-SYS-015.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/system/MRTM-SYS-016.md
+    status: changed-since-accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/system/MRTM-SYS-017.md
+    status: accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/system/MRTM-SYS-018.md
+    status: accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/system/MRTM-SYS-019.md
+    status: accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/system/MRTM-SYS-020.md
+    status: accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/system/MRTM-SYS-021.md
+    status: accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/system/MRTM-SYS-022.md
+    status: accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+  - path: 03-requirements/system/MRTM-SYS-023.md
+    status: accepted
+    accepted_at: a00038b
+    accepted_by: dogfood-2-reviewer
+    accepted_thread: A1
+    accepted_comment: A1-c1
+checklists:
+  - path: 05-reviews/checklists/requirements-review.md
+    sha: 19bd6dfecda6ce79b8ed43d822cbad42f4829794
+    status: not-reviewed
+reviewers:
+  - login: dogfood-2-reviewer
+    scope: full
+    scope_comment: S1-c1
+    independence: rule off
