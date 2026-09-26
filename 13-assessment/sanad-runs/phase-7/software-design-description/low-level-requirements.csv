@@ -1,0 +1,40 @@
+# sanad/low-level-requirements/1
+Requirement,Level,Refines,Allocated to,Implemented by
+MRTM-ENV-001,environmental,MRTM-SYS-016,"battery, batteryFeed",none
+MRTM-ENV-002,environmental,MRTM-SYS-001,"esp32, hardware",none
+MRTM-ENV-003,environmental,MRTM-SYS-001,hardware,none
+MRTM-ENV-004,environmental,MRTM-SYS-001,"airContact, fridge, probe",none
+MRTM-IFC-001,interface,MRTM-SYS-001,"probe, probeLink, sensorSampler",none
+MRTM-IFC-002,interface,MRTM-SYS-006,"ackLine, alarmMgr",none
+MRTM-IFC-003,interface,MRTM-SYS-014,"esp32, historyLink, usb, usbExport, usbHost, usbService",none
+MRTM-IFC-004,interface,MRTM-SYS-005,"displayLink, displayMgr, oled",none
+MRTM-MNT-001,maintainability,MRTM-SYS-012,probe,none
+MRTM-MNT-002,maintainability,MRTM-SYS-016,statusDisplay,none
+MRTM-MNT-003,maintainability,MRTM-SYS-001,selfTest,none
+MRTM-PRF-001,performance,MRTM-SYS-001,"probe, sampler, sensorSampler",none
+MRTM-PRF-002,performance,MRTM-SYS-003,"alarmManager, alarmMgr",none
+MRTM-PRF-003,performance,MRTM-SYS-015,"historyLink, historyServer, usbExport",none
+MRTM-PRF-004,performance,MRTM-SYS-011,"displayMgr, statusDisplay",none
+MRTM-SAF-001,safety,MRTM-SYS-003,"alarmMgr, buzzer",none
+MRTM-SAF-002,safety,MRTM-SYS-012,"alarmManager, alarmMgr, firmware.alarmService",none
+MRTM-SAF-003,safety,MRTM-SYS-001,"firmware.sensorService, probeSupervisor, sensorSampler",none
+MRTM-SAF-004,safety,MRTM-SYS-001,"firmware, supervisor, watchdog, wdtKicker",none
+MRTM-SAF-005,safety,MRTM-SYS-016,"eventLogger, firmware.logService, mains, mainsSenseLine, powerMon",none
+MRTM-SAF-006,safety,MRTM-SYS-003,"alarmMgr, firmware, firmware.alarmService, watchdog",none
+MRTM-SAF-007,safety,MRTM-SYS-003,"diagnostics, firmware.supervisor, selfTest",none
+MRTM-SAF-008,safety,MRTM-SYS-016,"batterySenseLine, powerMon, powerService, powerSupervisor",none
+MRTM-SAF-009,safety,MRTM-SYS-003,"backupAlarm, hardware.backupAlarm, hardware.backupBuzzerLine, hardware.wdtKickLine, wdtKicker",none
+MRTM-SAF-010,safety,MRTM-SYS-003,"firmware.alarmService, firmware.supervisor, wdtKicker",none
+MRTM-SAF-011,safety,MRTM-SYS-012,"alarmMgr, firmware.alarmService",none
+MRTM-SAF-012,safety,MRTM-SYS-001,"displayMgr, firmware.displayService",none
+MRTM-SAF-013,safety,MRTM-SYS-016,"hardware.backupAlarm, hardware.holdUpCap, holdUpCap",none
+MRTM-SAF-014,safety,MRTM-SYS-003,"alarmMgr, buzzer, firmware.alarmService, hardware.buzzerSenseLine",none
+MRTM-SAF-015,safety,MRTM-SYS-004,"alarmMgr, firmware.alarmService, hardware.redLine, redLed",none
+MRTM-SAF-016,safety,MRTM-SYS-017,"displayMgr, firmware.displayService",none
+MRTM-SAF-017,safety,MRTM-SYS-017,"configMgr, firmware.supervisor",none
+MRTM-SAF-018,safety,MRTM-SYS-015,"eventLog, firmware.logService",none
+MRTM-SAF-019,safety,MRTM-SYS-006,"ackLine, alarmMgr, firmware.alarmService",none
+MRTM-SAF-020,safety,MRTM-SYS-001,none,none
+MRTM-SAF-021,safety,MRTM-SYS-005,"displayLink, displayMgr, firmware.displayService",none
+MRTM-SAF-022,safety,MRTM-SYS-020,"firmware.logService, hardware.rtc, rtc, rtcClock",none
+MRTM-SAF-023,safety,MRTM-SYS-003,"diagnostics, firmware.supervisor, hardware.backupAlarm, hardware.buzzerSenseLine",none

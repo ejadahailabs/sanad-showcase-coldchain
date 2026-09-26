@@ -35,6 +35,8 @@ setup:
     - "systems-tests"
     - "systems-verification-results"
     - "data-dictionary"
+    - high-level-architecture
+    - software-design
 
   # Where each artifact kind lives, repository-relative (FEAT-064). The
   # inventory above says which artifacts this programme holds; these say where
@@ -47,6 +49,8 @@ setup:
     hazard: "08-safety"
     systems-verification-results: "11-verification/results"
     data-dictionary: "01-data-dictionary"
+    high-level-architecture: 06-design/software
+    software-design: 10-src/firmware
   # Absent from the inventory, so these analyses stay OFF — silence with a
   # stated reason, never reported as clean (rule 4). Add the role above when
   # the artifact exists:
@@ -301,6 +305,94 @@ suppressions:
     reason: "The two successions (acquire -> check -> detect) are model truth; Sanad
       reads them but the action-flow picture does not draw them (F-36). Accepted
       DOGFOOD-2."
+  - rule: sysml-unresolved-id
+    path: 06-design/software/MrtmSoftware.sysml
+    reason: Part-to-part `allocate` (component -> FreeRTOS task, software item ->
+      ESP32-S3) is read as a requirement allocation, so each end is looked up as
+      a requirement id (F-35). IEC 62304 5.3 architecture; OMG Pilot reads it
+      clean. Accepted DOGFOOD-4.
+  - rule: sysml-not-read
+    path: 06-design/software/MrtmSwStates.sysml
+    reason: Transitions and successions are read and DRAWN by Sanad's state
+      transition and sequence views
+      (06-design/views/rendered/mrtmAlarmStates.svg, mrtmSeq*.svg), but the
+      graph does not take them, so the gate calls them 'read but not drawn'
+      (FINDINGS F-68). Accepted DOGFOOD-4.
+  - rule: sysml-not-read
+    path: 06-design/software/MrtmSeq*.sysml
+    reason: Transitions and successions are read and DRAWN by Sanad's state
+      transition and sequence views
+      (06-design/views/rendered/mrtmAlarmStates.svg, mrtmSeq*.svg), but the
+      graph does not take them, so the gate calls them 'read but not drawn'
+      (FINDINGS F-68). Accepted DOGFOOD-4.
+  - rule: allocation-target-undeclared
+    path: 06-design/system/**
+    reason: "Only software components are declared in .ejadah/rew/architecture/;
+      system functions, hardware parts, FreeRTOS tasks and the ESP32-S3 are
+      allocation targets but not software components. The rule cannot tell them
+      apart because the #Component marker is not read (FINDINGS F-70). Accepted
+      DOGFOOD-4."
+  - rule: allocation-target-undeclared
+    path: 06-design/hardware/**
+    reason: "Only software components are declared in .ejadah/rew/architecture/;
+      system functions, hardware parts, FreeRTOS tasks and the ESP32-S3 are
+      allocation targets but not software components. The rule cannot tell them
+      apart because the #Component marker is not read (FINDINGS F-70). Accepted
+      DOGFOOD-4."
+  - rule: allocation-target-undeclared
+    path: 06-design/software/MrtmSoftware.sysml
+    reason: "Only software components are declared in .ejadah/rew/architecture/;
+      system functions, hardware parts, FreeRTOS tasks and the ESP32-S3 are
+      allocation targets but not software components. The rule cannot tell them
+      apart because the #Component marker is not read (FINDINGS F-70). Accepted
+      DOGFOOD-4."
+  - rule: duplicate-functionality
+    path: 03-requirements/interface/MRTM-IFC-002.md
+    reason: "The requirement is compared with ITSELF: it is satisfied by a Phase 4
+      part and by the Phase 6 hardware part that redefines it under the same
+      name, and the rule counts the two links as two requirements (FINDINGS
+      F-69). Accepted DOGFOOD-4."
+  - rule: duplicate-functionality
+    path: 03-requirements/interface/MRTM-IFC-004.md
+    reason: "The requirement is compared with ITSELF: it is satisfied by a Phase 4
+      part and by the Phase 6 hardware part that redefines it under the same
+      name, and the rule counts the two links as two requirements (FINDINGS
+      F-69). Accepted DOGFOOD-4."
+  - rule: duplicate-functionality
+    path: 03-requirements/performance/MRTM-PRF-001.md
+    reason: "The requirement is compared with ITSELF: it is satisfied by a Phase 4
+      part and by the Phase 6 hardware part that redefines it under the same
+      name, and the rule counts the two links as two requirements (FINDINGS
+      F-69). Accepted DOGFOOD-4."
+  - rule: duplicate-functionality
+    path: 03-requirements/safety/MRTM-SAF-001.md
+    reason: "The requirement is compared with ITSELF: it is satisfied by a Phase 4
+      part and by the Phase 6 hardware part that redefines it under the same
+      name, and the rule counts the two links as two requirements (FINDINGS
+      F-69). Accepted DOGFOOD-4."
+  - rule: duplicate-functionality
+    path: 03-requirements/safety/MRTM-SAF-008.md
+    reason: "The requirement is compared with ITSELF: it is satisfied by a Phase 4
+      part and by the Phase 6 hardware part that redefines it under the same
+      name, and the rule counts the two links as two requirements (FINDINGS
+      F-69). Accepted DOGFOOD-4."
+  - rule: duplicate-functionality
+    path: 03-requirements/system/MRTM-SYS-016.md
+    reason: "The requirement is compared with ITSELF: it is satisfied by a Phase 4
+      part and by the Phase 6 hardware part that redefines it under the same
+      name, and the rule counts the two links as two requirements (FINDINGS
+      F-69). Accepted DOGFOOD-4."
+  - rule: duplicate-functionality
+    path: 03-requirements/system/MRTM-SYS-020.md
+    reason: "The requirement is compared with ITSELF: it is satisfied by a Phase 4
+      part and by the Phase 6 hardware part that redefines it under the same
+      name, and the rule counts the two links as two requirements (FINDINGS
+      F-69). Accepted DOGFOOD-4."
+  - rule: unallocated-requirement
+    path: 03-requirements/safety/MRTM-SAF-020.md
+    reason: An instructions-for-use statement (probe position); no hardware or
+      software element implements it; verified by inspection of the IFU (Phase
+      10). Accepted DOGFOOD-4.
 review:
   platform: github
   project: local/dogfood-fridge

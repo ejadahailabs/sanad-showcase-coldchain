@@ -14,6 +14,7 @@ uplinks: []
 safetyClass: ""
 hazard: []
 derived: false
+allocated_to: []
 
 # The `rew:` block configures Sanad. It is stripped when a requirement is created.
 rew:
@@ -30,6 +31,7 @@ rew:
   # Declare a role below only to override an inference, or to name something Sanad
   # cannot guess. A field with no role is stored and shown, never analysed.
   roles:
+    "allocated_to": allocation
     "safetyClass": dal
     "hazard": hazard
 

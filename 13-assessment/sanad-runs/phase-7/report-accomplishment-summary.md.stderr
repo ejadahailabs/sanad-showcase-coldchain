@@ -1,0 +1,4 @@
+erew: Error: --report accomplishment-summary reads this build's own evidence at /home/masood/.cache/tmp-dogfood1/vsix/extension/qual, and there is no such directory. A summary with nothing behind it would state that nothing was built; run it from a source checkout.
+    at summarySections (/home/masood/.cache/tmp-dogfood1/vsix/extension/dist/analysis/accomplishmentSummary.js:175:15)
+    at reportAccomplishmentSummary (/home/masood/.cache/tmp-dogfood1/vsix/extension/dist/analysis/accomplishmentSummary.js:242:28)
+    at run (/home/masood/.cache/tmp-dogfood1/vsix/extension/dist/cli.js:1579:90)
