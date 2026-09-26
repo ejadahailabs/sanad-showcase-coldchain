@@ -7,3 +7,4 @@
 | R-03 | 2026-09-26 | 0 | Scope creep into remote alerts | Phases grow past the run's budget | OUT-1 in scope.md | Claude |
 | R-04 | 2026-09-27 | 0 | Class C needs artifacts Sanad has no home for | Many MANUAL files; trace breaks between them | Each is a FINDINGS row; links kept as ids in text | Claude |
 | R-05 | 2026-09-27 | 1 | Alarm fatigue: too many alerts make staff ignore them | A real excursion is missed | 60 s confirmation time (A-04); acknowledge button | Claude |
+| R-06 | 2026-09-27 | 2 | Suppressions hide a real problem later | A true defect stays silent | Each has a reason; missing-decomposition expires 2026-10-31; reviewed in Phase 3 | Masood |

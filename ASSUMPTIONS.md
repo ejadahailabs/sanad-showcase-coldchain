@@ -12,3 +12,5 @@
 | A-08 | 2026-09-27 | 0 | Rule pack `requirements-writing` adopted unchanged; `design-review` pack deferred to Phase 4 | Sanad's recommended set | Yes |
 | A-09 | 2026-09-27 | 0 | Risk acceptability table in risk-management-plan.md is synthetic | ISO 14971 needs one before Phase 5 | Yes |
 | A-10 | 2026-09-27 | 1 | The history is read out over a USB cable as a read-only file | Needed for the ReviewHistory use case | Yes |
+| A-11 | 2026-09-27 | 2 | Battery endurance 4 h (STK-008, ENV-001) | Q-07 unanswered; a number is needed to test | Yes |
+| A-12 | 2026-09-27 | 2 | Every requirement is safetyClass C (explicit), pending Q-04 | Owner order: top class | Yes |

@@ -11,3 +11,4 @@
 | Q-07 | 2026-09-27 | 1 | How long must the monitor run with no mains power (battery hours)? | ENV/SYS power requirements | |
 | Q-08 | 2026-09-27 | 1 | Does the clinic need the history as a file (CSV/PDF) or only on screen? | IFC history export format | |
 | Q-09 | 2026-09-27 | 1 | Which language(s) must the screen show? | display requirement | |
+| Q-10 | 2026-09-27 | 2 | How is the monitor's UTC clock set and kept accurate (RTC + manual set, or USB host sync)? | TBD-SYS-clock; SYS-008/010 time stamps | |
