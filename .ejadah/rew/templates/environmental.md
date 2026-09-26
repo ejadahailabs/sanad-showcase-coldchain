@@ -14,6 +14,7 @@ uplinks: []
 safetyClass: ""
 derived: false
 
+implemented_by: []
 # The `rew:` block configures Sanad. It is stripped when a requirement is created.
 rew:
   label: "Environmental Requirement"
@@ -29,6 +30,7 @@ rew:
   # Declare a role below only to override an inference, or to name something Sanad
   # cannot guess. A field with no role is stored and shown, never analysed.
   roles:
+    "implemented_by": implements   # Phase 9 opt-in: this type carries code links (F-86)
     "safetyClass": dal
 
   choices:

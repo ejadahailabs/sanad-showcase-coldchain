@@ -22,7 +22,10 @@ const { architectureEngine } = d("analysis/engines/architecture.js");
   const dict = await loadDataDictionary(root, model.config.producers?.dataDictionary);
   const sp = await loadSysmlProject(root, model.config.design?.roots ?? [], undefined, sysmlLibraryDirs(undefined, model.config, root));
   const sysml = { elements: sp.facts.elements, relations: sp.facts.relations, standDowns: sp.facts.standDowns, unreadable: [] };
-  const graph = buildGraph(model, { components: arch.components, parameters: dict.parameters ?? [], sysml });
+  // Phase 9: the code index (.ejadah/rew/symbols.json), read as the CLI reads it, so design-to-code fills.
+  const ixPath = join(root, ".ejadah/rew/symbols.json");
+  const ix = fs.existsSync(ixPath) ? d("analysis/symbols.js").parseSymbolIndex(fs.readFileSync(ixPath, "utf8"), ".ejadah/rew/symbols.json").index : undefined;
+  const graph = buildGraph(model, { components: arch.components, parameters: dict.parameters ?? [], sysml, ...(ix ? { symbols: ix.symbols } : {}) });
   const allocations = componentAllocations(sp.facts.relations, arch.components);
   const low = lowLevelRequirements(model, graph);
   const components = componentInventory(graph, { components: arch.components, allocations: allocations.allocations, root, lowLevel: low });

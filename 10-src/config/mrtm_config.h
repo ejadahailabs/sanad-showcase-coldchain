@@ -47,7 +47,7 @@
 #define MRTM_LOG_CAPACITY            10000u
 #define MRTM_LOG_WARN_AT             9000u
 #define MRTM_LOG_SLOTS_PER_SECTOR    128u     /* 4096 / 32 */
-#define MRTM_LOG_SECTORS             79u      /* 79 x 128 = 10112 >= capacity + one sector */
+#define MRTM_LOG_SECTORS             80u      /* DEF-001: 80 x 128 = 10240; erase-ahead leaves >= 10113 (79 left 9985) */
 
 /* Display — @implements MRTM-PRF-004 MRTM-SAF-016 MRTM-SAF-021 */
 #define MRTM_DISPLAY_PERIOD_MS       500u

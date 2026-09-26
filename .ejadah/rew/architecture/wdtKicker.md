@@ -1,4 +1,5 @@
 ---
+code: ["10-src/firmware/components/wdt_kicker/src/**", "10-src/firmware/components/wdt_kicker/include/**"]
 uses: []
 resources:
   memory: "4 KiB stack (shared with the task)"
@@ -14,6 +15,6 @@ resources:
 - **Model element:** `MrtmSoftware::MrtmFirmware` → `wdtKicker` (SysML v2, `#Component`)
 - **Language:** C (ADR-0022) · **Runs in:** FreeRTOS `supervisorTask` (ADR-0019)
 - **Contract (Phase 8):** `10-src/firmware/components/wdt_kicker/contracts.md`, `MrtmSwDetail::WdtKickerApi`
-- **Code:** none yet — Phase 9 adds `code: ["10-src/firmware/components/wdt_kicker/**"]`.
+- **Code (Phase 9):** `10-src/firmware/components/wdt_kicker/{src,include}` (declared in `code:` above); unit tests in `test/`.
 
 Pulses the outside watchdog only while the alarm heartbeat is 2 s old or newer.

@@ -31,3 +31,7 @@
 | A-27 | 2026-09-27 | 7 | The acknowledge button raises a GPIO interrupt that wakes the alarm task at once; a 1 s polling cycle alone cannot meet MRTM-SYS-006 (ADR-0020) | Alarm task design | Yes |
 | A-28 | 2026-09-27 | 7 | Both ESP32-S3 cores are used: safety tasks on core 1, slow I/O on core 0 (ADR-0019) | Task partitioning | Yes |
 | A-29 | 2026-09-27 | 8 | An invalid sample (bad CRC) neither counts toward nor resets the 7-sample runs; a long run of bad samples is caught by the 30 s probe fault instead | Limit evaluator algorithm; resetting would delay a real alarm | Yes |
+| A-30 | 2026-09-27 | 9 | ESP-IDF, CMake and Ninja are NOT installed on the dogfood box; the target build (`10-src/firmware`, `hal_esp32.c`) is written from the ESP-IDF v5 docs and is UNTESTED. Only the host build (gcc/g++, make) is proved | Phase 9 build + Phase 10 target tests | Yes — install ESP-IDF or name a build machine |
+| A-31 | 2026-09-27 | 9 | A "unit test" runs one unit's code with the real neighbouring software units linked in and only the hardware stubbed (ADR-0027); the unit under test is the one whose functions the test calls | Unit verification scope (IEC 62304 §5.5.5) | Yes |
+| A-32 | 2026-09-27 | 9 | Battery percent is linear from 3.4 V (0 %) to 4.2 V (100 %) — EE-REVIEW, a Li-ion curve is not linear | MRTM-MNT-002 display | Yes (EE) |
+| A-33 | 2026-09-27 | 9 | The backup-alarm self-test (MRTM-SAF-023) reads a sense line on GPIO 17, which the hardware design does not have yet (DEF-006) | `hal_backup_alarm_sensed` on target | Yes (EE) |

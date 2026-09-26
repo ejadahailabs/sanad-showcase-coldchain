@@ -1,0 +1,16 @@
+# sanad/data-items/1
+Data item,Type,Unit,Range,Interfaces,Produced by,Consumed by,Requirements,Status
+Allowed Band Lower Limit (lower limit),temperature,degC,2..2,none,not declared,not declared,none,unused
+Allowed Band Upper Limit (upper limit),temperature,degC,8..8,none,not declared,not declared,none,unused
+Battery Low Threshold,voltage,mV,3400..3400,none,not declared,not declared,none,unused
+"Error Code (error, result code)",enumeration,not declared,not declared,none,not declared,not declared,06-design/software/MrtmSwCodes.sysml,in use
+Event Kind (event type),enumeration,not declared,not declared,none,not declared,not declared,06-design/software/MrtmSwCodes.sysml,in use
+Event Log Capacity (log capacity),count,events,10000..10000,none,not declared,not declared,"MRTM-SYS-015, MRTM-SYS-022",in use
+"Event Record (log record, history record)",record,bytes,32..32,none,not declared,not declared,"06-design/software/MrtmSoftware.sysml, MRTM-SAF-018, MRTM-SYS-021",in use
+Excursion Confirmation Time (confirmation time),duration,s,60..60,none,not declared,not declared,"MRTM-STK-002, MRTM-SYS-002",in use
+Heartbeat Timeout (alarm heartbeat limit),duration,ms,2000..2000,none,not declared,not declared,none,unused
+Measurement Accuracy (accuracy),temperature,degC,0..0.5,none,not declared,not declared,"MRTM-MNT-001, MRTM-PRF-001",in use
+Monitor Configuration (config record),record,not declared,not declared,none,not declared,not declared,06-design/software/MrtmSoftware.sysml,in use
+Probe Fault Timeout,duration,s,30..30,none,not declared,not declared,none,unused
+Re-alarm Delay (realarm delay),duration,min,15..15,none,not declared,not declared,none,unused
+Sampling Period (sample period),duration,s,10..10,none,not declared,not declared,"MRTM-PRF-004, MRTM-SYS-001",in use

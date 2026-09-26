@@ -1,4 +1,5 @@
 ---
+code: ["10-src/firmware/components/power_mon/src/**", "10-src/firmware/components/power_mon/include/**"]
 uses: [eventLog, alarmMgr]
 resources:
   memory: "4 KiB stack (shared with the task)"
@@ -14,6 +15,6 @@ resources:
 - **Model element:** `MrtmSoftware::MrtmFirmware` → `powerMon` (SysML v2, `#Component`)
 - **Language:** C (ADR-0022) · **Runs in:** FreeRTOS `supervisorTask` (ADR-0019)
 - **Contract (Phase 8):** `10-src/firmware/components/power_mon/contracts.md`, `MrtmSwDetail::PowerMonApi`
-- **Code:** none yet — Phase 9 adds `code: ["10-src/firmware/components/power_mon/**"]`.
+- **Code (Phase 9):** `10-src/firmware/components/power_mon/{src,include}` (declared in `code:` above); unit tests in `test/`.
 
 Watches mains-sense and battery voltage. Logs power loss and restore. Raises the low-battery alarm.

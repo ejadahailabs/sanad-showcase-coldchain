@@ -1,0 +1,40 @@
+# sanad/low-level-requirements/1
+Requirement,Level,Refines,Allocated to,Implemented by
+MRTM-ENV-001,environmental,MRTM-SYS-016,"battery, batteryFeed",none
+MRTM-ENV-002,environmental,MRTM-SYS-001,"esp32, hardware",none
+MRTM-ENV-003,environmental,MRTM-SYS-001,hardware,none
+MRTM-ENV-004,environmental,MRTM-SYS-001,"airContact, fridge, probe",none
+MRTM-IFC-001,interface,MRTM-SYS-001,"probe, probeLink, sensorSampler, sensorSamplerApi","10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_init, 10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read"
+MRTM-IFC-002,interface,MRTM-SYS-006,"ackLine, alarmMgr, alarmMgrApi","10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_button_debounced, 10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_button_isr"
+MRTM-IFC-003,interface,MRTM-SYS-014,"esp32, historyLink, usb, usbExport, usbExportApi, usbHost, usbService","10-src/firmware/components/usb_export/src/usb_export.c#usb_export_init, 10-src/firmware/components/usb_export/src/usb_export.c#usb_export_read10, 10-src/firmware/components/usb_export/src/usb_export.c#usb_export_write10"
+MRTM-IFC-004,interface,MRTM-SYS-005,"displayLink, displayMgr, displayMgrApi, oled, screen",10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw
+MRTM-MNT-001,maintainability,MRTM-SYS-012,probe,none
+MRTM-MNT-002,maintainability,MRTM-SYS-016,"displayMgr, statusDisplay","10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw, 10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step"
+MRTM-MNT-003,maintainability,MRTM-SYS-001,"displayMgr, selfTest","10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw, 10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame, 10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_power_up"
+MRTM-PRF-001,performance,MRTM-SYS-001,"probe, sampler, sensorSampler, sensorSamplerApi",10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_to_tenths
+MRTM-PRF-002,performance,MRTM-SYS-003,"alarmManager, alarmMgr, alarmMgrApi",10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step
+MRTM-PRF-003,performance,MRTM-SYS-015,"historyLink, historyServer, usbExport, usbExportApi",10-src/firmware/components/usb_export/src/usb_export.c#usb_export_read10
+MRTM-PRF-004,performance,MRTM-SYS-011,"displayMgr, displayMgrApi, statusDisplay","10-src/firmware/components/display_mgr/src/display_mgr.cpp#display_mgr_tick, 10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame"
+MRTM-SAF-001,safety,MRTM-SYS-003,"alarmMgr, alarmMgrApi, buzzer",none
+MRTM-SAF-002,safety,MRTM-SYS-012,"alarmManager, alarmMgr, alarmMgrApi, firmware.alarmService","10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step, 10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take, 10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step"
+MRTM-SAF-003,safety,MRTM-SYS-001,"firmware.sensorService, probeSupervisor, sensorSampler, sensorSamplerApi","10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_probe_fault, 10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read"
+MRTM-SAF-004,safety,MRTM-SYS-001,"firmware, supervisor, watchdog, wdtKicker, wdtKickerApi",10-src/firmware/components/wdt_kicker/src/wdt_kicker.c#wdt_kicker_init
+MRTM-SAF-005,safety,MRTM-SYS-016,"eventLogger, firmware.logService, mains, mainsSenseLine, powerMon, powerMonApi",10-src/firmware/components/power_mon/src/power_mon.c#power_mon_isr
+MRTM-SAF-006,safety,MRTM-SYS-003,"alarmMgr, alarmMgrApi, firmware, firmware.alarmService, watchdog","10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_init, 10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_power_up"
+MRTM-SAF-007,safety,MRTM-SYS-003,"diagnostics, diagnosticsApi, firmware.supervisor, selfTest",10-src/firmware/components/diagnostics/src/diagnostics.c#diagnostics_power_up
+MRTM-SAF-008,safety,MRTM-SYS-016,"alarmMgr, batterySenseLine, powerMon, powerMonApi, powerService, powerSupervisor","10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step, 10-src/firmware/components/power_mon/src/power_mon.c#power_mon_step"
+MRTM-SAF-009,safety,MRTM-SYS-003,"backupAlarm, hardware.backupAlarm, hardware.backupBuzzerLine, hardware.wdtKickLine, wdtKicker, wdtKickerApi",10-src/firmware/components/wdt_kicker/src/wdt_kicker.c#wdt_kicker_step
+MRTM-SAF-010,safety,MRTM-SYS-003,"alarmMgr, firmware.alarmService, firmware.supervisor, wdtKicker, wdtKickerApi","10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_heartbeat, 10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step, 10-src/firmware/components/wdt_kicker/src/wdt_kicker.c#wdt_kicker_step"
+MRTM-SAF-011,safety,MRTM-SYS-012,"alarmMgr, alarmMgrApi, firmware.alarmService",10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step
+MRTM-SAF-012,safety,MRTM-SYS-001,"displayMgr, displayMgrApi, firmware.displayService","10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw, 10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step"
+MRTM-SAF-013,safety,MRTM-SYS-016,"hardware.backupAlarm, hardware.holdUpCap, holdUpCap",none
+MRTM-SAF-014,safety,MRTM-SYS-003,"alarmMgr, alarmMgrApi, buzzer, firmware.alarmService, hardware.buzzerSenseLine",10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step
+MRTM-SAF-015,safety,MRTM-SYS-004,"alarmMgr, alarmMgrApi, firmware.alarmService, hardware.redLine, redLed",10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step
+MRTM-SAF-016,safety,MRTM-SYS-017,"displayMgr, displayMgrApi, firmware.displayService","10-src/firmware/components/display_mgr/src/display_mgr.cpp#display_mgr_init, 10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw, 10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame, 10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_power_up"
+MRTM-SAF-017,safety,MRTM-SYS-017,"alarmMgr, configMgr, configMgrApi, firmware.supervisor","10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step, 10-src/firmware/components/config_mgr/src/config_mgr.c#config_mgr_load, 10-src/firmware/components/config_mgr/src/config_mgr.c#config_mgr_store, 10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_power_up, 10-src/firmware/components/mrtm_common/src/mrtm_crc.c#mrtm_crc32"
+MRTM-SAF-018,safety,MRTM-SYS-015,"eventLog, eventLogApi, firmware.logService, historyRing","10-src/firmware/components/event_log/src/event_log.c#event_log_step, 10-src/firmware/components/history_ring/src/history_ring.c#history_ring_append"
+MRTM-SAF-019,safety,MRTM-SYS-006,"ackLine, alarmMgr, alarmMgrApi, firmware.alarmService","10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_button_debounced, 10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step"
+MRTM-SAF-020,safety,MRTM-SYS-001,none,none
+MRTM-SAF-021,safety,MRTM-SYS-005,"displayLink, displayMgr, displayMgrApi, firmware.displayService, screen",10-src/firmware/components/display_mgr/src/display_mgr.cpp#recoverBus
+MRTM-SAF-022,safety,MRTM-SYS-020,"firmware.logService, hardware.rtc, rtc, rtcClock, rtcClockApi","10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_power_up, 10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_init"
+MRTM-SAF-023,safety,MRTM-SYS-003,"diagnostics, diagnosticsApi, firmware.supervisor, hardware.backupAlarm, hardware.buzzerSenseLine",10-src/firmware/components/diagnostics/src/diagnostics.c#diagnostics_power_up

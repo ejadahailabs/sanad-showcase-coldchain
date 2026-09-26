@@ -398,6 +398,85 @@ suppressions:
     reason: "Satisfy links land on the unit-contract usages (sensorSamplerApi …),
       design elements of IEC 62304 5.4 rather than declared components; the
       #Interface marker is not read (FINDINGS F-70). Accepted DOGFOOD-4."
+  - rule: not-implemented
+    path: 03-requirements/environmental/MRTM-ENV-001.md
+    reason: "No software does this by design: battery capacity and power path
+      (hardware, 09-hardware/power-budget.md). Verified by hardware test or
+      inspection (11-verification). Sanad's not-implemented list IS the Phase 9
+      'not reached by code' list. Accepted DOGFOOD-5."
+  - rule: not-implemented
+    path: 03-requirements/environmental/MRTM-ENV-002.md
+    reason: "No software does this by design: ambient operating range of the
+      parts (hardware qualification). Verified by hardware test or inspection
+      (11-verification). Sanad's not-implemented list IS the Phase 9 'not
+      reached by code' list. Accepted DOGFOOD-5."
+  - rule: not-implemented
+    path: 03-requirements/environmental/MRTM-ENV-003.md
+    reason: "No software does this by design: humidity range of the parts and
+      enclosure (hardware qualification). Verified by hardware test or
+      inspection (11-verification). Sanad's not-implemented list IS the Phase 9
+      'not reached by code' list. Accepted DOGFOOD-5."
+  - rule: not-implemented
+    path: 03-requirements/environmental/MRTM-ENV-004.md
+    reason: "No software does this by design: the DS18B20 probe's own range;
+      firmware only checks the reading (MRTM-SAF-003). Verified by hardware test
+      or inspection (11-verification). Sanad's not-implemented list IS the Phase
+      9 'not reached by code' list. Accepted DOGFOOD-5."
+  - rule: not-implemented
+    path: 03-requirements/maintainability/MRTM-MNT-001.md
+    reason: "No software does this by design: probe interchangeability is the
+      DS18B20's factory accuracy (hardware). Verified by hardware test or
+      inspection (11-verification). Sanad's not-implemented list IS the Phase 9
+      'not reached by code' list. Accepted DOGFOOD-5."
+  - rule: not-implemented
+    path: 03-requirements/safety/MRTM-SAF-001.md
+    reason: "No software does this by design: sound pressure is the buzzer part
+      and enclosure (hardware); firmware only drives it. Verified by hardware
+      test or inspection (11-verification). Sanad's not-implemented list IS the
+      Phase 9 'not reached by code' list. Accepted DOGFOOD-5."
+  - rule: not-implemented
+    path: 03-requirements/safety/MRTM-SAF-013.md
+    reason: "No software does this by design: the backup alarm's own supply
+      (hardware, ADR-0013). Verified by hardware test or inspection
+      (11-verification). Sanad's not-implemented list IS the Phase 9 'not
+      reached by code' list. Accepted DOGFOOD-5."
+  - rule: not-implemented
+    path: 03-requirements/safety/MRTM-SAF-020.md
+    reason: "No software does this by design: instructions for use (labelling).
+      Verified by hardware test or inspection (11-verification). Sanad's
+      not-implemented list IS the Phase 9 'not reached by code' list. Accepted
+      DOGFOOD-5."
+  - rule: not-implemented
+    path: 03-requirements/system/MRTM-SYS-016.md
+    reason: "No software does this by design: the power path switches in
+      hardware; firmware only observes mains (power_mon). Verified by hardware
+      test or inspection (11-verification). Sanad's not-implemented list IS the
+      Phase 9 'not reached by code' list. Accepted DOGFOOD-5."
+  - rule: partially-implemented
+    path: 03-requirements/stakeholder/MRTM-STK-008.md
+    reason: Its children without code are hardware or labelling requirements
+      accepted as not-implemented by design (suppressions above). Accepted
+      DOGFOOD-5.
+  - rule: partially-implemented
+    path: 03-requirements/system/MRTM-SYS-001.md
+    reason: Its children without code are hardware or labelling requirements
+      accepted as not-implemented by design (suppressions above). Accepted
+      DOGFOOD-5.
+  - rule: partially-implemented
+    path: 03-requirements/system/MRTM-SYS-003.md
+    reason: Its children without code are hardware or labelling requirements
+      accepted as not-implemented by design (suppressions above). Accepted
+      DOGFOOD-5.
+  - rule: partially-implemented
+    path: 03-requirements/system/MRTM-SYS-012.md
+    reason: Its children without code are hardware or labelling requirements
+      accepted as not-implemented by design (suppressions above). Accepted
+      DOGFOOD-5.
+  - rule: partially-implemented
+    path: 03-requirements/system/MRTM-SYS-016.md
+    reason: Its children without code are hardware or labelling requirements
+      accepted as not-implemented by design (suppressions above). Accepted
+      DOGFOOD-5.
 review:
   platform: github
   project: local/dogfood-fridge

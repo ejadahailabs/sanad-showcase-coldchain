@@ -1,4 +1,5 @@
 ---
+code: ["10-src/firmware/components/event_log/src/**", "10-src/firmware/components/event_log/include/**"]
 uses: [historyRing, rtcClock]
 resources:
   memory: "6 KiB stack (shared with the task)"
@@ -14,6 +15,6 @@ resources:
 - **Model element:** `MrtmSoftware::MrtmFirmware` → `eventLog` (SysML v2, `#Component`)
 - **Language:** C (ADR-0022) · **Runs in:** FreeRTOS `logTask` (ADR-0019)
 - **Contract (Phase 8):** `10-src/firmware/components/event_log/contracts.md`, `MrtmSwDetail::EventLogApi`
-- **Code:** none yet — Phase 9 adds `code: ["10-src/firmware/components/event_log/**"]`.
+- **Code (Phase 9):** `10-src/firmware/components/event_log/{src,include}` (declared in `code:` above); unit tests in `test/`.
 
 Turns events into records, stamps them with UTC time and writes each to both flash sectors within 1 s.

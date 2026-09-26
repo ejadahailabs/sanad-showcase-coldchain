@@ -1,4 +1,5 @@
 ---
+code: ["10-src/firmware/components/config_mgr/src/**", "10-src/firmware/components/config_mgr/include/**"]
 uses: [eventLog]
 resources:
   memory: "4 KiB stack (shared with the task)"
@@ -14,6 +15,6 @@ resources:
 - **Model element:** `MrtmSoftware::MrtmFirmware` → `configMgr` (SysML v2, `#Component`)
 - **Language:** C (ADR-0022) · **Runs in:** FreeRTOS `supervisorTask` (ADR-0019)
 - **Contract (Phase 8):** `10-src/firmware/components/config_mgr/contracts.md`, `MrtmSwDetail::ConfigMgrApi`
-- **Code:** none yet — Phase 9 adds `code: ["10-src/firmware/components/config_mgr/**"]`.
+- **Code (Phase 9):** `10-src/firmware/components/config_mgr/{src,include}` (declared in `code:` above); unit tests in `test/`.
 
 Loads the band, probe offset and calibration date from NVS and checks their CRC-32.

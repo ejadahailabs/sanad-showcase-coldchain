@@ -173,6 +173,9 @@ package MrtmSoftware {
     #Service part def AlarmItem {
         attribute safetyClass : SafetyClass = SafetyClass::C;
         part alarmMgr : AlarmMgr;
+        satisfy 'MRTM-SAF-008' by alarmMgr;  // Phase 9: code-trace + conformance found this unit implements it (DEF-007)
+        satisfy 'MRTM-SAF-010' by alarmMgr;  // Phase 9: code-trace + conformance found this unit implements it (DEF-007)
+        satisfy 'MRTM-SAF-017' by alarmMgr;  // Phase 9: code-trace + conformance found this unit implements it (DEF-007)
         satisfy 'MRTM-SYS-003' by alarmMgr;
         satisfy 'MRTM-SYS-004' by alarmMgr;
         satisfy 'MRTM-SYS-006' by alarmMgr;
@@ -190,6 +193,8 @@ package MrtmSoftware {
     #Service part def DisplayItem {
         attribute safetyClass : SafetyClass = SafetyClass::C;
         part displayMgr : DisplayMgr;
+        satisfy 'MRTM-MNT-002' by displayMgr;  // Phase 9: code-trace + conformance found this unit implements it (DEF-007)
+        satisfy 'MRTM-MNT-003' by displayMgr;  // Phase 9: code-trace + conformance found this unit implements it (DEF-007)
         satisfy 'MRTM-SYS-005' by displayMgr;
         satisfy 'MRTM-SYS-007' by displayMgr;
         satisfy 'MRTM-SYS-011' by displayMgr;
@@ -205,6 +210,7 @@ package MrtmSoftware {
         attribute safetyClass : SafetyClass = SafetyClass::C;
         part eventLog : EventLog;
         part historyRing : HistoryRingStore;
+        satisfy 'MRTM-SAF-018' by historyRing;  // Phase 9: code-trace + conformance found this unit implements it (DEF-007)
         part rtcClock : RtcClock;
         satisfy 'MRTM-SYS-008' by eventLog;
         satisfy 'MRTM-SYS-009' by eventLog;

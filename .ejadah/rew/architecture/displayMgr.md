@@ -1,5 +1,6 @@
 ---
-uses: [alarmMgr, configMgr, historyRing]
+code: ["10-src/firmware/components/display_mgr/src/**", "10-src/firmware/components/display_mgr/include/**"]
+uses: [alarmMgr, configMgr, historyRing, eventLog]
 resources:
   memory: "6 KiB stack (shared with the task)"
   cpu_budget: "8 %"
@@ -14,6 +15,6 @@ resources:
 - **Model element:** `MrtmSoftware::MrtmFirmware` → `displayMgr` (SysML v2, `#Component`)
 - **Language:** C++ (ADR-0022) · **Runs in:** FreeRTOS `displayTask` (ADR-0019)
 - **Contract (Phase 8):** `10-src/firmware/components/display_mgr/contracts.md`, `MrtmSwDetail::DisplayMgrApi`
-- **Code:** none yet — Phase 9 adds `code: ["10-src/firmware/components/display_mgr/**"]`.
+- **Code (Phase 9):** `10-src/firmware/components/display_mgr/{src,include}` (declared in `code:` above); unit tests in `test/`.
 
 Draws the temperature, warnings and messages on the OLED. Resets the I2C bus after a timeout.

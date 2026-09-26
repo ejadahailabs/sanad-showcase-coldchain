@@ -33,7 +33,7 @@ if (process.argv[4] === "--arch") {
     const kind = { SYS: "system", SAF: "safety", PRF: "performance", IFC: "interface" }[id.split("-")[1]];
     add("duplicate-functionality", `03-requirements/${kind}/${id}.md`, "The requirement is compared with ITSELF: it is satisfied by a Phase 4 part and by the Phase 6 hardware part that redefines it under the same name, and the rule counts the two links as two requirements (FINDINGS F-69). Accepted DOGFOOD-4.");
   }
-  add("unallocated-requirement", "03-requirements/safety/MRTM-SAF-020.md", "An instructions-for-use statement (probe position); no hardware or software element implements it; verified by inspection of the IFU (Phase 10). Accepted DOGFOOD-4.");
+  add("unallocated-requirement", "03-requirements/safety/MRTM-SAF-020.md", "An instructions-for-use statement (probe position); no hardware or software element carries it; verified by inspection of the IFU (Phase 10). Accepted DOGFOOD-4.");
   fs.writeFileSync(p, String(d3));
 }
 // Phase 8 pass: the unit-contract usages in MrtmSwDetail are design elements, not declared components.
