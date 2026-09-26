@@ -17,3 +17,5 @@
 | A-13 | 2026-09-27 | 3 | A silenced alarm comes back after 15 min while the excursion continues (MRTM-SYS-019) | Review T09 needs a number; IEC 60601-1-8 leaves the pause time to the maker | Yes |
 | A-14 | 2026-09-27 | 3 | The clock drifts 2 s per day or less (MRTM-SYS-020) | Review T10; a typical RTC crystal does this; how the clock is set stays Q-10 | Yes |
 | A-15 | 2026-09-27 | 3 | Low-battery alarm threshold 3.4 V (MRTM-SAF-008) — EE-REVIEW | Review T11; synthetic value for a single Li-ion cell | Yes |
+| A-16 | 2026-09-27 | 4 | One ESP32 has enough time and memory for all eight software items at a 10 s sampling period | ADR-0008 partitioning | Yes |
+| A-17 | 2026-09-27 | 4 | Internal flash endurance covers the event write rate over the product life — EE-REVIEW | ADR-0011 data retention | Yes |

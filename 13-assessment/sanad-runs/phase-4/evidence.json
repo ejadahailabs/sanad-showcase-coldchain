@@ -1,0 +1,977 @@
+{
+  "pack": "requirements-writing",
+  "engines": [
+    "validation",
+    "traceability",
+    "quality",
+    "structure",
+    "verification",
+    "consistency",
+    "impact"
+  ],
+  "skipped": [
+    {
+      "engine": "implementation",
+      "missingRoles": [
+        "implements"
+      ]
+    },
+    {
+      "engine": "safety",
+      "missingRoles": [
+        "hazard"
+      ]
+    },
+    {
+      "engine": "security",
+      "missingRoles": [
+        "threat"
+      ]
+    },
+    {
+      "engine": "architecture",
+      "missingRoles": [
+        "allocation"
+      ]
+    },
+    {
+      "engine": "interface",
+      "missingRoles": [
+        "interface"
+      ]
+    },
+    {
+      "engine": "conformance",
+      "missingRoles": [
+        "allocation"
+      ]
+    }
+  ],
+  "unlicensed": [],
+  "disabled": [],
+  "noRulePack": [],
+  "cancelled": [],
+  "findings": [
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 4: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/system/MrtmInterfaces.sysml",
+      "line": 4,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 4: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/system/MrtmLogical.sysml",
+      "line": 4,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 5: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/system/MrtmPartitions.sysml",
+      "line": 5,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 6: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/system/MrtmPhysical.sysml",
+      "line": 6,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 4: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/system/MrtmUseCases.sysml",
+      "line": 4,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 24: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/views/MrtmBlocksView.sysml",
+      "line": 24,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 22: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/views/MrtmContextView.sysml",
+      "line": 22,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 22: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/views/MrtmUseCasesView.sysml",
+      "line": 22,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 8: `import Views` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `Views`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `Views` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/views/SanadRenderings.sysml",
+      "line": 8,
+      "entry": "Views"
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-ENV-002",
+      "section": "Description",
+      "span": [
+        30,
+        32
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-ENV-003",
+      "section": "Description",
+      "span": [
+        30,
+        31
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-ENV-004",
+      "section": "Description",
+      "span": [
+        40,
+        41
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-IFC-003",
+      "section": "Description",
+      "span": [
+        60,
+        61
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-IFC-004",
+      "section": "Description",
+      "span": [
+        50,
+        51
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-MNT-001",
+      "section": "Description",
+      "span": [
+        54,
+        55
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-PRF-001",
+      "section": "Description",
+      "span": [
+        59,
+        61
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-PRF-004",
+      "section": "Description",
+      "span": [
+        56,
+        57
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-SAF-001",
+      "section": "Description",
+      "span": [
+        39,
+        40
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-SAF-003",
+      "section": "Description",
+      "span": [
+        48,
+        49
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-SAF-004",
+      "section": "Description",
+      "span": [
+        65,
+        66
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-STK-008",
+      "section": "Description",
+      "span": [
+        42,
+        43
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "requirement-pattern",
+      "message": "Sets a deadline but gives no time — add one (e.g. 50 ms)",
+      "reqId": "MRTM-SYS-004",
+      "section": "Description",
+      "span": [
+        1,
+        88
+      ],
+      "detail": "This reads as a Sanad Timing requirement — the response names the obligation but the sentence carries no quantity with a time unit. A Sanad Timing requirement may resolve that slot from a value declared in the data dictionary instead of stating it inline, which is the better engineering of the two. Sometimes correct: the value may live in a linked verification requirement or an interface document this check does not read.",
+      "heuristic": true
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-SYS-012",
+      "section": "Description",
+      "span": [
+        63,
+        64
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-SYS-020",
+      "section": "Description",
+      "span": [
+        42,
+        43
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-SYS-021",
+      "section": "Description",
+      "span": [
+        26,
+        27
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "structure",
+      "severity": "info",
+      "rule": "under-decomposition",
+      "message": "MRTM-SYS-005 has one child, which restates it — merge the two, or add the sibling",
+      "reqId": "MRTM-SYS-005",
+      "detail": "A decomposition into one is a restatement, not a decomposition: either the two belong together, or the sibling that completes the picture is missing."
+    },
+    {
+      "engine": "structure",
+      "severity": "info",
+      "rule": "under-decomposition",
+      "message": "MRTM-SYS-006 has one child, which restates it — merge the two, or add the sibling",
+      "reqId": "MRTM-SYS-006",
+      "detail": "A decomposition into one is a restatement, not a decomposition: either the two belong together, or the sibling that completes the picture is missing."
+    },
+    {
+      "engine": "structure",
+      "severity": "info",
+      "rule": "under-decomposition",
+      "message": "MRTM-SYS-011 has one child, which restates it — merge the two, or add the sibling",
+      "reqId": "MRTM-SYS-011",
+      "detail": "A decomposition into one is a restatement, not a decomposition: either the two belong together, or the sibling that completes the picture is missing."
+    },
+    {
+      "engine": "structure",
+      "severity": "info",
+      "rule": "under-decomposition",
+      "message": "MRTM-SYS-014 has one child, which restates it — merge the two, or add the sibling",
+      "reqId": "MRTM-SYS-014",
+      "detail": "A decomposition into one is a restatement, not a decomposition: either the two belong together, or the sibling that completes the picture is missing."
+    },
+    {
+      "engine": "structure",
+      "severity": "info",
+      "rule": "under-decomposition",
+      "message": "MRTM-SYS-015 has one child, which restates it — merge the two, or add the sibling",
+      "reqId": "MRTM-SYS-015",
+      "detail": "A decomposition into one is a restatement, not a decomposition: either the two belong together, or the sibling that completes the picture is missing."
+    },
+    {
+      "engine": "impact",
+      "severity": "info",
+      "rule": "wide-impact",
+      "message": "Changing MRTM-STK-004 reaches 11 other artifacts. MRTM-STK-004 rests on nothing above it, so a change here starts at the top and every artifact below has to be revisited. Ask Sanad what a specific change affects to see the trace path to each one.",
+      "reqId": "MRTM-STK-004",
+      "related": [
+        {
+          "reqId": "MRTM-ENV-002",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "MRTM-ENV-003",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "MRTM-ENV-004",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "MRTM-IFC-001",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "MRTM-MNT-003",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "MRTM-PRF-001",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "MRTM-PRF-004",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "MRTM-SAF-003",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "MRTM-SAF-004",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "MRTM-SYS-001",
+          "note": "reached in 1 hop"
+        }
+      ]
+    },
+    {
+      "engine": "impact",
+      "severity": "info",
+      "rule": "impact-incomplete",
+      "message": "Impact is bounded here by 1 limit — these numbers are not a clean result",
+      "detail": "Impact analysis is bounded here: no symbol index took part in this run, so no blast radius above counts the code a change would reach — that number is absent, not zero."
+    }
+  ],
+  "metrics": [
+    {
+      "engine": "validation",
+      "key": "validation.requirements",
+      "value": 54,
+      "unit": "count"
+    },
+    {
+      "engine": "validation",
+      "key": "validation.errors",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "validation",
+      "key": "validation.warnings",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "validation",
+      "key": "validation.filesMalformed",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "validation",
+      "key": "validation.filesNotRequirements",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "validation",
+      "key": "validation.filesIgnored",
+      "value": 7,
+      "unit": "count"
+    },
+    {
+      "engine": "validation",
+      "key": "validation.clean",
+      "value": 100,
+      "unit": "percent"
+    },
+    {
+      "engine": "traceability",
+      "key": "traceability.stakeholder.coverage",
+      "value": 100,
+      "unit": "percent"
+    },
+    {
+      "engine": "traceability",
+      "key": "traceability.system.coverage",
+      "value": 39,
+      "unit": "percent"
+    },
+    {
+      "engine": "traceability",
+      "key": "traceability.orphans",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "traceability",
+      "key": "traceability.derivedExemptions",
+      "value": 0,
+      "unit": "count",
+      "evidence": []
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-ENV-001"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-ENV-002"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-ENV-003"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-ENV-004"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-IFC-001"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-IFC-002"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-IFC-003"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-IFC-004"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-MNT-001"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-MNT-002"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-MNT-003"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-PRF-001"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-PRF-002"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-PRF-003"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-PRF-004"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-001"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-002"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-003"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-004"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-005"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-006"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-007"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-008"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-STK-001"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-STK-002"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-STK-003"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-STK-004"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-STK-005"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-STK-006"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-STK-007"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-STK-008"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-001"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-002"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-003"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-004"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-005"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-006"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-SYS-007"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-008"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-009"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-010"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-011"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-012"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-013"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-SYS-014"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-SYS-015"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-016"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-017"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-018"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-019"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-020"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-021"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-022"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-023"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.scored",
+      "value": 54,
+      "unit": "count"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.repoMean",
+      "value": 98,
+      "unit": "score"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.worst",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-ENV-003",
+      "evidence": [
+        "MRTM-ENV-003"
+      ]
+    },
+    {
+      "engine": "structure",
+      "key": "structure.depth.max",
+      "value": 3,
+      "unit": "count"
+    },
+    {
+      "engine": "structure",
+      "key": "structure.undecomposed",
+      "value": 14,
+      "unit": "count"
+    },
+    {
+      "engine": "structure",
+      "key": "structure.fanout.mean",
+      "value": 2.71,
+      "unit": "score"
+    },
+    {
+      "engine": "consistency",
+      "key": "consistency.unitViolations",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "consistency",
+      "key": "consistency.comparedPairs",
+      "value": 105,
+      "unit": "count"
+    },
+    {
+      "engine": "consistency",
+      "key": "consistency.uncomparedRequirements",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "impact",
+      "key": "impact.changeOrigins",
+      "value": 6,
+      "unit": "count"
+    },
+    {
+      "engine": "impact",
+      "key": "impact.originsUntraversed",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "impact",
+      "key": "impact.blastRadius.max",
+      "value": 11,
+      "unit": "count",
+      "evidence": [
+        "MRTM-STK-004"
+      ]
+    }
+  ]
+}

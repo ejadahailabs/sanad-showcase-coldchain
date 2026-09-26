@@ -1,0 +1,34 @@
+erew: data dictionary — 01-data-dictionary/data-dictionary.md: 6 parameter(s)
+erew: verification cases — No template declares one of the verification types (verification, verification-hl, verification-component, verification-ll), so there is no folder to read. Declare one in .ejadah/rew/templates — its `type:` names the kind and its `rew.folder:` is where Sanad looks — or list the files under `producers.verification` in the repository config.
+erew: test results — 11-verification/results (systems-verification-results): 0 case result(s) from 0 report(s)
+erew: sysml project — 16 file(s), 84 element(s), 108 relation(s), 9 check(s)
+erew: sysml project — 06-design/packages/requirements.sysml declares `ProjectRequirements` (generated — edit the Markdown requirement)
+erew: sysml project — 06-design/system/MrtmInterfaces.sysml declares `MrtmInterfaces`
+erew: sysml project — 06-design/system/MrtmLogical.sysml declares `MrtmLogical`
+erew: sysml project — 06-design/system/MrtmPartitions.sysml declares `MrtmPartitions`
+erew: sysml project — 06-design/system/MrtmPhysical.sysml declares `MrtmPhysical`
+erew: sysml project — 06-design/system/MrtmSystemContext.sysml declares `MrtmSystemContext`
+erew: sysml project — 06-design/system/MrtmUseCases.sysml declares `MrtmUseCases`
+erew: sysml project — 06-design/views/MrtmAllocationView.sysml declares `MrtmAllocationView`
+erew: sysml project — 06-design/views/MrtmBlocksView.sysml declares `MrtmBlocksView`
+erew: sysml project — 06-design/views/MrtmContainmentView.sysml declares `MrtmContainmentView`
+erew: sysml project — 06-design/views/MrtmContextView.sysml declares `MrtmContextView`
+erew: sysml project — 06-design/views/MrtmDataFlowView.sysml declares `MrtmDataFlowView`
+erew: sysml project — 06-design/views/MrtmExternalInterfacesView.sysml declares `MrtmExternalInterfacesView`
+erew: sysml project — 06-design/views/MrtmInterfacesView.sysml declares `MrtmInterfacesView`
+erew: sysml project — 06-design/views/MrtmUseCasesView.sysml declares `MrtmUseCasesView`
+erew: sysml project — 06-design/views/SanadRenderings.sysml declares `SanadRenderings`
+erew: context layer: 226 file(s), 2399 node(s), 48 skipped (22 ignored, 0 binary, 26 empty, 0 over the size ceiling, 0 unread at the total ceiling) · cut short: 06-design/views/rendered/mrtmBlocks.svg, 06-design/views/rendered/mrtmContainment.svg, 06-design/views/rendered/mrtmContext.svg, 06-design/views/rendered/mrtmDataFlow.svg, 06-design/views/rendered/mrtmExternalInterfaces.svg, 06-design/views/rendered/mrtmInterfaces.svg, 06-design/views/rendered/mrtmUseCases.svg, 13-assessment/sanad-runs/phase-2/report-requirements-trace.md, 13-assessment/sanad-runs/phase-2/report-requirements.md, 13-assessment/sanad-runs/phase-2/report-traceability-audit.csv, 13-assessment/sanad-runs/phase-2b/report-requirements-trace.md, 13-assessment/sanad-runs/phase-2b/report-requirements.md, 13-assessment/sanad-runs/phase-2b/report-traceability-audit.csv, 13-assessment/sanad-runs/phase-3/diff-config-since-REQ-BL-1.txt, 13-assessment/sanad-runs/phase-3/report-requirements-trace.md, 13-assessment/sanad-runs/phase-3/report-requirements.md, 13-assessment/sanad-runs/phase-3/report-traceability-audit-since-REQ-BL-1.md, 13-assessment/sanad-runs/phase-3/report-traceability-audit.csv, 13-assessment/sanad-runs/phase-3/report-traceability-audit.md, FINDINGS.md, tools/review-headless.cjs
+erew: rule pack: requirements-writing (Requirements writing — deterministic prose rules)
+erew: read ledger — 1 item(s) this repository states that Sanad did not read
+erew:   Sources not read: 1
+erew:     (repository) — Impact is bounded here by 1 limit — these numbers are not a clean result
+erew: analyses that ran: validation, traceability, quality, structure, verification, consistency, impact.
+erew: implementation: DID NOT RUN — this repository declares no implements role. It produced no findings, and that silence is not a clean result.
+erew: safety: DID NOT RUN — this repository declares no hazard role. It produced no findings, and that silence is not a clean result.
+erew: security: DID NOT RUN — this repository declares no threat role. It produced no findings, and that silence is not a clean result.
+erew: architecture: DID NOT RUN — this repository declares no allocation role. It produced no findings, and that silence is not a clean result.
+erew: interface: DID NOT RUN — this repository declares no interface role. It produced no findings, and that silence is not a clean result.
+erew: conformance: DID NOT RUN — this repository declares no allocation role. It produced no findings, and that silence is not a clean result.
+erew: 32 finding(s) (0 error, 0 warning, 32 info) across 7 analysis(es), 6 did not run in 19ms.
+erew: gate passed — nothing at or above "warning".

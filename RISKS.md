@@ -9,3 +9,6 @@
 | R-05 | 2026-09-27 | 1 | Alarm fatigue: too many alerts make staff ignore them | A real excursion is missed | 60 s confirmation time (A-04); acknowledge button | Claude |
 | R-06 | 2026-09-27 | 2 | Suppressions hide a real problem later | A true defect stays silent | Each has a reason; missing-decomposition expires 2026-10-31; reviewed in Phase 3 | Masood |
 | R-07 | 2026-09-27 | 3 | The placeholder review project `local/dogfood-fridge` is taken for a real one | The Review view shows a platform error in the click session | Named in ADR-0007 and CLICK-LIST C-08; replace when a remote exists | Masood |
+| R-08 | 2026-09-27 | 4 | One processor runs every job, including the alarm | Processor dies → no alarm | Watchdog restart + alarm restore (SAF-004, SAF-006); Q-12 asks about a hardware backup alarm; Phase 5 hazard | Masood |
+| R-09 | 2026-09-27 | 4 | Probe placement or self-heating reads the wrong air | Excursion missed or false | ADR-0009; Phase 5 hazard cause | Claude |
+| R-10 | 2026-09-27 | 4 | Flash wear-out or partition corruption | History lost | CRC-32 per record (SYS-021), capacity warning (SYS-022); ADR-0011 | Claude |

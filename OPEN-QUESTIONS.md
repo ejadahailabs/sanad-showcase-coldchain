@@ -13,3 +13,5 @@
 | Q-09 | 2026-09-27 | 1 | Which language(s) must the screen show? | display requirement | |
 | Q-10 | 2026-09-27 | 2 | How is the monitor's UTC clock set and kept accurate (RTC + manual set, or USB host sync)? | TBD-SYS-clock; SYS-008/010 time stamps | |
 | Q-11 | 2026-09-27 | 3 | Which platform and project will hold this repo's pull requests (GitHub or GitLab; name)? | `review:` block; real review rounds from round 2 | |
+| Q-12 | 2026-09-27 | 4 | Does the product need a hardware-only backup alarm that sounds when the firmware dies? | ADR-0008, ADR-0010, Phase 5 | |
+| Q-13 | 2026-09-27 | 4 | When the log is full: overwrite the oldest record, or stop logging and alarm? | ADR-0011, SYS-015 | |
