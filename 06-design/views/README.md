@@ -23,3 +23,7 @@ Each view file was written by Sanad's view writer (`newViewFile` + `writeViewFil
 - `mrtmSafetyBlocks` (general view of `MrtmSafety::**`) → rendered/mrtmSafetyBlocks.svg: the Hazard definition and the 8 hazard concerns with their scores. Dependencies are not drawn (F-52).
 - `mrtmSafetyReqs` (requirement view of `MrtmSafety::**`) → rendered/mrtmSafetyReqs.svg: the risk-control allocation part with its satisfy list; the concerns are not drawn (F-52).
 - `mrtmInterfaces` re-rendered: now shows the backup alarm and hold-up capacitor.
+
+## Phase 6 views (DOGFOOD-3)
+- `mrtmHwBlocks` (block view of `MrtmHardware::**`) → rendered/mrtmHwBlocks.svg: 12 chosen components and 6 wiring definitions with their pin attributes.
+- `mrtmHwInterfaces` (internal block view of `MrtmHardware::MrtmBoard::**`) → rendered/mrtmHwInterfaces.svg: the board; redefined parts are drawn without names and redefined wires are not drawn (F-60) — the pin values are in 09-hardware/pin-map.md (generated).

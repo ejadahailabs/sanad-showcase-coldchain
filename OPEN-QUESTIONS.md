@@ -15,3 +15,4 @@
 | Q-11 | 2026-09-27 | 3 | Which platform and project will hold this repo's pull requests (GitHub or GitLab; name)? | `review:` block; real review rounds from round 2 | Assumed: A-24 (placeholder kept) |
 | Q-12 | 2026-09-27 | 4 | Does the product need a hardware-only backup alarm that sounds when the firmware dies? | ADR-0008, ADR-0010, Phase 5 | Assumed: **YES — A-18 / ADR-0013 (coordinator ruling 2026-09-27, owner to confirm)** |
 | Q-13 | 2026-09-27 | 4 | When the log is full: overwrite the oldest record, or stop logging and alarm? | ADR-0011, SYS-015 | Assumed: A-21 (overwrite oldest, coordinator 2026-09-27) |
+| Q-14 | 2026-09-27 | 6 | Who does the electrical review (EE-REVIEW items in 09-hardware/hardware-design-description.md §7), and is the ESP32-S3 variant (A-25) acceptable? | Phase 6 values before any board is built; not blocking the document run | Assumed: S3 accepted (A-25); reviewer to be named by Masood |

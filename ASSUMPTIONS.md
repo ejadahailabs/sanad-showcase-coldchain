@@ -26,3 +26,4 @@
 | A-22 | 2026-09-27 | 5 | **Q-01/Q-02/Q-09 → coordinator assumptions:** users are nurses and pharmacists on all shifts incl. nights; the history must convince a clinic auditor or an inspector that stock was or was not exposed; the screen shows English only in version 1 | Hazard analysis needs a user and an audience | Yes |
 | A-23 | 2026-09-27 | 5 | **Q-10 → coordinator assumption:** the clock is a battery-backed RTC set by the technician over USB; an oscillator stop is logged (MRTM-SAF-022) | FMEA FM-12/13 | Yes |
 | A-24 | 2026-09-27 | 5 | **Q-11 → coordinator assumption:** the review project stays the placeholder `local/dogfood-fridge` until Masood adds a remote; no real platform is named | Naming a real project would be a claim nobody made | Yes |
+| A-25 | 2026-09-27 | 6 | The "ESP32" of the brief is an **ESP32-S3** class module, because only the S3 has the native USB device MRTM-IFC-003 needs for a mass-storage volume | Component selection; pin map | Yes |
