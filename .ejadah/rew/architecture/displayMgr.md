@@ -13,6 +13,7 @@ resources:
 - **Software item:** `MrtmSoftware::DisplayItem` (IEC 62304 §5.3.1, software safety class C)
 - **Model element:** `MrtmSoftware::MrtmFirmware` → `displayMgr` (SysML v2, `#Component`)
 - **Language:** C++ (ADR-0022) · **Runs in:** FreeRTOS `displayTask` (ADR-0019)
-- **Code:** none yet — Phase 9 adds `code:` globs for `10-src/firmware/main/displayMgr*`.
+- **Contract (Phase 8):** `10-src/firmware/components/display_mgr/contracts.md`, `MrtmSwDetail::DisplayMgrApi`
+- **Code:** none yet — Phase 9 adds `code: ["10-src/firmware/components/display_mgr/**"]`.
 
 Draws the temperature, warnings and messages on the OLED. Resets the I2C bus after a timeout.

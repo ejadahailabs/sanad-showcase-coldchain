@@ -36,3 +36,10 @@ if (process.argv[4] === "--arch") {
   add("unallocated-requirement", "03-requirements/safety/MRTM-SAF-020.md", "An instructions-for-use statement (probe position); no hardware or software element implements it; verified by inspection of the IFU (Phase 10). Accepted DOGFOOD-4.");
   fs.writeFileSync(p, String(d3));
 }
+// Phase 8 pass: the unit-contract usages in MrtmSwDetail are design elements, not declared components.
+if (process.argv[4] === "--p8") {
+  const d4 = YAML.parseDocument(fs.readFileSync(p, "utf8"));
+  d4.get("suppressions").add(d4.createNode({ rule: "allocation-target-undeclared", path: "06-design/software/MrtmSwDetail.sysml",
+    reason: "Satisfy links land on the unit-contract usages (sensorSamplerApi …), design elements of IEC 62304 5.4 rather than declared components; the #Interface marker is not read (FINDINGS F-70). Accepted DOGFOOD-4." }));
+  fs.writeFileSync(p, String(d4));
+}

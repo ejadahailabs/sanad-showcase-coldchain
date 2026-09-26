@@ -13,6 +13,7 @@ resources:
 - **Software item:** `MrtmSoftware::ExcursionItem` (IEC 62304 §5.3.1, software safety class C)
 - **Model element:** `MrtmSoftware::MrtmFirmware` → `limitEvaluator` (SysML v2, `#Component`)
 - **Language:** C (ADR-0022) · **Runs in:** FreeRTOS `sensorTask` (ADR-0019)
-- **Code:** none yet — Phase 9 adds `code:` globs for `10-src/firmware/main/limitEvaluator*`.
+- **Contract (Phase 8):** `10-src/firmware/components/limit_evaluator/contracts.md`, `MrtmSwDetail::LimitEvaluatorApi`
+- **Code:** none yet — Phase 9 adds `code: ["10-src/firmware/components/limit_evaluator/**"]`.
 
 Counts 7 samples in a row outside (or back inside) the band. Tracks the peak. Tells the alarm manager.

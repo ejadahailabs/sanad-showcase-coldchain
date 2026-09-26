@@ -13,6 +13,7 @@ resources:
 - **Software item:** `MrtmSoftware::LogItem` (IEC 62304 §5.3.1, software safety class C)
 - **Model element:** `MrtmSoftware::MrtmFirmware` → `eventLog` (SysML v2, `#Component`)
 - **Language:** C (ADR-0022) · **Runs in:** FreeRTOS `logTask` (ADR-0019)
-- **Code:** none yet — Phase 9 adds `code:` globs for `10-src/firmware/main/eventLog*`.
+- **Contract (Phase 8):** `10-src/firmware/components/event_log/contracts.md`, `MrtmSwDetail::EventLogApi`
+- **Code:** none yet — Phase 9 adds `code: ["10-src/firmware/components/event_log/**"]`.
 
 Turns events into records, stamps them with UTC time and writes each to both flash sectors within 1 s.

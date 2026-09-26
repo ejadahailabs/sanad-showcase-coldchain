@@ -13,6 +13,7 @@ resources:
 - **Software item:** `MrtmSoftware::UsbItem` (IEC 62304 §5.3.1, software safety class C)
 - **Model element:** `MrtmSoftware::MrtmFirmware` → `usbExport` (SysML v2, `#Component`)
 - **Language:** C (ADR-0022) · **Runs in:** FreeRTOS `usbTask` (ADR-0019)
-- **Code:** none yet — Phase 9 adds `code:` globs for `10-src/firmware/main/usbExport*`.
+- **Contract (Phase 8):** `10-src/firmware/components/usb_export/contracts.md`, `MrtmSwDetail::UsbExportApi`
+- **Code:** none yet — Phase 9 adds `code: ["10-src/firmware/components/usb_export/**"]`.
 
 Shows the history as a read-only USB drive (TinyUSB mass storage, SOUP).

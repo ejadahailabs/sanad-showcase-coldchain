@@ -1,0 +1,34 @@
+info    impact/impact-incomplete  (repository)  Impact is bounded here by 1 limit — these numbers are not a clean result
+info    quality/indefinite-article  MRTM-ENV-002  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-ENV-003  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-ENV-004  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-IFC-003  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-IFC-004  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-MNT-001  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-PRF-001  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-PRF-004  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SAF-001  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SAF-003  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SAF-004  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SAF-011  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SAF-021  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SAF-022  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-STK-008  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SYS-012  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SYS-020  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SYS-021  an indefinite article leaves which one open - use "the" and name the item
+info    validation/link-role-unreadable  /home/masood/Masood/Office_Projects/dogfood-fridge/.ejadah/rew/templates/interface.md  allocation counts as 0: no Interface Requirement carries it — point it at your field
+info    validation/link-role-unreadable  /home/masood/Masood/Office_Projects/dogfood-fridge/.ejadah/rew/templates/performance.md  allocation counts as 0: no Performance Requirement carries it — point it at your field
+info    validation/link-role-unreadable  /home/masood/Masood/Office_Projects/dogfood-fridge/.ejadah/rew/templates/safety.md  allocation counts as 0: no Safety Requirement carries it — point it at your field
+info    validation/link-role-unreadable  /home/masood/Masood/Office_Projects/dogfood-fridge/.ejadah/rew/templates/system.md  allocation counts as 0: no System Requirement carries it — point it at your field
+info    quality/logical-expression  MRTM-SAF-013  2 unbracketed and/or words - state the grouping, e.g. [X AND Y]
+info    quality/requirement-pattern  MRTM-SAF-015  Candidate — Sets a deadline but gives no time — add one (e.g. 50 ms) (Inferred from the text, so this is for human judgement, not an established fact.)
+info    quality/requirement-pattern  MRTM-SYS-004  Candidate — Sets a deadline but gives no time — add one (e.g. 50 ms) (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/single-point-failure  MRTM-SAF-011  HAZ-002 is mitigated by MRTM-SAF-011 alone, so that one requirement is everything standing between the hazard and its consequence. If the applicable standard expects independent mitigation at this level, this is where it is missing.
+info    sysml-project/sysml-unresolved-import  06-design/software/MrtmSoftware.sysml  line 10: `import SoftwareProfile` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/software/MrtmSwDetail.sysml  line 7: `import SoftwareProfile` names nothing this project declares
+info    structure/under-decomposition  MRTM-SYS-004  MRTM-SYS-004 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SYS-011  MRTM-SYS-011 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SYS-014  MRTM-SYS-014 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SYS-020  MRTM-SYS-020 has one child, which restates it — merge the two, or add the sibling
+info    impact/wide-impact  MRTM-STK-004  Changing MRTM-STK-004 reaches 13 other artifacts. MRTM-STK-004 rests on nothing above it, so a change here starts at the top and every artifact below has to be revisited. Ask Sanad what a specific change affects to see the trace path to each one.

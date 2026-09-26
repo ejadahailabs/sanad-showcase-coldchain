@@ -11,6 +11,7 @@ private import SoftwareProfile::*;
 private import ProjectRequirements::*;
 private import MrtmInterfaces::*;
 private import MrtmSwStates::*;
+private import MrtmSwCodes::*;
 
 package MrtmSoftware {
 
@@ -29,7 +30,7 @@ package MrtmSoftware {
         doc /* One 32-byte record in the history ring (ADR-0021). Written twice (MRTM-SAF-018). */
         attribute seq : Natural;
         attribute utcSeconds : Natural;
-        attribute kind : Natural;
+        attribute kind : EventKind;
         attribute celsiusTenths : Integer;
         attribute peakTenths : Integer;
         attribute crc32 : Natural;

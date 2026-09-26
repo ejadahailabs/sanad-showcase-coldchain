@@ -13,6 +13,7 @@ resources:
 - **Software item:** `MrtmSoftware::PowerItem` (IEC 62304 §5.3.1, software safety class C)
 - **Model element:** `MrtmSoftware::MrtmFirmware` → `powerMon` (SysML v2, `#Component`)
 - **Language:** C (ADR-0022) · **Runs in:** FreeRTOS `supervisorTask` (ADR-0019)
-- **Code:** none yet — Phase 9 adds `code:` globs for `10-src/firmware/main/powerMon*`.
+- **Contract (Phase 8):** `10-src/firmware/components/power_mon/contracts.md`, `MrtmSwDetail::PowerMonApi`
+- **Code:** none yet — Phase 9 adds `code: ["10-src/firmware/components/power_mon/**"]`.
 
 Watches mains-sense and battery voltage. Logs power loss and restore. Raises the low-battery alarm.

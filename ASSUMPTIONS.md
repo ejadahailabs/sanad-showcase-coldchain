@@ -30,3 +30,4 @@
 | A-26 | 2026-09-27 | 7 | Limit evaluation uses **time hysteresis only**: 7 samples in a row to enter (SYS-002) and 7 to leave (SYS-018); no °C dead band, because a dead band would keep an excursion open at 7.9 °C that SYS-018 says has ended. The dead band stays a config constant fixed at 0 (`MRTM_HYSTERESIS_TENTHS`) so a later requirement can set it | Limit evaluator design (Phase 8) | Yes |
 | A-27 | 2026-09-27 | 7 | The acknowledge button raises a GPIO interrupt that wakes the alarm task at once; a 1 s polling cycle alone cannot meet MRTM-SYS-006 (ADR-0020) | Alarm task design | Yes |
 | A-28 | 2026-09-27 | 7 | Both ESP32-S3 cores are used: safety tasks on core 1, slow I/O on core 0 (ADR-0019) | Task partitioning | Yes |
+| A-29 | 2026-09-27 | 8 | An invalid sample (bad CRC) neither counts toward nor resets the 7-sample runs; a long run of bad samples is caught by the 30 s probe fault instead | Limit evaluator algorithm; resetting would delay a real alarm | Yes |

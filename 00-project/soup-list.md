@@ -13,6 +13,8 @@
 | SOUP-5 | TinyUSB (MSC device class, in ESP-IDF) | TBD | TinyUSB project via Espressif | read-only USB volume (ADR-0021, MRTM-IFC-003) | TBD | C |
 | SOUP-6 | ESP-IDF NVS and flash partition drivers | TBD | Espressif | MonitorConfig record, log sectors | TBD | C |
 
+| SOUP-7 | Unity unit-test framework (ESP-IDF `unity` component) | TBD (pinned with ESP-IDF, Phase 9) | ThrowTheSwitch via Espressif | unit verification only — not in the shipped firmware (ADR-0023) | TBD | test tool (not in product) |
+
 Phase 7 (DOGFOOD-4): SOUP-4…6 added from the software architecture; SOUP-2 and SOUP-3 may be replaced by in-house drivers (Phase 8 decides).
 
 Values are placeholders; no real version is claimed.

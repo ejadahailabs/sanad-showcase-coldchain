@@ -13,6 +13,7 @@ resources:
 - **Software item:** `MrtmSoftware::SupervisorItem` (IEC 62304 §5.3.1, software safety class C)
 - **Model element:** `MrtmSoftware::MrtmFirmware` → `configMgr` (SysML v2, `#Component`)
 - **Language:** C (ADR-0022) · **Runs in:** FreeRTOS `supervisorTask` (ADR-0019)
-- **Code:** none yet — Phase 9 adds `code:` globs for `10-src/firmware/main/configMgr*`.
+- **Contract (Phase 8):** `10-src/firmware/components/config_mgr/contracts.md`, `MrtmSwDetail::ConfigMgrApi`
+- **Code:** none yet — Phase 9 adds `code: ["10-src/firmware/components/config_mgr/**"]`.
 
 Loads the band, probe offset and calibration date from NVS and checks their CRC-32.

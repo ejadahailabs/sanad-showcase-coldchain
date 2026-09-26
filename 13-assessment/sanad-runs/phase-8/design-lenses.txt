@@ -1,0 +1,14 @@
+components 12 (empty 0); undeclared model allocations 88; errors 0
+  alarmMgr: allocated 13, from model 0
+  configMgr: allocated 1, from model 0
+  diagnostics: allocated 2, from model 0
+  displayMgr: allocated 10, from model 0
+  eventLog: allocated 5, from model 0
+  historyRing: allocated 3, from model 0
+  limitEvaluator: allocated 3, from model 0
+  powerMon: allocated 3, from model 0
+  rtcClock: allocated 2, from model 0
+  sensorSampler: allocated 5, from model 0
+  usbExport: allocated 3, from model 0
+  wdtKicker: allocated 3, from model 0
+architecture engine: {"unallocated-requirement":1,"duplicate-functionality":7} [{"engine":"architecture","key":"architecture.allocationCoverage","value":98,"unit":"percent"}]
