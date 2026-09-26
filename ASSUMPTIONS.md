@@ -11,3 +11,4 @@
 | A-07 | 2026-09-27 | 0 | IEC 62304 class C mapped to Sanad rigour 4; A→0, B→2 | Sanad needs a number 0–4 per class | Yes |
 | A-08 | 2026-09-27 | 0 | Rule pack `requirements-writing` adopted unchanged; `design-review` pack deferred to Phase 4 | Sanad's recommended set | Yes |
 | A-09 | 2026-09-27 | 0 | Risk acceptability table in risk-management-plan.md is synthetic | ISO 14971 needs one before Phase 5 | Yes |
+| A-10 | 2026-09-27 | 1 | The history is read out over a USB cable as a read-only file | Needed for the ReviewHistory use case | Yes |

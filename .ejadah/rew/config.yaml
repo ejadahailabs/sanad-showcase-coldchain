@@ -146,10 +146,7 @@ sources: {}
 #       pilot_version: "0.61.0"   # the release Sanad is tested with; name another to run it
 design:
   roots:
-    - "06-design/system"
-    - "06-design/hardware"
-    - "06-design/software"
-    - "06-design/views"
+    - "06-design"
   requirementsPackage: "ProjectRequirements"
 
 # The customer's own fact sources (FEAT-055). Sanad reads the parameters each data

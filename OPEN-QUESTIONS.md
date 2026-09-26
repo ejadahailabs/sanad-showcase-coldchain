@@ -7,3 +7,7 @@
 | Q-03 | 2026-09-26 | 0 | Is a remote alert (SMS/app) needed in version 1? | Scope OUT-1 | |
 | Q-04 | 2026-09-27 | 0 | Is Class C right for the whole product, or only the alarm chain (with the display at B)? | safetyClass defaults | |
 | Q-05 | 2026-09-27 | 0 | What are the real severity and probability scales for the risk table? | Phase 5 evaluation | |
+| Q-06 | 2026-09-27 | 1 | How fast must staff react once alerted — is "about a minute" to alert acceptable to the users? | STK/SYS alert timing | |
+| Q-07 | 2026-09-27 | 1 | How long must the monitor run with no mains power (battery hours)? | ENV/SYS power requirements | |
+| Q-08 | 2026-09-27 | 1 | Does the clinic need the history as a file (CSV/PDF) or only on screen? | IFC history export format | |
+| Q-09 | 2026-09-27 | 1 | Which language(s) must the screen show? | display requirement | |

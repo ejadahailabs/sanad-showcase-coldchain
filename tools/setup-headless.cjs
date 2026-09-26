@@ -58,7 +58,8 @@ let text = starterConfig({
   artefactTemplates: {},
   artefactRecognition: {},
   dataDictionaryPaths: ["01-data-dictionary/data-dictionary.md"],
-  designRoots: ["06-design/system", "06-design/hardware", "06-design/software", "06-design/views"],
+  // ADR-0004: one root; Sanad puts views in <first root>/views, so the root is 06-design.
+  designRoots: ["06-design"],
   pilotHome: "",
   review: { platform: "", project: "", host: "", pollSeconds: 0, checklists: "", records: "", rules: {}, minReviewers: 0 },
   dataDictionaryFields: {},
