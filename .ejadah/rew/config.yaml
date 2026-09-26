@@ -273,8 +273,7 @@ suppressions:
       sentence shape on purpose. Accepted."
   - rule: "missing-decomposition"
     path: "03-requirements/system/**"
-    reason: "Leaf system requirements are satisfied by design elements (SysML
-      satisfy links, Phase 4), not by child requirements. Re-check at Phase 4."
+    reason: "Re-checked Phase 4 (DOGFOOD-2): all 14 leaf system requirements carry SysML satisfy links in 06-design/system (95 satisfy links, 54 of 54 requirements), but the structure engine counts only child requirements, not satisfy links (FINDINGS F-39). Accepted until that is fixed."
     expires: "2026-10-31"
   - rule: "parent-child-inconsistency"
     path: "03-requirements/system/**"
@@ -284,9 +283,21 @@ suppressions:
   # DOGFOOD-2 Phase 3 (review round 1): accepted with reason.
   - rule: "duplicate-requirement"
     path: "03-requirements/system/MRTM-SYS-010.md"
-    reason: "Acknowledgement event (SYS-010) and power restore event (SYS-023) are different events; same sentence shape on purpose, as SYS-008. Accepted review round 1."
+    reason: "Acknowledgement event (SYS-010) and power restore event (SYS-023) are
+      different events; same sentence shape on purpose, as SYS-008. Accepted
+      review round 1."
+  # DOGFOOD-2 Phase 4 (system architecture): accepted with reason.
+  - rule: "sysml-unresolved-id"
+    path: "06-design/system/MrtmPartitions.sysml"
+    reason: "Part-to-part `allocate` (logical function -> software item -> hardware) is read as a requirement allocation, so each end is looked up as a requirement id (FINDINGS F-35). The allocations are the IEC 62304 5.3 architecture and the OMG Pilot reads them clean. Accepted DOGFOOD-2."
+  - rule: "sysml-not-read"
+    path: "06-design/system/MrtmLogical.sysml"
+    reason: "The two successions (acquire -> check -> detect) are model truth; Sanad reads them but the action-flow picture does not draw them (F-36). Accepted DOGFOOD-2."
 review:
   platform: github
   project: local/dogfood-fridge
   checklists: 05-reviews/checklists
   records: 05-reviews/records
+sysml:
+  validator:
+    pilot_home: env:SYSML_PILOT_HOME
