@@ -16,7 +16,7 @@ derived: false
 
 ## Description
 
-The monitor shall confirm the excursion when 7 consecutive samples, spanning 60 s, are outside the allowed band.
+The monitor shall confirm the excursion when 31 consecutive samples, spanning 60 s, are outside the allowed band.
 
 ## Rationale
 

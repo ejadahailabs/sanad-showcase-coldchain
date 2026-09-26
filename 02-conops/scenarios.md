@@ -24,8 +24,10 @@ sequenceDiagram
     participant F as Fridge
     participant M as Monitor
     F->>M: air 8.3 °C for 30 s
-    M->>M: under 60 s → no excursion, no alert
+    M->>M: first sample out → early alarm: red light 1 Hz, no sound (≤ 5 s, CR-001)
+    M->>M: under 60 s → no excursion, no buzzer
     F->>M: air 6.0 °C
+    M->>M: back in band → early alarm clears by itself
 ```
 
 ## SC-3 — Probe unplugged

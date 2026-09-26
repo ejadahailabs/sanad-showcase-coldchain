@@ -6,7 +6,7 @@
 | Part | Component | Normal mA (EE-REVIEW) | Alarm mA (EE-REVIEW) |
 |---|---|---|---|
 | esp32 | Esp32S3Module | 25.00 | 25.00 |
-| probe | Ds18b20 | 0.11 | 0.11 |
+| probe | Ds18b20 | 0.56 | 0.56 |
 | oled | Oled128x64 | 12.00 | 20.00 |
 | rtc | TcxoRtc | 0.20 | 0.20 |
 | buzzer | PiezoBuzzerStage | 0.05 | 30.05 |
@@ -17,8 +17,8 @@
 | powerPath | ChargerPowerPath | 0.10 | 0.10 |
 | backupAlarm | WatchdogAlarmTimer | 0.01 | 0.01 |
 | holdUpCap | Supercap | 0.01 | 0.01 |
-| **Total** | | **42.48** | **80.48** |
+| **Total** | | **42.93** | **80.93** |
 
-- Battery: 2600.0 mAh × 0.8 usable = 2080 mAh → **49.0 h** normal, **25.8 h** alarm; required 4 h (MRTM-ENV-001, A-11). EE-REVIEW.
+- Battery: 2600.0 mAh × 0.8 usable = 2080 mAh → **48.5 h** normal, **25.7 h** alarm; required 4 h (MRTM-ENV-001, A-11). EE-REVIEW.
 - Hold-up: 4.0 F × 0.5 life derating × (5.0 − 3.0) V ÷ 30.06 mA (buzzer + timer) = **133 s**; required 60 s (MRTM-SAF-013). EE-REVIEW.
 - Result: pass.

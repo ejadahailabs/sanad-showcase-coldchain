@@ -14,7 +14,7 @@ S = severity, P = probability, R = S × P (ADR-0012). "Before" is without the li
 | Hazard | Sequence of events → hazardous situation | Harm | S | P before | R before | Risk-control measures (Sanad requirements) | P after | R after |
 |---|---|---|---|---|---|---|---|---|
 | **HAZ-001** Excursion not detected | Probe damaged, loose, badly placed, or bus errors → monitor reads in-band while air is warm → stock exposed, no alarm | Patient gets vaccine with lost potency | 3 | 2 | 6 ✗ | MRTM-SAF-002, SAF-003, SAF-020 · also SYS-012, PRF-001, IFC-001 | 1 | 3 review |
-| **HAZ-002** Alarm fatigue | Short door-openings or confusing sounds alarm often → staff learn to silence → real excursion ignored | Delayed action; exposed stock used or lost | 2 | 3 | 6 ✗ | MRTM-SAF-011 · also SYS-002 (60 s confirmation), SYS-018, SYS-019 (re-sound) | 2 | 4 review |
+| **HAZ-002** Alarm fatigue | Short door-openings or confusing sounds alarm often → staff learn to silence → real excursion ignored | Delayed action; exposed stock used or lost | 2 | 3 | 6 ✗ | MRTM-SAF-011 · also SYS-002 (60 s confirmation), SYS-018, SYS-019 (re-sound), SYS-024 (early tier is silent and self-clearing, ADR-0030) | 2 | 4 review |
 | **HAZ-003** Silent failure | Firmware hangs or processor dies → no sound, screen frozen on a good value → excursion unalarmed | Patient gets vaccine with lost potency | 3 | 2 | 6 ✗ | MRTM-SAF-004, SAF-006, SAF-009, SAF-010, SAF-013, SAF-023 | 1 | 3 review |
 | **HAZ-004** Sensor drift | Probe reads 1–2 °C off inside its plausible range → band edge moves → excursion near the edge missed | Patient gets vaccine with lost potency | 3 | 2 | 6 ✗ | MRTM-SAF-003, SAF-012 · also PRF-001, MNT-001 | 1 | 3 review |
 | **HAZ-005** Power loss | Mains fails, battery runs flat → monitor stops while fridge warms → unmonitored excursion | Patient gets vaccine with lost potency | 3 | 3 | 9 ✗ | MRTM-SAF-005, SAF-006, SAF-008, SAF-013 · also SYS-016, ENV-001, SYS-023 | 1 | 3 review |
@@ -23,6 +23,9 @@ S = severity, P = probability, R = S × P (ADR-0012). "Before" is without the li
 | **HAZ-008** History loss | Flash wear, corruption, bus hang or clock stop → excursion record missing or wrong → audit cannot show exposure | Exposed stock used, or good stock discarded | 2 | 2 | 4 review | MRTM-SAF-005, SAF-018, SAF-021, SAF-022 · also SYS-014, SYS-021, SYS-022 | 1 | 2 ✓ |
 
 ✗ = unacceptable before control; ✓ = acceptable. No hazard stays unacceptable after control.
+
+## Change CR-001 (Phase 11, 2026-09-27) — ISO 14971 cl. 7.6 and cl. 10
+The early alarm (MRTM-SYS-024, ADR-0030) adds one cause to **HAZ-002 Alarm fatigue**: the red light flashes at 1 Hz on every door opening. Control: the early tier makes **no sound**, clears itself when the air is back in band, and looks different from the high-priority 2 Hz flash. The buzzer keeps its 60 s confirmation. Severity and probability are unchanged (S 2, P after 2) — **review**, same as before. It also lowers the risk of **HAZ-001/HAZ-003** slightly (staff see warming a minute earlier); no score is lowered until a bench test shows staff notice the light (SP-01.11). A-38 (early tier not logged) keeps HAZ-008 unchanged. **Owner to confirm (Q-19).**
 
 ## Reading the "also" column
 Only safety requirements can carry a `hazard:` field today (the field was added to the safety template, F-47). System and performance requirements that also act as controls (SYS-002, SYS-012, PRF-001 …) cannot declare it, so Sanad's Safety engine counts HAZ-002 as resting on one requirement (`single-point-failure`, info) although four requirements defend it (F-50).

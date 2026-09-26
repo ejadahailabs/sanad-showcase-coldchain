@@ -26,7 +26,7 @@ Software: MRTM_SAMPLE_PERIOD_MS
 Aliases: sample period
 Type: duration
 Units: s
-Range: 10..10
+Range: 2..2
 
 The time between two samples.
 

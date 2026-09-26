@@ -140,7 +140,7 @@ package MrtmSoftware {
         attribute :>> priority = 21; attribute :>> periodMs = 500; attribute :>> deadlineMs = 100; attribute :>> stackBytes = 4096; attribute :>> core = 1;
     }
     #Thread part def SensorTask :> RtosTask {
-        attribute :>> priority = 18; attribute :>> periodMs = 10000; attribute :>> deadlineMs = 1000; attribute :>> stackBytes = 4096; attribute :>> core = 1;
+        attribute :>> priority = 18; attribute :>> periodMs = 2000; attribute :>> deadlineMs = 1000; attribute :>> stackBytes = 4096; attribute :>> core = 1;
     }
     #Thread part def LogTask :> RtosTask {
         doc /* Event-driven: blocks on the log queue; periodMs 0 = no period. */
@@ -167,6 +167,7 @@ package MrtmSoftware {
         attribute safetyClass : SafetyClass = SafetyClass::C;
         part limitEvaluator : LimitEvaluator;
         satisfy 'MRTM-SYS-002' by limitEvaluator;
+        satisfy 'MRTM-SYS-024' by limitEvaluator;
         satisfy 'MRTM-SYS-017' by limitEvaluator;
         satisfy 'MRTM-SYS-018' by limitEvaluator;
     }
@@ -177,6 +178,7 @@ package MrtmSoftware {
         satisfy 'MRTM-SAF-010' by alarmMgr;  // Phase 9: code-trace + conformance found this unit implements it (DEF-007)
         satisfy 'MRTM-SAF-017' by alarmMgr;  // Phase 9: code-trace + conformance found this unit implements it (DEF-007)
         satisfy 'MRTM-SYS-003' by alarmMgr;
+        satisfy 'MRTM-SYS-024' by alarmMgr;
         satisfy 'MRTM-SYS-004' by alarmMgr;
         satisfy 'MRTM-SYS-006' by alarmMgr;
         satisfy 'MRTM-SYS-019' by alarmMgr;

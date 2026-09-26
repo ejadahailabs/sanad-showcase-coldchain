@@ -1,5 +1,5 @@
 package ProjectRequirements {
-    comment /* GENERATED from the Markdown requirement corpus at 8f9ed3fbe08c9982.
+    comment /* GENERATED from the Markdown requirement corpus at 0e7b7a2c45b1a2c7.
        Read-only: edit the Markdown requirement, not this file. Sanad regenerates it on
        every corpus change and the same corpus always gives byte-identical text. */
 
@@ -160,7 +160,7 @@ package ProjectRequirements {
     }
 
     requirement <'MRTM-STK-002'> MRTM_STK_002 {
-        doc /* The monitor shall raise no alert for the temperature departure shorter than the excursion confirmation time. */
+        doc /* The monitor shall raise no audible alert for the temperature departure shorter than the excursion confirmation time. */
     }
 
     requirement <'MRTM-STK-003'> MRTM_STK_003 {
@@ -188,11 +188,11 @@ package ProjectRequirements {
     }
 
     requirement <'MRTM-SYS-001'> MRTM_SYS_001 {
-        doc /* The monitor shall sample the fridge air temperature at the sampling period of 10 s. */
+        doc /* The monitor shall sample the fridge air temperature at the sampling period of 2 s. */
     }
 
     requirement <'MRTM-SYS-002'> MRTM_SYS_002 {
-        doc /* The monitor shall confirm the excursion when 7 consecutive samples, spanning 60 s, are outside the allowed band. */
+        doc /* The monitor shall confirm the excursion when 31 consecutive samples, spanning 60 s, are outside the allowed band. */
     }
 
     requirement <'MRTM-SYS-003'> MRTM_SYS_003 {
@@ -256,7 +256,7 @@ package ProjectRequirements {
     }
 
     requirement <'MRTM-SYS-018'> MRTM_SYS_018 {
-        doc /* The monitor shall end the excursion after 7 consecutive samples, spanning 60 s, back inside the allowed band. */
+        doc /* The monitor shall end the excursion after 31 consecutive samples, spanning 60 s, back inside the allowed band. */
     }
 
     requirement <'MRTM-SYS-019'> MRTM_SYS_019 {
@@ -277,6 +277,10 @@ package ProjectRequirements {
 
     requirement <'MRTM-SYS-023'> MRTM_SYS_023 {
         doc /* The monitor shall log the power restore event with the UTC time stamp at 1 s resolution. */
+    }
+
+    requirement <'MRTM-SYS-024'> MRTM_SYS_024 {
+        doc /* The system shall raise an alarm within 5 seconds of a temperature excursion. */
     }
 
     dependency from MRTM_ENV_001 to MRTM_SYS_016;
@@ -340,4 +344,5 @@ package ProjectRequirements {
     dependency from MRTM_SYS_021 to MRTM_STK_006;
     dependency from MRTM_SYS_022 to MRTM_STK_005;
     dependency from MRTM_SYS_023 to MRTM_STK_008;
+    dependency from MRTM_SYS_024 to MRTM_STK_001;
 }

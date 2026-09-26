@@ -32,6 +32,7 @@ package MrtmPartitions {
 
         satisfy 'MRTM-SYS-001' by sensorService;
         satisfy 'MRTM-SYS-002' by excursionService;
+        satisfy 'MRTM-SYS-024' by excursionService;
         satisfy 'MRTM-SYS-003' by alarmService;
         satisfy 'MRTM-SYS-005' by displayService;
         satisfy 'MRTM-SYS-015' by logService;

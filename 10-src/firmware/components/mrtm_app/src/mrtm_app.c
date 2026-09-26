@@ -68,7 +68,7 @@ mrtm_mode_t app_power_up(uint32_t now_ms)
     return app.mode;
 }
 
-/* @implements MRTM-SYS-001 MRTM-SYS-002 MRTM-SYS-008 MRTM-SYS-009 MRTM-SYS-012 MRTM-SAF-002 */
+/* @implements MRTM-SYS-024 MRTM-SYS-001 MRTM-SYS-002 MRTM-SYS-008 MRTM-SYS-009 MRTM-SYS-012 MRTM-SAF-002 */
 void app_sensor_step(uint32_t now_ms)
 {
     if (app.mode != MODE_MONITORING) return;
@@ -89,6 +89,12 @@ void app_sensor_step(uint32_t now_ms)
     case LIMIT_ENDED:
         (void)alarm_mgr_post(SIG_EXCURSION_ENDED);
         (void)event_log_post(MRTM_EV_EXCURSION_END, s.tenths, limit_evaluator_peak(&app.lim));
+        break;
+    case LIMIT_EARLY:                                   /* not logged: A-38 (log capacity, HAZ-008) */
+        (void)alarm_mgr_post(SIG_EXCURSION_EARLY);
+        break;
+    case LIMIT_EARLY_CLEARED:
+        (void)alarm_mgr_post(SIG_EARLY_CLEARED);
         break;
     case LIMIT_NONE:
         break;

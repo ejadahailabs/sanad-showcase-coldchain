@@ -69,12 +69,12 @@ package MrtmHardware {
     }
     part def Ds18b20 :> Ds18b20Probe, Component {
         doc /* DS18B20 digital probe in a stainless sleeve on a 2 m lead; +/-0.5 C from -10 C to +85 C; 12-bit, 750 ms conversion.
-           Average current = 1.5 mA x 0.75 s / 10 s. */
+           Average current = 1.5 mA x 0.75 s / 2 s (CR-001, ADR-0031; EE-REVIEW: self-heating at 37 % conversion duty). */
         attribute conversionMs : Integer = 750;
         attribute :>> partNumber = "VB-DS18B20-SL2";
         attribute :>> vendor = "Vendor B";
-        attribute :>> normalMa = 0.11;
-        attribute :>> alarmMa = 0.11;
+        attribute :>> normalMa = 0.56;
+        attribute :>> alarmMa = 0.56;
     }
     part def Oled128x64 :> OledPanel, Component {
         doc /* 0.96 in 128 x 64 monochrome OLED, SSD1306-class controller on I2C; digits 5 mm high need the 2x font (MRTM-IFC-004). */

@@ -16,7 +16,7 @@ derived: false
 
 ## Description
 
-The monitor shall sample the fridge air temperature at the sampling period of 10 s.
+The monitor shall sample the fridge air temperature at the sampling period of 2 s.
 
 ## Rationale
 
@@ -24,4 +24,4 @@ Sampling Period in the data dictionary (A-04).
 
 ## Verification
 
-Test: time 100 consecutive samples; each interval is 10 s ± 0.5 s.
+Test: time 100 consecutive samples; each interval is 2 s ± 0.1 s.

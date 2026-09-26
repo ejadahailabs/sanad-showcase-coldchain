@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include "sensor_sampler.h"
 
-typedef enum { LIMIT_NONE = 0, LIMIT_CONFIRMED, LIMIT_ENDED } limit_event_t;
+typedef enum { LIMIT_NONE = 0, LIMIT_CONFIRMED, LIMIT_ENDED, LIMIT_EARLY, LIMIT_EARLY_CLEARED } limit_event_t;
 typedef struct { int16_t low, high, hyst; uint8_t out_run, in_run; bool excursion; int16_t peak; } limit_eval_t;
 
 void limit_evaluator_init(limit_eval_t *st, int16_t low_tenths, int16_t high_tenths);

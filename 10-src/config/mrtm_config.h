@@ -13,8 +13,14 @@
 #define MRTM_CONFIG_H
 
 /* Sampling and excursion — @implements MRTM-SYS-001 MRTM-SYS-002 MRTM-SYS-018 */
-#define MRTM_SAMPLE_PERIOD_MS        10000u   /* 10 s */
-#define MRTM_CONFIRM_SAMPLES         7u       /* 7 samples spanning 60 s, in and out */
+#define MRTM_SAMPLE_PERIOD_MS        2000u    /* 2 s (CR-001, ADR-0031; was 10 s) */
+#define MRTM_CONFIRM_WINDOW_MS       60000u   /* confirmation spans 60 s (MRTM-SYS-002 / SYS-018) */
+#define MRTM_CONFIRM_SAMPLES         (MRTM_CONFIRM_WINDOW_MS / MRTM_SAMPLE_PERIOD_MS + 1u)   /* 31, in and out */
+/* Early alarm budget (MRTM-SYS-024, ADR-0030): wait for the next sample + DS18B20 12-bit conversion
+   + alarm hand-off (task notified at once, 1 s cycle as the worst case) must fit in 5 s. */
+#define MRTM_EARLY_ALARM_MS          5000u
+#define MRTM_PROBE_CONVERSION_MS     750u     /* EE-REVIEW: DS18B20 datasheet max at 12 bit */
+/* checked at compile time in limit_evaluator.c (C only; this header is also read by C++) */
 #define MRTM_HYSTERESIS_TENTHS       0        /* A-26: time hysteresis only; knob kept at 0 */
 
 /* Allowed band sanity limits for the stored record — @implements MRTM-SYS-017 MRTM-SAF-017 */
@@ -32,6 +38,7 @@
 #define MRTM_BUTTON_DEBOUNCE_MS      50u
 #define MRTM_BUTTON_STUCK_MS         60000u
 #define MRTM_BUZZER_FAULT_STEPS      5u       /* 5 x 1 s steps with no current */
+#define MRTM_RED_LED_EARLY_HZ        1u       /* early (low-priority) tier, ADR-0030 */
 #define MRTM_RED_LED_ALARM_HZ        2u
 #define MRTM_RED_LED_FAULT_HZ        4u
 

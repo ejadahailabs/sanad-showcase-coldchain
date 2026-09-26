@@ -67,9 +67,12 @@
     "tools/config-phase9.cjs",
     "tools/design-lenses-headless.cjs",
     "tools/detail-design.py",
+    "tools/gcov2lcov.py",
     "tools/gen-codes.py",
+    "tools/hazard-chain.py",
     "tools/hazard-link-check.py",
     "tools/hw-tables.cjs",
+    "tools/impact-headless.cjs",
     "tools/matrix-headless.cjs",
     "tools/new-view-headless.cjs",
     "tools/p8data.py",
@@ -77,12 +80,26 @@
     "tools/profile-write-headless.cjs",
     "tools/render-view-headless.cjs",
     "tools/requirements-package.cjs",
+    "tools/results-config.cjs",
+    "tools/results-junit.py",
     "tools/review-config.cjs",
     "tools/review-headless.cjs",
     "tools/setup-headless.cjs",
-    "tools/sysml-readback.cjs"
+    "tools/sysml-readback.cjs",
+    "tools/verif-matrix.py",
+    "tools/verification-plan-headless.cjs",
+    "tools/verification-records.py"
   ],
   "symbols": [
+    {
+      "symbol": "off",
+      "file": "10-src/config/mrtm_config.h",
+      "implements": [
+        "MRTM-SYS-001",
+        "MRTM-SYS-002",
+        "MRTM-SYS-018"
+      ]
+    },
     {
       "symbol": "alarm_mgr_init",
       "file": "10-src/firmware/components/alarm_mgr/src/alarm_mgr.c",
@@ -103,13 +120,15 @@
       "implements": [
         "MRTM-SYS-003",
         "MRTM-SYS-006",
-        "MRTM-SAF-002"
+        "MRTM-SAF-002",
+        "MRTM-SYS-024"
       ]
     },
     {
       "symbol": "alarm_mgr_step",
       "file": "10-src/firmware/components/alarm_mgr/src/alarm_mgr.c",
       "implements": [
+        "MRTM-SYS-024",
         "MRTM-SYS-003",
         "MRTM-SYS-004",
         "MRTM-SYS-019",
@@ -283,7 +302,8 @@
       "implements": [
         "MRTM-SYS-002",
         "MRTM-SYS-018",
-        "MRTM-SYS-017"
+        "MRTM-SYS-017",
+        "MRTM-SYS-024"
       ]
     },
     {
@@ -308,6 +328,7 @@
       "symbol": "app_sensor_step",
       "file": "10-src/firmware/components/mrtm_app/src/mrtm_app.c",
       "implements": [
+        "MRTM-SYS-024",
         "MRTM-SYS-001",
         "MRTM-SYS-002",
         "MRTM-SYS-008",

@@ -8,7 +8,7 @@ import csv, pathlib, re, sys
 from xml.sax.saxutils import quoteattr as q
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sha, date, outdir, trace = sys.argv[1], sys.argv[2], pathlib.Path(sys.argv[3]), pathlib.Path(sys.argv[4])
-TESTER = "DOGFOOD-5 (agent, no independence)"
+TESTER = os.environ.get("TESTER", "DOGFOOD-5") + " (agent, no independence)"
 RES = ROOT / "11-verification/results"
 
 def suite(name, level, cases, evidence, env):

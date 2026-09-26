@@ -16,7 +16,7 @@ derived: false
 
 ## Description
 
-The monitor shall raise no alert for the temperature departure shorter than the excursion confirmation time.
+The monitor shall raise no audible alert for the temperature departure shorter than the excursion confirmation time.
 
 ## Rationale
 

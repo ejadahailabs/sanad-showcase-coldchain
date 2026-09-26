@@ -6,11 +6,12 @@
 #include <stdint.h>
 #include "mrtm_errors.h"
 
-typedef enum { ALARM_QUIET = 0, ALARM_SOUNDING, ALARM_SILENCED, ALARM_PROBE_FAULT, ALARM_BUZZER_FAULT } alarm_state_t;
+typedef enum { ALARM_QUIET = 0, ALARM_SOUNDING, ALARM_SILENCED, ALARM_PROBE_FAULT, ALARM_BUZZER_FAULT, ALARM_EARLY } alarm_state_t;   /* EARLY last: NVS values stay */
 /* SIG_FAIL_SAFE is not in the Phase-8 contract: SystemModes::failSafe (config CRC, self-test fail)
    needs the buzzer and had no signal into this unit. REVIEW (F-86). */
 typedef enum { SIG_EXCURSION_CONFIRMED = 1, SIG_EXCURSION_ENDED, SIG_ACK_PRESSED, SIG_PROBE_FAULT,
-               SIG_PROBE_RECOVERED, SIG_BATTERY_LOW, SIG_FAIL_SAFE } alarm_signal_t;
+               SIG_PROBE_RECOVERED, SIG_BATTERY_LOW, SIG_FAIL_SAFE,
+               SIG_EXCURSION_EARLY, SIG_EARLY_CLEARED } alarm_signal_t;   /* early tier, ADR-0030 */
 
 mrtm_err_t alarm_mgr_init(void);
 mrtm_err_t alarm_mgr_post(alarm_signal_t sig);

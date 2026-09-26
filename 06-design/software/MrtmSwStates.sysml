@@ -10,6 +10,8 @@ package MrtmSwStates {
     doc /* The alarm state machine and the system modes of the monitoring firmware. */
 
     // Signals the machines accept (each is one message on a FreeRTOS queue or a task notification).
+    item def ExcursionEarly;       // CR-001, ADR-0030: first valid out-of-band sample
+    item def EarlyCleared;         // back in band before confirmation
     item def ExcursionConfirmed;
     item def ExcursionEnded;
     item def AckPressed;
@@ -33,6 +35,10 @@ package MrtmSwStates {
         state quiet {
             entry action buzzerOffLedGreen;
         }
+        state early {
+            doc /* Low-priority tier (ADR-0030): red LED 1 Hz, no buzzer, within 5 s of the first out-of-band sample (MRTM-SYS-024). */
+            entry action flashRedSlow;
+        }
         state sounding {
             doc /* Buzzer continuous, red LED 2 Hz, warning on screen (MRTM-SYS-003/004/005), within 5 s of confirmation. */
             entry action startAlarm;
@@ -51,6 +57,10 @@ package MrtmSwStates {
             entry action flashRedFast;
         }
 
+        transition earlyFromQuiet first quiet accept ExcursionEarly then early;
+        transition earlyCleared first early accept EarlyCleared then quiet;
+        transition confirmFromEarly first early accept ExcursionConfirmed then sounding;
+        transition probeFromEarly first early accept ProbeFaultDeclared then probeFault;
         transition confirm first quiet accept ExcursionConfirmed then sounding;
         transition ack first sounding accept AckPressed then silenced;
         transition realarm first silenced if silencedSeconds >= realarmSeconds then sounding;

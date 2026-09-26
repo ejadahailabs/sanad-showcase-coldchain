@@ -6,8 +6,8 @@
 
 | Case | Title | Verifies | Level | Category | Environment | Minutes | Pass criterion |
 |---|---|---|---|---|---|---|---|
-| SP-01 | Excursion, alarm, acknowledge, re-alarm, end | MRTM-SYS-001 MRTM-SYS-002 MRTM-SYS-003 MRTM-SYS-004 MRTM-SYS-005 MRTM-SYS-006 MRTM-SYS-007 MRTM-SYS-008 MRTM-SYS-009 MRTM-SYS-010 MRTM-SYS-018 MRTM-SYS-019 MRTM-PRF-002 MRTM-IFC-002 MRTM-SAF-019 MRTM-STK-001 MRTM-STK-002 MRTM-STK-003 | system | normal-range | H + T | 25 (H: 1) | all 10 checks of §SP-01 pass |
-| SP-01-H | Excursion cycle — host dry run on the stubs (`sim_main excursion`) | MRTM-SYS-001 MRTM-SYS-002 MRTM-SYS-003 MRTM-SYS-004 MRTM-SYS-005 MRTM-SYS-006 MRTM-SYS-008 MRTM-SYS-009 MRTM-SYS-010 MRTM-SYS-018 MRTM-SYS-019 MRTM-PRF-002 MRTM-IFC-002 | system | normal-range | H | 1 | the runner prints 10 CHECK … PASS lines and RESULT PASS |
+| SP-01 | Excursion, alarm, acknowledge, re-alarm, end | MRTM-SYS-001 MRTM-SYS-002 MRTM-SYS-003 MRTM-SYS-004 MRTM-SYS-005 MRTM-SYS-006 MRTM-SYS-007 MRTM-SYS-008 MRTM-SYS-009 MRTM-SYS-010 MRTM-SYS-018 MRTM-SYS-019 MRTM-PRF-002 MRTM-IFC-002 MRTM-SAF-019 MRTM-STK-001 MRTM-STK-002 MRTM-STK-003 MRTM-SYS-024 | system | normal-range | H + T | 25 (H: 1) | all 11 checks of §SP-01 pass |
+| SP-01-H | Excursion cycle — host dry run on the stubs (`sim_main excursion`) | MRTM-SYS-001 MRTM-SYS-002 MRTM-SYS-003 MRTM-SYS-004 MRTM-SYS-005 MRTM-SYS-006 MRTM-SYS-008 MRTM-SYS-009 MRTM-SYS-010 MRTM-SYS-018 MRTM-SYS-019 MRTM-PRF-002 MRTM-IFC-002 MRTM-SYS-024 | system | normal-range | H | 1 | the runner prints 11 CHECK … PASS lines and RESULT PASS |
 | SP-02 | Probe fault: no CRC for 30 s, reading out of range | MRTM-SYS-012 MRTM-SYS-013 MRTM-SAF-002 MRTM-SAF-003 MRTM-SAF-011 MRTM-STK-007 | system | fault-injection | T | 15 | fault declared ≤ 30 s after the last good sample (+1 sample period); message ≤ 5 s; buzzer 1 s on / 1 s off ±0.1 s |
 | SP-03 | Firmware hang → watchdog restart and backup alarm | MRTM-SAF-004 MRTM-SAF-009 MRTM-SAF-010 MRTM-SAF-013 | system | fault-injection | T | 20 | restart ≤ 2 s; pulses stop ≤ 2 s after the alarm task stops; backup buzzer ≤ 10 s after the last pulse; backup sounds ≥ 60 s with no power |
 | SP-04 | Mains loss, battery, low battery | MRTM-SYS-016 MRTM-SYS-023 MRTM-SAF-005 MRTM-SAF-008 MRTM-ENV-001 MRTM-STK-008 | system | normal-range | T | 300 | switch-over ≤ 100 ms (scope); POWER_LOSS logged ≤ 1 s; runs ≥ 4 h on battery; buzzer ≤ 5 s after 3.4 V |
@@ -27,18 +27,18 @@
 **Set-up.** Monitor provisioned with band 2.0–8.0 °C. Host: `10-src/build/bin/sim_main excursion`. Bench: probe in a stirred water bath at 5.0 °C; stopwatch; USB host.
 **Steps and checks** (the host runner prints one CHECK line for each):
 1. Run 60 s in band → buzzer off, green light on (SP-01.1).
-2. Move the probe to 9.5 °C. → buzzer ≤ 65 s after the first sample above 8.0 °C (SP-01.2, PRF-002; SYS-002 confirmation after 7 samples, SYS-003 ≤ 5 s after it); red light 2 Hz (SP-01.3); excursion warning on the screen (SP-01.4).
+2. Move the probe to 9.5 °C. → early alarm (red light 1 Hz, buzzer still off) ≤ 5 s after the probe first reads above 8.0 °C (SP-01.11, SYS-024, CR-001 — bench: time 10 trials); then buzzer ≤ 65 s after the first sample above 8.0 °C (SP-01.2, PRF-002; SYS-002 confirmation after 31 samples spanning 60 s, SYS-003 ≤ 5 s after it); red light 2 Hz (SP-01.3); excursion warning on the screen (SP-01.4).
 3. Tap the button for < 50 ms → nothing changes (SP-01.5, IFC-002).
 4. Press the button → buzzer off ≤ 1 s (SP-01.6, SYS-006).
 5. Wait → buzzer on again 15 min after the press (SP-01.7, SYS-019).
-6. Move the probe back to 5.0 °C → excursion ends after 7 in-band samples, 60–80 s (SP-01.8, SYS-018).
+6. Move the probe back to 5.0 °C → excursion ends after 31 in-band samples, 60–80 s (SP-01.8, SYS-018).
 7. Read the history over USB → one start, one acknowledgement, one re-alarm and one end record, each with a UTC stamp to the second (SP-01.9, SYS-008/010); the end record's peak = 9.5 °C (SP-01.10, SYS-009).
 8. Bench only: hold the button 60 s → BUTTON_FAULT logged, further presses ignored until release (SAF-019; host: unit test).
 **Pass:** all checks pass. **Minutes:** host 1, bench 25.
 **Two cases, two verdicts (A-36):** `SP-01-H` is the host dry run (steps 1–7 on the stubs, automated); `SP-01` is the bench run. A host pass never closes the bench case.
 
 ## SP-02 — Probe fault (T)
-**Set-up.** Bench as SP-01. **Steps.** 1) Short the DQ line to ground for 40 s → probe fault declared ≤ 30 s after the last good sample (+10 s sample period), probe-fault message ≤ 5 s later, buzzer pattern 1 s on / 1 s off measured on the scope. 2) Release → fault clears on the next good sample, event PROBE_RECOVERED. 3) Put the probe in 55 °C water → fault at the first such sample (SAF-003). **Pass:** all three. **Minutes:** 15.
+**Set-up.** Bench as SP-01. **Steps.** 1) Short the DQ line to ground for 40 s → probe fault declared ≤ 30 s after the last good sample (+2 s sample period, CR-001), probe-fault message ≤ 5 s later, buzzer pattern 1 s on / 1 s off measured on the scope. 2) Release → fault clears on the next good sample, event PROBE_RECOVERED. 3) Put the probe in 55 °C water → fault at the first such sample (SAF-003). **Pass:** all three. **Minutes:** 15.
 
 ## SP-03 — Firmware hang (T)
 **Set-up.** Debug build with a test command that stops the alarm task (never in the release build — REVIEW). **Steps.** 1) Trigger the hang; scope on GPIO 15 → last pulse ≤ 2 s after the alarm task's last 1 s cycle. 2) Stopwatch → backup buzzer ≤ 10 s after the last pulse. 3) Task WDT restarts the firmware ≤ 2 s after its 5 s timeout (console time stamps). 4) Remove mains and battery → backup buzzer sounds ≥ 60 s (SAF-013). **Minutes:** 20.

@@ -27,7 +27,7 @@ package MrtmSwDetail {
             out ret : ErrorCode;
         }
         action 'sensor_sampler_read' {
-            doc /* C: mrtm_err_t sensor_sampler_read(uint32_t now_s, mrtm_sample_t *out); Pre: Called by sensorTask every MRTM_SAMPLE_PERIOD_MS (10 s). Post: out->valid is false on CRC or range failure; tenths = raw/1.6 + probe offset, rounded to 0.1 degC. Errors: MRTM_ERR_BUS, MRTM_ERR_CRC, MRTM_ERR_RANGE. Algorithm: Read 9-byte scratchpad; CRC-8 (Dallas/Maxim, poly 0x31) over bytes 0..7 must equal byte 8; raw 12-bit two's complement / 16 = degC; outside -30..50 degC -> RANGE (MRTM-SAF-003, declares probe fault at once); start the next 750 ms conversion. */
+            doc /* C: mrtm_err_t sensor_sampler_read(uint32_t now_s, mrtm_sample_t *out); Pre: Called by sensorTask every MRTM_SAMPLE_PERIOD_MS (2 s, ADR-0031). Post: out->valid is false on CRC or range failure; tenths = raw/1.6 + probe offset, rounded to 0.1 degC. Errors: MRTM_ERR_BUS, MRTM_ERR_CRC, MRTM_ERR_RANGE. Algorithm: Read 9-byte scratchpad; CRC-8 (Dallas/Maxim, poly 0x31) over bytes 0..7 must equal byte 8; raw 12-bit two's complement / 16 = degC; outside -30..50 degC -> RANGE (MRTM-SAF-003, declares probe fault at once); start the next 750 ms conversion. */
             in nowS : Natural;
             out sample : TemperatureSample;
             out ret : ErrorCode;
@@ -49,7 +49,7 @@ package MrtmSwDetail {
             in highTenths : Integer;
         }
         action 'limit_evaluator_step' {
-            doc /* C: limit_event_t limit_evaluator_step(limit_eval_t *st, const mrtm_sample_t *s); Pre: Called once per sample, straight after sensor_sampler_read. Post: Returns LIMIT_CONFIRMED on the 7th consecutive out-of-band sample, LIMIT_ENDED on the 7th consecutive in-band sample during an excursion. Errors: none. Algorithm: Invalid samples are skipped: they neither count nor reset (A-29). out = t < low - hyst OR t > high + hyst while no excursion; in = low + hyst <= t <= high - hyst while in excursion; hyst = MRTM_HYSTERESIS_TENTHS = 0 (A-26). out_run counts consecutive out samples, in_run consecutive in samples; each resets the other. Confirm at out_run == MRTM_CONFIRM_SAMPLES (7 -> spans 60 s at 10 s); end at in_run == 7. Peak = max |distance outside band| sample, kept from the first out sample. */
+            doc /* C: limit_event_t limit_evaluator_step(limit_eval_t *st, const mrtm_sample_t *s); Pre: Called once per sample, straight after sensor_sampler_read. Post: Returns LIMIT_CONFIRMED on the 7th consecutive out-of-band sample, LIMIT_ENDED on the 7th consecutive in-band sample during an excursion. Errors: none. Algorithm: Invalid samples are skipped: they neither count nor reset (A-29). out = t < low - hyst OR t > high + hyst while no excursion; in = low + hyst <= t <= high - hyst while in excursion; hyst = MRTM_HYSTERESIS_TENTHS = 0 (A-26). out_run counts consecutive out samples, in_run consecutive in samples; each resets the other. Early alarm (ADR-0030): returns LIMIT_EARLY on the first valid out sample, LIMIT_EARLY_CLEARED when an in sample breaks a run before confirmation. Confirm at out_run == MRTM_CONFIRM_SAMPLES (60 s / 2 s + 1 = 31 -> spans 60 s); end at in_run == 31. Peak = max |distance outside band| sample, kept from the first out sample. */
             in sample : TemperatureSample;
             out limitEvent : Natural;
         }

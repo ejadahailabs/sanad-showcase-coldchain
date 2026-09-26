@@ -18,7 +18,7 @@ typedef struct { int16_t tenths; uint32_t utc_s; bool valid; } mrtm_sample_t;  /
 | Function (C) | Pre-condition | Post-condition | Errors |
 |---|---|---|---|
 | `mrtm_err_t sensor_sampler_init(const mrtm_config_t *cfg);` | cfg != NULL, config CRC already checked. | Bus reset done, first conversion started. | MRTM_ERR_ARG, MRTM_ERR_BUS |
-| `mrtm_err_t sensor_sampler_read(uint32_t now_s, mrtm_sample_t *out);` | Called by sensorTask every MRTM_SAMPLE_PERIOD_MS (10 s). | out->valid is false on CRC or range failure; tenths = raw/1.6 + probe offset, rounded to 0.1 degC. | MRTM_ERR_BUS, MRTM_ERR_CRC, MRTM_ERR_RANGE |
+| `mrtm_err_t sensor_sampler_read(uint32_t now_s, mrtm_sample_t *out);` | Called by sensorTask every MRTM_SAMPLE_PERIOD_MS (2 s, ADR-0031). | out->valid is false on CRC or range failure; tenths = raw/1.6 + probe offset, rounded to 0.1 degC. | MRTM_ERR_BUS, MRTM_ERR_CRC, MRTM_ERR_RANGE |
 | `bool sensor_sampler_probe_fault(uint32_t now_s);` | none | true when the last valid sample is 30 s old or older (MRTM_PROBE_FAULT_S), or the last reading was out of range. | none |
 
 ## Algorithms

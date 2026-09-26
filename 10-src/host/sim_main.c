@@ -36,6 +36,7 @@ static uint32_t wait_until(int (*cond)(void), uint32_t max_ms)
 static int buzzing(void) { return host.buzzer_on; }
 static int silent(void) { return !host.buzzer_on; }
 static int quiet(void) { return alarm_mgr_state() == ALARM_QUIET; }
+static int early(void) { return alarm_mgr_state() == ALARM_EARLY; }
 
 static int excursion(void)
 {
@@ -46,7 +47,10 @@ static int excursion(void)
 
     sim_run(9000);                                                    /* change just before a sample */
     host.probe_tenths = 95;                                           /* 9.5 degC: door left open */
-    uint32_t dt = wait_until(buzzing, 120000);
+    uint32_t de = wait_until(early, 10000);                           /* CR-001: early tier first */
+    printf("t=%6u ms early alarm, %u ms after the change\n", host.now_ms, de);
+    check("SP-01.11", de <= 5000u && !host.buzzer_on && host.red_hz == 1, "early alarm within 5 s, red 1 Hz, buzzer off (MRTM-SYS-024)");
+    uint32_t dt = de + wait_until(buzzing, 120000);
     printf("t=%6u ms buzzer on, %u ms after the change\n", host.now_ms, dt);
     check("SP-01.2", dt <= 65000u, "buzzer within 65 s of the first out-of-band sample (MRTM-PRF-002)");
     check("SP-01.3", host.red_hz == 2, "red indicator 2 Hz (MRTM-SYS-004)");
@@ -71,7 +75,7 @@ static int excursion(void)
     host.probe_tenths = 50;
     dt = wait_until(quiet, 120000);
     printf("t=%6u ms quiet, %u ms after back in band\n", host.now_ms, dt);
-    check("SP-01.8", dt >= 60000u && dt <= 80000u, "excursion ends after 7 in-band samples (MRTM-SYS-018)");
+    check("SP-01.8", dt >= 60000u && dt <= 80000u, "excursion ends after 31 in-band samples spanning 60 s (MRTM-SYS-018)");
     sim_run(2000);
 
     history_ring_t *r = app_history();

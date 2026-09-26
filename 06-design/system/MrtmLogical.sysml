@@ -101,6 +101,8 @@ package MrtmLogical {
         satisfy 'MRTM-SAF-003' by probeSupervisor;
         satisfy 'MRTM-STK-007' by probeSupervisor;
         satisfy 'MRTM-SYS-002' by excursionDetector;
+        satisfy 'MRTM-SYS-024' by excursionDetector;
+        satisfy 'MRTM-SYS-024' by alarmManager;
         satisfy 'MRTM-SYS-017' by excursionDetector;
         satisfy 'MRTM-SYS-018' by excursionDetector;
         satisfy 'MRTM-STK-002' by excursionDetector;

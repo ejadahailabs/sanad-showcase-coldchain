@@ -170,10 +170,36 @@ void test_error_codes_full_and_nvs(void)
     TEST_ASSERT_EQUAL(ALARM_QUIET, alarm_mgr_state());
 }
 
+/* CR-001 / ADR-0030: the early tier is light only (red 1 Hz, no buzzer); confirmation escalates to sounding. */
+/* @verifies MRTM-SYS-024 MRTM-STK-002 */
+void test_early_alarm_is_red_1_hz_without_buzzer_then_escalates(void)
+{
+    go(SIG_EXCURSION_EARLY);
+    TEST_ASSERT_EQUAL(ALARM_EARLY, alarm_mgr_state());
+    TEST_ASSERT_FALSE(host.buzzer_on);
+    TEST_ASSERT_EQUAL_UINT8(1, host.red_hz);
+    TEST_ASSERT_FALSE(host.green);
+    go(SIG_EXCURSION_CONFIRMED);
+    TEST_ASSERT_EQUAL(ALARM_SOUNDING, alarm_mgr_state());
+    TEST_ASSERT_TRUE(host.buzzer_on);
+}
+
+/* @verifies MRTM-SYS-024 */
+void test_early_alarm_clears_back_to_quiet(void)
+{
+    go(SIG_EXCURSION_EARLY);
+    go(SIG_EARLY_CLEARED);
+    TEST_ASSERT_EQUAL(ALARM_QUIET, alarm_mgr_state());
+    TEST_ASSERT_TRUE(host.green);
+    TEST_ASSERT_EQUAL_UINT8(0, host.red_hz);
+}
+
 int main(void)
 {
     UNITY_BEGIN();
     RUN_TEST(test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz);
+    RUN_TEST(test_early_alarm_is_red_1_hz_without_buzzer_then_escalates);
+    RUN_TEST(test_early_alarm_clears_back_to_quiet);
     RUN_TEST(test_ack_stops_the_buzzer_in_the_same_step_and_logs);
     RUN_TEST(test_re_sounds_15_minutes_after_the_ack);
     RUN_TEST(test_end_returns_to_quiet_from_sounding_and_silenced);

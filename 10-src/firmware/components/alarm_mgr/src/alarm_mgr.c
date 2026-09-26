@@ -74,12 +74,18 @@ static bool pop(alarm_signal_t *out)
 }
 
 /* One row per transition of MrtmSwStates::AlarmStates. */
-/* @implements MRTM-SYS-003 MRTM-SYS-006 MRTM-SAF-002 */
+/* @implements MRTM-SYS-003 MRTM-SYS-006 MRTM-SAF-002 MRTM-SYS-024 */
 static void take(alarm_signal_t sig, uint32_t now_ms)
 {
     switch (sig) {
+    case SIG_EXCURSION_EARLY:
+        if (a.state == ALARM_QUIET) enter(ALARM_EARLY, now_ms);                    /* earlyFromQuiet */
+        break;
+    case SIG_EARLY_CLEARED:
+        if (a.state == ALARM_EARLY) enter(ALARM_QUIET, now_ms);                    /* earlyCleared */
+        break;
     case SIG_EXCURSION_CONFIRMED:
-        if (a.state == ALARM_QUIET) enter(ALARM_SOUNDING, now_ms);                 /* confirm */
+        if (a.state == ALARM_QUIET || a.state == ALARM_EARLY) enter(ALARM_SOUNDING, now_ms); /* confirm, confirmFromEarly */
         break;
     case SIG_ACK_PRESSED:
         if (a.state == ALARM_SOUNDING) {                                           /* ack */
@@ -91,7 +97,7 @@ static void take(alarm_signal_t sig, uint32_t now_ms)
         if (a.state == ALARM_SOUNDING || a.state == ALARM_SILENCED) enter(ALARM_QUIET, now_ms); /* endSounding, endSilenced */
         break;
     case SIG_PROBE_FAULT:
-        if (a.state == ALARM_QUIET || a.state == ALARM_SOUNDING || a.state == ALARM_SILENCED)
+        if (a.state == ALARM_QUIET || a.state == ALARM_EARLY || a.state == ALARM_SOUNDING || a.state == ALARM_SILENCED)
             enter(ALARM_PROBE_FAULT, now_ms);                                      /* probeFrom* */
         break;
     case SIG_PROBE_RECOVERED:
@@ -104,7 +110,7 @@ static void take(alarm_signal_t sig, uint32_t now_ms)
     }
 }
 
-/* @implements MRTM-SYS-003 MRTM-SYS-004 MRTM-SYS-019 MRTM-PRF-002 MRTM-SAF-002 MRTM-SAF-008 MRTM-SAF-011 MRTM-SAF-014 MRTM-SAF-015 MRTM-SAF-017 MRTM-SAF-019 */
+/* @implements MRTM-SYS-024 MRTM-SYS-003 MRTM-SYS-004 MRTM-SYS-019 MRTM-PRF-002 MRTM-SAF-002 MRTM-SAF-008 MRTM-SAF-011 MRTM-SAF-014 MRTM-SAF-015 MRTM-SAF-017 MRTM-SAF-019 */
 void alarm_mgr_step(uint32_t now_ms)
 {
     alarm_signal_t sig;
@@ -121,6 +127,7 @@ void alarm_mgr_step(uint32_t now_ms)
     bool buzz, led_green = false;
     uint8_t red_hz = 0;
     switch (a.state) {
+    case ALARM_EARLY: buzz = false; red_hz = MRTM_RED_LED_EARLY_HZ; break;             /* low priority: light only */
     case ALARM_SOUNDING: buzz = true; red_hz = MRTM_RED_LED_ALARM_HZ; break;
     case ALARM_SILENCED: buzz = false; red_hz = MRTM_RED_LED_ALARM_HZ; break;
     case ALARM_PROBE_FAULT: buzz = ((now_ms - a.fault_ms) / 1000u) % 2u == 0u; break;   /* 1 s on / 1 s off */

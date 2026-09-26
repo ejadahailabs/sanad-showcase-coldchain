@@ -24,7 +24,7 @@ typedef struct { int16_t low, high, hyst; uint8_t out_run, in_run; bool excursio
 
 ## Algorithms
 
-- **`limit_evaluator_step`** — Invalid samples are skipped: they neither count nor reset (A-29). out = t < low - hyst OR t > high + hyst while no excursion; in = low + hyst <= t <= high - hyst while in excursion; hyst = MRTM_HYSTERESIS_TENTHS = 0 (A-26). out_run counts consecutive out samples, in_run consecutive in samples; each resets the other. Confirm at out_run == MRTM_CONFIRM_SAMPLES (7 -> spans 60 s at 10 s); end at in_run == 7. Peak = max |distance outside band| sample, kept from the first out sample.
+- **`limit_evaluator_step`** — Invalid samples are skipped: they neither count nor reset (A-29). out = t < low - hyst OR t > high + hyst while no excursion; in = low + hyst <= t <= high - hyst while in excursion; hyst = MRTM_HYSTERESIS_TENTHS = 0 (A-26). out_run counts consecutive out samples, in_run consecutive in samples; each resets the other. Early alarm (ADR-0030): returns LIMIT_EARLY on the first valid out sample, LIMIT_EARLY_CLEARED when an in sample breaks a run before confirmation. Confirm at out_run == MRTM_CONFIRM_SAMPLES (60 s / 2 s + 1 = 31 -> spans 60 s); end at in_run == 31. Peak = max |distance outside band| sample, kept from the first out sample.
 
 ## Unit tests to write in Phase 9 (Unity, ADR-0023)
 

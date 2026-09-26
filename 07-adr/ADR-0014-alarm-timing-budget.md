@@ -34,3 +34,6 @@ Fault paths (the alarm must also sound when the chain breaks):
 ## Four blocks
 - **Assumptions:** A-04 (numbers synthetic). **Risks:** R-05 (fatigue vs speed). **Open questions:** Q-06.
 - **Trace links:** MRTM-PRF-002, SYS-001, SYS-002, SYS-003, SYS-012, SAF-002, SAF-008, SAF-009, SAF-010, SAF-013; HAZ-001, HAZ-002, HAZ-003.
+
+## Note 2026-09-27 (Phase 11, CR-001) — appended, the decision above is unchanged
+The sampling period is now 2 s (ADR-0031), so "air leaves the band → first sample" is ≤ 2 s and the information-only total is ≤ 67 s. A new low-priority tier (ADR-0030) lights the red LED at 1 Hz ≤ 5 s after the first out-of-band sample (MRTM-SYS-024). The 60 s confirmation and the 65 s buzzer budget (MRTM-PRF-002) stand.
