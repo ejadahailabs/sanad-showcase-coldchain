@@ -1,0 +1,214 @@
+# Sanad repository configuration.
+#
+# Shared with everyone who clones this repository, which is exactly why it holds
+# only what must produce the SAME findings for everyone. Never an API key. Never
+# a personal preference — those belong in VS Code settings, where they cannot
+# change what an analysis reports (CLAUDE.md rule 9).
+
+# The shape this file is written in (SAN-CFG-005). Sanad reads this number
+# before anything else: a file from a newer schema is refused by name rather
+# than half-read, and a file from an older one is read as its own schema says
+# and told that a migration is available. A file with no schema key is read as
+# schema 1.
+schema: 2
+
+validation:
+  uplinkOrder:
+    system: "stakeholder"
+    safety: "system"
+    performance: "system"
+    environmental: "system"
+    maintainability: "system"
+    interface: "system"
+
+# How this programme is laid out, and which artifact types it holds (GH-162).
+# Facts about the repository, shared with everyone who clones it — never a
+# personal preference (rule 9). Analysis reads these roles, never field
+# names (rule 3).
+setup:
+  topology: "monorepo"
+
+  inventory:
+    - "systems-requirements"
+    - "systems-design"
+    - "hazard"
+    - "systems-tests"
+    - "systems-verification-results"
+    - "data-dictionary"
+
+  # Where each artifact kind lives, repository-relative (FEAT-064). The
+  # inventory above says which artifacts this programme holds; these say where
+  # each one is, so the graph is organised by them. Declared, never guessed
+  # (rule 3).
+  paths:
+    systems-design: "06-design/system"
+    systems-requirements: "03-requirements"
+    systems-tests: "11-verification/cases"
+    hazard: "08-safety"
+    systems-verification-results: "11-verification/results"
+    data-dictionary: "01-data-dictionary"
+  # Absent from the inventory, so these analyses stay OFF — silence with a
+  # stated reason, never reported as clean (rule 4). Add the role above when
+  # the artifact exists:
+  #   - icd: no icds (interface control documents)
+  #   - hlr: no high-level requirements
+  #   - component-interface-requirements: no component interface requirements
+  #   - component-requirements: no component-level requirements
+  #   - llr: no low-level requirements
+  #   - high-level-architecture: no high-level architecture
+  #   - software-design: no design
+  #   - implementation: no implementation / code
+  #   - verification-hl: no verification at high level
+  #   - verification-component: no verification at component level
+  #   - verification-ll: no verification at low level
+  #   - results-data: no results data (every level, system → llt)
+
+
+  # Who issues a requirement ID (ADR-0046).
+  #
+  #   generated  Sanad allocates the next free number for the type's prefix.
+  #   provided   You supply it, because the authority that numbers requirements
+  #              is outside this repository — a customer baseline, a programme
+  #              scheme, a migration from DOORS. New Requirement then asks for
+  #              the ID FIRST, and an ID already in use is refused rather than
+  #              renumbered.
+  #
+  # Either way the filename IS the ID, which is what makes Git's own merge
+  # conflict the duplicate check. To change what an ID may LOOK like, set
+  # idPattern in that type's template instead.
+ids: "provided"
+# ADR-0001: every folder carries a README that says what lives there; it is not a requirement.
+ignore:
+  - "README.md"
+
+# Where each artifact type's files come from (ADR-0057). Most live here, in this
+# repository, and need no entry. Add one only when a type's source is NOT in this
+# repository — the systems team's requirements, a supplier's ICDs, a separate
+# hazard programme. Every external option pins a commit SHA, or the analyses that
+# source feeds are switched OFF with a stated reason (CLAUDE.md rule 4) — an
+# unpinned source is not reproducible at a commit, and this product's reports are.
+#
+#   sources:
+#     hazard:
+#       kind: submodule           # recommended: the pin is the pointer committed here
+#       path: "vendor/hazards"
+#     interfaces:
+#       kind: snapshot            # copied in, with where and when it was captured
+#       path: "vendor/icds"
+#       repo: "git@example.com:supplier/icds.git"
+#       sha: "0000000000000000000000000000000000000000"
+#       captured: "2026-08-15"
+#     system-req:
+#       kind: checkout            # checked out under .ejadah/ — a CACHE, never truth
+#       repo: "git@example.com:systems/reqs.git"
+#       sha: "0000000000000000000000000000000000000000"
+#     safety-case:
+#       kind: declined            # honest: its analyses do not run until it arrives
+#       reason: "supplier deliverable, expected Q4"
+sources: {}
+
+# Where this repository's SysML v2 design files live (ADR-0118). Sanad reads every
+# .sysml file under a root declared here as ONE project: the files, the packages
+# they declare, the imports between them, and every part, port and `satisfy` they
+# state, all of it joining the same Engineering Graph the requirements and the code
+# feed. A .sysml file anywhere else in the repository is NOT read — a vendored
+# library, a supplier's exported model and a test fixture are not your design, and
+# a declared root is the difference between reading the project and reading the
+# disk.
+#
+# The recommended shape, and nothing is created until you uncomment it:
+#
+#   design:
+#     roots:
+#       - "design"        # design/packages/*.sysml, design/views/*.sysml
+#     requirementsPackage: "ProjectRequirements"   # the package Sanad generates from your
+#                                                  # requirements; your files import it by name
+#
+# The OMG SysML v2 Pilot Implementation, as an optional second opinion on those
+# files (ADR-VAL-001). It needs Java, so it runs only when you ask — "Sanad:
+# Validate SysML with the OMG Pilot" — and what it says appears as its own, under
+# "OMG Pilot" in the Problems panel, never as a Sanad finding. The folder differs
+# on every machine, so name an environment variable rather than a path:
+#
+#   sysml:
+#     validator:
+#       pilot_home: env:SYSML_PILOT_HOME
+#       pilot_version: "0.61.0"   # the release Sanad is tested with; name another to run it
+design:
+  roots:
+    - "06-design/system"
+    - "06-design/hardware"
+    - "06-design/software"
+    - "06-design/views"
+  requirementsPackage: "ProjectRequirements"
+
+# The customer's own fact sources (FEAT-055). Sanad reads the parameters each data
+# dictionary declares and checks the terms requirements use against them. The
+# format is inferred from the file's extension (.md, .csv, .yaml, .json); add a
+# 'format:' to a source only to override it. Map a source's columns to roles with
+# 'fields:' when they are not already named name/type/units/range/aliases, and map
+# the terms your requirements use onto a parameter with 'terms:' so "execution
+# rate" resolves to the dictionary's "Execution Rate" without a guess.
+# 'results:' lists verification-results folders, one per verification level;
+# the format is probed from the files. Engines read them in the Verification wave.
+producers:
+  # MANUAL (FINDINGS F-02): Setup has no glossary step; added by hand per CONFIGURATION.md section 4.
+  glossary:
+    - path: "01-data-dictionary/glossary.md"
+  dataDictionary:
+    - path: "01-data-dictionary/data-dictionary.md"
+  results:
+    - level: "systems-verification-results"
+      path: "11-verification/results"
+
+# The requirements-writing rule pack this repository adopted (FEAT-041). It names a
+# file under .ejadah/rew/rules/ (without the folder or the .yaml). Sanad runs its
+# checks and the Rules form tunes them; the pack is YAML in Git, so a review diff
+# shows what changed and a report regenerates identically (rule 9). Remove this line
+# to run no requirements-writing checks.
+profile: "requirements-writing"
+repository:
+  id: medical-refrigerator-temperature-monitor-software
+  product: medical-refrigerator-temperature-monitor
+  member: software
+  topology: monorepo
+
+# The Review capability — the pull or merge request, reviewed in the editor
+# (ADR-0127, ADR-0128). Declared here like every other capability: one gate, and
+# it is yours. Nothing about review appears until this block names a platform and
+# a project.
+#
+# NO TOKEN BELONGS IN THIS FILE. Sanad reads and writes the request through YOUR
+# OWN platform login, held by the editor, with exactly your permissions — Sanad
+# stores no credential and nothing ever appears under a machine identity.
+#
+# The recommended shape, and nothing is read until you uncomment it:
+#
+#   review:
+#     platform: github          # or gitlab — Sanad offers what your remote says
+#     project: "owner/repo"     # GitLab: "group/project", or the numeric id
+#     pollSeconds: 60           # RECOMMENDED, not a default: while a review view
+#                               # is open Sanad re-reads the request this often, so
+#                               # a comment written in a browser arrives without
+#                               # anyone touching the panel. Leave it out and
+#                               # nothing polls — the manual refresh does the job.
+#     checklists: "checklists"  # YOUR OWN checklist files, if you have any.
+#                               # Sanad ships none and never will.
+
+# The AI provider, declared here so the whole team shares one answer (ADR-0101).
+# NO CREDENTIAL OF ANY KIND BELONGS IN THIS FILE - it travels through Git to
+# every clone. Run "Sanad: Set Credential" and the editor stores it encrypted on
+# this machine alone. Add "baseUrl" for a self-hosted or proxied endpoint.
+#
+# For an endpoint behind a login, add an auth block naming the scheme:
+#   auth: { mode: bearer }                                 # the default
+#   auth: { mode: basic, username: svc-sanad }
+#   auth: { mode: oauth2, tokenUrl: ..., clientId: ... }
+# adr/ADR-0101 lists every mode. Each names only the PUBLIC half of the
+# credential here; the secret half is always the machine store.
+# The recommended shape, and nothing is read until you uncomment it:
+#
+#   llm:
+#     provider: anthropic       # RECOMMENDED, not a default: leave this block out
+#     model: claude-sonnet-5    # and no AI action runs at all, which is the honest
+#                               # state for a repository that has chosen no provider.

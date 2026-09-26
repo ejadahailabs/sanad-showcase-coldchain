@@ -1,0 +1,7 @@
+erew: analyses that ran: validation, traceability, quality, structure, verification, consistency, impact.
+erew: implementation: DID NOT RUN — this repository declares no implements role. It produced no findings, and that silence is not a clean result.
+erew: safety: DID NOT RUN — this repository declares no hazard role. It produced no findings, and that silence is not a clean result.
+erew: security: DID NOT RUN — this repository declares no threat role. It produced no findings, and that silence is not a clean result.
+erew: architecture: DID NOT RUN — this repository declares no allocation role. It produced no findings, and that silence is not a clean result.
+erew: interface: DID NOT RUN — this repository declares no interface role. It produced no findings, and that silence is not a clean result.
+erew: conformance: DID NOT RUN — this repository declares no allocation role. It produced no findings, and that silence is not a clean result.

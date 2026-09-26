@@ -1,0 +1,18 @@
+erew: glossary /tmp/sanad-at-yYjVvI/tree/01-data-dictionary/glossary.md — producers.glossary declares this file and it is not there — the glossary lane contributed nothing to this run
+erew: data dictionary — not found at 01-data-dictionary/data-dictionary.md
+erew: verification cases — No template declares one of the verification types (verification, verification-hl, verification-component, verification-ll), so there is no folder to read. Declare one in .ejadah/rew/templates — its `type:` names the kind and its `rew.folder:` is where Sanad looks — or list the files under `producers.verification` in the repository config.
+erew: test results — 11-verification/results (systems-verification-results): 0 case result(s) from 0 report(s)
+erew: context layer: 40 file(s), 73 node(s), 0 skipped (0 ignored, 0 binary, 0 empty, 0 over the size ceiling, 0 unread at the total ceiling)
+erew: rule pack: requirements-writing (Requirements writing — deterministic prose rules)
+erew: read ledger — 1 item(s) this repository states that Sanad did not read
+erew:   Sources not read: 1
+erew:     (repository) — Impact is bounded here by 1 limit — these numbers are not a clean result
+erew: analyses that ran: validation, traceability, quality, structure, verification, consistency, impact.
+erew: implementation: DID NOT RUN — this repository declares no implements role. It produced no findings, and that silence is not a clean result.
+erew: safety: DID NOT RUN — this repository declares no hazard role. It produced no findings, and that silence is not a clean result.
+erew: security: DID NOT RUN — this repository declares no threat role. It produced no findings, and that silence is not a clean result.
+erew: architecture: DID NOT RUN — this repository declares no allocation role. It produced no findings, and that silence is not a clean result.
+erew: interface: DID NOT RUN — this repository declares no interface role. It produced no findings, and that silence is not a clean result.
+erew: conformance: DID NOT RUN — this repository declares no allocation role. It produced no findings, and that silence is not a clean result.
+erew: 9 finding(s) (0 error, 1 warning, 8 info) across 7 analysis(es), 6 did not run in 3ms.
+erew: gate passed — nothing at or above "error".

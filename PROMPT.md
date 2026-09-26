@@ -152,3 +152,13 @@ Output of the run: a folder that looks like a real engineering project executed 
 - The round-4 build is the one to dogfood; anything found on it is filed against main.
 - Safety and hardware phases are expected to be mostly manual; that is the finding, not a failure of the run.
 - No real medical data, no real device: synthetic values only.
+
+---
+
+## Owner orders added 2026-09-27 00:05 (before sleeping) — apply from Phase 2 onward, retrofit Phases 0–1 where cheap
+
+1. **Design focus:** put the weight on the SysML v2 model — the system model (Phase 4) AND the software model with Sanad's software profile (Phases 7–8). Every design element is a SysML element with a `satisfy` link to a requirement; every interface, state machine, sequence and class lives in the model, not in prose. Pictures come from Sanad's views. Prose only explains the model.
+2. **Criticality — the top medical class.** The aerospace analogue is DO-178C DAL A; for this product use the medical equivalents at their highest level: **IEC 62304 Software Safety Class C** (software), **ISO 14971** risk management (Phase 5 is its risk-management file), **IEC 60601-1** as the device-safety frame for the hardware assumptions. Name the standard and clause next to each artifact.
+3. **All Class-C artifacts and their relations must exist; independence is NOT required** (the same worker may write and verify). Minimum artifact set, each a file in this repo with trace links: software development plan · risk management plan and file (hazards ↔ risk-control measures ↔ requirements ↔ verification) · software requirements specification (03-requirements, with safety classification per item) · software architecture (SysML, 06-design/software) · detailed design (SysML + 10-src contracts) · SOUP list (ESP32 SDK, libraries) · unit verification records · integration verification records · system verification records · traceability (requirement → architecture → detailed design → code → unit test → integration test → system test, and hazard → control → requirement → test) · configuration management plan (this git repo, baselines in 04) · problem-resolution log (FINDINGS + a defect log) · release notes (Phase 12).
+4. Where Sanad has a feature for an artifact or a link, it is done in Sanad and proved by its view or check; where it does not, it is done by hand, marked MANUAL, and becomes a finding "Class-C artifact X has no Sanad home". That finding list is the most valuable output of the run.
+5. Masood runs CLICK-LIST.md first thing in the morning of 2026-09-27; workers never wait for him.
