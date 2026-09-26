@@ -9,6 +9,7 @@ modified: ""
 tags: []
 uplinks: ["MRTM-SYS-012"]
 safetyClass: "C"
+hazard: ["HAZ-001"]
 derived: false
 ---
 
@@ -21,6 +22,10 @@ The monitor shall sound the buzzer within 5 s of the probe fault declaration.
 ## Rationale
 
 Risk control for hazard 'silent loss of monitoring'.
+
+## Safety
+
+Mitigates HAZ-001 (excursion not detected): a probe that stops answering is alarmed, so a missing reading is never read as a good one.
 
 ## Verification
 

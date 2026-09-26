@@ -1,5 +1,5 @@
 package ProjectRequirements {
-    comment /* GENERATED from the Markdown requirement corpus at 8ae26988897303d7.
+    comment /* GENERATED from the Markdown requirement corpus at 8f9ed3fbe08c9982.
        Read-only: edit the Markdown requirement, not this file. Sanad regenerates it on
        every corpus change and the same corpus always gives byte-identical text. */
 
@@ -93,6 +93,66 @@ package ProjectRequirements {
 
     requirement <'MRTM-SAF-008'> MRTM_SAF_008 {
         doc /* The monitor shall sound the buzzer within 5 s of the battery voltage falling below 3.4 V. */
+    }
+
+    requirement <'MRTM-SAF-009'> MRTM_SAF_009 {
+        doc /* The backup alarm circuit shall sound the buzzer within 10 s of the last watchdog service pulse from the firmware. */
+    }
+
+    requirement <'MRTM-SAF-010'> MRTM_SAF_010 {
+        doc /* The monitor shall stop the watchdog service pulses within 2 s of the alarm service missing its 1 s cycle. */
+    }
+
+    requirement <'MRTM-SAF-011'> MRTM_SAF_011 {
+        doc /* The monitor shall sound the probe fault alarm as a buzzer pattern of 1 s on and 1 s off. */
+    }
+
+    requirement <'MRTM-SAF-012'> MRTM_SAF_012 {
+        doc /* The monitor shall show the probe calibration due message on the display 365 days after the probe calibration date. */
+    }
+
+    requirement <'MRTM-SAF-013'> MRTM_SAF_013 {
+        doc /* The backup alarm circuit shall sound the buzzer for 60 s or more after the loss of both mains and battery power. */
+    }
+
+    requirement <'MRTM-SAF-014'> MRTM_SAF_014 {
+        doc /* The monitor shall declare the buzzer fault within 5 s of the buzzer drive current falling below 5 mA while the monitor drives the buzzer. */
+    }
+
+    requirement <'MRTM-SAF-015'> MRTM_SAF_015 {
+        doc /* The monitor shall flash the red indicator at 4 Hz within 5 s of the buzzer fault declaration. */
+    }
+
+    requirement <'MRTM-SAF-016'> MRTM_SAF_016 {
+        doc /* The monitor shall show the allowed band limits on the display for 3 s at power-up. */
+    }
+
+    requirement <'MRTM-SAF-017'> MRTM_SAF_017 {
+        doc /* The monitor shall sound the buzzer within 5 s of power-up when the stored allowed band fails its CRC-32 check. */
+    }
+
+    requirement <'MRTM-SAF-018'> MRTM_SAF_018 {
+        doc /* The monitor shall write the event log record to 2 separate flash sectors within 1 s of the event. */
+    }
+
+    requirement <'MRTM-SAF-019'> MRTM_SAF_019 {
+        doc /* The monitor shall declare the button fault when the acknowledge button input stays pressed for 60 s. */
+    }
+
+    requirement <'MRTM-SAF-020'> MRTM_SAF_020 {
+        doc /* The instructions for use shall state the probe position as the middle of the fridge air space, 5 cm or more from the fridge walls. */
+    }
+
+    requirement <'MRTM-SAF-021'> MRTM_SAF_021 {
+        doc /* The monitor shall reset the I2C bus within 1 s of an I2C transaction timeout. */
+    }
+
+    requirement <'MRTM-SAF-022'> MRTM_SAF_022 {
+        doc /* The monitor shall log the clock fault event within 2 s of power-up when the real-time clock reports an oscillator stop. */
+    }
+
+    requirement <'MRTM-SAF-023'> MRTM_SAF_023 {
+        doc /* The monitor shall test the backup alarm within 15 s of power-up. */
     }
 
     requirement <'MRTM-STK-001'> MRTM_STK_001 {
@@ -242,6 +302,21 @@ package ProjectRequirements {
     dependency from MRTM_SAF_006 to MRTM_SYS_003;
     dependency from MRTM_SAF_007 to MRTM_SYS_003;
     dependency from MRTM_SAF_008 to MRTM_SYS_016;
+    dependency from MRTM_SAF_009 to MRTM_SYS_003;
+    dependency from MRTM_SAF_010 to MRTM_SYS_003;
+    dependency from MRTM_SAF_011 to MRTM_SYS_012;
+    dependency from MRTM_SAF_012 to MRTM_SYS_001;
+    dependency from MRTM_SAF_013 to MRTM_SYS_016;
+    dependency from MRTM_SAF_014 to MRTM_SYS_003;
+    dependency from MRTM_SAF_015 to MRTM_SYS_004;
+    dependency from MRTM_SAF_016 to MRTM_SYS_017;
+    dependency from MRTM_SAF_017 to MRTM_SYS_017;
+    dependency from MRTM_SAF_018 to MRTM_SYS_015;
+    dependency from MRTM_SAF_019 to MRTM_SYS_006;
+    dependency from MRTM_SAF_020 to MRTM_SYS_001;
+    dependency from MRTM_SAF_021 to MRTM_SYS_005;
+    dependency from MRTM_SAF_022 to MRTM_SYS_020;
+    dependency from MRTM_SAF_023 to MRTM_SYS_003;
     dependency from MRTM_SYS_001 to MRTM_STK_004;
     dependency from MRTM_SYS_002 to MRTM_STK_002;
     dependency from MRTM_SYS_003 to MRTM_STK_001;

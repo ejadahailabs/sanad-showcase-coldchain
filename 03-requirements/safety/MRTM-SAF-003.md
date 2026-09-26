@@ -9,6 +9,7 @@ modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-SYS-001"]
 safetyClass: "C"
+hazard: ["HAZ-001", "HAZ-004"]
 derived: false
 ---
 
@@ -21,6 +22,10 @@ The monitor shall declare the probe fault when a sample falls outside the range 
 ## Rationale
 
 Risk control for hazard 'false in-band reading from a damaged probe'.
+
+## Safety
+
+Mitigates HAZ-001 and HAZ-004: a reading outside what the probe can physically see is treated as a fault, catching gross drift and wiring faults.
 
 ## Verification
 

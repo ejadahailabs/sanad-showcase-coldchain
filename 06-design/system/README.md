@@ -29,3 +29,8 @@ ADR-0008 partitioning · ADR-0009 sensor interface · ADR-0010 alarm path · ADR
 - **Risks:** R-08 (single processor), R-09 (probe placement), R-10 (flash wear).
 - **Open questions:** Q-12 (hardware backup alarm), Q-13 (log-full rule), Q-10 (clock setting).
 - **Trace links:** every part and interface usage carries a `satisfy` to an `MRTM-*` id; risk-control parts (`alarmManager`, `eventLogger`, `powerSupervisor`, `watchdog`) say so in their `doc`. Phase 5 names the hazards they control.
+
+## Phase 5 addition (2026-09-27, DOGFOOD-3) — safety model
+- `MrtmSafety.sysml` (ISO 14971 cl. 5.4, 7.1, 7.2): `concern def Hazard` with severity/probability attributes (ADR-0012); 8 concerns `'HAZ-001'…'HAZ-008'`; 8 `dependency mitigates…` from the control requirements to each hazard (28 links, equal to the Markdown `hazard:` fields — `tools/hazard-link-check.py`); `part def MrtmRiskControls :> MrtmSystem` with 28 `satisfy` lines allocating each new control to the part that implements it.
+- `MrtmPhysical.sysml`: `BackupAlarm`, `HoldUpCapacitor`, buzzer `backupDrive` + `sense` ports, ESP32 `wdtKickPin` + `buzzerSensePin`, 5 new connections (ADR-0013). `MrtmInterfaces.sysml`: `SenseLine`.
+- Q-12 and Q-13 are answered by assumption (A-18, A-21). Sanad reads the hazards and dependencies but does not put them in the graph (F-49).

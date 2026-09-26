@@ -1,0 +1,24 @@
+read   06-design/packages/requirements.sysml: 70 named elements
+read   06-design/system/MrtmInterfaces.sysml: 57 named elements
+read   06-design/system/MrtmLogical.sysml: 41 named elements
+read   06-design/system/MrtmPartitions.sysml: 18 named elements
+read   06-design/system/MrtmPhysical.sysml: 71 named elements
+read   06-design/system/MrtmSafety.sysml: 23 named elements
+read   06-design/system/MrtmSystemContext.sysml: 15 named elements
+read   06-design/system/MrtmUseCases.sysml: 37 named elements
+read   06-design/views/MrtmAllocationView.sysml: 2 named elements
+read   06-design/views/MrtmBlocksView.sysml: 197 named elements
+read   06-design/views/MrtmContainmentView.sysml: 2 named elements
+read   06-design/views/MrtmContextView.sysml: 17 named elements
+read   06-design/views/MrtmDataFlowView.sysml: 17 named elements
+read   06-design/views/MrtmExternalInterfacesView.sysml: 17 named elements
+read   06-design/views/MrtmInterfacesView.sysml: 17 named elements
+read   06-design/views/MrtmSafetyBlocksView.sysml: 2 named elements
+read   06-design/views/MrtmSafetyReqsView.sysml: 2 named elements
+read   06-design/views/MrtmUseCasesView.sysml: 65 named elements
+read   06-design/views/SanadRenderings.sysml: 16 named elements
+strict parse: 686 named elements
+project: 19 files; graph elements 95 ({"interface":26,"part":69})
+satisfy links to requirement ids: 123, distinct requirements 68; part-to-part allocations 13
+findings: {"info/sysml-unresolved-import":13}
+stand-downs (read, not in graph): 2 — succession

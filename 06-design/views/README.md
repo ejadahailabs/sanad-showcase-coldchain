@@ -18,3 +18,8 @@ Each view file was written by Sanad's view writer (`newViewFile` + `writeViewFil
 - **Risks:** a hand rename outside Sanad leaves a stale layout entry (F-38).
 - **Open questions:** none.
 - **Trace links:** 06-design/system/README.md; 13-assessment/sanad-runs/phase-4/.
+
+## Phase 5 views (DOGFOOD-3)
+- `mrtmSafetyBlocks` (general view of `MrtmSafety::**`) → rendered/mrtmSafetyBlocks.svg: the Hazard definition and the 8 hazard concerns with their scores. Dependencies are not drawn (F-52).
+- `mrtmSafetyReqs` (requirement view of `MrtmSafety::**`) → rendered/mrtmSafetyReqs.svg: the risk-control allocation part with its satisfy list; the concerns are not drawn (F-52).
+- `mrtmInterfaces` re-rendered: now shows the backup alarm and hold-up capacitor.

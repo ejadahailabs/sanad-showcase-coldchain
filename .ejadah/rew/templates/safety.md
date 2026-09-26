@@ -12,6 +12,7 @@ modified: ""
 tags: []
 uplinks: []
 safetyClass: ""
+hazard: []
 derived: false
 
 # The `rew:` block configures Sanad. It is stripped when a requirement is created.
@@ -30,6 +31,7 @@ rew:
   # cannot guess. A field with no role is stored and shown, never analysed.
   roles:
     "safetyClass": dal
+    "hazard": hazard
 
   choices:
     status: ["draft", "review", "approved", "obsolete"]
@@ -46,6 +48,10 @@ rew:
 TODO
 
 ## Rationale
+
+TODO
+
+## Safety
 
 TODO
 

@@ -19,6 +19,8 @@ package MrtmPhysical {
         port redPin : GpioOutPort;
         port greenPin : GpioOutPort;
         port ackPin : GpioInPort;
+        port wdtKickPin : GpioOutPort;
+        port buzzerSensePin : GpioInPort;
         port usb : UsbPort;
         port supply : ~PowerPort;
         port batterySense : ~PowerPort;
@@ -36,7 +38,23 @@ package MrtmPhysical {
         port i2c : ~I2cPort;
     }
     part def Buzzer {
+        doc /* Piezo buzzer with its driver; two drive inputs OR-ed, so either the firmware or the backup alarm can sound it (ADR-0013). */
         port drive : ~GpioOutPort;
+        port backupDrive : ~GpioOutPort;
+        port sense : ~GpioInPort;
+    }
+    part def BackupAlarm {
+        doc /* Phase 5 (ISO 14971 risk control for HAZ-003, HAZ-005; ADR-0013; Q-12 assumed yes, A-18): an external
+           watchdog timer the firmware must pulse; when the pulses stop it drives the buzzer on its own.
+           Needs no processor and no bus. EE-REVIEW. */
+        port kick : ~GpioOutPort;
+        port alarmOut : GpioOutPort;
+        port holdUp : ~PowerPort;
+    }
+    part def HoldUpCapacitor {
+        doc /* Stored energy that keeps the backup alarm sounding 60 s after all power is lost (MRTM-SAF-013). EE-REVIEW. */
+        port charge : ~PowerPort;
+        port terminal : PowerPort;
     }
     part def Led {
         port drive : ~GpioOutPort;
@@ -69,6 +87,8 @@ package MrtmPhysical {
         part ackButton : AckButton;
         part battery : Battery;
         part powerPath : PowerPath;
+        part backupAlarm : BackupAlarm;
+        part holdUpCap : HoldUpCapacitor;
 
         interface probeLink : ProbeBus connect esp32.oneWire to probe.dq;
         interface displayLink : I2cBus connect esp32.i2c to oled.i2c;
@@ -80,6 +100,11 @@ package MrtmPhysical {
         interface batteryFeed : PowerFeed connect battery.terminal to powerPath.batteryIn;
         interface batterySenseLine : PowerFeed connect battery.terminal to esp32.batterySense;
         interface supplyFeed : PowerFeed connect powerPath.output to esp32.supply;
+        interface wdtKickLine : SignalLine connect esp32.wdtKickPin to backupAlarm.kick;
+        interface backupBuzzerLine : SignalLine connect backupAlarm.alarmOut to buzzer.backupDrive;
+        interface buzzerSenseLine : SenseLine connect esp32.buzzerSensePin to buzzer.sense;
+        interface holdUpCharge : PowerFeed connect powerPath.output to holdUpCap.charge;
+        interface holdUpFeed : PowerFeed connect holdUpCap.terminal to backupAlarm.holdUp;
         connect mains to powerPath.mainsIn;
         connect usb to esp32.usb;
 

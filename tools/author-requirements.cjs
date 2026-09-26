@@ -5,7 +5,7 @@
 // Then the author's text is filled into the created file (the typing a person
 // would do in the form). Usage:
 //   node tools/author-requirements.cjs <ext> <repo> <spec.json> <ids-out.json>
-// spec rows: [key, type, parentKey|null, title, statement, rationale, verification]
+// spec rows: [key, type, parentKey|id|null, title, statement, rationale, verification, hazards?, safety?]
 const { join } = require("node:path");
 const { readFileSync, writeFileSync, existsSync } = require("node:fs");
 const [ext, root, specPath, idsPath] = process.argv.slice(2);
@@ -16,21 +16,23 @@ const { planSerials } = d("ids.js");
 const spec = JSON.parse(readFileSync(specPath, "utf8"));
 const ids = existsSync(idsPath) ? JSON.parse(readFileSync(idsPath, "utf8")) : {};
 (async () => {
-  for (const [key, type, parent, title, text, why, verify] of spec) {
+  for (const [key, type, parentKey, title, text, why, verify, hazards, safety] of spec) {
+    const parentId = parentKey && (ids[parentKey] ?? parentKey);
     if (ids[key]) continue; // already authored
     const model = await loadRepository(root);
     const [id] = planSerials(model, model.templates.get(type), 1);
     const { path } = await createRequirement({ model, type, name: title, id });
     let s = readFileSync(path, "utf8");
-    const up = parent ? `["${ids[parent]}"]` : "[]";
-    if (parent && !ids[parent]) throw new Error(`${key}: parent ${parent} not authored yet`);
+    const up = parentId ? `["${parentId}"]` : "[]";
     s = s.replace(/^safetyClass: .*$/m, 'safetyClass: "C"')
          .replace(/^uplinks: .*$/m, `uplinks: ${up}`)
-         .replace(/^author: .*$/m, 'author: "Masood (drafted by Claude, DOGFOOD-1)"')
+         .replace(/^author: .*$/m, `author: "Masood (drafted by Claude, ${process.env.DOGFOOD_WORKER ?? "DOGFOOD-1"})"`)
          .replace(/^created: .*$/m, 'created: "2026-09-27"');
     s = s.replace(/## Description\n\nTODO/, `## Description\n\n${text}`)
          .replace(/## Rationale\n\nTODO/, `## Rationale\n\n${why}`)
          .replace(/## Verification\n\nTODO/, `## Verification\n\n${verify}`);
+    if (hazards) s = s.replace(/^hazard: .*$/m, `hazard: ${JSON.stringify(hazards)}`);
+    if (safety) s = s.replace(/## Safety\n\nTODO/, `## Safety\n\n${safety}`);
     writeFileSync(path, s, "utf8");
     ids[key] = id;
     writeFileSync(idsPath, JSON.stringify(ids, null, 1) + "\n");

@@ -9,6 +9,7 @@ modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-SYS-003"]
 safetyClass: "C"
+hazard: ["HAZ-006"]
 derived: false
 ---
 
@@ -21,6 +22,10 @@ The monitor shall sound the buzzer at a sound pressure level of 65 dB(A) or more
 ## Rationale
 
 Risk control for hazard 'alert not heard' (ISO 14971 cl. 7; IEC 60601-1-8 frame).
+
+## Safety
+
+Mitigates HAZ-006 (alert not perceived): a loud enough buzzer is heard across the room where the fridge stands.
 
 ## Verification
 

@@ -12,3 +12,5 @@
 | R-08 | 2026-09-27 | 4 | One processor runs every job, including the alarm | Processor dies → no alarm | Watchdog restart + alarm restore (SAF-004, SAF-006); Q-12 asks about a hardware backup alarm; Phase 5 hazard | Masood |
 | R-09 | 2026-09-27 | 4 | Probe placement or self-heating reads the wrong air | Excursion missed or false | ADR-0009; Phase 5 hazard cause | Claude |
 | R-10 | 2026-09-27 | 4 | Flash wear-out or partition corruption | History lost | CRC-32 per record (SYS-021), capacity warning (SYS-022); ADR-0011 | Claude |
+| R-11 | 2026-09-27 | 5 | The backup alarm itself fails silent (latent) or false-triggers | No second channel when the firmware dies, or a nuisance alarm | Power-up test of the backup path (MRTM-SAF-023); false trigger scored in FMEA FM-24 (acceptable); part choice EE-REVIEW | Claude |
+| R-12 | 2026-09-27 | 5 | The hazard list in Markdown and the hazard model in SysML drift apart | The risk file says one thing, the model another | Sanad does not compare them (F-49); `tools/hazard-link-check.py` does, run every phase | Claude |

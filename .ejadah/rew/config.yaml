@@ -273,7 +273,10 @@ suppressions:
       sentence shape on purpose. Accepted."
   - rule: "missing-decomposition"
     path: "03-requirements/system/**"
-    reason: "Re-checked Phase 4 (DOGFOOD-2): all 14 leaf system requirements carry SysML satisfy links in 06-design/system (95 satisfy links, 54 of 54 requirements), but the structure engine counts only child requirements, not satisfy links (FINDINGS F-39). Accepted until that is fixed."
+    reason: "Re-checked Phase 4 (DOGFOOD-2): all 14 leaf system requirements carry
+      SysML satisfy links in 06-design/system (95 satisfy links, 54 of 54
+      requirements), but the structure engine counts only child requirements,
+      not satisfy links (FINDINGS F-39). Accepted until that is fixed."
     expires: "2026-10-31"
   - rule: "parent-child-inconsistency"
     path: "03-requirements/system/**"
@@ -289,10 +292,15 @@ suppressions:
   # DOGFOOD-2 Phase 4 (system architecture): accepted with reason.
   - rule: "sysml-unresolved-id"
     path: "06-design/system/MrtmPartitions.sysml"
-    reason: "Part-to-part `allocate` (logical function -> software item -> hardware) is read as a requirement allocation, so each end is looked up as a requirement id (FINDINGS F-35). The allocations are the IEC 62304 5.3 architecture and the OMG Pilot reads them clean. Accepted DOGFOOD-2."
+    reason: "Part-to-part `allocate` (logical function -> software item -> hardware)
+      is read as a requirement allocation, so each end is looked up as a
+      requirement id (FINDINGS F-35). The allocations are the IEC 62304 5.3
+      architecture and the OMG Pilot reads them clean. Accepted DOGFOOD-2."
   - rule: "sysml-not-read"
     path: "06-design/system/MrtmLogical.sysml"
-    reason: "The two successions (acquire -> check -> detect) are model truth; Sanad reads them but the action-flow picture does not draw them (F-36). Accepted DOGFOOD-2."
+    reason: "The two successions (acquire -> check -> detect) are model truth; Sanad
+      reads them but the action-flow picture does not draw them (F-36). Accepted
+      DOGFOOD-2."
 review:
   platform: github
   project: local/dogfood-fridge

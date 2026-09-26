@@ -76,6 +76,11 @@ package MrtmInterfaces {
         end reader : GpioInPort;
         end button : ~GpioInPort;
     }
+    interface def SenseLine {
+        doc /* A level read back from a load, e.g. the buzzer drive current comparator (MRTM-SAF-014). */
+        end reader : GpioInPort;
+        end source : ~GpioInPort;
+    }
     interface def UsbLink {
         end device : UsbPort;
         end host : ~UsbPort;

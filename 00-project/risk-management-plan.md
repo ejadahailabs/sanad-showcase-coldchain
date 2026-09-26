@@ -15,7 +15,7 @@ Hazard (08-safety) → hazardous situation → harm → risk control measure
 ```
 Sanad carries the last two links (`uplinks`, `verifies`). The first four are MANUAL until Sanad has a safety capability.
 
-## Acceptability rule (SYNTHETIC, owner-to-confirm — A-09)
+## Acceptability rule (SYNTHETIC, owner-to-confirm — A-09) — SUPERSEDED 2026-09-27 by the 3 × 3 matrix of ADR-0012 (A-20)
 | Severity \ Probability | Improbable | Remote | Occasional | Probable |
 |---|---|---|---|---|
 | Critical (spoiled vaccine given) | review | control | control | control |

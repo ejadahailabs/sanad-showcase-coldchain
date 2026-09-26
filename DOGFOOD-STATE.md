@@ -4,6 +4,12 @@
 
 ## Phase log (newest first; one block per finished phase, the four lines verbatim)
 
+### Phase 5 — Safety analysis = ISO 14971 risk management file (2026-09-27, DOGFOOD-3)
+- SANAD DID: (headless) `createRequirement` + `planSerials` created 15 risk-control requirements MRTM-SAF-009…023 (`safetyClass: C`, `hazard:` links); Sanad's Safety engine read the `hazard` role → `mitigates` edges (28) → `safety.hazardCoverage` 100 % over HAZ-001…008, `rigourViolations` 0; `writeRequirementsPackage` regenerated the SysML requirements package (69 requirements); view writer + `canvasFor` wrote/drew mrtmSafetyBlocks, mrtmSafetyReqs and re-drew mrtmInterfaces; `validateWithPilot` + `loadSysmlProject` read the model (19 files, 123 satisfy links → 68 requirements).
+- PROVED BY: `erew --gate warning` → passed, 0 errors, 0 warnings, 41 info (8 analyses incl. safety); `--check-config` 0 refusals; OMG Pilot 0.61.0 → 0 issues over 19 files; `--report traceability-audit --baseline REQ-BL-1` → 82 trace changes (56 mitigates, 23 uplinks, 3 references); `tools/hazard-link-check.py` 28 = 28; all in 13-assessment/sanad-runs/phase-5/.
+- MANUAL: hazard analysis (8 hazards), FMEA (27 rows), fault tree (Mermaid, 9 cut sets), failure-mode assessment (4 residuals), risk-file index — 08-safety/; `MrtmSafety.sysml` + backup-alarm parts in `MrtmPhysical.sysml` written as text; `hazard` field added to the safety template and 8 old SAF files; ADR-0012…0014; A-18…A-24, R-11, R-12; Q-01…Q-13 answered by assumption. F-47…F-55.
+- UI-ONLY: canvas check of the safety views (C-13); requirement form + Problems Safety group (C-14).
+
 ### Phase 4 — System architecture in SysML v2 (2026-09-27, DOGFOOD-2)
 - SANAD DID: (headless) `writeRequirementsPackage` generated `06-design/packages/requirements.sysml` (54 requirements, uplinks as dependencies); `applyConfigEdits` declared `sysml.validator.pilot_home: env:SYSML_PILOT_HOME`; the view writer wrote 6 view files and `canvasFor` drew 5 SVGs + 1 matrix; `validateWithPilot` ran the OMG Pilot 0.61.0; `parseSysml` + `loadSysmlProject` read the model back (574 named elements, 84 graph elements, 95 satisfy links → all 54 requirements).
 - PROVED BY: OMG Pilot → 0 issues over 16 files (was 215 then 81 errors before fixes); `erew --gate warning` → passed, 0 errors, 0 warnings, 32 info; traceability-audit "Requirements → Allocated items" lists a design element for every requirement; all in 13-assessment/sanad-runs/phase-4/.
