@@ -34,7 +34,7 @@ for f in sorted(glob.glob(str(ROOT / "10-src/firmware/components/*/test/test_*.c
 for f in sorted(glob.glob(str(ROOT / "10-src/test/integration/test_*.c"))): tests(pathlib.Path(f).relative_to(ROOT), "integration")
 for line in (ROOT / "11-verification/procedures/system-procedures.md").read_text().splitlines():
     c = [x.strip() for x in line.strip().strip("|").split("|")]
-    if len(c) == 8 and re.match(r"SP-\d+$", c[0]):
+    if len(c) == 8 and re.match(r"SP-\d+(-H)?$", c[0]):
         rows.append({"Case": c[0], "Title": c[1], "Verifies": c[2], "Level": c[3], "Category": c[4],
                      "Procedure": f"11-verification/procedures/system-procedures.md#{c[0].lower()}", "Setup": f"environment {c[5]}; {c[6]} min",
                      "Expected": "", "Pass criterion": c[7], "Author": AUTHOR, "At commit": sha})

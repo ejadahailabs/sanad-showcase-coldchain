@@ -7,6 +7,7 @@
 | Case | Title | Verifies | Level | Category | Environment | Minutes | Pass criterion |
 |---|---|---|---|---|---|---|---|
 | SP-01 | Excursion, alarm, acknowledge, re-alarm, end | MRTM-SYS-001 MRTM-SYS-002 MRTM-SYS-003 MRTM-SYS-004 MRTM-SYS-005 MRTM-SYS-006 MRTM-SYS-007 MRTM-SYS-008 MRTM-SYS-009 MRTM-SYS-010 MRTM-SYS-018 MRTM-SYS-019 MRTM-PRF-002 MRTM-IFC-002 MRTM-SAF-019 MRTM-STK-001 MRTM-STK-002 MRTM-STK-003 | system | normal-range | H + T | 25 (H: 1) | all 10 checks of §SP-01 pass |
+| SP-01-H | Excursion cycle — host dry run on the stubs (`sim_main excursion`) | MRTM-SYS-001 MRTM-SYS-002 MRTM-SYS-003 MRTM-SYS-004 MRTM-SYS-005 MRTM-SYS-006 MRTM-SYS-008 MRTM-SYS-009 MRTM-SYS-010 MRTM-SYS-018 MRTM-SYS-019 MRTM-PRF-002 MRTM-IFC-002 | system | normal-range | H | 1 | the runner prints 10 CHECK … PASS lines and RESULT PASS |
 | SP-02 | Probe fault: no CRC for 30 s, reading out of range | MRTM-SYS-012 MRTM-SYS-013 MRTM-SAF-002 MRTM-SAF-003 MRTM-SAF-011 MRTM-STK-007 | system | fault-injection | T | 15 | fault declared ≤ 30 s after the last good sample (+1 sample period); message ≤ 5 s; buzzer 1 s on / 1 s off ±0.1 s |
 | SP-03 | Firmware hang → watchdog restart and backup alarm | MRTM-SAF-004 MRTM-SAF-009 MRTM-SAF-010 MRTM-SAF-013 | system | fault-injection | T | 20 | restart ≤ 2 s; pulses stop ≤ 2 s after the alarm task stops; backup buzzer ≤ 10 s after the last pulse; backup sounds ≥ 60 s with no power |
 | SP-04 | Mains loss, battery, low battery | MRTM-SYS-016 MRTM-SYS-023 MRTM-SAF-005 MRTM-SAF-008 MRTM-ENV-001 MRTM-STK-008 | system | normal-range | T | 300 | switch-over ≤ 100 ms (scope); POWER_LOSS logged ≤ 1 s; runs ≥ 4 h on battery; buzzer ≤ 5 s after 3.4 V |
@@ -34,6 +35,7 @@
 7. Read the history over USB → one start, one acknowledgement, one re-alarm and one end record, each with a UTC stamp to the second (SP-01.9, SYS-008/010); the end record's peak = 9.5 °C (SP-01.10, SYS-009).
 8. Bench only: hold the button 60 s → BUTTON_FAULT logged, further presses ignored until release (SAF-019; host: unit test).
 **Pass:** all checks pass. **Minutes:** host 1, bench 25.
+**Two cases, two verdicts (A-36):** `SP-01-H` is the host dry run (steps 1–7 on the stubs, automated); `SP-01` is the bench run. A host pass never closes the bench case.
 
 ## SP-02 — Probe fault (T)
 **Set-up.** Bench as SP-01. **Steps.** 1) Short the DQ line to ground for 40 s → probe fault declared ≤ 30 s after the last good sample (+10 s sample period), probe-fault message ≤ 5 s later, buzzer pattern 1 s on / 1 s off measured on the scope. 2) Release → fault clears on the next good sample, event PROBE_RECOVERED. 3) Put the probe in 55 °C water → fault at the first such sample (SAF-003). **Pass:** all three. **Minutes:** 15.
