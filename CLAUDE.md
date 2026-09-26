@@ -10,7 +10,7 @@ You are Claude running in the VS Code terminal of this folder. Masood is at the 
 ## The tool
 - Sanad extension: installed in THIS VS Code window from `sanad-sysml-r4int3-d388e43e.vsix` (sha256 starts b91589d3b69f80fc). Sanad main = `745ef793`.
 - Sanad source checkout for the CLI and the headless checks: `/home/masood/Masood/Office_Projects/Sanad` (read-only for this run; never commit there). CLI entry: see its `package.json` scripts and `src/cli.ts`; run Node with the memory cap below.
-- Repo conventions Sanad expects: `config.yaml` at the root (Setup writes it), requirements as Markdown with front matter, SysML v2 files under the design roots named in `config.yaml`, tests and results in the layout Setup chooses.
+- Repo conventions Sanad expects: `.ejadah/rew/config.yaml` (Setup writes it); folders are numbered 00–13 in development order, see STRUCTURE.md, requirements as Markdown with front matter, SysML v2 files under the design roots named in `config.yaml`, tests and results in the layout Setup chooses.
 
 ## How each phase runs
 1. Claude prepares every file the phase needs and runs every Sanad CLI check it can.
