@@ -1,6 +1,21 @@
 # Click list — the only things that need Masood at a keyboard
 
-Do these in one sitting after Phase 12, in this order. Each line: what to press · on which file · what to check · minutes.
+**Total: 29 clicks · 143 minutes** (133 without C-26, which is only for AI proposals). Run complete 2026-09-27 — do them in one sitting.
+
+**Recommended order** (grouped by the screen you are on, so you open each view once):
+1. Setup + config: C-01 (10)
+2. Requirement form + Problems panel: C-04, C-09, C-14, C-06 (18)
+3. Traceability + structure: C-05, C-22 (9)
+4. Baselines: C-07, C-29 (6)
+5. Design canvas: C-02, C-03, C-10, C-12, C-13, C-15, C-16, C-17, C-20 (49)
+6. OMG Pilot: C-11, C-19 (6)
+7. Design lenses: C-18, C-21, C-23 (11)
+8. Verification: C-24, C-25, C-27 (14)
+9. Impact: C-28 (5)
+10. Review (no remote): C-08 (5)
+11. Optional, only with an AI key: C-26 (10)
+
+Each line: what to press · on which file · what to check · minutes.
 
 | # | Phase | Press | File | Check afterwards | Min |
 |---|---|---|---|---|---|

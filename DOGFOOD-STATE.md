@@ -1,8 +1,14 @@
 # Dogfood run state — keep current; a fresh session reads this first
 
-## RESUME HERE (2026-09-27, DOGFOOD-6) — Phase 11 done (MRTM-SYS-024, ADR-0030/0031, REQ-BL-2). Next: **Phase 12 (assessment)** in 13-assessment/. Gate RED on purpose (17 = 16 missing-result + 1 CR prefix). Scratch ~/.cache/tmp-dogfood6.
+## RESUME HERE — RUN COMPLETE — owner does CLICK-LIST.md; coordinator files findings (2026-09-27, DOGFOOD-6; tag `dogfood-run-1`, baseline REQ-BL-2; start at 13-assessment/SUMMARY.md)
 
 ## Phase log (newest first; one block per finished phase, the four lines verbatim)
+
+### Phase 12 — Sanad assessment, IEC 62304 §5.8 / §5–§9, ISO 14971 (2026-09-27, DOGFOOD-6)
+- SANAD DID: nothing new ran, and none was needed. The assessment reads Sanad's recorded outputs of Phases 0–11 (13-assessment/sanad-runs/). The Phase 11 gate run and REQ-BL-2 are the evidence base, and no gate run was spent in Phase 12.
+- PROVED BY: `tools/gap-list.py` refuses to write if a finding is missing → 118 of 118 placed in 14 capability groups (102 MANUAL, 16 UI-ONLY, 21 configuration-only); click totals re-added: 29 clicks / 143 min; artifact-table counts computed from the table (96 rows); DEF-008 fix proved by `git ls-files 11-verification/evidence` listing the build and SP-01-H logs.
+- MANUAL: all of 13-assessment/ — artifact table (96), judgement (10 scores, average 2.2), gap list, Class-C checklist (26: Sanad home 8 yes / 5 partly / 13 no; links 14 / 8 / 4), RELEASE-NOTES.md, SUMMARY.md; CLICK-LIST header (total + order); DEF-008 (evidence logs were git-ignored; `.gitignore` fixed); F-116…F-118.
+- UI-ONLY: none new; the whole click list (C-01…C-29) is now Masood's.
 
 ### Phase 11 — Change impact analysis + drift, IEC 62304 §6.2.3 / §8.1–8.2, ISO 14971 cl. 7.6 (2026-09-27, DOGFOOD-6)
 - SANAD DID: (headless) `createRequirement` + `planSerials` allocated **MRTM-SYS-024** (Class C, uplink STK-001); the Impact lens code (`impactView` + `impactReport`) and the review's `impactReading` ran over it and the 6 requirements it clashes with — **0 artifacts for the new requirement, 100 for the 6** (24 requirements, 24 code functions, 52 cases; 2 candidates); the gate's impact engine flagged `wide-impact` on STK-002; `writeRequirementsPackage` regenerated the package; code index 46 symbols / 53 requirements; results + coverage producers read 100 JUnit rows + LCOV; `--baseline REQ-BL-1` → 109 trace changes (+4 this phase); `baselineDiff` → 60 new / 7 gone findings; `--diff-config REQ-BL-1` → 6 rows, 0 new; `makeBaseline` wrote **REQ-BL-2**.
