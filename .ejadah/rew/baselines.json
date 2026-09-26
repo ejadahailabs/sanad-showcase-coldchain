@@ -1,0 +1,35 @@
+{
+  "baselines": [
+    {
+      "label": "REQ-BL-1",
+      "createdAt": "2026-09-26T17:46:34.884Z",
+      "commit": "1f9fd908dcd34a2894f43de40728858d50240b88",
+      "keys": [
+        "impact|impact-incomplete||",
+        "impact|wide-impact|MRTM-STK-004|",
+        "quality|indefinite-article|MRTM-ENV-002|Description",
+        "quality|indefinite-article|MRTM-ENV-003|Description",
+        "quality|indefinite-article|MRTM-ENV-004|Description",
+        "quality|indefinite-article|MRTM-IFC-003|Description",
+        "quality|indefinite-article|MRTM-IFC-004|Description",
+        "quality|indefinite-article|MRTM-MNT-001|Description",
+        "quality|indefinite-article|MRTM-PRF-001|Description",
+        "quality|indefinite-article|MRTM-PRF-004|Description",
+        "quality|indefinite-article|MRTM-SAF-001|Description",
+        "quality|indefinite-article|MRTM-SAF-003|Description",
+        "quality|indefinite-article|MRTM-SAF-004|Description",
+        "quality|indefinite-article|MRTM-STK-008|Description",
+        "structure|under-decomposition|MRTM-STK-002|",
+        "structure|under-decomposition|MRTM-STK-006|",
+        "structure|under-decomposition|MRTM-STK-008|",
+        "structure|under-decomposition|MRTM-SYS-005|",
+        "structure|under-decomposition|MRTM-SYS-006|",
+        "structure|under-decomposition|MRTM-SYS-011|",
+        "structure|under-decomposition|MRTM-SYS-014|",
+        "structure|under-decomposition|MRTM-SYS-015|",
+        "sysml-project|sysml-unresolved-import|06-design/system/MrtmUseCases.sysml|",
+        "sysml-project|sysml-unresolved-import|06-design/views/SanadRenderings.sysml|"
+      ]
+    }
+  ]
+}

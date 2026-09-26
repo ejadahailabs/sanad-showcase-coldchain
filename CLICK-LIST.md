@@ -10,3 +10,4 @@ Do these in one sitting after Phase 12, in this order. Each line: what to press 
 | C-04 | 2 | Sanad explorer → open 3 requirements (MRTM-SYS-003, MRTM-SAF-001, MRTM-STK-001) in the requirement form | 03-requirements/ | Form shows safetyClass C, uplinks resolve, no red fields | 5 |
 | C-05 | 2 | Sanad: Open Traceability view, then the structure / hierarchy view | whole repo | Tree STK → SYS → SAF/PRF/ENV/MNT/IFC matches 13-assessment/sanad-runs/phase-2/report-traceability.md; 46 requirements | 5 |
 | C-06 | 2 | Problems panel | whole repo | 0 errors, 0 warnings, 24 info; the 11 suppressions shown as suppressed with reasons | 3 |
+| C-07 | 2b | Sanad Baselines view → REQ-BL-1 → Compare | .ejadah/rew/baselines.json | REQ-BL-1 listed with commit 1f9fd908; compare shows no new findings at the baseline commit | 3 |

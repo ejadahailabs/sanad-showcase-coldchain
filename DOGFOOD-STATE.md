@@ -1,8 +1,14 @@
 # Dogfood run state — keep current; a fresh session reads this first
 
-## RESUME HERE (2026-09-26 23:30 IST — folder set up by the coordinator; NOTHING RUN YET. Next: Phase 0 headless — find Sanad's headless setup path (CLI / plan file) or write .ejadah/rew/config.yaml by hand and log it as UI-ONLY in CLICK-LIST.md.)
+## RESUME HERE (2026-09-27, DOGFOOD-1 stopped after Phase 2b) — Next: **Phase 3 (requirements review)** with Sanad's Review capability. Headless tools in `tools/` (setup, author-requirements, new-view, render-view, baseline, sanad-checks.sh) run against the unpacked vsix at `~/.cache/tmp-dogfood1/vsix/extension` (unzip `builds/sanad-sysml-r4int3-d388e43e.vsix` there if missing; source snapshot of 745ef793 in `~/.cache/tmp-dogfood1/src745` via `git archive`). Apply PROMPT.md "Owner orders added 2026-09-27 00:05" (Class C, SysML weight). Baseline = REQ-BL-1. Click list C-01..C-07 waits for Masood.
 
 ## Phase log (newest first; one block per finished phase, the four lines verbatim)
+
+### Phase 2b — Baseline (2026-09-27, DOGFOOD-1)
+- SANAD DID: (headless) Sanad's baseline code wrote `.ejadah/rew/baselines.json` — baseline **REQ-BL-1** at commit `1f9fd908` (clean), 24 finding identities.
+- PROVED BY: `erew --report traceability-audit --baseline REQ-BL-1` → "no trace changes"; `erew --diff-config REQ-BL-1` resolves the label to the commit (13-assessment/sanad-runs/phase-2b/).
+- MANUAL: git tag REQ-BL-1, 04-baselines/REQ-BL-1.md, ADR-0006. F-24, F-25.
+- UI-ONLY: Baselines view + compare (C-07); Set Baseline command (F-23, done headless).
 
 ### Phase 2 — Requirements (2026-09-27, DOGFOOD-1)
 - SANAD DID: (headless) 46 requirements created by `createRequirement` from the 7 templates with allocator ids (`planSerials`, atomic claim) — STK 8 · SYS 16 · SAF 7 · PRF 4 · ENV 4 · MNT 3 · IFC 4; analysis engines validation, traceability, quality (requirements-writing pack), structure, verification, consistency, impact; criticality resolved C → rigour 4 for all 46; accepted findings held in Sanad's `suppressions:`; reports traceability, traceability-audit (+CSV), requirements (+trace, document layout = the SRS), statistics, validation, eiwr, test-coverage generated as files.
