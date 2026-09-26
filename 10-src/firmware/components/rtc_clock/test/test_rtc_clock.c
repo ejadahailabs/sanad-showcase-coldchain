@@ -34,6 +34,7 @@ void test_now_is_the_rtc_copy_refreshed_each_second(void)
 }
 
 /* Error codes of the contract. */
+/* @verifies MRTM-SAF-022 */
 void test_error_codes_bus_and_arg(void)
 {
     TEST_ASSERT_EQUAL(MRTM_ERR_ARG, rtc_clock_init(NULL));

@@ -160,6 +160,7 @@ void test_heartbeat_moves_on_every_step(void)
 }
 
 /* Error codes of the contract: queue depth 8, then MRTM_ERR_FULL; NVS missing at init. */
+/* @verifies MRTM-SAF-006 */
 void test_error_codes_full_and_nvs(void)
 {
     for (int i = 0; i < 8; i++) TEST_ASSERT_EQUAL(MRTM_OK, alarm_mgr_post(SIG_PROBE_RECOVERED));

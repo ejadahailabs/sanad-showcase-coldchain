@@ -31,7 +31,12 @@ if (pass === "--p10") {
   // The verification matrix (Sanad's declared-columns lane; there is no Unity/C lane — F-93).
   doc.setIn(["producers", "verification"], doc.createNode([{ path: "11-verification/cases/verification-cases.csv",
     fields: { case: "Case", verifies: "Verifies", procedure: "Procedure", expected: "Expected", level: "Level",
-      category: "Method", author: "Author", state: "State", description: "Title", setup: "Setup", criterion: "Pass criterion" } }]));
+      category: "Category", author: "Author", state: "At commit", description: "Title", setup: "Setup", criterion: "Pass criterion" } }]));
+  // Structural coverage of the host build (gcov -> LCOV by tools/gcov2lcov.py).
+  doc.setIn(["producers", "coverage"], doc.createNode([{ path: "11-verification/evidence/coverage/host-unit-integration.info" }]));
+  // The verification stage — Sanad's RECOMMENDED values, confirmed by the agent under A-35 (owner to confirm or change).
+  if (!doc.has("verification")) doc.set("verification", doc.createNode({ confirmed: true, boundary: { "*": "three-value" },
+    realValued: "refuse", compositeIsConjunction: true, logicDepth: { "*": "each-outcome" } }));
 }
 fs.writeFileSync(p, String(doc));
 console.log(`config: ${pass} applied`);

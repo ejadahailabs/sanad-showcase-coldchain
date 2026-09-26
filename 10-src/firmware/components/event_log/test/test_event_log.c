@@ -41,6 +41,7 @@ void test_step_numbers_checksums_and_stores_every_queued_record(void)
 }
 
 /* Error code of the contract: queue depth 32, then MRTM_ERR_FULL. */
+/* @verifies MRTM-SAF-018 */
 void test_error_code_full_after_32(void)
 {
     for (int i = 0; i < 32; i++) TEST_ASSERT_EQUAL(MRTM_OK, event_log_post(MRTM_EV_ACK, 0, 0));
@@ -48,6 +49,7 @@ void test_error_code_full_after_32(void)
 }
 
 /* A flash failure is retried once and does not loop on its own report. */
+/* @verifies MRTM-SAF-018 */
 void test_flash_failure_does_not_loop(void)
 {
     host.flash_fail = true;

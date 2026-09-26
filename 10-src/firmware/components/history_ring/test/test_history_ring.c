@@ -97,6 +97,7 @@ void test_init_finds_the_head_again_after_a_restart(void)
 }
 
 /* Error codes of the contract. */
+/* @verifies MRTM-SAF-018 */
 void test_error_codes_flash_arg(void)
 {
     event_record_t r = { .seq = 5 };

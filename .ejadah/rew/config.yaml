@@ -169,8 +169,31 @@ producers:
   dataDictionary:
     - path: "01-data-dictionary/data-dictionary.md"
   results:
-    - level: "systems-verification-results"
-      path: "11-verification/results"
+    - level: verification-ll
+      path: 11-verification/results/unit
+      naming: "*.xml"
+    - level: verification-component
+      path: 11-verification/results/integration
+      naming: "*.xml"
+    - level: systems-verification-results
+      path: 11-verification/results/system
+      naming: "*.xml"
+  verification:
+    - path: 11-verification/cases/verification-cases.csv
+      fields:
+        case: Case
+        verifies: Verifies
+        procedure: Procedure
+        expected: Expected
+        level: Level
+        category: Category
+        author: Author
+        state: At commit
+        description: Title
+        setup: Setup
+        criterion: Pass criterion
+  coverage:
+    - path: 11-verification/evidence/coverage/host-unit-integration.info
 
 # Repository-wide assurance target (ADR-0062, under ADR-0056). Sanad maps the level
 # below to its own internal rigour 0–4 (4 = most rigorous) and every analysis
@@ -406,8 +429,8 @@ suppressions:
       'not reached by code' list. Accepted DOGFOOD-5."
   - rule: not-implemented
     path: 03-requirements/environmental/MRTM-ENV-002.md
-    reason: "No software does this by design: ambient operating range of the
-      parts (hardware qualification). Verified by hardware test or inspection
+    reason: "No software does this by design: ambient operating range of the parts
+      (hardware qualification). Verified by hardware test or inspection
       (11-verification). Sanad's not-implemented list IS the Phase 9 'not
       reached by code' list. Accepted DOGFOOD-5."
   - rule: not-implemented
@@ -430,10 +453,10 @@ suppressions:
       'not reached by code' list. Accepted DOGFOOD-5."
   - rule: not-implemented
     path: 03-requirements/safety/MRTM-SAF-001.md
-    reason: "No software does this by design: sound pressure is the buzzer part
-      and enclosure (hardware); firmware only drives it. Verified by hardware
-      test or inspection (11-verification). Sanad's not-implemented list IS the
-      Phase 9 'not reached by code' list. Accepted DOGFOOD-5."
+    reason: "No software does this by design: sound pressure is the buzzer part and
+      enclosure (hardware); firmware only drives it. Verified by hardware test
+      or inspection (11-verification). Sanad's not-implemented list IS the Phase
+      9 'not reached by code' list. Accepted DOGFOOD-5."
   - rule: not-implemented
     path: 03-requirements/safety/MRTM-SAF-013.md
     reason: "No software does this by design: the backup alarm's own supply
@@ -448,10 +471,10 @@ suppressions:
       DOGFOOD-5."
   - rule: not-implemented
     path: 03-requirements/system/MRTM-SYS-016.md
-    reason: "No software does this by design: the power path switches in
-      hardware; firmware only observes mains (power_mon). Verified by hardware
-      test or inspection (11-verification). Sanad's not-implemented list IS the
-      Phase 9 'not reached by code' list. Accepted DOGFOOD-5."
+    reason: "No software does this by design: the power path switches in hardware;
+      firmware only observes mains (power_mon). Verified by hardware test or
+      inspection (11-verification). Sanad's not-implemented list IS the Phase 9
+      'not reached by code' list. Accepted DOGFOOD-5."
   - rule: partially-implemented
     path: 03-requirements/stakeholder/MRTM-STK-008.md
     reason: Its children without code are hardware or labelling requirements
@@ -485,3 +508,11 @@ review:
 sysml:
   validator:
     pilot_home: env:SYSML_PILOT_HOME
+verification:
+  confirmed: true
+  boundary:
+    "*": three-value
+  realValued: refuse
+  compositeIsConjunction: true
+  logicDepth:
+    "*": each-outcome
