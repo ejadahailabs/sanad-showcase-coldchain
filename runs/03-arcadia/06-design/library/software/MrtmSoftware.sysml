@@ -122,7 +122,7 @@ package MrtmSoftware {
     }
     #Component part def UsbExport {
         doc /* Presents the history as a read-only FAT volume over TinyUSB MSC (SOUP). Language C. */
-        attribute safetyClass : SafetyClass = SafetyClass::C;
+        attribute safetyClass : SafetyClass = SafetyClass::B;  // RUN-03: class B per ADR-0034 / MRTM-SW-012, -013 (run 2 said C here: F-3-007)
     }
 
     // ---- FreeRTOS tasks (ADR-0018, ADR-0019). Priority: higher runs first (0..24). --
@@ -177,7 +177,7 @@ package MrtmSoftware {
         part rtcClock : RtcClock;
     }
     #Service part def UsbItem {
-        attribute safetyClass : SafetyClass = SafetyClass::C;
+        attribute safetyClass : SafetyClass = SafetyClass::B;  // RUN-03: class B per ADR-0034 / MRTM-SW-012, -013 (run 2 said C here: F-3-007)
         part usbExport : UsbExport;
     }
     #Service part def PowerItem {

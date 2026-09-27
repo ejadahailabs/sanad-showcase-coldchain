@@ -63,7 +63,9 @@ package PaInterconnection {
     interface buzzerLine : SignalLine connect mcu.buzzerPin to buzzer.drive;
     interface buzzerSenseLine : SenseLine connect mcu.buzzerSensePin to buzzer.sense;
     interface redLine : SignalLine connect mcu.redPin to indicators.red;
+    interface greenLine : SignalLine connect mcu.greenPin to indicators.green;
     interface ackLine : ButtonLine connect mcu.ackPin to indicators.ack;
+    interface batterySenseLine : PowerFeed connect battery.terminal to mcu.batterySense;
     interface wdtKickLine : SignalLine connect mcu.wdtKickPin to backupAlarm.kick;
     interface backupBuzzerLine : SignalLine connect backupAlarm.alarmOut to buzzer.backupDrive;
     interface batteryFeed : PowerFeed connect battery.terminal to powerPath.batteryIn;
@@ -81,9 +83,9 @@ package PaBackupAlarm {
     part timer : WatchdogAlarmTimer;
     part driver : BackupDriver;
     part holdUp : Supercap;
-    part mcu : Esp32S3Module;          // outside the board: sends the service pulses
-    part buzzer : PiezoBuzzerStage;    // outside the board: the one buzzer
-    part powerPath : ChargerPowerPath; // outside the board: charges the hold-up store
+    part mcu { port wdtKickPin : GpioOutPort; }           // outside the board: the microcontroller sends the service pulses
+    part buzzer { port backupDrive : ~GpioOutPort; }      // outside the board: the one buzzer
+    part powerPath { port output : PowerPort; }           // outside the board: the power path charges the hold-up store
 
     interface kickLine : SignalLine connect mcu.wdtKickPin to timer.kick;
     interface timeoutLine : SignalLine connect timer.alarmOut to driver.input;

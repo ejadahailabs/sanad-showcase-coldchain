@@ -13,9 +13,9 @@ package OaArchitecture {
     part technician : Technician { perform OaModel::serviceMeasuringEquipment; }
     part mains : MainsGrid { perform OaModel::rideThroughPowerCut; }
 
-    connect fridge to stock;       // keeps it cold
-    connect nurse to fridge;       // watches it, responds to it
-    connect manager to nurse;      // asks for the record
-    connect technician to fridge;  // services what measures it
-    connect mains to fridge;       // powers it
+    connection keepsCold connect fridge to stock;
+    connection watchesAndResponds connect nurse to fridge;
+    connection asksForTheRecord connect manager to nurse;
+    connection servicesTheWatching connect technician to fridge;
+    connection powers connect mains to fridge;
 }

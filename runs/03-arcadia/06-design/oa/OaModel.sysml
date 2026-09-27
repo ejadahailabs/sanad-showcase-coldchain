@@ -31,30 +31,9 @@ package OaModel {
     action serviceMeasuringEquipment : ServiceMeasuringEquipment;
     action rideThroughPowerCut : RideThroughPowerCut;
 
-    // ---- Operational capabilities (what the clinic must be able to do) ----
-    use case def KnowTheFridgeIsSafe {
-        objective { doc /* Know, at any moment, that the vaccines are in band, and be told when they are not — but not for a door opening. */ }
-        subject clinic : Clinic;
-        actor nurse : Nurse;
-    }
-    use case def RespondToAnExcursion {
-        objective { doc /* Act on a warm fridge and quiet the call while acting. */ }
-        subject clinic : Clinic;
-        actor nurse : Nurse;
-    }
-    use case def ProveTheStorageHistory {
-        objective { doc /* Show an auditor every excursion, in a record the user cannot change. */ }
-        subject clinic : Clinic;
-        actor manager : ClinicManager;
-    }
-    use case def TrustTheWatching {
-        objective { doc /* Watching never stops without someone knowing: probe failure and power cuts are covered. */ }
-        subject clinic : Clinic;
-        actor technician : Technician;
-    }
-
-    use case knowTheFridgeIsSafe : KnowTheFridgeIsSafe;
-    use case respondToAnExcursion : RespondToAnExcursion;
-    use case proveTheStorageHistory : ProveTheStorageHistory;
-    use case trustTheWatching : TrustTheWatching;
+    // Capability usages (satisfy targets); the definitions are in OaCapabilities below.
+    use case knowTheFridgeIsSafe : OaCapabilities::KnowTheFridgeIsSafe;
+    use case respondToAnExcursion : OaCapabilities::RespondToAnExcursion;
+    use case proveTheStorageHistory : OaCapabilities::ProveTheStorageHistory;
+    use case trustTheWatching : OaCapabilities::TrustTheWatching;
 }

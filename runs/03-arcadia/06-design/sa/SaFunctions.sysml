@@ -53,8 +53,36 @@ package SaAlarmChain {
         action show : ShowStatus;
         action record : RecordEvents;
         flow of TemperatureSample from acquire.sample to detect.sample;
+        flow of TemperatureSample from acquire.sample to show.sample;
         flow of ExcursionState from detect.excursion to announce.excursion;
         flow of ExcursionState from detect.excursion to show.excursion;
         flow of ExcursionState from detect.excursion to record.excursion;
+    }
+}
+
+package SaDataFlow {
+
+    doc /* System data flow (Arcadia SDFB): the nine system functions and the functional exchanges between them. */
+
+    private import SaFunctions::*;
+
+    action def SystemDataFlow {
+        action acquire : AcquireTemperature;
+        action detect : DetectExcursion;
+        action announce : AnnounceAlarm;
+        action ownFailure : AlarmOnOwnFailure;
+        action show : ShowStatus;
+        action record : RecordEvents;
+        action export : ExportHistory;
+        action power : KeepPowered;
+        action supervise : SuperviseItself;
+        flow of TemperatureSample from acquire.sample to detect.sample;
+        flow of TemperatureSample from acquire.sample to show.sample;
+        flow of ExcursionState from detect.excursion to announce.excursion;
+        flow of ExcursionState from detect.excursion to show.excursion;
+        flow of ExcursionState from detect.excursion to record.excursion;
+        flow of ExcursionState from detect.excursion to supervise.excursion;
+        flow of PowerEvent from power.power to record.power;
+        flow of LogRecord from record.rec to export.rec;
     }
 }
