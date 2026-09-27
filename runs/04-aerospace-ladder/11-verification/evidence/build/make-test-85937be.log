@@ -1,0 +1,4 @@
+python3 ../tools/gen-codes.py --check
+codes: STALE ['mrtm_errors.h', 'mrtm_events.h']
+make: *** [Makefile:23: codes] Error 1
+make test rc=2

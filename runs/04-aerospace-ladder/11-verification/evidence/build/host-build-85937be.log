@@ -1,0 +1,8 @@
+# host build, build=85937be date=2026-09-27 tester=RUN-04 (agent, no independence)
+gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+GNU Make 4.4.1
+rm -f -r build
+python3 ../tools/gen-codes.py --check
+codes: STALE ['mrtm_errors.h', 'mrtm_events.h']
+make: *** [Makefile:23: codes] Error 1
+make: *** Waiting for unfinished jobs....
