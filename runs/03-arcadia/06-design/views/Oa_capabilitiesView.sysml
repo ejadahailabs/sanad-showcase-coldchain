@@ -12,3 +12,46 @@ package Oa_capabilitiesView {
         render asUseCaseView;
     }
 }
+
+package 'Layout_Sanad' {
+
+    comment /* Layout only. Written and read by this workbench.
+       Every entry annotates an element by qualified name; no model element is modified.
+       Delete this package and the model is unchanged. */
+
+    private import ScalarValues::*;
+
+    metadata def 'Layout' {
+        attribute 'viewName' : String;
+        attribute 'x' : Real;
+        attribute 'y' : Real;
+        attribute 'w' : Real;
+        attribute 'h' : Real;
+    }
+
+    metadata def 'EdgeLayout' {
+        attribute 'viewName' : String;
+        attribute 'edge' : String;
+        attribute 'bends' : String;
+    }
+
+    metadata def 'Hidden' {
+        attribute 'viewName' : String;
+    }
+
+    metadata 'h1' : 'Hidden' about 'OaCapabilities'::'knowTheFridgeIsSafe' {
+        'viewName' = "oa_capabilities";
+    }
+
+    metadata 'h2' : 'Hidden' about 'OaCapabilities'::'proveTheStorageHistory' {
+        'viewName' = "oa_capabilities";
+    }
+
+    metadata 'h3' : 'Hidden' about 'OaCapabilities'::'respondToAnExcursion' {
+        'viewName' = "oa_capabilities";
+    }
+
+    metadata 'h4' : 'Hidden' about 'OaCapabilities'::'trustTheWatching' {
+        'viewName' = "oa_capabilities";
+    }
+}

@@ -77,6 +77,7 @@ layers:
     views:
       - {name: pa_architecture, arcadia: "Physical Architecture Blank (PAB) — node components", kind: block}
       - {name: pa_interconnection, arcadia: "Physical links (interconnection)", kind: internal block}
+      - {name: pa_backup_alarm, arcadia: "Physical links inside one node component (backup alarm board)", kind: internal block}
       - {name: pa_software, arcadia: "Behaviour components with the software profile", kind: block, profile: .ejadah/rew/SoftwareProfile.sysml}
   - name: epbs
     title: End-Product Breakdown Structure

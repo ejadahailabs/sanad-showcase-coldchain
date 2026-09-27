@@ -26,4 +26,9 @@ package OaCapabilities {
         actor technician : Technician;
     }
 
+    // Capability usages (satisfy targets); hidden in the picture (they repeat their definitions).
+    use case knowTheFridgeIsSafe : KnowTheFridgeIsSafe;
+    use case respondToAnExcursion : RespondToAnExcursion;
+    use case proveTheStorageHistory : ProveTheStorageHistory;
+    use case trustTheWatching : TrustTheWatching;
 }

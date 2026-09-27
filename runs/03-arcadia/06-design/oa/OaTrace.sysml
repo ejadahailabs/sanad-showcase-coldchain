@@ -3,12 +3,12 @@
 private import ProjectRequirements::*;
 
 package OaTrace {
-    satisfy 'MRTM-STK-001' by OaModel::knowTheFridgeIsSafe;
-    satisfy 'MRTM-STK-002' by OaModel::knowTheFridgeIsSafe;
-    satisfy 'MRTM-STK-003' by OaModel::respondToAnExcursion;
-    satisfy 'MRTM-STK-004' by OaModel::knowTheFridgeIsSafe;
-    satisfy 'MRTM-STK-005' by OaModel::proveTheStorageHistory;
-    satisfy 'MRTM-STK-006' by OaModel::proveTheStorageHistory;
-    satisfy 'MRTM-STK-007' by OaModel::trustTheWatching;
-    satisfy 'MRTM-STK-008' by OaModel::trustTheWatching;
+    satisfy 'MRTM-STK-001' by OaCapabilities::knowTheFridgeIsSafe;
+    satisfy 'MRTM-STK-002' by OaCapabilities::knowTheFridgeIsSafe;
+    satisfy 'MRTM-STK-003' by OaCapabilities::respondToAnExcursion;
+    satisfy 'MRTM-STK-004' by OaCapabilities::knowTheFridgeIsSafe;
+    satisfy 'MRTM-STK-005' by OaCapabilities::proveTheStorageHistory;
+    satisfy 'MRTM-STK-006' by OaCapabilities::proveTheStorageHistory;
+    satisfy 'MRTM-STK-007' by OaCapabilities::trustTheWatching;
+    satisfy 'MRTM-STK-008' by OaCapabilities::trustTheWatching;
 }

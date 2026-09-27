@@ -18,7 +18,7 @@ STK = {1: "knowTheFridgeIsSafe", 2: "knowTheFridgeIsSafe", 4: "knowTheFridgeIsSa
        5: "proveTheStorageHistory", 6: "proveTheStorageHistory", 7: "trustTheWatching", 8: "trustTheWatching"}
 # Element name in the spec -> qualified model element that satisfies.
 def target(layer, el):
-    if layer == "oa": return f"OaModel::{el}"
+    if layer == "oa": return f"OaCapabilities::{el}"
     if layer == "sa": return "SaContext::monitor" if el == "monitor" else f"SaFunctions::{el}"
     if layer == "la": return f"LaArchitecture::{el}"
     if layer == "pa":
@@ -104,5 +104,37 @@ def transitions():
         print(f"transition {a}->{b}: {len(lines)} allocate")
     (ROOT / "06-design/transitions/Transitions.sysml").write_text("\n".join(out) + "\n")
 
+SAYS = {  # one plain line per picture: what a reader sees in it
+ "oa_capabilities": "What the clinic must be able to do, and who takes part — four capabilities, no device yet.",
+ "oa_architecture": "Who is in the clinic, what each one does, and who deals with whom.",
+ "sa_context": "The monitor as ONE box with its four actors and five boundary ports; its nine system functions listed inside.",
+ "sa_functions": "The nine system functions and what they hand each other (system data flow).",
+ "sa_alarm_chain": "The excursion-alarm functional chain: acquire → detect → announce / show / record. Budget ≤ 5 s in the package doc (the picture cannot show time yet, run 2 F-123).",
+ "la_architecture": "Six logical components and the logical wires between them, with the actors at the edge.",
+ "la_interfaces": "The seven logical interfaces: what one logical component hands another.",
+ "pa_architecture": "What is inside the box: nine node components (hardware).",
+ "pa_interconnection": "The physical links: which part is wired to which, by bus or line kind.",
+ "pa_backup_alarm": "Inside the backup alarm board: timer → driver → buzzer, fed by the hold-up store.",
+ "pa_software": "The eight software items (with their IEC 62304 class) deployed on the microcontroller.",
+ "epbs_breakdown": "The six configuration items we build, buy, version and ship.",
+}
+
+def index():
+    for l in FW["layers"]:
+        ids = sorted(r for layer, r, _ in rows() if layer == l["name"])
+        nxt = next((t for t in FW["transitions"] if t["from"] == l["name"]), None)
+        md = [f"# {l['title']} ({l['name'].upper()}) — layer {FW['layers'].index(l) + 1} of 5", "",
+              f"**Question this layer answers:** {l['question']}", "",
+              f"**Read in this order** (Arcadia viewpoints, drawn by Sanad's canvas, looked at):", "",
+              "| # | Picture | Arcadia viewpoint | What you see |", "|---|---|---|---|"]
+        for i, v in enumerate(l["views"], 1):
+            md.append(f"| {i} | ![{v['name']}](pictures/{v['name']}.png) `{v['name']}.png` | {v['arcadia']} | {SAYS[v['name']]} |")
+        md += ["", f"**Requirements of this layer ({len(ids)}, {l['requirement_kind']}):** " + " ".join(ids), "",
+               f"**Model:** the `.sysml` files in this folder; `{PKG[l['name']]}Trace.sysml` holds the satisfy lines (this layer's requirements only).",
+               f"**Derived from:** {('layer ' + l['derive'].upper()) if l['derive'] else 'nothing — these are the stakeholder needs'}."]
+        if nxt: md.append(f"**Goes down to:** [{nxt['to'].upper()}](../{nxt['to']}/INDEX.md) through the transition table [`../transitions/{nxt['from']}-to-{nxt['to']}.md`](../transitions/{nxt['from']}-to-{nxt['to']}.md).")
+        (ROOT / "06-design" / l["path"] / "INDEX.md").write_text("\n".join(md) + "\n")
+        print(f"index {l['name']}: {len(l['views'])} pictures, {len(ids)} requirements")
+
 if __name__ == "__main__":
-    {"satisfy": satisfy, "transitions": transitions}[sys.argv[1]]()
+    {"satisfy": satisfy, "transitions": transitions, "index": index}[sys.argv[1]]()

@@ -31,9 +31,4 @@ package OaModel {
     action serviceMeasuringEquipment : ServiceMeasuringEquipment;
     action rideThroughPowerCut : RideThroughPowerCut;
 
-    // Capability usages (satisfy targets); the definitions are in OaCapabilities below.
-    use case knowTheFridgeIsSafe : OaCapabilities::KnowTheFridgeIsSafe;
-    use case respondToAnExcursion : OaCapabilities::RespondToAnExcursion;
-    use case proveTheStorageHistory : OaCapabilities::ProveTheStorageHistory;
-    use case trustTheWatching : OaCapabilities::TrustTheWatching;
 }

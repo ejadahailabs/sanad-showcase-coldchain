@@ -20,8 +20,10 @@ L = {  # view: (view file, package, {element: [x, y]}, plain)
  "oa_architecture": ("Oa_architecture", "OaArchitecture", {"mains": [380, 20], "technician": [20, 240], "fridge": [380, 240],
      "nurse": [760, 240], "manager": [760, 480], "stock": [380, 480]}, False),
 }
+HIDE = {"oa_capabilities": "OaCapabilities::knowTheFridgeIsSafe,OaCapabilities::respondToAnExcursion,OaCapabilities::proveTheStorageHistory,OaCapabilities::trustTheWatching"}
+L["oa_capabilities"] = ("Oa_capabilities", "OaCapabilities", {}, False)
 for view, (f, pkg, slots, plain) in L.items():
     if len(sys.argv) > 1 and sys.argv[1] != view: continue
     boxes = {f"{pkg}::{p}" if "::" not in p else p: xy for p, xy in slots.items()}
-    subprocess.run(["systemd-run", "--user", "--scope", "-q", "-p", "MemoryMax=6G", "-p", "MemorySwapMax=1G", "node", "tools/layout-headless.cjs",
+    subprocess.run(["systemd-run", "--user", "--scope", "-q", "-p", "MemoryMax=6G", "-p", "MemorySwapMax=1G", f"--setenv=HIDE={HIDE.get(view, '')}", "node", "tools/layout-headless.cjs",
                     EXT, os.getcwd(), f"06-design/views/{f}View.sysml", view, json.dumps(boxes)] + (["--plain"] if plain else []), check=True)
