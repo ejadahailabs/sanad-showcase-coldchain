@@ -7,7 +7,7 @@ Usage (repo root): python3 tools/verif-matrix.py [--check]"""
 import csv, glob, io, re, subprocess, sys, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / "11-verification/cases/verification-cases.csv"
-AUTHOR = "DOGFOOD-5 (agent, no independence)"
+AUTHOR = "RUN-04 (agent, no independence — A-4-03)"
 COLS = ["Case", "Title", "Verifies", "Level", "Category", "Procedure", "Setup", "Expected", "Pass criterion", "Author", "At commit"]
 sha = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True).stdout.strip()
 rows, undeclared = [], []

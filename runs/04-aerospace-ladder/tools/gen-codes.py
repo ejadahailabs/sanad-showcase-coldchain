@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Generate mrtm_errors.h and mrtm_events.h from the SysML enum defs (ADR-0025).
-The model (06-design/software/MrtmSwCodes.sysml) stays the source: each line
+The model (06-design/library/MrtmSwCodes.sysml) stays the source: each line
 `enum name; // C_NAME = value: meaning` becomes one C constant. Run with --check to
 fail when the headers on disk differ from what the model says (Phase 9 build step)."""
 import re, sys, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-MODEL = ROOT / "06-design/software/MrtmSwCodes.sysml"
+MODEL = ROOT / "06-design/library/MrtmSwCodes.sysml"
 OUT = ROOT / "10-src/firmware/components/mrtm_common/include"
 LINE = re.compile(r"^\s*enum (\w+);\s*//\s*(MRTM_\w+) = (\d+): (.*)$")
 
