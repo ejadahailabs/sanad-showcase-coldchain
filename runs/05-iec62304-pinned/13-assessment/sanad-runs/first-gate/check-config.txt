@@ -1,0 +1,4 @@
+Configuration check — 1 refusal, 0 warnings
+
+(the whole file)
+  .ejadah/rew/config.yaml:505 · (the whole file) · config-not-read — the file did not parse, so nothing it declares is in force

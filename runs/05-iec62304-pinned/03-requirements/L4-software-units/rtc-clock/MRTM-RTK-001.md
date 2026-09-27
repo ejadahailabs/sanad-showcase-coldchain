@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, RUN-05)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-LGI-003"]
 safetyClass: "C"
@@ -17,7 +17,7 @@ implemented_by: []
 
 ## Description
 
-The RTC clock unit shall return the UTC second read from the real-time clock, refreshed once per second.
+The RTC clock unit shall return the UTC second read from the real-time clock, refreshed at a period of 1 s.
 
 ## Rationale
 

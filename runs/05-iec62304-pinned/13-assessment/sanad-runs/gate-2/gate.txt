@@ -1,0 +1,504 @@
+warning conformance/allocation-target-undeclared  06-design/L1-device/NodeDevice.sysml  The model allocates to "device", which no component artifact declares
+warning conformance/allocation-target-undeclared  06-design/L2-hardware-item/NodeHardwareItem.sysml  The model allocates to "hardwareItem", which no component artifact declares
+warning conformance/allocation-target-undeclared  06-design/L2-software-system/NodeSoftwareSystem.sysml  The model allocates to "softwareSystem", which no component artifact declares
+warning conformance/allocation-target-undeclared  06-design/L3-software-items/alarm-item/NodeAlarmItem.sysml  The model allocates to "alarmSwItem", which no component artifact declares
+warning conformance/allocation-target-undeclared  06-design/L3-software-items/display-item/NodeDisplayItem.sysml  The model allocates to "displaySwItem", which no component artifact declares
+warning conformance/allocation-target-undeclared  06-design/L3-software-items/excursion-item/NodeExcursionItem.sysml  The model allocates to "excursionSwItem", which no component artifact declares
+warning conformance/allocation-target-undeclared  06-design/L3-software-items/log-item/NodeLogItem.sysml  The model allocates to "logSwItem", which no component artifact declares
+warning conformance/allocation-target-undeclared  06-design/L3-software-items/power-item/NodePowerItem.sysml  The model allocates to "powerSwItem", which no component artifact declares
+warning conformance/allocation-target-undeclared  06-design/L3-software-items/sensor-item/NodeSensorItem.sysml  The model allocates to "sensorSwItem", which no component artifact declares
+warning conformance/allocation-target-undeclared  06-design/L3-software-items/supervisor-item/NodeSupervisorItem.sysml  The model allocates to "supervisorSwItem", which no component artifact declares
+warning conformance/allocation-target-undeclared  06-design/L3-software-items/usb-item/NodeUsbItem.sysml  The model allocates to "usbSwItem", which no component artifact declares
+warning conformance/allocation-target-undeclared  06-design/L4-software-units/alarm-mgr/NodeAlarmMgr.sysml  The model allocates to "alarmMgrUnit", which no component artifact declares
+warning conformance/allocation-target-undeclared  06-design/L4-software-units/config-mgr/NodeConfigMgr.sysml  The model allocates to "configMgrUnit", which no component artifact declares
+warning conformance/allocation-target-undeclared  06-design/L4-software-units/diagnostics/NodeDiagnostics.sysml  The model allocates to "diagnosticsUnit", which no component artifact declares
+warning conformance/allocation-target-undeclared  06-design/L4-software-units/display-mgr/NodeDisplayMgr.sysml  The model allocates to "displayMgrUnit", which no component artifact declares
+warning conformance/allocation-target-undeclared  06-design/L4-software-units/event-log/NodeEventLog.sysml  The model allocates to "eventLogUnit", which no component artifact declares
+warning conformance/allocation-target-undeclared  06-design/L4-software-units/history-ring/NodeHistoryRing.sysml  The model allocates to "historyRingUnit", which no component artifact declares
+warning conformance/allocation-target-undeclared  06-design/L4-software-units/limit-evaluator/NodeLimitEvaluator.sysml  The model allocates to "limitEvaluatorUnit", which no component artifact declares
+warning conformance/allocation-target-undeclared  06-design/L4-software-units/power-mon/NodePowerMon.sysml  The model allocates to "powerMonUnit", which no component artifact declares
+warning conformance/allocation-target-undeclared  06-design/L4-software-units/rtc-clock/NodeRtcClock.sysml  The model allocates to "rtcClockUnit", which no component artifact declares
+warning conformance/allocation-target-undeclared  06-design/L4-software-units/sensor-sampler/NodeSensorSampler.sysml  The model allocates to "sensorSamplerUnit", which no component artifact declares
+warning conformance/allocation-target-undeclared  06-design/L4-software-units/usb-export/NodeUsbExport.sysml  The model allocates to "usbExportUnit", which no component artifact declares
+warning conformance/allocation-target-undeclared  06-design/L4-software-units/wdt-kicker/NodeWdtKicker.sysml  The model allocates to "wdtKickerUnit", which no component artifact declares
+warning consistency/duplicate-requirement  MRTM-EXI-002  Candidate — MRTM-EXI-002 repeats MRTM-EXI-003 (92 % of its words) — merge them, or say what differs (Inferred from the text, so this is for human judgement, not an established fact.)
+warning consistency/duplicate-requirement  MRTM-LEV-002  Candidate — MRTM-LEV-002 repeats MRTM-LEV-003 (93 % of its words) — merge them, or say what differs (Inferred from the text, so this is for human judgement, not an established fact.)
+warning architecture/empty-component  (repository)  Component "alarmMgr" is declared in the architecture, and no requirement is allocated to it. Either a requirement should say this component is answerable for it, or the component is a name the design outgrew and should come out of the inventory.
+warning architecture/empty-component  (repository)  Component "configMgr" is declared in the architecture, and no requirement is allocated to it. Either a requirement should say this component is answerable for it, or the component is a name the design outgrew and should come out of the inventory.
+warning architecture/empty-component  (repository)  Component "diagnostics" is declared in the architecture, and no requirement is allocated to it. Either a requirement should say this component is answerable for it, or the component is a name the design outgrew and should come out of the inventory.
+warning architecture/empty-component  (repository)  Component "displayMgr" is declared in the architecture, and no requirement is allocated to it. Either a requirement should say this component is answerable for it, or the component is a name the design outgrew and should come out of the inventory.
+warning architecture/empty-component  (repository)  Component "eventLog" is declared in the architecture, and no requirement is allocated to it. Either a requirement should say this component is answerable for it, or the component is a name the design outgrew and should come out of the inventory.
+warning architecture/empty-component  (repository)  Component "historyRing" is declared in the architecture, and no requirement is allocated to it. Either a requirement should say this component is answerable for it, or the component is a name the design outgrew and should come out of the inventory.
+warning architecture/empty-component  (repository)  Component "limitEvaluator" is declared in the architecture, and no requirement is allocated to it. Either a requirement should say this component is answerable for it, or the component is a name the design outgrew and should come out of the inventory.
+warning architecture/empty-component  (repository)  Component "powerMon" is declared in the architecture, and no requirement is allocated to it. Either a requirement should say this component is answerable for it, or the component is a name the design outgrew and should come out of the inventory.
+warning architecture/empty-component  (repository)  Component "rtcClock" is declared in the architecture, and no requirement is allocated to it. Either a requirement should say this component is answerable for it, or the component is a name the design outgrew and should come out of the inventory.
+warning architecture/empty-component  (repository)  Component "sensorSampler" is declared in the architecture, and no requirement is allocated to it. Either a requirement should say this component is answerable for it, or the component is a name the design outgrew and should come out of the inventory.
+warning architecture/empty-component  (repository)  Component "usbExport" is declared in the architecture, and no requirement is allocated to it. Either a requirement should say this component is answerable for it, or the component is a name the design outgrew and should come out of the inventory.
+warning architecture/empty-component  (repository)  Component "wdtKicker" is declared in the architecture, and no requirement is allocated to it. Either a requirement should say this component is answerable for it, or the component is a name the design outgrew and should come out of the inventory.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-IFC-002 is allocated to device but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-IFC-002 is allocated to device but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-PRF-002 is allocated to device but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-SAF-002 is allocated to device but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-SAF-002 is allocated to device but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-SAF-006 is allocated to device but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-SAF-008 is allocated to device but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-SAF-010 is allocated to device but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-SAF-011 is allocated to device but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-SAF-014 is allocated to device but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-SAF-015 is allocated to device but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-SAF-017 is allocated to device but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-SAF-019 is allocated to device but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-SAF-019 is allocated to device but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/config_mgr/src/config_mgr.c  MRTM-SAF-017 is allocated to device but claimed by code in configMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/config_mgr/src/config_mgr.c  MRTM-SAF-017 is allocated to device but claimed by code in configMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/diagnostics/src/diagnostics.c  MRTM-SAF-007 is allocated to device but claimed by code in diagnostics.
+warning conformance/implementation-outside-component  10-src/firmware/components/diagnostics/src/diagnostics.c  MRTM-SAF-023 is allocated to device but claimed by code in diagnostics.
+warning conformance/implementation-outside-component  10-src/firmware/components/display_mgr/src/display_mgr.cpp  MRTM-IFC-004 is allocated to device but claimed by code in displayMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/display_mgr/src/display_mgr.cpp  MRTM-MNT-002 is allocated to device but claimed by code in displayMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/display_mgr/src/display_mgr.cpp  MRTM-MNT-003 is allocated to device but claimed by code in displayMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/display_mgr/src/display_mgr.cpp  MRTM-MNT-003 is allocated to device but claimed by code in displayMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/display_mgr/src/display_mgr.cpp  MRTM-PRF-004 is allocated to device but claimed by code in displayMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/display_mgr/src/display_mgr.cpp  MRTM-PRF-004 is allocated to device but claimed by code in displayMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/display_mgr/src/display_mgr.cpp  MRTM-SAF-012 is allocated to device but claimed by code in displayMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/display_mgr/src/display_mgr.cpp  MRTM-SAF-016 is allocated to device but claimed by code in displayMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/display_mgr/src/display_mgr.cpp  MRTM-SAF-016 is allocated to device but claimed by code in displayMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/display_mgr/src/display_mgr.cpp  MRTM-SAF-016 is allocated to device but claimed by code in displayMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/display_mgr/src/display_mgr.cpp  MRTM-SAF-021 is allocated to device but claimed by code in displayMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/event_log/src/event_log.c  MRTM-SAF-018 is allocated to device but claimed by code in eventLog.
+warning conformance/implementation-outside-component  10-src/firmware/components/history_ring/src/history_ring.c  MRTM-SAF-018 is allocated to device but claimed by code in historyRing.
+warning conformance/implementation-outside-component  10-src/firmware/components/power_mon/src/power_mon.c  MRTM-SAF-005 is allocated to device but claimed by code in powerMon.
+warning conformance/implementation-outside-component  10-src/firmware/components/power_mon/src/power_mon.c  MRTM-SAF-008 is allocated to device but claimed by code in powerMon.
+warning conformance/implementation-outside-component  10-src/firmware/components/rtc_clock/src/rtc_clock.c  MRTM-SAF-022 is allocated to device but claimed by code in rtcClock.
+warning conformance/implementation-outside-component  10-src/firmware/components/sensor_sampler/src/sensor_sampler.c  MRTM-IFC-001 is allocated to device but claimed by code in sensorSampler.
+warning conformance/implementation-outside-component  10-src/firmware/components/sensor_sampler/src/sensor_sampler.c  MRTM-IFC-001 is allocated to device but claimed by code in sensorSampler.
+warning conformance/implementation-outside-component  10-src/firmware/components/sensor_sampler/src/sensor_sampler.c  MRTM-PRF-001 is allocated to device but claimed by code in sensorSampler.
+warning conformance/implementation-outside-component  10-src/firmware/components/sensor_sampler/src/sensor_sampler.c  MRTM-SAF-003 is allocated to device but claimed by code in sensorSampler.
+warning conformance/implementation-outside-component  10-src/firmware/components/sensor_sampler/src/sensor_sampler.c  MRTM-SAF-003 is allocated to device but claimed by code in sensorSampler.
+warning conformance/implementation-outside-component  10-src/firmware/components/usb_export/src/usb_export.c  MRTM-IFC-003 is allocated to device but claimed by code in usbExport.
+warning conformance/implementation-outside-component  10-src/firmware/components/usb_export/src/usb_export.c  MRTM-IFC-003 is allocated to device but claimed by code in usbExport.
+warning conformance/implementation-outside-component  10-src/firmware/components/usb_export/src/usb_export.c  MRTM-IFC-003 is allocated to device but claimed by code in usbExport.
+warning conformance/implementation-outside-component  10-src/firmware/components/usb_export/src/usb_export.c  MRTM-PRF-003 is allocated to device but claimed by code in usbExport.
+warning conformance/implementation-outside-component  10-src/firmware/components/wdt_kicker/src/wdt_kicker.c  MRTM-SAF-004 is allocated to device but claimed by code in wdtKicker.
+warning conformance/implementation-outside-component  10-src/firmware/components/wdt_kicker/src/wdt_kicker.c  MRTM-SAF-009 is allocated to device but claimed by code in wdtKicker.
+warning conformance/implementation-outside-component  10-src/firmware/components/wdt_kicker/src/wdt_kicker.c  MRTM-SAF-010 is allocated to device but claimed by code in wdtKicker.
+warning verification/missing-case  MRTM-SRS-008  Nothing verifies MRTM-SRS-008 — write a case for it, or record why it needs none
+warning verification/missing-result  MRTM-ENV-001  Nothing in the declared test reports says what happened when MRTM-ENV-001's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-ENV-002  Nothing in the declared test reports says what happened when MRTM-ENV-002's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-ENV-003  Nothing in the declared test reports says what happened when MRTM-ENV-003's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-ENV-004  Nothing in the declared test reports says what happened when MRTM-ENV-004's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-HWI-002  Nothing in the declared test reports says what happened when MRTM-HWI-002's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-HWI-003  Nothing in the declared test reports says what happened when MRTM-HWI-003's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-HWI-004  Nothing in the declared test reports says what happened when MRTM-HWI-004's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-HWI-005  Nothing in the declared test reports says what happened when MRTM-HWI-005's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-HWI-006  Nothing in the declared test reports says what happened when MRTM-HWI-006's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-HWI-008  Nothing in the declared test reports says what happened when MRTM-HWI-008's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-HWI-009  Nothing in the declared test reports says what happened when MRTM-HWI-009's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-HWI-010  Nothing in the declared test reports says what happened when MRTM-HWI-010's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-HWI-011  Nothing in the declared test reports says what happened when MRTM-HWI-011's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-HWI-012  Nothing in the declared test reports says what happened when MRTM-HWI-012's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-HWI-013  Nothing in the declared test reports says what happened when MRTM-HWI-013's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-IFC-004  Nothing in the declared test reports says what happened when MRTM-IFC-004's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-MNT-001  Nothing in the declared test reports says what happened when MRTM-MNT-001's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-SAF-001  Nothing in the declared test reports says what happened when MRTM-SAF-001's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-SAF-013  Nothing in the declared test reports says what happened when MRTM-SAF-013's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-SAF-020  Nothing in the declared test reports says what happened when MRTM-SAF-020's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-SRS-001  Nothing in the declared test reports says what happened when MRTM-SRS-001's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-SRS-005  Nothing in the declared test reports says what happened when MRTM-SRS-005's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-SRS-010  Nothing in the declared test reports says what happened when MRTM-SRS-010's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-SRS-011  Nothing in the declared test reports says what happened when MRTM-SRS-011's cases ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-SRS-012  Nothing in the declared test reports says what happened when MRTM-SRS-012's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-SRS-013  Nothing in the declared test reports says what happened when MRTM-SRS-013's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-SRS-014  Nothing in the declared test reports says what happened when MRTM-SRS-014's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-SRS-015  Nothing in the declared test reports says what happened when MRTM-SRS-015's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-SRS-018  Nothing in the declared test reports says what happened when MRTM-SRS-018's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-STK-001  Nothing in the declared test reports says what happened when MRTM-STK-001's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-STK-003  Nothing in the declared test reports says what happened when MRTM-STK-003's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-STK-004  Nothing in the declared test reports says what happened when MRTM-STK-004's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-STK-005  Nothing in the declared test reports says what happened when MRTM-STK-005's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-STK-007  Nothing in the declared test reports says what happened when MRTM-STK-007's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-STK-008  Nothing in the declared test reports says what happened when MRTM-STK-008's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-SYS-016  Nothing in the declared test reports says what happened when MRTM-SYS-016's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning structure/parent-child-inconsistency  MRTM-IFC-002  MRTM-IFC-002 is refined at 2 different levels — move the odd child
+warning structure/parent-child-inconsistency  MRTM-LGI-001  MRTM-LGI-001 is refined at 2 different levels — move the odd child
+warning structure/parent-child-inconsistency  MRTM-LGI-003  MRTM-LGI-003 is refined at 2 different levels — move the odd child
+warning structure/parent-child-inconsistency  MRTM-SAF-003  MRTM-SAF-003 is refined at 2 different levels — move the odd child
+warning structure/parent-child-inconsistency  MRTM-SAF-009  MRTM-SAF-009 is refined at 2 different levels — move the odd child
+warning structure/parent-child-inconsistency  MRTM-SRS-002  MRTM-SRS-002 is refined at 3 different levels — move the odd child
+warning structure/parent-child-inconsistency  MRTM-SRS-017  MRTM-SRS-017 is refined at 2 different levels — move the odd child
+warning quality/passive-voice  MRTM-SRS-008  Doesn't say who does this — name the system or component
+warning graph/sysml-not-read  06-design/L2-software-system/L2SeqExcursion.sysml  `succession` naming "buzzerOn→warning" was read but not drawn
+warning graph/sysml-not-read  06-design/L2-software-system/L2SeqExcursion.sysml  `succession` naming "confirmed→buzzerOn" was read but not drawn
+warning graph/sysml-not-read  06-design/L2-software-system/L2SeqExcursion.sysml  `succession` naming "early→redFlash" was read but not drawn
+warning graph/sysml-not-read  06-design/L2-software-system/L2SeqExcursion.sysml  `succession` naming "redFlash→confirmed" was read but not drawn
+warning graph/sysml-not-read  06-design/L2-software-system/L2SeqExcursion.sysml  `succession` naming "sample→validSample" was read but not drawn
+warning graph/sysml-not-read  06-design/L2-software-system/L2SeqExcursion.sysml  `succession` naming "validSample→early" was read but not drawn
+warning graph/sysml-not-read  06-design/L2-software-system/L2SeqExcursion.sysml  `succession` naming "warning→startRecord" was read but not drawn
+warning quality/testability  MRTM-UXP-001  Nothing here a test could check — add a number, or name what changes
+warning graph/undeclared-id-prefix  MRTM-ALI-002  23 reference(s) use the prefix "ADR", which no type declares
+warning graph/undeclared-id-prefix  MRTM-ALI-004  1 reference(s) use the prefix "SRS", which no type declares
+warning graph/undeclared-id-prefix  MRTM-AMG-003  1 reference(s) use the prefix "IFC", which no type declares
+warning graph/undeclared-id-prefix  MRTM-DSI-001  6 reference(s) use the prefix "SAF", which no type declares
+warning graph/undeclared-id-prefix  MRTM-EXI-002  2 reference(s) use the prefix "STK", which no type declares
+warning graph/undeclared-id-prefix  MRTM-SYS-024  1 reference(s) use the prefix "CR", which no type declares
+warning graph/undeclared-id-prefix  MRTM-USI-001  2 reference(s) use the prefix "USI", which no type declares
+info    quality/decimal-format  MRTM-LGI-001  a range with no unit on it - give the unit, e.g. between 3 V and 4 V
+info    quality/indefinite-article  MRTM-ALI-003  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-AMG-004  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-DSI-001  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-ENV-002  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-ENV-003  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-ENV-004  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-HRG-001  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-HWI-002  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-HWI-003  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-HWI-004  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-HWI-006  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-HWI-009  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-HWI-010  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-IFC-003  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-IFC-004  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-MNT-001  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-PMN-001  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-PRF-001  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-PRF-004  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-RTK-001  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SAF-001  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SAF-003  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SAF-004  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SAF-011  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SAF-021  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SAF-022  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SMP-002  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SNI-001  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SRS-001  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SRS-005  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SRS-007  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SRS-008  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SRS-010  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SRS-019  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-STK-008  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SVI-001  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SYS-012  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SYS-020  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SYS-021  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SYS-024  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-USI-001  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-USI-002  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-UXP-002  an indefinite article leaves which one open - use "the" and name the item
+info    validation/link-role-unreadable  /home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/.ejadah/rew/templates/interface.md  allocation counts as 0: no Interface Requirement carries it — point it at your field
+info    validation/link-role-unreadable  /home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/.ejadah/rew/templates/performance.md  allocation counts as 0: no Performance Requirement carries it — point it at your field
+info    validation/link-role-unreadable  /home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/.ejadah/rew/templates/safety.md  allocation counts as 0: no Safety Requirement carries it — point it at your field
+info    validation/link-role-unreadable  /home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/.ejadah/rew/templates/system.md  allocation counts as 0: no System Requirement carries it — point it at your field
+info    quality/logical-expression  MRTM-HWI-008  2 unbracketed and/or words - state the grouping, e.g. [X AND Y]
+info    quality/logical-expression  MRTM-SAF-013  2 unbracketed and/or words - state the grouping, e.g. [X AND Y]
+info    quality/logical-expression  MRTM-SMP-001  2 unbracketed and/or words - state the grouping, e.g. [X AND Y]
+info    quality/requirement-pattern  MRTM-ALI-001  Candidate — Sets a deadline but gives no time — add one (e.g. 50 ms) (Inferred from the text, so this is for human judgement, not an established fact.)
+info    quality/requirement-pattern  MRTM-SAF-015  Candidate — Sets a deadline but gives no time — add one (e.g. 50 ms) (Inferred from the text, so this is for human judgement, not an established fact.)
+info    quality/requirement-pattern  MRTM-SYS-004  Candidate — Sets a deadline but gives no time — add one (e.g. 50 ms) (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/single-point-failure  MRTM-SAF-011  HAZ-002 is mitigated by MRTM-SAF-011 alone, so that one requirement is everything standing between the hazard and its consequence. If the applicable standard expects independent mitigation at this level, this is where it is missing.
+info    sysml-project/sysml-unresolved-import  06-design/L1-device/LevelPorts.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L1-device/NodeDevice.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L1-device/NodeDeviceContext.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L1-device/NodeDeviceWhiteBox.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L2-hardware-item/NodeHardwareItem.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L2-hardware-item/NodeHardwareItemParts.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L2-software-system/L2SeqExcursion.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L2-software-system/NodeSoftwareSystem.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L2-software-system/NodeSoftwareSystemArchitecture.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L2-software-system/NodeSoftwareSystemHardwareInterface.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L3-software-items/alarm-item/NodeAlarmItem.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L3-software-items/alarm-item/NodeAlarmItem.sysml  line 7: `import SoftwareProfile` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L3-software-items/alarm-item/NodeAlarmItemStructure.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L3-software-items/display-item/NodeDisplayItem.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L3-software-items/display-item/NodeDisplayItem.sysml  line 7: `import SoftwareProfile` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L3-software-items/display-item/NodeDisplayItemStructure.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L3-software-items/excursion-item/NodeExcursionItem.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L3-software-items/excursion-item/NodeExcursionItem.sysml  line 7: `import SoftwareProfile` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L3-software-items/excursion-item/NodeExcursionItemStructure.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L3-software-items/log-item/NodeLogItem.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L3-software-items/log-item/NodeLogItem.sysml  line 7: `import SoftwareProfile` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L3-software-items/log-item/NodeLogItemStructure.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L3-software-items/power-item/NodePowerItem.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L3-software-items/power-item/NodePowerItem.sysml  line 7: `import SoftwareProfile` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L3-software-items/power-item/NodePowerItemStructure.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L3-software-items/sensor-item/NodeSensorItem.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L3-software-items/sensor-item/NodeSensorItem.sysml  line 7: `import SoftwareProfile` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L3-software-items/sensor-item/NodeSensorItemStructure.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L3-software-items/supervisor-item/NodeSupervisorItem.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L3-software-items/supervisor-item/NodeSupervisorItem.sysml  line 7: `import SoftwareProfile` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L3-software-items/supervisor-item/NodeSupervisorItemStructure.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L3-software-items/usb-item/NodeUsbItem.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L3-software-items/usb-item/NodeUsbItem.sysml  line 7: `import SoftwareProfile` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L3-software-items/usb-item/NodeUsbItemStructure.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L4-software-units/alarm-mgr/NodeAlarmMgr.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L4-software-units/alarm-mgr/NodeAlarmMgr.sysml  line 7: `import SoftwareProfile` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L4-software-units/config-mgr/NodeConfigMgr.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L4-software-units/config-mgr/NodeConfigMgr.sysml  line 7: `import SoftwareProfile` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L4-software-units/diagnostics/NodeDiagnostics.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L4-software-units/diagnostics/NodeDiagnostics.sysml  line 7: `import SoftwareProfile` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L4-software-units/display-mgr/NodeDisplayMgr.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L4-software-units/display-mgr/NodeDisplayMgr.sysml  line 7: `import SoftwareProfile` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L4-software-units/event-log/NodeEventLog.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L4-software-units/event-log/NodeEventLog.sysml  line 7: `import SoftwareProfile` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L4-software-units/history-ring/NodeHistoryRing.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L4-software-units/history-ring/NodeHistoryRing.sysml  line 7: `import SoftwareProfile` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L4-software-units/limit-evaluator/NodeLimitEvaluator.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L4-software-units/limit-evaluator/NodeLimitEvaluator.sysml  line 7: `import SoftwareProfile` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L4-software-units/power-mon/NodePowerMon.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L4-software-units/power-mon/NodePowerMon.sysml  line 7: `import SoftwareProfile` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L4-software-units/rtc-clock/NodeRtcClock.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L4-software-units/rtc-clock/NodeRtcClock.sysml  line 7: `import SoftwareProfile` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L4-software-units/sensor-sampler/NodeSensorSampler.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L4-software-units/sensor-sampler/NodeSensorSampler.sysml  line 7: `import SoftwareProfile` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L4-software-units/usb-export/NodeUsbExport.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L4-software-units/usb-export/NodeUsbExport.sysml  line 7: `import SoftwareProfile` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L4-software-units/wdt-kicker/NodeWdtKicker.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/L4-software-units/wdt-kicker/NodeWdtKicker.sysml  line 7: `import SoftwareProfile` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/hardware/MrtmHardware.sysml  line 11: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/software/MrtmSeqExcursion.sysml  line 6: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/software/MrtmSeqPowerLoss.sysml  line 3: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/software/MrtmSeqProbeFault.sysml  line 4: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/software/MrtmSoftware.sysml  line 10: `import SoftwareProfile` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/software/MrtmSoftware.sysml  line 9: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/software/MrtmSwCodes.sysml  line 4: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/software/MrtmSwDetail.sysml  line 6: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/software/MrtmSwDetail.sysml  line 7: `import SoftwareProfile` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/software/MrtmSwStates.sysml  line 5: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/system/MrtmInterfaces.sysml  line 4: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/system/MrtmLogical.sysml  line 4: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/system/MrtmPartitions.sysml  line 5: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/system/MrtmPhysical.sysml  line 6: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/system/MrtmSafety.sysml  line 8: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/system/MrtmUseCases.sysml  line 4: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/L1_device_blockView.sysml  line 22: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/L1_device_contextView.sysml  line 22: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/L1_device_usecasesView.sysml  line 22: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/L2_hardware_item_partsView.sysml  line 22: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/L2_software_system_architectureView.sysml  line 22: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/L2_software_system_hardwareView.sysml  line 22: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/L3_alarm_item_structureView.sysml  line 22: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/L3_display_item_structureView.sysml  line 22: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/L3_excursion_item_structureView.sysml  line 22: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/L3_log_item_structureView.sysml  line 22: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/L3_power_item_structureView.sysml  line 22: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/L3_sensor_item_structureView.sysml  line 22: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/L3_supervisor_item_structureView.sysml  line 22: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/L3_usb_item_structureView.sysml  line 22: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/SanadRenderings.sysml  line 8: `import Views` names nothing this project declares
+info    quality/temporal-keyword  MRTM-DMG-001  "after" states an order, not a time - give the bound
+info    quality/temporal-keyword  MRTM-PMN-002  "after" states an order, not a time - give the bound
+info    quality/temporal-keyword  MRTM-PWI-002  "after" states an order, not a time - give the bound
+info    safety/undeclared-hazard  MRTM-AMG-001  Candidate — MRTM-AMG-001's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-AMG-002  Candidate — MRTM-AMG-002's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-AMG-003  Candidate — MRTM-AMG-003's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-AMG-004  Candidate — MRTM-AMG-004's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-CFG-001  Candidate — MRTM-CFG-001's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-DGN-001  Candidate — MRTM-DGN-001's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-DMG-001  Candidate — MRTM-DMG-001's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-DMG-002  Candidate — MRTM-DMG-002's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-DSI-001  Candidate — MRTM-DSI-001's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-DSI-002  Candidate — MRTM-DSI-002's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-EVL-001  Candidate — MRTM-EVL-001's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-EVL-002  Candidate — MRTM-EVL-002's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-HRG-001  Candidate — MRTM-HRG-001's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-HRG-002  Candidate — MRTM-HRG-002's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-HWI-001  Candidate — MRTM-HWI-001's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-HWI-002  Candidate — MRTM-HWI-002's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-HWI-003  Candidate — MRTM-HWI-003's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-HWI-004  Candidate — MRTM-HWI-004's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-HWI-005  Candidate — MRTM-HWI-005's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-HWI-006  Candidate — MRTM-HWI-006's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-HWI-007  Candidate — MRTM-HWI-007's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-HWI-008  Candidate — MRTM-HWI-008's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-HWI-009  Candidate — MRTM-HWI-009's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-HWI-010  Candidate — MRTM-HWI-010's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-HWI-011  Candidate — MRTM-HWI-011's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-HWI-012  Candidate — MRTM-HWI-012's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-HWI-013  Candidate — MRTM-HWI-013's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-LEV-001  Candidate — MRTM-LEV-001's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-LEV-002  Candidate — MRTM-LEV-002's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-LEV-003  Candidate — MRTM-LEV-003's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-PMN-001  Candidate — MRTM-PMN-001's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-PMN-002  Candidate — MRTM-PMN-002's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-RTK-001  Candidate — MRTM-RTK-001's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-SMP-001  Candidate — MRTM-SMP-001's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-SMP-002  Candidate — MRTM-SMP-002's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-USI-001  Candidate — MRTM-USI-001's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-USI-002  Candidate — MRTM-USI-002's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-UXP-001  Candidate — MRTM-UXP-001's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-UXP-002  Candidate — MRTM-UXP-002's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-WDK-001  Candidate — MRTM-WDK-001's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    structure/under-decomposition  MRTM-ALI-001  MRTM-ALI-001 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-ALI-002  MRTM-ALI-002 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-ALI-003  MRTM-ALI-003 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-ALI-004  MRTM-ALI-004 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-DSI-001  MRTM-DSI-001 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-DSI-002  MRTM-DSI-002 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-ENV-001  MRTM-ENV-001 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-ENV-004  MRTM-ENV-004 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-EXI-001  MRTM-EXI-001 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-EXI-002  MRTM-EXI-002 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-EXI-003  MRTM-EXI-003 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-IFC-003  MRTM-IFC-003 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-IFC-004  MRTM-IFC-004 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-LGI-002  MRTM-LGI-002 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PRF-001  MRTM-PRF-001 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PRF-002  MRTM-PRF-002 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PRF-003  MRTM-PRF-003 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PRF-004  MRTM-PRF-004 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PWI-001  MRTM-PWI-001 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PWI-002  MRTM-PWI-002 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-001  MRTM-SAF-001 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-004  MRTM-SAF-004 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-005  MRTM-SAF-005 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-007  MRTM-SAF-007 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-008  MRTM-SAF-008 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-010  MRTM-SAF-010 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-012  MRTM-SAF-012 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-013  MRTM-SAF-013 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-016  MRTM-SAF-016 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-017  MRTM-SAF-017 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-018  MRTM-SAF-018 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-022  MRTM-SAF-022 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-023  MRTM-SAF-023 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SNI-001  MRTM-SNI-001 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SNI-002  MRTM-SNI-002 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SRS-001  MRTM-SRS-001 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SRS-003  MRTM-SRS-003 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SRS-004  MRTM-SRS-004 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SRS-005  MRTM-SRS-005 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SRS-006  MRTM-SRS-006 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SRS-007  MRTM-SRS-007 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SRS-009  MRTM-SRS-009 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SRS-010  MRTM-SRS-010 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SRS-011  MRTM-SRS-011 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SRS-012  MRTM-SRS-012 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SRS-013  MRTM-SRS-013 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SRS-015  MRTM-SRS-015 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SRS-018  MRTM-SRS-018 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SRS-019  MRTM-SRS-019 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SVI-001  MRTM-SVI-001 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SVI-002  MRTM-SVI-002 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SVI-003  MRTM-SVI-003 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SYS-002  MRTM-SYS-002 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SYS-007  MRTM-SYS-007 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SYS-009  MRTM-SYS-009 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SYS-010  MRTM-SYS-010 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SYS-013  MRTM-SYS-013 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SYS-018  MRTM-SYS-018 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SYS-022  MRTM-SYS-022 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SYS-023  MRTM-SYS-023 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-USI-001  MRTM-USI-001 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-USI-002  MRTM-USI-002 has one child, which restates it — merge the two, or add the sibling
+info    impact/wide-impact  MRTM-STK-002  Candidate — Changing MRTM-STK-002 reaches 40 other artifacts — 13 already implemented, 6 code symbols traced to them. MRTM-STK-002 rests on nothing above it, so a change here starts at the top and every artifact below has to be revisited. Ask Sanad what a specific change affects to see the trace path to each one. 17 of them were reached through a link inferred from prose rather than a structured field — treat those as candidates. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    impact/wide-impact  MRTM-STK-003  Changing MRTM-STK-003 reaches 29 other artifacts — 9 already implemented, 7 code symbols traced to them. MRTM-STK-003 rests on nothing above it, so a change here starts at the top and every artifact below has to be revisited. Ask Sanad what a specific change affects to see the trace path to each one.
+info    impact/wide-impact  MRTM-STK-004  Changing MRTM-STK-004 reaches 61 other artifacts — 17 already implemented, 13 code symbols traced to them. MRTM-STK-004 rests on nothing above it, so a change here starts at the top and every artifact below has to be revisited. Ask Sanad what a specific change affects to see the trace path to each one.
+info    impact/wide-impact  MRTM-STK-006  Candidate — Changing MRTM-STK-006 reaches 35 other artifacts — 11 already implemented, 7 code symbols traced to them. MRTM-STK-006 rests on nothing above it, so a change here starts at the top and every artifact below has to be revisited. Ask Sanad what a specific change affects to see the trace path to each one. 12 of them were reached through a link inferred from prose rather than a structured field — treat those as candidates. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    impact/wide-impact  MRTM-STK-007  Changing MRTM-STK-007 reaches 35 other artifacts — 8 already implemented, 9 code symbols traced to them. MRTM-STK-007 rests on nothing above it, so a change here starts at the top and every artifact below has to be revisited. Ask Sanad what a specific change affects to see the trace path to each one.
+info    impact/wide-impact  MRTM-STK-008  Changing MRTM-STK-008 reaches 31 other artifacts — 8 already implemented, 7 code symbols traced to them. MRTM-STK-008 rests on nothing above it, so a change here starts at the top and every artifact below has to be revisited. Ask Sanad what a specific change affects to see the trace path to each one.
+erew: symbol index — rew-builtin 0.6.3: 46 symbol(s), no kinds (schema 1) · 46 tracing to 97 requirement(s)
+erew: data dictionary — 01-data-dictionary/data-dictionary.md: 14 parameter(s), 13 mapped to software names
+erew: verification cases — 11-verification/cases/verification-cases.csv: 99 case(s) · carrying level, category, author, state
+erew: test results — 11-verification/results/unit (verification-ll): 79 case result(s) from 13 report(s), 1 naming no declared case
+erew: test results — 11-verification/results/integration (verification-component): 5 case result(s) from 1 report(s)
+erew: test results — 11-verification/results/system (systems-verification-results): 15 case result(s) from 1 report(s)
+erew: coverage — 11-verification/evidence/coverage/host-unit-integration.info: 40 symbol(s) in 14 indexed file(s), 47 matching no single indexed symbol
+erew: code source text — 0 of 104 covered file(s) swept, 0 symbol(s) with attached text
+erew: architecture conformance — 12 component(s) declaring code · 24 of 104 indexed file(s) assigned · 16 dependency(ies) · 35 directive(s) naming nothing indexed
+erew: sysml project — 80 file(s), 385 element(s), 180 relation(s), 89 check(s)
+erew: sysml project — 06-design/L1-device/LevelPorts.sysml declares `LevelPorts`
+erew: sysml project — 06-design/L1-device/NodeDevice.sysml declares `NodeDevice`
+erew: sysml project — 06-design/L1-device/NodeDeviceContext.sysml declares `NodeDeviceContext`
+erew: sysml project — 06-design/L1-device/NodeDeviceWhiteBox.sysml declares `NodeDeviceWhiteBox`
+erew: sysml project — 06-design/L2-hardware-item/NodeHardwareItem.sysml declares `NodeHardwareItem`
+erew: sysml project — 06-design/L2-hardware-item/NodeHardwareItemParts.sysml declares `NodeHardwareItemParts`
+erew: sysml project — 06-design/L2-software-system/L2SeqExcursion.sysml declares `L2SeqExcursion`
+erew: sysml project — 06-design/L2-software-system/NodeSoftwareSystem.sysml declares `NodeSoftwareSystem`
+erew: sysml project — 06-design/L2-software-system/NodeSoftwareSystemArchitecture.sysml declares `NodeSoftwareSystemArchitecture`
+erew: sysml project — 06-design/L2-software-system/NodeSoftwareSystemHardwareInterface.sysml declares `NodeSoftwareSystemHardwareInterface`
+erew: sysml project — 06-design/L3-software-items/alarm-item/NodeAlarmItem.sysml declares `NodeAlarmItem`
+erew: sysml project — 06-design/L3-software-items/alarm-item/NodeAlarmItemStructure.sysml declares `NodeAlarmItemStructure`
+erew: sysml project — 06-design/L3-software-items/display-item/NodeDisplayItem.sysml declares `NodeDisplayItem`
+erew: sysml project — 06-design/L3-software-items/display-item/NodeDisplayItemStructure.sysml declares `NodeDisplayItemStructure`
+erew: sysml project — 06-design/L3-software-items/excursion-item/NodeExcursionItem.sysml declares `NodeExcursionItem`
+erew: sysml project — 06-design/L3-software-items/excursion-item/NodeExcursionItemStructure.sysml declares `NodeExcursionItemStructure`
+erew: sysml project — 06-design/L3-software-items/log-item/NodeLogItem.sysml declares `NodeLogItem`
+erew: sysml project — 06-design/L3-software-items/log-item/NodeLogItemStructure.sysml declares `NodeLogItemStructure`
+erew: sysml project — 06-design/L3-software-items/power-item/NodePowerItem.sysml declares `NodePowerItem`
+erew: sysml project — 06-design/L3-software-items/power-item/NodePowerItemStructure.sysml declares `NodePowerItemStructure`
+erew: sysml project — 06-design/L3-software-items/sensor-item/NodeSensorItem.sysml declares `NodeSensorItem`
+erew: sysml project — 06-design/L3-software-items/sensor-item/NodeSensorItemStructure.sysml declares `NodeSensorItemStructure`
+erew: sysml project — 06-design/L3-software-items/supervisor-item/NodeSupervisorItem.sysml declares `NodeSupervisorItem`
+erew: sysml project — 06-design/L3-software-items/supervisor-item/NodeSupervisorItemStructure.sysml declares `NodeSupervisorItemStructure`
+erew: sysml project — 06-design/L3-software-items/usb-item/NodeUsbItem.sysml declares `NodeUsbItem`
+erew: sysml project — 06-design/L3-software-items/usb-item/NodeUsbItemStructure.sysml declares `NodeUsbItemStructure`
+erew: sysml project — 06-design/L4-software-units/alarm-mgr/NodeAlarmMgr.sysml declares `NodeAlarmMgr`
+erew: sysml project — 06-design/L4-software-units/config-mgr/NodeConfigMgr.sysml declares `NodeConfigMgr`
+erew: sysml project — 06-design/L4-software-units/diagnostics/NodeDiagnostics.sysml declares `NodeDiagnostics`
+erew: sysml project — 06-design/L4-software-units/display-mgr/NodeDisplayMgr.sysml declares `NodeDisplayMgr`
+erew: sysml project — 06-design/L4-software-units/event-log/NodeEventLog.sysml declares `NodeEventLog`
+erew: sysml project — 06-design/L4-software-units/history-ring/NodeHistoryRing.sysml declares `NodeHistoryRing`
+erew: sysml project — 06-design/L4-software-units/limit-evaluator/NodeLimitEvaluator.sysml declares `NodeLimitEvaluator`
+erew: sysml project — 06-design/L4-software-units/power-mon/NodePowerMon.sysml declares `NodePowerMon`
+erew: sysml project — 06-design/L4-software-units/rtc-clock/NodeRtcClock.sysml declares `NodeRtcClock`
+erew: sysml project — 06-design/L4-software-units/sensor-sampler/NodeSensorSampler.sysml declares `NodeSensorSampler`
+erew: sysml project — 06-design/L4-software-units/usb-export/NodeUsbExport.sysml declares `NodeUsbExport`
+erew: sysml project — 06-design/L4-software-units/wdt-kicker/NodeWdtKicker.sysml declares `NodeWdtKicker`
+erew: sysml project — 06-design/hardware/MrtmHardware.sysml declares `MrtmHardware`
+erew: sysml project — 06-design/packages/per-level/ReqL1Device.sysml declares `ReqL1Device`
+erew: sysml project — 06-design/packages/per-level/ReqL2HardwareItem.sysml declares `ReqL2HardwareItem`
+erew: sysml project — 06-design/packages/per-level/ReqL2SoftwareSystem.sysml declares `ReqL2SoftwareSystem`
+erew: sysml project — 06-design/packages/per-level/ReqL3SoftwareItem.sysml declares `ReqL3SoftwareItem`
+erew: sysml project — 06-design/packages/per-level/ReqL4SoftwareUnit.sysml declares `ReqL4SoftwareUnit`
+erew: sysml project — 06-design/packages/requirements.sysml declares `ProjectRequirements` (generated — edit the Markdown requirement)
+erew: sysml project — 06-design/software/MrtmSeqExcursion.sysml declares `MrtmSeqExcursion`
+erew: sysml project — 06-design/software/MrtmSeqPowerLoss.sysml declares `MrtmSeqPowerLoss`
+erew: sysml project — 06-design/software/MrtmSeqProbeFault.sysml declares `MrtmSeqProbeFault`
+erew: sysml project — 06-design/software/MrtmSoftware.sysml declares `MrtmSoftware`
+erew: sysml project — 06-design/software/MrtmSwCodes.sysml declares `MrtmSwCodes`
+erew: sysml project — 06-design/software/MrtmSwDetail.sysml declares `MrtmSwDetail`
+erew: sysml project — 06-design/software/MrtmSwStates.sysml declares `MrtmSwStates`
+erew: sysml project — 06-design/system/MrtmInterfaces.sysml declares `MrtmInterfaces`
+erew: sysml project — 06-design/system/MrtmLogical.sysml declares `MrtmLogical`
+erew: sysml project — 06-design/system/MrtmPartitions.sysml declares `MrtmPartitions`
+erew: sysml project — 06-design/system/MrtmPhysical.sysml declares `MrtmPhysical`
+erew: sysml project — 06-design/system/MrtmSafety.sysml declares `MrtmSafety`
+erew: sysml project — 06-design/system/MrtmSystemContext.sysml declares `MrtmSystemContext`
+erew: sysml project — 06-design/system/MrtmUseCases.sysml declares `MrtmUseCases`
+erew: sysml project — 06-design/views/L1_device_blockView.sysml declares `L1_device_blockView`
+erew: sysml project — 06-design/views/L1_device_contextView.sysml declares `L1_device_contextView`
+erew: sysml project — 06-design/views/L1_device_usecasesView.sysml declares `L1_device_usecasesView`
+erew: sysml project — 06-design/views/L2_hardware_item_partsView.sysml declares `L2_hardware_item_partsView`
+erew: sysml project — 06-design/views/L2_software_system_architectureView.sysml declares `L2_software_system_architectureView`
+erew: sysml project — 06-design/views/L2_software_system_excursionView.sysml declares `L2_software_system_excursionView`
+erew: sysml project — 06-design/views/L2_software_system_hardwareView.sysml declares `L2_software_system_hardwareView`
+erew: sysml project — 06-design/views/L2_software_system_modesView.sysml declares `L2_software_system_modesView`
+erew: sysml project — 06-design/views/L3_alarm_item_statesView.sysml declares `L3_alarm_item_statesView`
+erew: sysml project — 06-design/views/L3_alarm_item_structureView.sysml declares `L3_alarm_item_structureView`
+erew: sysml project — 06-design/views/L3_display_item_structureView.sysml declares `L3_display_item_structureView`
+erew: sysml project — 06-design/views/L3_excursion_item_structureView.sysml declares `L3_excursion_item_structureView`
+erew: sysml project — 06-design/views/L3_log_item_structureView.sysml declares `L3_log_item_structureView`
+erew: sysml project — 06-design/views/L3_power_item_structureView.sysml declares `L3_power_item_structureView`
+erew: sysml project — 06-design/views/L3_sensor_item_structureView.sysml declares `L3_sensor_item_structureView`
+erew: sysml project — 06-design/views/L3_supervisor_item_structureView.sysml declares `L3_supervisor_item_structureView`
+erew: sysml project — 06-design/views/L3_usb_item_structureView.sysml declares `L3_usb_item_structureView`
+erew: sysml project — 06-design/views/L4_display_mgr_classesView.sysml declares `L4_display_mgr_classesView`
+erew: sysml project — 06-design/views/L4_units_alarm_path_contractsView.sysml declares `L4_units_alarm_path_contractsView`
+erew: sysml project — 06-design/views/L4_units_data_contractsView.sysml declares `L4_units_data_contractsView`
+erew: sysml project — 06-design/views/SanadRenderings.sysml declares `SanadRenderings`
+erew: context layer: 340 file(s), 2436 node(s), 158 skipped (18 ignored, 118 binary, 8 empty, 14 over the size ceiling, 0 unread at the total ceiling) · over ceiling: 10-src/build/bin/test_alarm_mgr, 10-src/build/bin/test_config_mgr, 10-src/build/bin/test_diagnostics, 10-src/build/bin/test_display_mgr, 10-src/build/bin/test_event_log, 10-src/build/bin/test_history_ring, 10-src/build/bin/test_int_chains, 10-src/build/bin/test_limit_evaluator, 10-src/build/bin/test_mrtm_common, 10-src/build/bin/test_power_mon, 10-src/build/bin/test_rtc_clock, 10-src/build/bin/test_sensor_sampler, 10-src/build/bin/test_usb_export, 10-src/build/bin/test_wdt_kicker · cut short: 06-design/hardware/MrtmHardware.sysml, 06-design/L1-device/INDEX.md, 06-design/packages/requirements.sysml, 06-design/system/MrtmSafety.sysml, 06-design/views/rendered/L1_device_block.svg, 06-design/views/rendered/L1_device_context.svg, 06-design/views/rendered/L1_device_usecases.svg, 06-design/views/rendered/L2_hardware_item_parts.svg, 06-design/views/rendered/L2_software_system_architecture.svg, 06-design/views/rendered/L2_software_system_excursion.svg, 06-design/views/rendered/L2_software_system_hardware.svg, 06-design/views/rendered/L2_software_system_modes.svg, 06-design/views/rendered/L3_alarm_item_states.svg, 06-design/views/rendered/L3_alarm_item_structure.svg, 06-design/views/rendered/L3_display_item_structure.svg, 06-design/views/rendered/L3_excursion_item_structure.svg, 06-design/views/rendered/L3_log_item_structure.svg, 06-design/views/rendered/L3_power_item_structure.svg, 06-design/views/rendered/L3_sensor_item_structure.svg, 06-design/views/rendered/L3_supervisor_item_structure.svg, 06-design/views/rendered/L3_usb_item_structure.svg, 06-design/views/rendered/L4_display_mgr_classes.svg, 06-design/views/rendered/L4_units_alarm_path_contracts.svg, 06-design/views/rendered/L4_units_data_contracts.svg, 08-safety/01a-risk-analysis-fmea.md, 09-hardware/component-selection.md, 09-hardware/hardware-trace-matrix.md, 11-verification/procedures/system-procedures.md, 13-assessment/sanad-runs/first-gate/evidence.json, 13-assessment/sanad-runs/first-gate/gate.txt, 13-assessment/sanad-runs/first-gate/gate.txt.stderr, 13-assessment/sanad-runs/first-gate/ledger.json.stderr, 13-assessment/sanad-runs/first-gate/report-eiwr.md.stderr, 13-assessment/sanad-runs/first-gate/report-requirements-trace.md, 13-assessment/sanad-runs/first-gate/report-requirements-trace.md.stderr, 13-assessment/sanad-runs/first-gate/report-requirements.md, 13-assessment/sanad-runs/first-gate/report-requirements.md.stderr, 13-assessment/sanad-runs/first-gate/report-statistics.md.stderr, 13-assessment/sanad-runs/first-gate/report-test-coverage.csv.stderr, 13-assessment/sanad-runs/first-gate/report-test-coverage.md.stderr, 13-assessment/sanad-runs/first-gate/report-traceability-audit.csv, 13-assessment/sanad-runs/first-gate/report-traceability-audit.csv.stderr, 13-assessment/sanad-runs/first-gate/report-traceability-audit.md, 13-assessment/sanad-runs/first-gate/report-traceability-audit.md.stderr, 13-assessment/sanad-runs/first-gate/report-traceability.md.stderr, 13-assessment/sanad-runs/first-gate/report-validation.md, 13-assessment/sanad-runs/first-gate/report-validation.md.stderr, tools/picture.css
+erew: rule pack: requirements-writing (Requirements writing — deterministic prose rules)
+erew: code trace — 160 asserted implements edge(s) (160 codeIndex) · 0 candidate DD-term link(s) · 342 symbol↔verification pair(s) through the trace
+erew: test outcome — 99 case(s) with a declared result (85 pass, 14 skipped) · 40 symbol(s) with measured coverage, 0 traced and never exercised
+erew: dictionary values — 1 enum-value mention(s) — 0 resolved in scope, 1 sole-owner out of scope (both bound), 0 ambiguous (carded, not bound)
+erew: read ledger — 7 item(s) this repository states that Sanad did not read
+erew:   Links and claims not made: 7
+erew:     MRTM-ALI-002 — 23 reference(s) use the prefix "ADR", which no type declares
+erew:     MRTM-SYS-024 — 1 reference(s) use the prefix "CR", which no type declares
+erew:     MRTM-AMG-003 — 1 reference(s) use the prefix "IFC", which no type declares
+erew:     …and 4 more
+erew: analyses that ran: validation, traceability, quality, structure, verification, implementation, safety, architecture, consistency, conformance, impact.
+erew: security: DID NOT RUN — this repository declares no threat role. It produced no findings, and that silence is not a clean result.
+erew: interface: DID NOT RUN — this repository declares no interface role. It produced no findings, and that silence is not a clean result.
+erew: 398 finding(s) (0 error, 143 warning, 255 info) across 11 analysis(es), 2 did not run in 38ms.
+erew: GATE FAILED — 143 finding(s) at or above "warning".

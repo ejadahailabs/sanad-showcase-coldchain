@@ -1,0 +1,81 @@
+{
+  "total": 8,
+  "groups": [
+    {
+      "id": "config",
+      "title": "Configuration not read",
+      "rows": [
+        {
+          "rule": "config-not-read",
+          "engine": "config",
+          "severity": "error",
+          "what": ".ejadah/rew/config.yaml line 505 did not load — this run is unconfigured",
+          "why": "The file is present but could not be read: Nested mappings are not allowed in compact mappings at line 505, column 13:. Every producer, mapping, ignore list, artifact path, profile and relationship it declares is therefore NOT in force — analysis fell back to built-in defaults, which is why the results can look like a repository that was never set up. Fix the file at the position named and re-run. Sometimes correct: this says nothing about what your configuration contains, only that we never got to read it.",
+          "where": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/.ejadah/rew/config.yaml"
+        }
+      ]
+    },
+    {
+      "id": "links",
+      "title": "Links and claims not made",
+      "rows": [
+        {
+          "rule": "undeclared-id-prefix",
+          "engine": "graph",
+          "severity": "warning",
+          "what": "23 reference(s) use the prefix \"ADR\", which no type declares",
+          "why": "A reference edge is drawn only for an id this repository declares — a loaded artifact, or a token starting with a template's `idPrefix` — so these 23 mention(s) across 20 file(s) drew nothing, and impact analysis under-reports by exactly that much with a number that looks fine. For example: ADR-0019, ADR-0022, ADR-0034, ADR-0030, ADR-0009. Declare a type whose `idPrefix` is \"ADR\" and these become traced references; if they are safety or security identifiers, declare the role that binds them instead — those sections are read only when the role is declared. Sometimes correct: the prefix may belong to another tool's identifiers — a change request, a drawing number, a supplier's part — in which case nothing is missing, and this line is the confirmation that Sanad is not silently treating them as something they are not. Severity becomes a customer-set option at the read-ledger config stage (#658).",
+          "where": "MRTM-ALI-002"
+        },
+        {
+          "rule": "undeclared-id-prefix",
+          "engine": "graph",
+          "severity": "warning",
+          "what": "1 reference(s) use the prefix \"CR\", which no type declares",
+          "why": "A reference edge is drawn only for an id this repository declares — a loaded artifact, or a token starting with a template's `idPrefix` — so these 1 mention(s) across 1 file(s) drew nothing, and impact analysis under-reports by exactly that much with a number that looks fine. For example: CR-001. Declare a type whose `idPrefix` is \"CR\" and these become traced references; if they are safety or security identifiers, declare the role that binds them instead — those sections are read only when the role is declared. Sometimes correct: the prefix may belong to another tool's identifiers — a change request, a drawing number, a supplier's part — in which case nothing is missing, and this line is the confirmation that Sanad is not silently treating them as something they are not. Severity becomes a customer-set option at the read-ledger config stage (#658).",
+          "where": "MRTM-SYS-024"
+        },
+        {
+          "rule": "undeclared-id-prefix",
+          "engine": "graph",
+          "severity": "warning",
+          "what": "1 reference(s) use the prefix \"IFC\", which no type declares",
+          "why": "A reference edge is drawn only for an id this repository declares — a loaded artifact, or a token starting with a template's `idPrefix` — so these 1 mention(s) across 1 file(s) drew nothing, and impact analysis under-reports by exactly that much with a number that looks fine. For example: IFC-002. Declare a type whose `idPrefix` is \"IFC\" and these become traced references; if they are safety or security identifiers, declare the role that binds them instead — those sections are read only when the role is declared. Sometimes correct: the prefix may belong to another tool's identifiers — a change request, a drawing number, a supplier's part — in which case nothing is missing, and this line is the confirmation that Sanad is not silently treating them as something they are not. Severity becomes a customer-set option at the read-ledger config stage (#658).",
+          "where": "MRTM-AMG-003"
+        },
+        {
+          "rule": "undeclared-id-prefix",
+          "engine": "graph",
+          "severity": "warning",
+          "what": "6 reference(s) use the prefix \"SAF\", which no type declares",
+          "why": "A reference edge is drawn only for an id this repository declares — a loaded artifact, or a token starting with a template's `idPrefix` — so these 6 mention(s) across 3 file(s) drew nothing, and impact analysis under-reports by exactly that much with a number that looks fine. For example: SAF-012, SAF-016. Declare a type whose `idPrefix` is \"SAF\" and these become traced references; if they are safety or security identifiers, declare the role that binds them instead — those sections are read only when the role is declared. Sometimes correct: the prefix may belong to another tool's identifiers — a change request, a drawing number, a supplier's part — in which case nothing is missing, and this line is the confirmation that Sanad is not silently treating them as something they are not. Severity becomes a customer-set option at the read-ledger config stage (#658).",
+          "where": "MRTM-DSI-001"
+        },
+        {
+          "rule": "undeclared-id-prefix",
+          "engine": "graph",
+          "severity": "warning",
+          "what": "1 reference(s) use the prefix \"SRS\", which no type declares",
+          "why": "A reference edge is drawn only for an id this repository declares — a loaded artifact, or a token starting with a template's `idPrefix` — so these 1 mention(s) across 1 file(s) drew nothing, and impact analysis under-reports by exactly that much with a number that looks fine. For example: SRS-017. Declare a type whose `idPrefix` is \"SRS\" and these become traced references; if they are safety or security identifiers, declare the role that binds them instead — those sections are read only when the role is declared. Sometimes correct: the prefix may belong to another tool's identifiers — a change request, a drawing number, a supplier's part — in which case nothing is missing, and this line is the confirmation that Sanad is not silently treating them as something they are not. Severity becomes a customer-set option at the read-ledger config stage (#658).",
+          "where": "MRTM-ALI-004"
+        },
+        {
+          "rule": "undeclared-id-prefix",
+          "engine": "graph",
+          "severity": "warning",
+          "what": "2 reference(s) use the prefix \"STK\", which no type declares",
+          "why": "A reference edge is drawn only for an id this repository declares — a loaded artifact, or a token starting with a template's `idPrefix` — so these 2 mention(s) across 2 file(s) drew nothing, and impact analysis under-reports by exactly that much with a number that looks fine. For example: STK-002, STK-006. Declare a type whose `idPrefix` is \"STK\" and these become traced references; if they are safety or security identifiers, declare the role that binds them instead — those sections are read only when the role is declared. Sometimes correct: the prefix may belong to another tool's identifiers — a change request, a drawing number, a supplier's part — in which case nothing is missing, and this line is the confirmation that Sanad is not silently treating them as something they are not. Severity becomes a customer-set option at the read-ledger config stage (#658).",
+          "where": "MRTM-EXI-002"
+        },
+        {
+          "rule": "undeclared-id-prefix",
+          "engine": "graph",
+          "severity": "warning",
+          "what": "2 reference(s) use the prefix \"USI\", which no type declares",
+          "why": "A reference edge is drawn only for an id this repository declares — a loaded artifact, or a token starting with a template's `idPrefix` — so these 2 mention(s) across 2 file(s) drew nothing, and impact analysis under-reports by exactly that much with a number that looks fine. For example: USI-002. Declare a type whose `idPrefix` is \"USI\" and these become traced references; if they are safety or security identifiers, declare the role that binds them instead — those sections are read only when the role is declared. Sometimes correct: the prefix may belong to another tool's identifiers — a change request, a drawing number, a supplier's part — in which case nothing is missing, and this line is the confirmation that Sanad is not silently treating them as something they are not. Severity becomes a customer-set option at the read-ledger config stage (#658).",
+          "where": "MRTM-USI-001"
+        }
+      ]
+    }
+  ]
+}

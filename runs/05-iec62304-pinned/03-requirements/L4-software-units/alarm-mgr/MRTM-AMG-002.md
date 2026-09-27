@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, RUN-05)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-ALI-002"]
 safetyClass: "C"
@@ -17,7 +17,7 @@ implemented_by: []
 
 ## Description
 
-On a confirmed excursion input, the alarm manager unit shall set the buzzer output on in the same alarm_mgr_step call.
+When the confirmed excursion input arrives, the alarm manager unit shall set the buzzer output on within 1 s, in the alarm_mgr_step call that receives it.
 
 ## Rationale
 

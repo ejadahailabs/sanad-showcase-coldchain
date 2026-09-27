@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, RUN-05)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-EXI-002"]
 safetyClass: "C"
@@ -17,7 +17,7 @@ implemented_by: []
 
 ## Description
 
-The limit evaluator unit shall return the confirmed event from limit_evaluator_step at the 31st consecutive valid sample outside the allowed band.
+The limit evaluator unit shall return the confirmed event from limit_evaluator_step at the 31st consecutive valid sample outside the allowed band, 60 s after the first of them.
 
 ## Rationale
 

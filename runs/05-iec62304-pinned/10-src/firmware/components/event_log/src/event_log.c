@@ -19,7 +19,7 @@ void event_log_init(struct history_ring *r)
     q_head = q_len = 0;
 }
 
-/* @implements MRTM-SYS-008 MRTM-SYS-009 MRTM-SYS-010 MRTM-SYS-023 MRTM-EVL-002 */
+/* @implements MRTM-SYS-008 MRTM-SYS-009 MRTM-SYS-010 MRTM-SYS-023 MRTM-EVL-002 MRTM-LGI-003 */
 mrtm_err_t event_log_post(mrtm_event_kind_t kind, int16_t tenths, int16_t peak_tenths)
 {
     event_record_t r;

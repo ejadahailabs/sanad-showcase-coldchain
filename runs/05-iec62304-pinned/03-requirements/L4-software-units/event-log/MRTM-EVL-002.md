@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, RUN-05)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-LGI-003"]
 safetyClass: "C"
@@ -17,7 +17,7 @@ implemented_by: []
 
 ## Description
 
-The event log unit shall stamp each record with the UTC second that the RTC clock unit returns at the time of the post.
+The event log unit shall stamp each record with the UTC second, at 1 s resolution, that the RTC clock unit returns at the time of the post.
 
 ## Rationale
 

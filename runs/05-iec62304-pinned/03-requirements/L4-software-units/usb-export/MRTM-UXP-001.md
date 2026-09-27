@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, RUN-05)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-USI-001"]
 safetyClass: "B"
@@ -17,7 +17,7 @@ implemented_by: []
 
 ## Description
 
-The USB export unit shall mark the history file read-only in the FAT volume it presents.
+The USB export unit shall set the read-only attribute bit (0x01) of the history file in the FAT volume it presents.
 
 ## Rationale
 

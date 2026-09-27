@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, RUN-05)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-LGI-001"]
 safetyClass: "C"
@@ -17,7 +17,7 @@ implemented_by: []
 
 ## Description
 
-The history ring unit shall write each appended record to copy A and copy B in 2 separate flash sectors.
+The history ring unit shall write each appended record to copy A and copy B in 2 separate flash sectors within 1 s of the append.
 
 ## Rationale
 

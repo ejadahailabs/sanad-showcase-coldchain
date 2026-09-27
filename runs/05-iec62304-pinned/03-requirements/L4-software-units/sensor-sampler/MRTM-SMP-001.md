@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, RUN-05)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-SNI-001"]
 safetyClass: "C"
@@ -17,7 +17,7 @@ implemented_by: []
 
 ## Description
 
-When sensor_sampler_read is called, the sensor sampler unit shall return the sample of the conversion started 750 ms or more before and start the next conversion.
+When the sensor task calls sensor_sampler_read, the sensor sampler unit shall return the sample of the conversion started 750 ms or more before and start the next conversion.
 
 ## Rationale
 

@@ -1,0 +1,4 @@
+erew: analyses that ran: validation, traceability, structure, verification, implementation, safety, architecture, consistency, conformance, impact.
+erew: quality: DID NOT RUN — this repository selects no rule pack, and it checks how requirements are written. It produced no findings, and that silence is not a clean result.
+erew: security: DID NOT RUN — this repository declares no threat role. It produced no findings, and that silence is not a clean result.
+erew: interface: DID NOT RUN — this repository declares no interface role. It produced no findings, and that silence is not a clean result.

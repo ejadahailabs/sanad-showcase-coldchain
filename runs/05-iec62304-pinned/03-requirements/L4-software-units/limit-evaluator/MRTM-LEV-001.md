@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, RUN-05)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-EXI-001"]
 safetyClass: "C"
@@ -17,7 +17,7 @@ implemented_by: []
 
 ## Description
 
-The limit evaluator unit shall return the early event from limit_evaluator_step for the first valid sample outside the allowed band.
+The limit evaluator unit shall return the early event from limit_evaluator_step within 2 s of the first valid sample outside the allowed band.
 
 ## Rationale
 

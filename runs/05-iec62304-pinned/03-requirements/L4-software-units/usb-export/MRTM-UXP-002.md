@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, RUN-05)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-USI-002"]
 safetyClass: "B"
@@ -17,7 +17,7 @@ implemented_by: []
 
 ## Description
 
-The USB export unit shall refuse every write request from the USB host.
+When the USB host sends a write request, the USB export unit shall refuse the request within 1 s and write 0 bytes to flash.
 
 ## Rationale
 

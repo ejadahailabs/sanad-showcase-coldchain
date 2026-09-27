@@ -23,6 +23,6 @@ for r in $(erew --list-reports 2>/dev/null); do run "report-$r.md" --report "$r"
 run report-requirements-trace.md --report requirements --trace --layout document --at "$SNAP"
 run report-traceability-audit.csv --report traceability-audit --csv --at "$SNAP"
 run report-test-coverage.csv --report test-coverage --csv --at "$SNAP"
-run report-traceability-audit-since-REQ-BL-1.md --report traceability-audit --baseline REQ-BL-1 --at "$SNAP"
-run diff-config-since-REQ-BL-1.txt --diff-config REQ-BL-1
+run report-traceability-audit-since-REQ-BL-M1.md --report traceability-audit --baseline REQ-BL-M1 --at "$SNAP"
+run diff-config-since-REQ-BL-M1.txt --diff-config REQ-BL-M1
 cat "$OUT/SUMMARY.txt"

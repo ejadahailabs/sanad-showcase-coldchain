@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, RUN-05)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-ALI-004"]
 safetyClass: "C"
@@ -17,7 +17,7 @@ implemented_by: []
 
 ## Description
 
-The alarm manager unit shall add 1 to its heartbeat counter on every alarm_mgr_step call.
+The alarm manager unit shall add 1 to its heartbeat counter in each alarm_mgr_step call, at a period of 1 s.
 
 ## Rationale
 

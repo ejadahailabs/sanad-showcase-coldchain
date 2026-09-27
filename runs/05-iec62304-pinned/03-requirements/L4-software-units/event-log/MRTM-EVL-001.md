@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, RUN-05)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-LGI-001"]
 safetyClass: "C"
@@ -17,7 +17,7 @@ implemented_by: []
 
 ## Description
 
-The event log unit shall compute a CRC-32 over each queued record and hand it to the history ring in the same event_log_step call.
+The event log unit shall compute a 32-bit CRC over each queued record and hand the record to the history ring within 1 s of its post.
 
 ## Rationale
 

@@ -1,0 +1,21 @@
+erew: symbol index — rew-builtin 0.6.3: 47 symbol(s), no kinds (schema 1) · 47 tracing to 97 requirement(s)
+erew: verification cases — No template declares one of the verification types (verification, verification-hl, verification-component, verification-ll), so there is no folder to read. Declare one in .ejadah/rew/templates — its `type:` names the kind and its `rew.folder:` is where Sanad looks — or list the files under `producers.verification` in the repository config.
+erew: test results — no results declared: a covered requirement has a case that claims it; no pass or fail was read
+erew: architecture conformance — 12 component(s) declaring code · 24 of 104 indexed file(s) assigned · 16 dependency(ies) · 35 directive(s) naming nothing indexed
+erew: context layer: 325 file(s), 1668 node(s), 21 skipped (0 ignored, 21 binary, 0 empty, 0 over the size ceiling, 0 unread at the total ceiling) · cut short: 06-design/hardware/MrtmHardware.sysml, 06-design/L1-device/INDEX.md, 06-design/packages/requirements.sysml, 06-design/system/MrtmSafety.sysml, 06-design/views/rendered/L1_device_block.svg, 06-design/views/rendered/L1_device_context.svg, 06-design/views/rendered/L1_device_usecases.svg, 06-design/views/rendered/L2_hardware_item_parts.svg, 06-design/views/rendered/L2_software_system_architecture.svg, 06-design/views/rendered/L2_software_system_excursion.svg, 06-design/views/rendered/L2_software_system_hardware.svg, 06-design/views/rendered/L2_software_system_modes.svg, 06-design/views/rendered/L3_alarm_item_states.svg, 06-design/views/rendered/L3_alarm_item_structure.svg, 06-design/views/rendered/L3_display_item_structure.svg, 06-design/views/rendered/L3_excursion_item_structure.svg, 06-design/views/rendered/L3_log_item_structure.svg, 06-design/views/rendered/L3_power_item_structure.svg, 06-design/views/rendered/L3_sensor_item_structure.svg, 06-design/views/rendered/L3_supervisor_item_structure.svg, 06-design/views/rendered/L3_usb_item_structure.svg, 06-design/views/rendered/L4_display_mgr_classes.svg, 06-design/views/rendered/L4_units_alarm_path_contracts.svg, 06-design/views/rendered/L4_units_data_contracts.svg, 08-safety/01a-risk-analysis-fmea.md, 09-hardware/component-selection.md, 09-hardware/hardware-trace-matrix.md, 11-verification/evidence/coverage/host-unit-integration.info, 11-verification/procedures/system-procedures.md, tools/picture.css
+erew: no rule pack selected: .ejadah/rew/config.yaml declares no `profile:`, so no requirements-writing check runs. Name a pack in rules/ to switch them on.
+erew: code trace — 160 asserted implements edge(s) (160 codeIndex) · 0 candidate DD-term link(s) · 0 symbol↔verification pair(s) through the trace
+erew: read ledger — 8 item(s) this repository states that Sanad did not read
+erew:   Configuration not read: 1
+erew:     /tmp/sanad-at-COGHGY/tree/runs/05-iec62304-pinned/.ejadah/rew/config.yaml — .ejadah/rew/config.yaml line 505 did not load — this run is unconfigured
+erew:   Links and claims not made: 7
+erew:     MRTM-ALI-002 — 23 reference(s) use the prefix "ADR", which no type declares
+erew:     MRTM-SYS-024 — 1 reference(s) use the prefix "CR", which no type declares
+erew:     MRTM-AMG-003 — 1 reference(s) use the prefix "IFC", which no type declares
+erew:     …and 4 more
+erew: analyses that ran: validation, traceability, structure, verification, implementation, safety, architecture, consistency, conformance, impact.
+erew: quality: DID NOT RUN — this repository selects no rule pack, and it checks how requirements are written. It produced no findings, and that silence is not a clean result.
+erew: security: DID NOT RUN — this repository declares no threat role. It produced no findings, and that silence is not a clean result.
+erew: interface: DID NOT RUN — this repository declares no interface role. It produced no findings, and that silence is not a clean result.
+erew: 260 finding(s) (12 error, 104 warning, 144 info) across 10 analysis(es), 3 did not run in 14ms.
+erew: GATE FAILED — 12 finding(s) at or above "error".

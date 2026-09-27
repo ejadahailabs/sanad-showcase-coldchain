@@ -286,7 +286,8 @@
         "MRTM-SYS-009",
         "MRTM-SYS-010",
         "MRTM-SYS-023",
-        "MRTM-EVL-002"
+        "MRTM-EVL-002",
+        "MRTM-LGI-003"
       ]
     },
     {
@@ -540,13 +541,6 @@
         "MRTM-SAF-009",
         "MRTM-SVI-001",
         "MRTM-WDK-001"
-      ]
-    },
-    {
-      "symbol": "compile",
-      "file": "tools/pinned-build.py",
-      "implements": [
-        "A-Z"
       ]
     }
   ]

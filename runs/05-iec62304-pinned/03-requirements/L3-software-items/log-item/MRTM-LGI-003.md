@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, RUN-05)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-SRS-015"]
 safetyClass: "C"
@@ -17,7 +17,7 @@ implemented_by: []
 
 ## Description
 
-The log item shall stamp each record with the UTC second of the real-time clock at the time of the event.
+The log item shall stamp each record with the UTC second of the real-time clock, at 1 s resolution, within 1 s of the event.
 
 ## Rationale
 

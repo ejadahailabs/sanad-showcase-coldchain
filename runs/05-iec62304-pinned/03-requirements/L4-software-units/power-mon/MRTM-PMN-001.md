@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, RUN-05)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-PWI-001"]
 safetyClass: "C"
@@ -17,7 +17,7 @@ implemented_by: []
 
 ## Description
 
-The power monitor unit shall post the mains-lost or mains-restored event on each mains sense edge it is called with.
+When a mains sense edge arrives, the power monitor unit shall post the mains-lost or mains-restored event within 1 s.
 
 ## Rationale
 

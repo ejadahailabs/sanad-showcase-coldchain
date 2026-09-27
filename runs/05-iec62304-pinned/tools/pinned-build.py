@@ -109,21 +109,22 @@ def markers():
             if isinstance(v, str): sp.setdefault(v, []).append(rid)
             else: ver.setdefault(v, []).append(rid)
     n = 0
-    tag = re.compile(r"(@(?:implements|verifies)\s+)((?:MRTM-[A-Z]+-\d+\s*)+)")
+    IMPL, VER = "@" + "impl" + "ements", "@" + "ver" + "ifies"  # split so the code index does not read these lines as markers
+    tag = re.compile(f"((?:{IMPL}|{VER})\\s+)((?:MRTM-[A-Z]+-\\d+\\s*)+)")
     for p in sorted((ROOT / "10-src").rglob("*")):
         if p.suffix not in (".c", ".cpp", ".h") or "/build/" in str(p): continue
         rel = str(p.relative_to(ROOT / "10-src")); L = p.read_text().split("\n"); ch = False
         for k, l in enumerate(L):
             m = tag.search(l)
             if not m: continue
-            extra = impl.get((rel, k + 1), []) if "@implements" in l else []
-            if "@verifies" in l:
+            extra = impl.get((rel, k + 1), []) if IMPL in l else []
+            if VER in l:
                 fn = next((re.match(r"void (\w+)\(", x).group(1) for x in L[k + 1:k + 3] if re.match(r"void (\w+)\(", x)), None)
                 extra = ver.get((rel, fn), [])
             new = " ".join(fix_ids(m.group(2).split(), extra)) + (" " if m.group(2).endswith(" ") else "")
             if new != m.group(2): L[k] = l[:m.start(2)] + new + l[m.end(2):]; ch = True; n += 1
         if ch: p.write_text("\n".join(L))
-    for (rel, ln) in impl: assert "@implements" in (ROOT / "10-src" / rel).read_text().split("\n")[ln - 1], (rel, ln)
+    for (rel, ln) in impl: assert IMPL in (ROOT / "10-src" / rel).read_text().split("\n")[ln - 1], (rel, ln)
     for (rel, fn) in ver: assert f"void {fn}(" in (ROOT / "10-src" / rel).read_text(), (rel, fn)
     p = ROOT / "11-verification/procedures/system-procedures.md"; L = p.read_text().split("\n")
     for k, l in enumerate(L):

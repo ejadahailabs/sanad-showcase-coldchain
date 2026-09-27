@@ -1,0 +1,15 @@
+# Configuration diff
+
+What changed between two configurations, compared by EFFECT and not by bytes: one row per key and per staged rule that differs, each naming the commit, author and date that made it. Nothing here is stored — it is read from the repository's own history every time it is asked for.
+
+**Repository:** `05-iec62304-pinned`
+
+**At a:** `REQ-BL-1` — a commit, commit `1f9fd908dcd34a2894f43de40728858d50240b88` — **not read:** no Sanad repository there — no .ejadah/rew/config.yaml and no templates directory
+
+**At b:** `the working tree` — the working tree
+
+**Export schema:** `sanad/configuration-diff/1`
+
+**How the commit behind each row was found:** each difference is attributed by reading the configuration at every commit in the range that touched `.ejadah/rew/config.yaml` or a rule pack, through the same reader, and naming the newest commit whose reading differs from the one before it — not `git blame`, which answers for a line and not for what a value does.
+
+**Nothing was compared.** A side whose configuration cannot be read is named, never diffed — a comparison against a configuration nobody read is not evidence.

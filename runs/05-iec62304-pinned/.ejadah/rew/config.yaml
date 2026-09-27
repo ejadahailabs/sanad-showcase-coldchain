@@ -502,7 +502,7 @@ suppressions:
       DOGFOOD-5.
   - rule: rigour-inconsistency
     path: 03-requirements/L3-software-items/usb-item/**
-    reason: USB item stays class B under the class C software system (run 05: one level down, same argument) because it is
+    reason: USB item stays class B under the class C software system (run 05 - one level down, same argument) because it is
       segregated from the class C items (ADR-0034, IEC 62304 §5.3.5; A-48).
       Segregation allowed is an owner decision still to confirm (F-133).
 review:

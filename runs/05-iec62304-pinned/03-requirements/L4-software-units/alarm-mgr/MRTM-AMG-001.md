@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, RUN-05)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-ALI-001"]
 safetyClass: "C"
@@ -17,7 +17,7 @@ implemented_by: []
 
 ## Description
 
-In the early state, the alarm manager unit shall flash the red indicator output at 1 Hz with the buzzer output off.
+While the alarm is in the early state, the alarm manager unit shall toggle the red indicator output at 1 Hz with the buzzer output off.
 
 ## Rationale
 
