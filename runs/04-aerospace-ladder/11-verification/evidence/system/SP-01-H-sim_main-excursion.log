@@ -1,3 +1,26 @@
-# SP-01-H host dry run, build=85937be date=2026-09-27 tester=RUN-04 (agent, no independence)
-Failed to find executable 10-src/build/bin/sim_main: No such file or directory
-rc=1
+# SP-01-H host dry run, build=ad2932a date=2026-09-27 tester=RUN-04 (agent, no independence)
+t= 10000 ms power-up -> mode 1
+CHECK SP-01.1 PASS — quiet in band: buzzer off, green on
+t= 80100 ms early alarm, 1100 ms after the change
+CHECK SP-01.11 PASS — early alarm within 5 s, red 1 Hz, buzzer off (MRTM-SYS-024)
+t=140100 ms buzzer on, 61100 ms after the change
+CHECK SP-01.2 PASS — buzzer within 65 s of the first out-of-band sample (MRTM-PRF-002)
+CHECK SP-01.3 PASS — red indicator 2 Hz (MRTM-SYS-004)
+CHECK SP-01.4 PASS — excursion warning on the display (MRTM-SYS-005)
+CHECK SP-01.5 PASS — a 20 ms bounce is not a press (MRTM-IFC-002)
+t=142220 ms buzzer off, 100 ms after the press
+CHECK SP-01.6 PASS — buzzer stops within 1 s of the press (MRTM-SYS-006)
+t=1043120 ms buzzer on again, 900700 ms after silence
+CHECK SP-01.7 PASS — re-sounds 15 min after the press (MRTM-SYS-019)
+t=1104120 ms quiet, 61000 ms after back in band
+CHECK SP-01.8 PASS — excursion ends after 31 in-band samples spanning 60 s (MRTM-SYS-018)
+log seq=6 utc=1790001103 kind=2 tenths=50 peak=95
+log seq=5 utc=1790001042 kind=20 tenths=0 peak=0
+log seq=4 utc=1790000142 kind=3 tenths=0 peak=0
+log seq=3 utc=1790000139 kind=1 tenths=95 peak=0
+log seq=2 utc=1790000000 kind=12 tenths=0 peak=0
+log seq=1 utc=0 kind=13 tenths=7 peak=0
+CHECK SP-01.9 PASS — start, ack, re-alarm and end events logged once each (SYS-008/010/019)
+CHECK SP-01.10 PASS — end event carries the 9.5 degC peak (MRTM-SYS-009)
+RESULT PASS (0 failed checks)
+rc=0
