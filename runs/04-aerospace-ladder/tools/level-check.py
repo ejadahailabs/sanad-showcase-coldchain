@@ -93,8 +93,8 @@ def check(fw, reqs, sat, views, impl, pssa, pics=None, indexes=None):
             bad.append(f"{x}: DAL {r['dal']} differs from its node {n['name']} (DAL {n['dal']})")
     # 6
     for i, where in impl:
-        if not i.startswith("MRTM-LLR-"): bad.append(f"code traces to a non-LLR id {i} at {where}")
-        elif i not in reqs: bad.append(f"code traces to an unknown LLR {i} at {where}")
+        if not i.startswith("MRTM-LLR-"): bad.append(f"code names a non-LLR id {i} at {where}")
+        elif i not in reqs: bad.append(f"code names an unknown LLR {i} at {where}")
     # 7
     cap = fw["rules"]["max_boxes_per_view"]
     for v, k in views.items():
@@ -126,7 +126,7 @@ def selftest():
     assert any("not its parent" in b for b in ok(reqs={**reqs, "MRTM-LLR-1": R("a-sw-design", ["Y-1"], "C")}))
     assert any("not fed back" in b for b in ok(pssa=""))
     assert any("differs from its node" in b for b in ok(reqs={**reqs, "H-1": R("a-sw", ["Y-1"], "A")}))
-    assert any("non-LLR" in b for b in ok(impl=[("H-1", "c")]))
+    assert any("non-LLR id" in b for b in ok(impl=[("H-1", "c")]))
     assert any("13 boxes" in b for b in ok(views={"v": 13}))
     assert any("not one below" in b for b in ok(fw={**fw, "nodes": fw["nodes"][:3] + [{**fw["nodes"][3], "parent": "system", "level": "software-design"}]}))
     print("selftest: 8 of 8 planted cases behave")

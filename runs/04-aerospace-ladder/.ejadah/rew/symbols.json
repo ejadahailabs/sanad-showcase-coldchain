@@ -431,13 +431,6 @@
       "implements": [
         "MRTM-LLR-018"
       ]
-    },
-    {
-      "symbol": "startswith",
-      "file": "tools/level-check.py",
-      "implements": [
-        "non-LLR"
-      ]
     }
   ]
 }

@@ -1,0 +1,84 @@
+erew: symbol index — rew-builtin 0.6.3: 47 symbol(s), no kinds (schema 1) · 47 tracing to 49 requirement(s)
+erew: data dictionary — 01-data-dictionary/data-dictionary.md: 14 parameter(s), 13 mapped to software names
+erew: verification cases — 11-verification/cases/verification-cases.csv: 99 case(s) · carrying level, category, author, state
+erew: test results — 11-verification/results/unit (verification-ll): 79 case result(s) from 13 report(s), 1 naming no declared case
+erew: test results — 11-verification/results/integration (verification-component): 5 case result(s) from 1 report(s)
+erew: test results — 11-verification/results/system (systems-verification-results): 15 case result(s) from 1 report(s)
+erew: coverage — 11-verification/evidence/coverage/host-unit-integration.info: 40 symbol(s) in 14 indexed file(s), 47 matching no single indexed symbol
+erew: code source text — 0 of 105 covered file(s) swept, 0 symbol(s) with attached text
+erew: architecture conformance — 12 component(s) declaring code · 24 of 105 indexed file(s) assigned · 16 dependency(ies) · 35 directive(s) naming nothing indexed
+erew: sysml project — 58 file(s), 336 element(s), 225 relation(s), 49 check(s)
+erew: sysml project — 06-design/aircraft/AircraftContext.sysml declares `AircraftContext`
+erew: sysml project — 06-design/aircraft/AircraftFunctions.sysml declares `AircraftFunctions`
+erew: sysml project — 06-design/aircraft/NodeAircraft.sysml declares `NodeAircraft`
+erew: sysml project — 06-design/common/AeroPorts.sysml declares `AeroPorts`
+erew: sysml project — 06-design/common/MrtmHardware.sysml declares `MrtmHardware`
+erew: sysml project — 06-design/common/MrtmInterfaces.sysml declares `MrtmInterfaces`
+erew: sysml project — 06-design/common/MrtmLogical.sysml declares `MrtmLogical`
+erew: sysml project — 06-design/common/MrtmPartitions.sysml declares `MrtmPartitions`
+erew: sysml project — 06-design/common/MrtmPhysical.sysml declares `MrtmPhysical`
+erew: sysml project — 06-design/common/MrtmSafety.sysml declares `MrtmSafety`
+erew: sysml project — 06-design/common/MrtmSeqExcursion.sysml declares `MrtmSeqExcursion`
+erew: sysml project — 06-design/common/MrtmSeqPowerLoss.sysml declares `MrtmSeqPowerLoss`
+erew: sysml project — 06-design/common/MrtmSeqProbeFault.sysml declares `MrtmSeqProbeFault`
+erew: sysml project — 06-design/common/MrtmSoftware.sysml declares `MrtmSoftware`
+erew: sysml project — 06-design/common/MrtmSwCodes.sysml declares `MrtmSwCodes`
+erew: sysml project — 06-design/common/MrtmSwDetail.sysml declares `MrtmSwDetail`
+erew: sysml project — 06-design/common/MrtmSwStates.sysml declares `MrtmSwStates`
+erew: sysml project — 06-design/common/MrtmSystemContext.sysml declares `MrtmSystemContext`
+erew: sysml project — 06-design/common/MrtmUseCases.sysml declares `MrtmUseCases`
+erew: sysml project — 06-design/items/alarm-hw/NodeAlarmHw.sysml declares `NodeAlarmHw`
+erew: sysml project — 06-design/items/alarm-sw/AlarmSwFunctions.sysml declares `AlarmSwFunctions`
+erew: sysml project — 06-design/items/alarm-sw/NodeAlarmSw.sysml declares `NodeAlarmSw`
+erew: sysml project — 06-design/items/alarm-sw/design/AlarmSwArchitecture.sysml declares `AlarmSwArchitecture`
+erew: sysml project — 06-design/items/alarm-sw/design/NodeAlarmSwDesign.sysml declares `NodeAlarmSwDesign`
+erew: sysml project — 06-design/items/controller-hw/NodeControllerHw.sysml declares `NodeControllerHw`
+erew: sysml project — 06-design/items/display-hw/NodeDisplayHw.sysml declares `NodeDisplayHw`
+erew: sysml project — 06-design/items/display-sw/NodeDisplaySw.sysml declares `NodeDisplaySw`
+erew: sysml project — 06-design/items/display-sw/design/DisplaySwArchitecture.sysml declares `DisplaySwArchitecture`
+erew: sysml project — 06-design/items/display-sw/design/NodeDisplaySwDesign.sysml declares `NodeDisplaySwDesign`
+erew: sysml project — 06-design/items/export-sw/NodeExportSw.sysml declares `NodeExportSw`
+erew: sysml project — 06-design/items/export-sw/design/ExportSwArchitecture.sysml declares `ExportSwArchitecture`
+erew: sysml project — 06-design/items/export-sw/design/NodeExportSwDesign.sysml declares `NodeExportSwDesign`
+erew: sysml project — 06-design/items/platform-sw/NodePlatformSw.sysml declares `NodePlatformSw`
+erew: sysml project — 06-design/items/platform-sw/design/NodePlatformSwDesign.sysml declares `NodePlatformSwDesign`
+erew: sysml project — 06-design/items/platform-sw/design/PlatformSwArchitecture.sysml declares `PlatformSwArchitecture`
+erew: sysml project — 06-design/items/power-hw/NodePowerHw.sysml declares `NodePowerHw`
+erew: sysml project — 06-design/items/record-sw/NodeRecordSw.sysml declares `NodeRecordSw`
+erew: sysml project — 06-design/items/record-sw/design/NodeRecordSwDesign.sysml declares `NodeRecordSwDesign`
+erew: sysml project — 06-design/items/record-sw/design/RecordSwArchitecture.sysml declares `RecordSwArchitecture`
+erew: sysml project — 06-design/items/sensor-hw/NodeSensorHw.sysml declares `NodeSensorHw`
+erew: sysml project — 06-design/packages/requirements.sysml declares `ProjectRequirements` (generated — edit the Markdown requirement)
+erew: sysml project — 06-design/system/AlarmPathSequence.sysml declares `AlarmPathSequence`
+erew: sysml project — 06-design/system/NodeSystem.sysml declares `NodeSystem`
+erew: sysml project — 06-design/system/SystemFunctions.sysml declares `SystemFunctions`
+erew: sysml project — 06-design/system/SystemHardware.sysml declares `SystemHardware`
+erew: sysml project — 06-design/system/SystemItems.sysml declares `SystemItems`
+erew: sysml project — 06-design/system/SystemSoftware.sysml declares `SystemSoftware`
+erew: sysml project — 06-design/views/Aircraft_contextView.sysml declares `Aircraft_contextView`
+erew: sysml project — 06-design/views/Aircraft_functionsView.sysml declares `Aircraft_functionsView`
+erew: sysml project — 06-design/views/Alarm_sw_design_architectureView.sysml declares `Alarm_sw_design_architectureView`
+erew: sysml project — 06-design/views/Alarm_sw_design_statesView.sysml declares `Alarm_sw_design_statesView`
+erew: sysml project — 06-design/views/Alarm_sw_functionsView.sysml declares `Alarm_sw_functionsView`
+erew: sysml project — 06-design/views/SanadRenderings.sysml declares `SanadRenderings`
+erew: sysml project — 06-design/views/System_alarm_sequenceView.sysml declares `System_alarm_sequenceView`
+erew: sysml project — 06-design/views/System_functionsView.sysml declares `System_functionsView`
+erew: sysml project — 06-design/views/System_hardwareView.sysml declares `System_hardwareView`
+erew: sysml project — 06-design/views/System_itemsView.sysml declares `System_itemsView`
+erew: sysml project — 06-design/views/System_softwareView.sysml declares `System_softwareView`
+erew: context layer: 265 file(s), 2771 node(s), 33 skipped (9 ignored, 11 binary, 10 empty, 3 over the size ceiling, 0 unread at the total ceiling) · over ceiling: 13-assessment/sanad-runs/gate-1/evidence.json, 13-assessment/sanad-runs/gate-1/report-validation.md, 13-assessment/sanad-runs/gate-2/evidence.json · cut short: 06-design/common/MrtmHardware.sysml, 06-design/common/MrtmSafety.sysml, 06-design/packages/requirements.sysml, 06-design/views/rendered/aircraft_context.svg, 06-design/views/rendered/aircraft_functions.svg, 06-design/views/rendered/alarm_sw_design_architecture.svg, 06-design/views/rendered/alarm_sw_design_states.svg, 06-design/views/rendered/alarm_sw_functions.svg, 06-design/views/rendered/system_alarm_sequence.svg, 06-design/views/rendered/system_functions.svg, 06-design/views/rendered/system_hardware.svg, 06-design/views/rendered/system_items.svg, 06-design/views/rendered/system_software.svg, 11-verification/procedures/system-procedures.md, 13-assessment/sanad-runs/gate-1/gate.txt, 13-assessment/sanad-runs/gate-1/gate.txt.stderr, 13-assessment/sanad-runs/gate-1/ledger.json.stderr, 13-assessment/sanad-runs/gate-1/report-eiwr.md.stderr, 13-assessment/sanad-runs/gate-1/report-requirements-trace.md, 13-assessment/sanad-runs/gate-1/report-requirements-trace.md.stderr, 13-assessment/sanad-runs/gate-1/report-requirements.md, 13-assessment/sanad-runs/gate-1/report-requirements.md.stderr, 13-assessment/sanad-runs/gate-1/report-statistics.md.stderr, 13-assessment/sanad-runs/gate-1/report-test-coverage.csv, 13-assessment/sanad-runs/gate-1/report-test-coverage.csv.stderr, 13-assessment/sanad-runs/gate-1/report-test-coverage.md, 13-assessment/sanad-runs/gate-1/report-test-coverage.md.stderr, 13-assessment/sanad-runs/gate-1/report-traceability-audit-since-REQ-BL-1.md, 13-assessment/sanad-runs/gate-1/report-traceability-audit-since-REQ-BL-1.md.stderr, 13-assessment/sanad-runs/gate-1/report-traceability-audit.csv, 13-assessment/sanad-runs/gate-1/report-traceability-audit.csv.stderr, 13-assessment/sanad-runs/gate-1/report-traceability-audit.md, 13-assessment/sanad-runs/gate-1/report-traceability-audit.md.stderr, 13-assessment/sanad-runs/gate-1/report-traceability.md, 13-assessment/sanad-runs/gate-1/report-traceability.md.stderr, 13-assessment/sanad-runs/gate-1/report-validation.md.stderr, 13-assessment/sanad-runs/gate-2/gate.txt, 13-assessment/sanad-runs/gate-2/gate.txt.stderr, 13-assessment/sanad-runs/gate-2/ledger.json.stderr, 13-assessment/sanad-runs/gate-2/report-eiwr.md.stderr, 13-assessment/sanad-runs/gate-2/report-requirements-trace.md, 13-assessment/sanad-runs/gate-2/report-requirements-trace.md.stderr, 13-assessment/sanad-runs/gate-2/report-requirements.md, 13-assessment/sanad-runs/gate-2/report-requirements.md.stderr, 13-assessment/sanad-runs/gate-2/report-statistics.md.stderr, 13-assessment/sanad-runs/gate-2/report-test-coverage.csv, 13-assessment/sanad-runs/gate-2/report-test-coverage.csv.stderr, 13-assessment/sanad-runs/gate-2/report-test-coverage.md, 13-assessment/sanad-runs/gate-2/report-test-coverage.md.stderr, 13-assessment/sanad-runs/gate-2/report-traceability-audit-since-REQ-BL-1.md, 13-assessment/sanad-runs/gate-2/report-traceability-audit-since-REQ-BL-1.md.stderr, 13-assessment/sanad-runs/gate-2/report-traceability-audit.csv, 13-assessment/sanad-runs/gate-2/report-traceability-audit.csv.stderr, 13-assessment/sanad-runs/gate-2/report-traceability-audit.md, 13-assessment/sanad-runs/gate-2/report-traceability-audit.md.stderr, 13-assessment/sanad-runs/gate-2/report-traceability.md, 13-assessment/sanad-runs/gate-2/report-traceability.md.stderr, 13-assessment/sanad-runs/gate-2/report-validation.md, 13-assessment/sanad-runs/gate-2/report-validation.md.stderr, tools/picture.css
+erew: rule pack: requirements-writing (Requirements writing — deterministic prose rules)
+erew: code trace — 49 asserted implements edge(s) (49 codeIndex) · 0 candidate DD-term link(s) · 93 symbol↔verification pair(s) through the trace
+erew: test outcome — 99 case(s) with a declared result (85 pass, 14 skipped) · 40 symbol(s) with measured coverage, 0 traced and never exercised
+erew: dictionary values — 3 enum-value mention(s) — 0 resolved in scope, 3 sole-owner out of scope (both bound), 0 ambiguous (carded, not bound)
+erew: read ledger — 27 item(s) this repository states that Sanad did not read
+erew:   Links and claims not made: 27
+erew:     MRTM-HLR-001 — 6 reference(s) use the prefix "ADR", which no type declares
+erew:     MRTM-SYS-024 — 1 reference(s) use the prefix "CR", which no type declares
+erew:     MRTM-HLR-007 — 4 reference(s) use the prefix "MRTM-ALI", which no type declares
+erew:     …and 24 more
+erew: analyses that ran: validation, traceability, quality, structure, verification, implementation, safety, architecture, consistency, conformance, impact.
+erew: security: DID NOT RUN — this repository declares no threat role. It produced no findings, and that silence is not a clean result.
+erew: interface: DID NOT RUN — this repository declares no interface role. It produced no findings, and that silence is not a clean result.
+erew: 689 finding(s) (1 error, 367 warning, 321 info) across 11 analysis(es), 2 did not run in 42ms.
+erew: GATE FAILED — 1 finding(s) at or above "error".
