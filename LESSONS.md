@@ -79,9 +79,26 @@ Sanad is a build in progress. "Could not do" below means "not yet", with the fin
 
 ## Run 04 — aerospace ladder
 ### What the pattern made easy
+- A fixed ladder is easy to explain and to check: product → system → items → software design, never deeper. `level-check` needed only "one rung up" instead of run 2's per-branch tree.
+- **Sanad's own words are this ladder.** Its roles `hlr` and `llr`, the uplink direction LLR → HLR → system, the native DAL scale (`do178c`, A→4 … E→0) and its test-coverage report "high-level 35 of 38 · low-level 39 of 45" all worked without inventing anything. The medical run had to hand-map classes and levels.
+- "Code names one LLR" is a crisp rule: 45 code sites, 45 LLR, every test marker names the HLR / LLR it drives.
+- The DAL per item turned run 2's single B-under-C argument into a readable table: one line of reason per item (08-safety/02-pssa.md).
 ### What it made hard
+- The safety half is all by hand: FHA, PSSA, DAL per item, and the partitioning argument for lower-DAL software on one processor (no memory protection — A-4-06).
+- More requirements than run 2 (177 vs 132): a function rung and an LLR per code site are new.
+- Hardware items and software items need different requirement types, and Sanad binds one folder tree per type, so an item's requirements live in three trees (`hwr/`, `hlr/`, `llr/`).
+- Two interconnection pictures still read poorly (floating port labels).
 ### What Sanad could not do
+- Allow a lower DAL below a higher one with a reason: 24 `rigour-inconsistency` errors, suppressed by path (F-4-011).
+- Hold an FHA, a PSSA, derived-requirement feedback or partitioning evidence (F-4-008, F-4-009); record verification by analysis (F-4-016).
+- Roll implementation up the ladder: it wanted code on every system requirement until the `implements` role was left on the LLR template only (F-4-007).
+- Produce the project's DO-178C documents: its accomplishment-summary, problem-report and approvals pages describe Sanad's OWN qualification, not the project (F-4-012). No MC/DC or decision coverage (F-4-014).
+- Run the OMG Pilot independent of file order: 172 false errors until the library folder sorted first (F-4-006). Derive from "any requirement of the rung above" (75 warnings, F-4-002).
 ### What we would keep
+- The fixed ladder with a DAL per item and a one-line reason — the clearest safety story of the runs so far.
+- "Code traces to LLR only" and the per-level coverage numbers as the reviewer's first page.
+- The DO-178C objectives index as the aerospace yardstick (yes 15 · partly 22 · no 32 at DAL A), beside run 2's IEC 62304 index.
+- Sanad fits this run **better** than the medical one on vocabulary and levels, and **worse** on the safety assessment and on its own DO-178C-named reports.
 
 ## Run 05 — IEC 62304 pinned
 ### What the pattern made easy

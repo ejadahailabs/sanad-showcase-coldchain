@@ -18,7 +18,7 @@
 |---|---|
 | `tools/level-check.py` | 17 nodes · 177 requirements · 177 satisfy lines · 45 code links · **0 violations** (selftest 8/8) |
 | OMG Pilot 0.61.0 (with profile) | **0 issues / 59 files** — after renaming the library so it loads first (F-4-006) |
-| Sanad gate | **0 errors**, 367 warnings, 321 info (gate rounds: 128 → 5 → 1 → 0 errors) |
+| Sanad gate | **0 errors**, 367 warnings, 321 info (gate rounds: 121 → 5 → 1 → 0 errors) |
 | Test coverage (Sanad) | required 177 · covered 88 · 70 blocked (bench) · 19 missing; **HLR 35/38 · LLR 39/45** |
 | Host build | `-Werror` clean; 79 unit + 5 integration Unity tests pass; SP-01-H pass; lines 581/598 |
 | Baseline | **REQ-BL-B1** (Sanad makeBaseline, 688 finding identities, at `b3ad9be`) |

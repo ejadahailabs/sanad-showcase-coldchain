@@ -5,7 +5,7 @@
 ## Log (newest first; the four lines per step)
 
 ### Step 4 — gate, baseline, assessment (2026-09-27, RUN-04)
-- SANAD DID: (headless) gate + every report over the tree (4 rounds, 128 → 0 errors); `createBuiltinIndex` code index (45 LLR sites); `writeRequirementsPackage` + `requirementsPackage` per rung (4 packages in 04-baselines/packages-per-level); `makeBaseline` wrote **REQ-BL-B1**; results + coverage producers read 99 JUnit rows + LCOV; test coverage counted by level itself (HLR 35/38, LLR 39/45).
+- SANAD DID: (headless) gate + every report over the tree (4 rounds, 121 → 0 errors); `createBuiltinIndex` code index (45 LLR sites); `writeRequirementsPackage` + `requirementsPackage` per rung (4 packages in 04-baselines/packages-per-level); `makeBaseline` wrote **REQ-BL-B1**; results + coverage producers read 99 JUnit rows + LCOV; test coverage counted by level itself (HLR 35/38, LLR 39/45).
 - PROVED BY: 13-assessment/sanad-runs/gate-final/ (0 errors, 367 warnings, 321 info); `tools/level-check.py` 0 violations (selftest 8/8); OMG Pilot 0 issues / 59 files; host build + 84 tests + SP-01-H pass.
 - MANUAL: implements role kept on the LLR template only (F-4-007); 6 rewords + one split (MRTM-HLR-038 via Sanad's create path); 11 PSSA suppressions (F-4-011, A-4-07); trace words taken out of tool comments (F-4-010); DO-178C objectives index, alarm-path trace, SUMMARY, FINDINGS (20), ASSUMPTIONS (10), CLICK-LIST (6).
 - UI-ONLY: C-4-01…C-4-06.
@@ -23,7 +23,7 @@
 - UI-ONLY: none.
 
 ### Step 1 — framework, requirements, markers (2026-09-27, RUN-04)
-- SANAD DID: (headless) `createRequirement` + `planSerials` allocated **115** new requirements (FUN 5, SOB 5, HWR 14, HLR 38, LLR 45 — incl. the split) with the create path's own `folder` option; native `do178c` DAL scale; roles `hlr` / `llr`.
+- SANAD DID: (headless) `createRequirement` + `planSerials` allocated **107** new requirements (FUN 5, SOB 5, HWR 14, HLR 38, LLR 45 — incl. the split) with the create path's own `folder` option; native `do178c` DAL scale; roles `hlr` / `llr`.
 - PROVED BY: tools/aero-ids.json (key → id); the allocator never reused an id after the folder fix (F-4-005).
 - MANUAL: `.ejadah/rew/framework.yaml`, 5 templates, config (scale, roles, uplink order); `tools/aero_data.py` (texts, re-homing of run 2's node requirements, test mapping); `tools/aero-build.py` (system uplinks STK → FUN, SAF → SOB, DAL per requirement; 45 code sites → LLR, 84 test markers → HLR/LLR, bench rows).
 - UI-ONLY: C-4-02.
