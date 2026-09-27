@@ -39,5 +39,7 @@ package 'Layout_Sanad' {
         'viewName' = "mrtmInterfaces";
         'x' = 184;
         'y' = 44;
+        'w' = 1372;
+        'h' = 1198;
     }
 }
