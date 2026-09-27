@@ -1,7 +1,7 @@
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from p8data import ERRORS, EVENTS, MODULES
-R = "/home/masood/Masood/Office_Projects/dogfood-fridge"
+R = "<REPO_ROOT>"
 pas = lambda s: s[0].upper() + s[1:]
 # 1. codes package
 L = ["// MRTM error codes and event kinds — IEC 62304 §5.4.2 (detailed design), §5.4.3 (interfaces).",

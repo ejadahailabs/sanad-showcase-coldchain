@@ -39,7 +39,7 @@
       "rule": "config-not-read",
       "message": ".ejadah/rew/config.yaml line 505 did not load — this run is unconfigured",
       "detail": "The file is present but could not be read: Nested mappings are not allowed in compact mappings at line 505, column 13:. Every producer, mapping, ignore list, artifact path, profile and relationship it declares is therefore NOT in force — analysis fell back to built-in defaults, which is why the results can look like a repository that was never set up. Fix the file at the position named and re-run. Sometimes correct: this says nothing about what your configuration contains, only that we never got to read it.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/.ejadah/rew/config.yaml"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/.ejadah/rew/config.yaml"
     },
     {
       "severity": "warning",
@@ -137,210 +137,210 @@
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"environmental\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-ENV-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/environmental/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/environmental/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"interface\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-IFC-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/interface/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/interface/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"hardware-item\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-HWI-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/L2-hardware-item/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/L2-hardware-item/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"software-system\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-SRS-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/L2-software-system/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/L2-software-system/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"alarm-item\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-ALI-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/L3-software-items/alarm-item/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/L3-software-items/alarm-item/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"display-item\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-DSI-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/L3-software-items/display-item/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/L3-software-items/display-item/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"excursion-item\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-EXI-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/L3-software-items/excursion-item/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/L3-software-items/excursion-item/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"log-item\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-LGI-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/L3-software-items/log-item/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/L3-software-items/log-item/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"power-item\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-PWI-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/L3-software-items/power-item/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/L3-software-items/power-item/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"sensor-item\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-SNI-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/L3-software-items/sensor-item/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/L3-software-items/sensor-item/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"supervisor-item\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-SVI-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/L3-software-items/supervisor-item/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/L3-software-items/supervisor-item/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"usb-item\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-USI-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/L3-software-items/usb-item/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/L3-software-items/usb-item/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"alarm-mgr\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-AMG-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/L4-software-units/alarm-mgr/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/L4-software-units/alarm-mgr/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"config-mgr\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-CFG-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/L4-software-units/config-mgr/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/L4-software-units/config-mgr/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"diagnostics\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-DGN-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/L4-software-units/diagnostics/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/L4-software-units/diagnostics/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"display-mgr\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-DMG-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/L4-software-units/display-mgr/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/L4-software-units/display-mgr/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"event-log\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-EVL-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/L4-software-units/event-log/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/L4-software-units/event-log/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"history-ring\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-HRG-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/L4-software-units/history-ring/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/L4-software-units/history-ring/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"limit-evaluator\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-LEV-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/L4-software-units/limit-evaluator/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/L4-software-units/limit-evaluator/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"power-mon\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-PMN-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/L4-software-units/power-mon/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/L4-software-units/power-mon/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"rtc-clock\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-RTK-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/L4-software-units/rtc-clock/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/L4-software-units/rtc-clock/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"sensor-sampler\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-SMP-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/L4-software-units/sensor-sampler/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/L4-software-units/sensor-sampler/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"usb-export\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-UXP-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/L4-software-units/usb-export/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/L4-software-units/usb-export/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"wdt-kicker\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-WDK-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/L4-software-units/wdt-kicker/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/L4-software-units/wdt-kicker/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"maintainability\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-MNT-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/maintainability/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/maintainability/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"performance\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-PRF-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/performance/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/performance/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"safety\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-SAF-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/safety/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/safety/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"stakeholder\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-STK-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/stakeholder/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/stakeholder/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"system\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-SYS-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/03-requirements/system/README.md"
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/03-requirements/system/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "link-role-unreadable",
       "message": "allocation counts as 0: no Interface Requirement carries it — point it at your field",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/.ejadah/rew/templates/interface.md",
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/.ejadah/rew/templates/interface.md",
       "detail": "The template declares the `allocated_to:` field for the allocation link and none of its 4 files fills it. allocation of this type to components is therefore reported as 0 — a number a reader cannot tell apart from \"fully covered, nothing left to link\". If these files do record the link somewhere else, point the template's allocation role at the field or heading that holds it."
     },
     {
@@ -348,7 +348,7 @@
       "severity": "info",
       "rule": "link-role-unreadable",
       "message": "allocation counts as 0: no Performance Requirement carries it — point it at your field",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/.ejadah/rew/templates/performance.md",
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/.ejadah/rew/templates/performance.md",
       "detail": "The template declares the `allocated_to:` field for the allocation link and none of its 4 files fills it. allocation of this type to components is therefore reported as 0 — a number a reader cannot tell apart from \"fully covered, nothing left to link\". If these files do record the link somewhere else, point the template's allocation role at the field or heading that holds it."
     },
     {
@@ -356,7 +356,7 @@
       "severity": "info",
       "rule": "link-role-unreadable",
       "message": "allocation counts as 0: no Safety Requirement carries it — point it at your field",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/.ejadah/rew/templates/safety.md",
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/.ejadah/rew/templates/safety.md",
       "detail": "The template declares the `allocated_to:` field for the allocation link and none of its 23 files fills it. allocation of this type to components is therefore reported as 0 — a number a reader cannot tell apart from \"fully covered, nothing left to link\". If these files do record the link somewhere else, point the template's allocation role at the field or heading that holds it."
     },
     {
@@ -364,7 +364,7 @@
       "severity": "info",
       "rule": "link-role-unreadable",
       "message": "allocation counts as 0: no System Requirement carries it — point it at your field",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/.ejadah/rew/templates/system.md",
+      "path": "<REPO_ROOT>/runs/05-iec62304-pinned/.ejadah/rew/templates/system.md",
       "detail": "The template declares the `allocated_to:` field for the allocation link and none of its 24 files fills it. allocation of this type to components is therefore reported as 0 — a number a reader cannot tell apart from \"fully covered, nothing left to link\". If these files do record the link somewhere else, point the template's allocation role at the field or heading that holds it."
     },
     {

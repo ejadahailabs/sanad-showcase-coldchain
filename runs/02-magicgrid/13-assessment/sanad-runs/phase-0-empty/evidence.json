@@ -57,56 +57,56 @@
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"environmental\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-ENV-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/03-requirements/environmental/README.md"
+      "path": "<REPO_ROOT>/03-requirements/environmental/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"interface\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-IFC-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/03-requirements/interface/README.md"
+      "path": "<REPO_ROOT>/03-requirements/interface/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"maintainability\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-MNT-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/03-requirements/maintainability/README.md"
+      "path": "<REPO_ROOT>/03-requirements/maintainability/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"performance\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-PRF-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/03-requirements/performance/README.md"
+      "path": "<REPO_ROOT>/03-requirements/performance/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"safety\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-SAF-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/03-requirements/safety/README.md"
+      "path": "<REPO_ROOT>/03-requirements/safety/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"stakeholder\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-STK-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/03-requirements/stakeholder/README.md"
+      "path": "<REPO_ROOT>/03-requirements/stakeholder/README.md"
     },
     {
       "engine": "validation",
       "severity": "info",
       "rule": "not-a-requirement",
       "message": "README.md: not a \"system\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-SYS-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/03-requirements/system/README.md"
+      "path": "<REPO_ROOT>/03-requirements/system/README.md"
     },
     {
       "engine": "validation",
       "severity": "warning",
       "rule": "clean-not-computed",
       "message": "Clean % not computed — no requirement was checked, so it has no denominator",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/.ejadah/rew/config.yaml",
+      "path": "<REPO_ROOT>/.ejadah/rew/config.yaml",
       "detail": "Validation ran and checked 0 requirements: 0 file(s) failed to load, 7 are present but are not requirements, and 0 are ignored. A percentage over nothing is not 100 % and is not 0 % — it does not exist, so no clean figure is published for this run and the Health Score leaves it out rather than scoring an absence. Fix the malformed files (each is reported on its own file), or the folders in `setup.paths`. Sometimes correct: a repository part-way through setup legitimately has no requirements yet — this says the number is missing, not that anything is broken."
     },
     {

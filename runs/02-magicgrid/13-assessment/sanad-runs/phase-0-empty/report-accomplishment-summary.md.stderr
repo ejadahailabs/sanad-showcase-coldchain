@@ -1,5 +1,5 @@
-erew: Error: --report accomplishment-summary needs this build's own source tree to read src/analysis/reports.ts, and none was found above /home/masood/.cache/tmp-dogfood1/vsix/extension/dist/analysis. A packaged extension does not ship src/; run the accomplishment-summary from a source checkout.
-    at findSourceRoot (/home/masood/.cache/tmp-dogfood1/vsix/extension/dist/analysis/catalogue.js:72:11)
-    at summarySections (/home/masood/.cache/tmp-dogfood1/vsix/extension/dist/analysis/accomplishmentSummary.js:172:65)
-    at reportAccomplishmentSummary (/home/masood/.cache/tmp-dogfood1/vsix/extension/dist/analysis/accomplishmentSummary.js:242:28)
-    at run (/home/masood/.cache/tmp-dogfood1/vsix/extension/dist/cli.js:1579:90)
+erew: Error: --report accomplishment-summary needs this build's own source tree to read src/analysis/reports.ts, and none was found above <TMP_BUILD_DIR>/vsix/extension/dist/analysis. A packaged extension does not ship src/; run the accomplishment-summary from a source checkout.
+    at findSourceRoot (<TMP_BUILD_DIR>/vsix/extension/dist/analysis/catalogue.js:72:11)
+    at summarySections (<TMP_BUILD_DIR>/vsix/extension/dist/analysis/accomplishmentSummary.js:172:65)
+    at reportAccomplishmentSummary (<TMP_BUILD_DIR>/vsix/extension/dist/analysis/accomplishmentSummary.js:242:28)
+    at run (<TMP_BUILD_DIR>/vsix/extension/dist/cli.js:1579:90)

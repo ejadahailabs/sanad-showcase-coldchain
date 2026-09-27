@@ -3,6 +3,7 @@
 # and light-theme defaults for the VS Code variables. Usage: tools/render-view.sh <view.svg> <out.png>
 set -euo pipefail
 svg="$1"; out="$2"; here="$(cd "$(dirname "$0")" && pwd)"
+if grep -q "^/\* STUB" "$here/picture.css" 2>/dev/null; then echo "render-view.sh: copy Sanad's picture.css here first: $here/picture.css" >&2; exit 1; fi
 tmp="$(mktemp -d "${TMPDIR:-$HOME/.cache}/render-XXXX")"
 { echo '<!doctype html><html data-theme="light"><head><meta charset=utf-8><style>'; cat "$here/picture.css"; echo '</style></head><body>'; cat "$svg";
   echo '<script>const s=document.getElementById("pic");const b=s.getBBox();const p=20;s.setAttribute("viewBox",`${b.x-p} ${b.y-p} ${b.width+2*p} ${b.height+2*p}`);s.setAttribute("width",Math.ceil(b.width+2*p));s.setAttribute("height",Math.ceil(b.height+2*p));</script></body></html>'; } > "$tmp/v.html"

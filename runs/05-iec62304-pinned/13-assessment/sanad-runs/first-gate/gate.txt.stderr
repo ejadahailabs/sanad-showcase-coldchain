@@ -7,7 +7,7 @@ erew: no rule pack selected: .ejadah/rew/config.yaml declares no `profile:`, so 
 erew: code trace — 160 asserted implements edge(s) (160 codeIndex) · 0 candidate DD-term link(s) · 0 symbol↔verification pair(s) through the trace
 erew: read ledger — 8 item(s) this repository states that Sanad did not read
 erew:   Configuration not read: 1
-erew:     /home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/.ejadah/rew/config.yaml — .ejadah/rew/config.yaml line 505 did not load — this run is unconfigured
+erew:     <REPO_ROOT>/runs/05-iec62304-pinned/.ejadah/rew/config.yaml — .ejadah/rew/config.yaml line 505 did not load — this run is unconfigured
 erew:   Links and claims not made: 7
 erew:     MRTM-ALI-002 — 23 reference(s) use the prefix "ADR", which no type declares
 erew:     MRTM-SYS-024 — 1 reference(s) use the prefix "CR", which no type declares

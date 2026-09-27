@@ -11,7 +11,7 @@
           "severity": "error",
           "what": ".ejadah/rew/config.yaml line 505 did not load — this run is unconfigured",
           "why": "The file is present but could not be read: Nested mappings are not allowed in compact mappings at line 505, column 13:. Every producer, mapping, ignore list, artifact path, profile and relationship it declares is therefore NOT in force — analysis fell back to built-in defaults, which is why the results can look like a repository that was never set up. Fix the file at the position named and re-run. Sometimes correct: this says nothing about what your configuration contains, only that we never got to read it.",
-          "where": "/home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned/.ejadah/rew/config.yaml"
+          "where": "<REPO_ROOT>/runs/05-iec62304-pinned/.ejadah/rew/config.yaml"
         }
       ]
     },

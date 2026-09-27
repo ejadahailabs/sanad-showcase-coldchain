@@ -1,4 +1,4 @@
-erew: Error: --report problem-reports reads the review ledger at /home/masood/.cache/tmp-dogfood1/vsix/extension/qual, and there is no such directory. A register with no ledger behind it would state that no anomaly was ever raised; run it from a source checkout.
-    at problemReportRows (/home/masood/.cache/tmp-dogfood1/vsix/extension/dist/analysis/problemReports.js:94:15)
-    at reportProblemReports (/home/masood/.cache/tmp-dogfood1/vsix/extension/dist/analysis/problemReports.js:180:52)
-    at run (/home/masood/.cache/tmp-dogfood1/vsix/extension/dist/cli.js:1565:70)
+erew: Error: --report problem-reports reads the review ledger at <TMP_BUILD_DIR>/vsix/extension/qual, and there is no such directory. A register with no ledger behind it would state that no anomaly was ever raised; run it from a source checkout.
+    at problemReportRows (<TMP_BUILD_DIR>/vsix/extension/dist/analysis/problemReports.js:94:15)
+    at reportProblemReports (<TMP_BUILD_DIR>/vsix/extension/dist/analysis/problemReports.js:180:52)
+    at run (<TMP_BUILD_DIR>/vsix/extension/dist/cli.js:1565:70)

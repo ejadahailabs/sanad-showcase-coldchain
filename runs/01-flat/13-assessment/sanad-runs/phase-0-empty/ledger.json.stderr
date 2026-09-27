@@ -1,4 +1,4 @@
-erew: glossary /home/masood/Masood/Office_Projects/dogfood-fridge/01-data-dictionary/glossary.md — producers.glossary declares this file and it is not there — the glossary lane contributed nothing to this run
+erew: glossary <REPO_ROOT>/01-data-dictionary/glossary.md — producers.glossary declares this file and it is not there — the glossary lane contributed nothing to this run
 erew: data dictionary — not found at 01-data-dictionary/data-dictionary.md
 erew: verification cases — No template declares one of the verification types (verification, verification-hl, verification-component, verification-ll), so there is no folder to read. Declare one in .ejadah/rew/templates — its `type:` names the kind and its `rew.folder:` is where Sanad looks — or list the files under `producers.verification` in the repository config.
 erew: test results — 11-verification/results (systems-verification-results): 0 case result(s) from 0 report(s)

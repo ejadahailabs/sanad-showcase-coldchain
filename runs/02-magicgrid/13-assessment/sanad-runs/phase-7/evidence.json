@@ -52,7 +52,7 @@
       "severity": "info",
       "rule": "link-role-unreadable",
       "message": "allocation counts as 0: no Interface Requirement carries it — point it at your field",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/.ejadah/rew/templates/interface.md",
+      "path": "<REPO_ROOT>/.ejadah/rew/templates/interface.md",
       "detail": "The template declares the `allocated_to:` field for the allocation link and none of its 4 files fills it. allocation of this type to components is therefore reported as 0 — a number a reader cannot tell apart from \"fully covered, nothing left to link\". If these files do record the link somewhere else, point the template's allocation role at the field or heading that holds it."
     },
     {
@@ -60,7 +60,7 @@
       "severity": "info",
       "rule": "link-role-unreadable",
       "message": "allocation counts as 0: no Performance Requirement carries it — point it at your field",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/.ejadah/rew/templates/performance.md",
+      "path": "<REPO_ROOT>/.ejadah/rew/templates/performance.md",
       "detail": "The template declares the `allocated_to:` field for the allocation link and none of its 4 files fills it. allocation of this type to components is therefore reported as 0 — a number a reader cannot tell apart from \"fully covered, nothing left to link\". If these files do record the link somewhere else, point the template's allocation role at the field or heading that holds it."
     },
     {
@@ -68,7 +68,7 @@
       "severity": "info",
       "rule": "link-role-unreadable",
       "message": "allocation counts as 0: no Safety Requirement carries it — point it at your field",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/.ejadah/rew/templates/safety.md",
+      "path": "<REPO_ROOT>/.ejadah/rew/templates/safety.md",
       "detail": "The template declares the `allocated_to:` field for the allocation link and none of its 23 files fills it. allocation of this type to components is therefore reported as 0 — a number a reader cannot tell apart from \"fully covered, nothing left to link\". If these files do record the link somewhere else, point the template's allocation role at the field or heading that holds it."
     },
     {
@@ -76,7 +76,7 @@
       "severity": "info",
       "rule": "link-role-unreadable",
       "message": "allocation counts as 0: no System Requirement carries it — point it at your field",
-      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/.ejadah/rew/templates/system.md",
+      "path": "<REPO_ROOT>/.ejadah/rew/templates/system.md",
       "detail": "The template declares the `allocated_to:` field for the allocation link and none of its 23 files fills it. allocation of this type to components is therefore reported as 0 — a number a reader cannot tell apart from \"fully covered, nothing left to link\". If these files do record the link somewhere else, point the template's allocation role at the field or heading that holds it."
     },
     {

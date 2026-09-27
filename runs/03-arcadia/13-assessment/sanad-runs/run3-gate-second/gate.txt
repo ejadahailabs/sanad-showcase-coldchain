@@ -174,10 +174,10 @@ info    quality/indefinite-article  MRTM-SYS-012  an indefinite article leaves w
 info    quality/indefinite-article  MRTM-SYS-020  an indefinite article leaves which one open - use "the" and name the item
 info    quality/indefinite-article  MRTM-SYS-021  an indefinite article leaves which one open - use "the" and name the item
 info    quality/indefinite-article  MRTM-SYS-024  an indefinite article leaves which one open - use "the" and name the item
-info    validation/link-role-unreadable  /home/masood/Masood/Office_Projects/dogfood-fridge/runs/03-arcadia/.ejadah/rew/templates/interface.md  allocation counts as 0: no Interface Requirement carries it — point it at your field
-info    validation/link-role-unreadable  /home/masood/Masood/Office_Projects/dogfood-fridge/runs/03-arcadia/.ejadah/rew/templates/performance.md  allocation counts as 0: no Performance Requirement carries it — point it at your field
-info    validation/link-role-unreadable  /home/masood/Masood/Office_Projects/dogfood-fridge/runs/03-arcadia/.ejadah/rew/templates/safety.md  allocation counts as 0: no Safety Requirement carries it — point it at your field
-info    validation/link-role-unreadable  /home/masood/Masood/Office_Projects/dogfood-fridge/runs/03-arcadia/.ejadah/rew/templates/system.md  allocation counts as 0: no System Requirement carries it — point it at your field
+info    validation/link-role-unreadable  <REPO_ROOT>/runs/03-arcadia/.ejadah/rew/templates/interface.md  allocation counts as 0: no Interface Requirement carries it — point it at your field
+info    validation/link-role-unreadable  <REPO_ROOT>/runs/03-arcadia/.ejadah/rew/templates/performance.md  allocation counts as 0: no Performance Requirement carries it — point it at your field
+info    validation/link-role-unreadable  <REPO_ROOT>/runs/03-arcadia/.ejadah/rew/templates/safety.md  allocation counts as 0: no Safety Requirement carries it — point it at your field
+info    validation/link-role-unreadable  <REPO_ROOT>/runs/03-arcadia/.ejadah/rew/templates/system.md  allocation counts as 0: no System Requirement carries it — point it at your field
 info    quality/logical-expression  MRTM-LA-008  2 unbracketed and/or words - state the grouping, e.g. [X AND Y]
 info    quality/logical-expression  MRTM-PH-002  2 unbracketed and/or words - state the grouping, e.g. [X AND Y]
 info    quality/logical-expression  MRTM-PH-005  2 unbracketed and/or words - state the grouping, e.g. [X AND Y]

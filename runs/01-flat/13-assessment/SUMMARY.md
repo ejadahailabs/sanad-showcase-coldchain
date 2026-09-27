@@ -26,7 +26,7 @@ Average 2.2. Reasons in 13-assessment/judgement.md.
 | 6 | **F-41 / F-73** Actions, states, transitions are not trace nodes | Behaviour design cannot be traced | Knowledge graph |
 | 7 | **F-25 / F-30 / F-112** A baseline does not freeze text | 13 reworded requirements invisible in drift | Traceability engine |
 | 8 | **F-102** "Blocked" and "missing result" disagree; a host run can cover a bench requirement | Coverage looks better than it is | Verification engine |
-| 9 | **F-47 / F-71 / F-86 / F-100** Setup never offers the roles a Class-C repo needs | 21 findings are "already built, just not switched on" | Configuration |
+| 9 | **F-47 / F-71 / F-86 / F-100** Setup never offers the roles a Class-C repo needs | 21 findings are existing Sanad features that just need turning on | Configuration |
 | 10 | **F-57 / F-110** Pin, power and timing numbers are parsed but never checked | Budgets done by hand scripts | Verification engine |
 
 ## Class-C checklist (26 artifacts)
