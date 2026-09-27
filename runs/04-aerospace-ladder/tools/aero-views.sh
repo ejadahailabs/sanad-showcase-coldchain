@@ -8,7 +8,7 @@ cap() { systemd-run --user --scope -q -p MemoryMax=6G -p MemorySwapMax=1G "$@"; 
 # name | kind | expose (comma list) | node folder under 06-design
 VIEWS='aircraft_context|internal block|AircraftContext::**|aircraft
 aircraft_functions|activity|AircraftFunctions::ProductFunctions::**|aircraft
-system_functions|activity|SystemFunctions::SystemFunctions::**|system
+system_functions|activity|SystemFunctions::MonitoringFunctions::**|system
 system_items|block|SystemItems::**|system
 system_hardware|internal block|SystemHardware::**|system
 system_software|internal block|SystemSoftware::**|system

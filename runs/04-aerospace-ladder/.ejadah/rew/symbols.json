@@ -433,6 +433,13 @@
       ]
     },
     {
+      "symbol": "IMPL",
+      "file": "tools/aero-build.py",
+      "implements": [
+        "F-4-010"
+      ]
+    },
+    {
       "symbol": "site",
       "file": "tools/aero-build.py",
       "implements": [
@@ -459,6 +466,13 @@
       "file": "tools/level-check.py",
       "implements": [
         "DO-178C"
+      ]
+    },
+    {
+      "symbol": "search",
+      "file": "tools/level-check.py",
+      "implements": [
+        "F-4-010"
       ]
     },
     {

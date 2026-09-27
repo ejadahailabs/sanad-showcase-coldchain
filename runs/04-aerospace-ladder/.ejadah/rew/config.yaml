@@ -521,10 +521,82 @@ suppressions:
       accepted as not-implemented by design (suppressions above). Accepted
       DOGFOOD-5.
   - rule: rigour-inconsistency
-    path: 03-requirements/mrtm/logging/usb-item/**
-    reason: USB item stays class B under the class C logging node because it is
-      segregated from the class C items (ADR-0034, IEC 62304 §5.3.5; A-48).
-      Segregation allowed is an owner decision still to confirm (F-133).
+    path: 03-requirements/hlr/display-sw/**
+    reason: RUN-04 PSSA (08-safety/02-pssa.md §2–§4). ARP4754A lets a failure
+      condition, and the item that can only cause it, take a lower DAL than the
+      function above it when the architecture shows it cannot cause the worse
+      one. Sanad's rule allows no lower child at all (F-4-011). Partitioning
+      evidence is still missing (A-4-06). OWNER TO CONFIRM (A-4-07).
+  - rule: rigour-inconsistency
+    path: 03-requirements/hlr/record-sw/**
+    reason: RUN-04 PSSA (08-safety/02-pssa.md §2–§4). ARP4754A lets a failure
+      condition, and the item that can only cause it, take a lower DAL than the
+      function above it when the architecture shows it cannot cause the worse
+      one. Sanad's rule allows no lower child at all (F-4-011). Partitioning
+      evidence is still missing (A-4-06). OWNER TO CONFIRM (A-4-07).
+  - rule: rigour-inconsistency
+    path: 03-requirements/hlr/export-sw/**
+    reason: RUN-04 PSSA (08-safety/02-pssa.md §2–§4). ARP4754A lets a failure
+      condition, and the item that can only cause it, take a lower DAL than the
+      function above it when the architecture shows it cannot cause the worse
+      one. Sanad's rule allows no lower child at all (F-4-011). Partitioning
+      evidence is still missing (A-4-06). OWNER TO CONFIRM (A-4-07).
+  - rule: rigour-inconsistency
+    path: 03-requirements/hwr/power-hw/**
+    reason: RUN-04 PSSA (08-safety/02-pssa.md §2–§4). ARP4754A lets a failure
+      condition, and the item that can only cause it, take a lower DAL than the
+      function above it when the architecture shows it cannot cause the worse
+      one. Sanad's rule allows no lower child at all (F-4-011). Partitioning
+      evidence is still missing (A-4-06). OWNER TO CONFIRM (A-4-07).
+  - rule: rigour-inconsistency
+    path: 03-requirements/hwr/display-hw/**
+    reason: RUN-04 PSSA (08-safety/02-pssa.md §2–§4). ARP4754A lets a failure
+      condition, and the item that can only cause it, take a lower DAL than the
+      function above it when the architecture shows it cannot cause the worse
+      one. Sanad's rule allows no lower child at all (F-4-011). Partitioning
+      evidence is still missing (A-4-06). OWNER TO CONFIRM (A-4-07).
+  - rule: rigour-inconsistency
+    path: 03-requirements/system/safety/MRTM-SAF-011.md
+    reason: RUN-04 PSSA (08-safety/02-pssa.md §2–§4). ARP4754A lets a failure
+      condition, and the item that can only cause it, take a lower DAL than the
+      function above it when the architecture shows it cannot cause the worse
+      one. Sanad's rule allows no lower child at all (F-4-011). Partitioning
+      evidence is still missing (A-4-06). OWNER TO CONFIRM (A-4-07).
+  - rule: rigour-inconsistency
+    path: 03-requirements/system/safety/MRTM-SAF-012.md
+    reason: RUN-04 PSSA (08-safety/02-pssa.md §2–§4). ARP4754A lets a failure
+      condition, and the item that can only cause it, take a lower DAL than the
+      function above it when the architecture shows it cannot cause the worse
+      one. Sanad's rule allows no lower child at all (F-4-011). Partitioning
+      evidence is still missing (A-4-06). OWNER TO CONFIRM (A-4-07).
+  - rule: rigour-inconsistency
+    path: 03-requirements/system/safety/MRTM-SAF-016.md
+    reason: RUN-04 PSSA (08-safety/02-pssa.md §2–§4). ARP4754A lets a failure
+      condition, and the item that can only cause it, take a lower DAL than the
+      function above it when the architecture shows it cannot cause the worse
+      one. Sanad's rule allows no lower child at all (F-4-011). Partitioning
+      evidence is still missing (A-4-06). OWNER TO CONFIRM (A-4-07).
+  - rule: rigour-inconsistency
+    path: 03-requirements/system/safety/MRTM-SAF-021.md
+    reason: RUN-04 PSSA (08-safety/02-pssa.md §2–§4). ARP4754A lets a failure
+      condition, and the item that can only cause it, take a lower DAL than the
+      function above it when the architecture shows it cannot cause the worse
+      one. Sanad's rule allows no lower child at all (F-4-011). Partitioning
+      evidence is still missing (A-4-06). OWNER TO CONFIRM (A-4-07).
+  - rule: rigour-inconsistency
+    path: 03-requirements/aircraft/safety-objective/MRTM-SOB-003.md
+    reason: RUN-04 PSSA (08-safety/02-pssa.md §2–§4). ARP4754A lets a failure
+      condition, and the item that can only cause it, take a lower DAL than the
+      function above it when the architecture shows it cannot cause the worse
+      one. Sanad's rule allows no lower child at all (F-4-011). Partitioning
+      evidence is still missing (A-4-06). OWNER TO CONFIRM (A-4-07).
+  - rule: rigour-inconsistency
+    path: 03-requirements/aircraft/safety-objective/MRTM-SOB-004.md
+    reason: RUN-04 PSSA (08-safety/02-pssa.md §2–§4). ARP4754A lets a failure
+      condition, and the item that can only cause it, take a lower DAL than the
+      function above it when the architecture shows it cannot cause the worse
+      one. Sanad's rule allows no lower child at all (F-4-011). Partitioning
+      evidence is still missing (A-4-06). OWNER TO CONFIRM (A-4-07).
 review:
   platform: github
   project: local/dogfood-fridge

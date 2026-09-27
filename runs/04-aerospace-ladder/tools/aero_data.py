@@ -3,7 +3,7 @@ hardware item requirements, software HLR and LLR), in the order Sanad's allocato
 the copied code, tests and bench procedures are re-pointed. Read by tools/aero-build.py.
 Row: (key, type, node, parents, title, statement, rationale, verification, dal, extra)
   parents = keys of this file or existing ids (MRTM-SYS-001 ...); [] with extra["derived"] = derived requirement
-  extra: hazards=[...], old=[run-2 ids this row re-homes], sites=[(file, line)] (LLR only: the @implements lines).
+  extra: hazards=[...], old=[run-2 ids this row re-homes], sites=[(file, line)] (LLR only: the implements-marker lines).
 Statement text of re-homed rows is run 2's (tools/levels_data.py there) with the subject changed to the item.
 DRAFT — needs Masood's review. Synthetic data only."""
 
@@ -21,7 +21,7 @@ def row(key, typ, node, parents, title, text, why, verify, dal, **extra):
 # ======================= AIRCRAFT LEVEL: product functions (ARP4754A §5.1) =======================
 F = "The monitor plays the aircraft of ARP4754A: its functions are the top of the ladder (A-4-02)."
 row("FUN1", "function", "aircraft", ["MRTM-STK-004", "MRTM-STK-007"], "Monitor the fridge air",
-    "The monitor shall measure the fridge air temperature and show whether the measurement can be trusted.",
+    "The monitor shall measure the fridge air temperature and show when the measurement is not valid.",
     F + " Serves the needs to see the temperature and to see a probe failure.", "Analysis: the system requirements derived from this function are all verified.", "A")
 row("FUN2", "function", "aircraft", ["MRTM-STK-001", "MRTM-STK-002"], "Warn of an excursion",
     "The monitor shall warn clinic staff when the fridge air stays outside the allowed band longer than the confirmation time.",
@@ -30,7 +30,7 @@ row("FUN3", "function", "aircraft", ["MRTM-STK-003"], "Acknowledge the warning",
     "The monitor shall let clinic staff silence an excursion warning without ending the watch on the excursion.",
     F + " Serves the need to silence the alert.", "Analysis: the system requirements derived from this function are all verified.", "A")
 row("FUN4", "function", "aircraft", ["MRTM-STK-005", "MRTM-STK-006"], "Keep the history",
-    "The monitor shall keep a record of every excursion and every alarm event that nobody can change.",
+    "The monitor shall keep an unchangeable record of every excursion and alarm event.",
     F + " Serves the audit needs.", "Analysis: the system requirements derived from this function are all verified.", "C")
 row("FUN5", "function", "aircraft", ["MRTM-STK-008"], "Watch through a power cut",
     "The monitor shall keep watching and warning while the mains power is lost.",
@@ -153,9 +153,9 @@ row("A13", "hlr", "alarm-sw", ["MRTM-SAF-014", "MRTM-SAF-015"], "Buzzer fault",
 row("A14", "hlr", "alarm-sw", ["MRTM-SAF-006"], "Alarm survives restart",
     "The alarm software item shall sound an unacknowledged excursion alarm again within 2 s of a restart.",
     "DO-178C §5.1 HLR.", "Test: unit tests of alarm_mgr; integration INT-04.", "A")
-row("A15", "hlr", "alarm-sw", ["MRTM-SAF-019", "MRTM-SAF-008", "MRTM-SAF-017"], "Stuck button and fail-safe",
-    "The alarm software item shall ignore an acknowledge press held for 60 s until release, and shall drive the buzzer while a fail-safe or battery-low signal is set.",
-    "DO-178C §5.1 HLR.", "Test: unit tests of alarm_mgr.", "A")
+row("A15", "hlr", "alarm-sw", ["MRTM-SAF-019"], "Stuck button",
+    "The alarm software item shall ignore an acknowledge press held for 60 s until the button is released.",
+    "DO-178C §5.1 HLR. Gate round 1 split the fail-safe half into A16 (atomicity).", "Test: unit tests of alarm_mgr.", "A")
 # ---- platform-sw (DAL A) ----
 row("P1", "hlr", "platform-sw", ["MRTM-SAF-010", "MRTM-SAF-009"], "Watchdog tied to the heartbeat",
     "The platform software item shall stop the watchdog service pulses within 2 s of the alarm heartbeat stopping.",
@@ -167,7 +167,7 @@ row("P3", "hlr", "platform-sw", ["MRTM-SAF-007", "MRTM-SAF-023"], "Power-up test
     "The platform software item shall test the buzzer within 5 s and the backup alarm within 15 s of power-up.",
     Q + "MRTM-SVI-002 and MRTM-SUP-002.", "Test: unit tests of diagnostics.", "A", old=["MRTM-SVI-002", "MRTM-SUP-002"])
 row("P4", "hlr", "platform-sw", ["MRTM-SAF-017", "MRTM-SYS-017"], "Band integrity",
-    "The platform software item shall set the allowed band only from a stored band that passes its CRC-32 check, and shall enter fail-safe otherwise.",
+    "The platform software item shall enter fail-safe, instead of monitoring, when the stored band fails its CRC-32 check.",
     Q + "MRTM-SVI-003 and MRTM-SUP-003. There is no default band on purpose.", "Test: unit tests of config_mgr; integration INT-03.", "A", old=["MRTM-SVI-003", "MRTM-SUP-003"])
 row("P5", "hlr", "platform-sw", ["MRTM-SAF-005", "MRTM-SYS-023"], "Mains events",
     "The platform software item shall post the mains-lost and mains-restored events within 1 s of the mains sense edge.",
@@ -229,12 +229,16 @@ row("ED1", "hlr", "export-sw", [], "Read the log only through the accessor",
     "DO-178C §5.1.2 DERIVED requirement: no parent. It comes from the PSSA's partitioning decision (08-safety/02-pssa.md §4): a DAL D item must not write DAL C data. Fed back to the safety assessment there.",
     "Inspection of usb_export.c includes and calls.", "D", derived=True)
 
+row("A16", "hlr", "alarm-sw", ["MRTM-SAF-008", "MRTM-SAF-017"], "Buzzer in fail-safe",
+    "While a fail-safe or battery-low signal is set, the alarm software item shall drive the buzzer.",
+    "DO-178C §5.1 HLR. Split from A15 in gate round 1 (atomicity).", "Test: unit tests of alarm_mgr.", "A")
+
 # ======================= SOFTWARE DESIGN: LLR (DO-178C §5.2) — one per code site =======================
 L = "DO-178C §5.2 LLR: enough detail to code from. Code: "
 def llr(key, node, parents, title, text, site, dal, verify="Test: the unit tests of this function."):
     row(key, "llr", node, parents, title, text, L + f"{site[0].split('/')[-1]} line {site[1]}.", verify, dal, sites=[site])
 N = "alarm-sw-design"
-llr("LA1", N, ["A1"], "Bus start", "sensor_sampler_init shall reset the 1-Wire bus and start the first conversion, and shall return MRTM_ERR_BUS when either step fails.", (SS, 16), "A")
+llr("LA1", N, ["A1"], "Bus start", "sensor_sampler_init shall return MRTM_ERR_BUS when the 1-Wire bus reset or the first conversion start fails.", (SS, 16), "A")
 llr("LA2", N, ["A1"], "Unit conversion", "sensor_sampler_to_tenths shall convert the raw 12-bit value in 1/16 °C to tenths of a degree, rounding half away from zero, and add the calibrated offset.", (SS, 29), "A")
 llr("LA3", N, ["A1", "A2"], "Sample read", "sensor_sampler_read shall read the scratchpad, start the next conversion, and return the sample invalid when the CRC-8 differs or the value is outside -300 to 500 tenths.", (SS, 37), "A")
 llr("LA4", N, ["A3"], "Probe fault flag", "sensor_sampler_probe_fault shall return true when the last sample was out of range or when 30 s have passed since the last valid sample.", (SS, 62), "A")
@@ -246,7 +250,7 @@ llr("LA9", N, ["A6"], "Peak", "limit_evaluator_peak shall return the sample of t
 llr("LA10", N, ["A14"], "State restore", "alarm_mgr_init shall restore state SOUNDING when NVS key 'alarm' holds SOUNDING, and QUIET otherwise.", (AM, 30), "A")
 llr("LA11", N, ["A8", "A9"], "Signal queue", "alarm_mgr_post shall queue the signal (depth 8, MRTM_ERR_FULL when full) and wake the alarm task at once.", (AM, 41), "A")
 llr("LA12", N, ["A7", "A8", "A9"], "Transition table", "take shall apply one AlarmStates transition per signal: early from quiet, early cleared, confirm from quiet or early, ack from sounding, end from sounding or silenced, probe fault from any monitoring state, probe recovered.", (AM, 77), "A")
-llr("LA13", N, ["A7", "A8", "A11", "A12", "A13", "A15"], "Outputs per state", "alarm_mgr_step shall drive the outputs of the current state (early: red 1 Hz; sounding: buzzer and red 2 Hz; probe fault: buzzer 1 s on 1 s off; buzzer fault: red 4 Hz), re-sound 15 min after an ack, and declare a buzzer fault after 5 steps with no buzzer current.", (AM, 113), "A")
+llr("LA13", N, ["A7", "A8", "A11", "A12", "A13", "A15", "A16"], "Outputs per state", "alarm_mgr_step shall drive the outputs of the current state (early: red 1 Hz; sounding: buzzer and red 2 Hz; probe fault: buzzer 1 s on 1 s off; buzzer fault: red 4 Hz), re-sound 15 min after an ack, and declare a buzzer fault after 5 steps with no buzzer current.", (AM, 113), "A")
 llr("LA14", N, ["A9"], "Debounce timer", "alarm_mgr_button_isr shall re-arm a 50 ms one-shot timer on every button edge.", (AM, 155), "A")
 llr("LA15", N, ["A9", "A15"], "Accepted press", "alarm_mgr_button_debounced shall post ACK once for a press still stable after 50 ms, and nothing while the button is declared stuck.", (AM, 163), "A")
 llr("LA16", N, ["A10"], "Heartbeat read", "alarm_mgr_heartbeat shall return the step counter that alarm_mgr_step advances by one at the end of every step.", (AM, 174), "A")
@@ -278,7 +282,7 @@ llr("LR4", N, ["R1", "R5", "R2"], "Append", "history_ring_append shall write cop
 llr("LR5", N, ["R4"], "Read", "history_ring_read shall return the first copy whose sequence and CRC-32 match, and log a corrupt record when none does.", (HR, 66), "C")
 llr("LR6", N, ["R3"], "Clock start", "rtc_clock_init shall read the clock and log a clock fault when the oscillator-stop flag is set.", (RC, 10), "C")
 llr("LR7", N, ["R3"], "Clock read", "rtc_clock_now shall return the last UTC copy read from the clock.", (RC, 23), "C")
-llr("LR8", N, ["R3"], "Clock refresh", "rtc_clock_tick shall refresh the UTC copy and keep the last copy when a read fails.", (RC, 29), "C")
+llr("LR8", N, ["R3"], "Clock refresh", "rtc_clock_tick shall keep the last UTC copy when a clock read fails.", (RC, 29), "C")
 N = "export-sw-design"
 llr("LE1", N, ["E1", "ED1"], "Volume start", "usb_export_init shall keep the ring's read accessor and start the mass-storage device.", (UE, 77), "D")
 llr("LE2", N, ["E1"], "Sector read", "usb_export_read10 shall render the requested sector of the FAT12 volume from the ring.", (UE, 86), "D")
@@ -300,7 +304,7 @@ TESTS = {
  "test_button_held_60_s_is_a_button_fault_and_ignored": ["LA15", "A15"],
  "test_unacknowledged_alarm_is_restored_after_a_restart": ["LA10", "A14"],
  "test_acknowledged_alarm_is_not_restored_as_sounding": ["LA10", "A14"],
- "test_battery_low_or_fail_safe_forces_the_buzzer": ["LA13", "A15"],
+ "test_battery_low_or_fail_safe_forces_the_buzzer": ["LA13", "A16"],
  "test_heartbeat_moves_on_every_step": ["LA16", "A10"],
  "test_error_codes_full_and_nvs": ["LA10", "LA11"],
  "test_early_alarm_is_red_1_hz_without_buzzer_then_escalates": ["LA12", "LA13", "A7"],

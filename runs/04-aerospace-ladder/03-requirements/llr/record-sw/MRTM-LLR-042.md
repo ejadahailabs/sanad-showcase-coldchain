@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, RUN-04)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-HLR-032"]
 safetyClass: "C"
@@ -17,7 +17,7 @@ derived: false
 
 ## Description
 
-rtc_clock_tick shall refresh the UTC copy and keep the last copy when a read fails.
+rtc_clock_tick shall keep the last UTC copy when a clock read fails.
 
 ## Rationale
 

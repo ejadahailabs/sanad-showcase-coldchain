@@ -3,7 +3,7 @@
 **In one line:** a software item: its HLR (DO-178C §5.1).
 
 - **Parent:** system · **Children:** alarm-sw-design
-- **Requirements:** `03-requirements/hlr/alarm-sw/` (15) · **Model:** the `.sysml` files in this folder; the `satisfy` lines name this node's requirements only.
+- **Requirements:** `03-requirements/hlr/alarm-sw/` (16) · **Model:** the `.sysml` files in this folder; the `satisfy` lines name this node's requirements only.
 
 ## Pictures, in reading order
 
@@ -28,4 +28,5 @@
 | MRTM-HLR-012 | Probe fault tone | A |  |
 | MRTM-HLR-013 | Buzzer fault | A |  |
 | MRTM-HLR-014 | Alarm survives restart | A |  |
-| MRTM-HLR-015 | Stuck button and fail-safe | A |  |
+| MRTM-HLR-015 | Stuck button | A |  |
+| MRTM-HLR-038 | Buzzer in fail-safe | A |  |

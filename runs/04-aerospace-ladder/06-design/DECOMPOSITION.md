@@ -11,7 +11,7 @@
 | item | [controller-hw](items/controller-hw/INDEX.md) | hardware-item | A | 2 | 0 |
 | item | [power-hw](items/power-hw/INDEX.md) | hardware-item | B | 2 | 0 |
 | item | [display-hw](items/display-hw/INDEX.md) | hardware-item | B | 1 | 0 |
-| item | [alarm-sw](items/alarm-sw/INDEX.md) | software-item | A | 15 | 1 |
+| item | [alarm-sw](items/alarm-sw/INDEX.md) | software-item | A | 16 | 1 |
 | item | [platform-sw](items/platform-sw/INDEX.md) | software-item | A | 9 | 0 |
 | item | [display-sw](items/display-sw/INDEX.md) | software-item | B | 5 | 0 |
 | item | [record-sw](items/record-sw/INDEX.md) | software-item | C | 5 | 0 |

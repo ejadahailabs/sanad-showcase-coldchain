@@ -7,7 +7,7 @@ author: "Masood (drafted by Claude, RUN-04)"
 created: "2026-09-27"
 modified: ""
 tags: []
-uplinks: ["MRTM-HLR-007","MRTM-HLR-008","MRTM-HLR-011","MRTM-HLR-012","MRTM-HLR-013","MRTM-HLR-015"]
+uplinks: ["MRTM-HLR-007","MRTM-HLR-008","MRTM-HLR-011","MRTM-HLR-012","MRTM-HLR-013","MRTM-HLR-015","MRTM-HLR-038"]
 safetyClass: "A"
 implemented_by: []
 derived: false

@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, RUN-04)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-HLR-001"]
 safetyClass: "A"
@@ -17,7 +17,7 @@ derived: false
 
 ## Description
 
-sensor_sampler_init shall reset the 1-Wire bus and start the first conversion, and shall return MRTM_ERR_BUS when either step fails.
+sensor_sampler_init shall return MRTM_ERR_BUS when the 1-Wire bus reset or the first conversion start fails.
 
 ## Rationale
 

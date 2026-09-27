@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, RUN-04)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-STK-004","MRTM-STK-007"]
 safetyClass: "A"
@@ -16,7 +16,7 @@ derived: false
 
 ## Description
 
-The monitor shall measure the fridge air temperature and show whether the measurement can be trusted.
+The monitor shall measure the fridge air temperature and show when the measurement is not valid.
 
 ## Rationale
 

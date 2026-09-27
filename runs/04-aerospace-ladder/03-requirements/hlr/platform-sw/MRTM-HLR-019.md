@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, RUN-04)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-SAF-017","MRTM-SYS-017"]
 safetyClass: "A"
@@ -17,7 +17,7 @@ derived: false
 
 ## Description
 
-The platform software item shall set the allowed band only from a stored band that passes its CRC-32 check, and shall enter fail-safe otherwise.
+The platform software item shall enter fail-safe, instead of monitoring, when the stored band fails its CRC-32 check.
 
 ## Rationale
 

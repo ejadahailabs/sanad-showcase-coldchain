@@ -142,7 +142,7 @@ void test_acknowledged_alarm_is_not_restored_as_sounding(void)
     TEST_ASSERT_EQUAL(ALARM_QUIET, alarm_mgr_state());
 }
 
-/* @verifies MRTM-LLR-013 MRTM-HLR-015 */
+/* @verifies MRTM-LLR-013 MRTM-HLR-038 */
 void test_battery_low_or_fail_safe_forces_the_buzzer(void)
 {
     go(SIG_BATTERY_LOW);

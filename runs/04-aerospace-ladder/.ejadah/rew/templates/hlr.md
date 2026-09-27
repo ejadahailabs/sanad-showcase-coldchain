@@ -18,7 +18,6 @@ rew:
   order: 21
   folder: "03-requirements/hlr"
   roles:
-    "implemented_by": implements
     "safetyClass": dal
   choices:
     status: ["draft", "review", "approved", "obsolete"]

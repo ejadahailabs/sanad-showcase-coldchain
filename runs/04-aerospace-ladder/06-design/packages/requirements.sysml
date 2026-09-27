@@ -1,5 +1,5 @@
 package ProjectRequirements {
-    comment /* GENERATED from the Markdown requirement corpus at 893b706dc64e186f.
+    comment /* GENERATED from the Markdown requirement corpus at 5c94bb1727fac892.
        Read-only: edit the Markdown requirement, not this file. Sanad regenerates it on
        every corpus change and the same corpus always gives byte-identical text. */
     private import RequirementDerivation::*;
@@ -21,7 +21,7 @@ package ProjectRequirements {
     }
 
     requirement <'MRTM-FUN-001'> MRTM_FUN_001 {
-        doc /* The monitor shall measure the fridge air temperature and show whether the measurement can be trusted. */
+        doc /* The monitor shall measure the fridge air temperature and show when the measurement is not valid. */
     }
 
     requirement <'MRTM-FUN-002'> MRTM_FUN_002 {
@@ -33,7 +33,7 @@ package ProjectRequirements {
     }
 
     requirement <'MRTM-FUN-004'> MRTM_FUN_004 {
-        doc /* The monitor shall keep a record of every excursion and every alarm event that nobody can change. */
+        doc /* The monitor shall keep an unchangeable record of every excursion and alarm event. */
     }
 
     requirement <'MRTM-FUN-005'> MRTM_FUN_005 {
@@ -97,7 +97,7 @@ package ProjectRequirements {
     }
 
     requirement <'MRTM-HLR-015'> MRTM_HLR_015 {
-        doc /* The alarm software item shall ignore an acknowledge press held for 60 s until release, and shall drive the buzzer while a fail-safe or battery-low signal is set. */
+        doc /* The alarm software item shall ignore an acknowledge press held for 60 s until the button is released. */
     }
 
     requirement <'MRTM-HLR-016'> MRTM_HLR_016 {
@@ -113,7 +113,7 @@ package ProjectRequirements {
     }
 
     requirement <'MRTM-HLR-019'> MRTM_HLR_019 {
-        doc /* The platform software item shall set the allowed band only from a stored band that passes its CRC-32 check, and shall enter fail-safe otherwise. */
+        doc /* The platform software item shall enter fail-safe, instead of monitoring, when the stored band fails its CRC-32 check. */
     }
 
     requirement <'MRTM-HLR-020'> MRTM_HLR_020 {
@@ -186,6 +186,10 @@ package ProjectRequirements {
 
     #derive requirement <'MRTM-HLR-037'> MRTM_HLR_037 {
         doc /* The export software item shall read the event log only through the record software item's read accessor. */
+    }
+
+    requirement <'MRTM-HLR-038'> MRTM_HLR_038 {
+        doc /* While a fail-safe or battery-low signal is set, the alarm software item shall drive the buzzer. */
     }
 
     requirement <'MRTM-HWR-001'> MRTM_HWR_001 {
@@ -261,7 +265,7 @@ package ProjectRequirements {
     }
 
     requirement <'MRTM-LLR-001'> MRTM_LLR_001 {
-        doc /* sensor_sampler_init shall reset the 1-Wire bus and start the first conversion, and shall return MRTM_ERR_BUS when either step fails. */
+        doc /* sensor_sampler_init shall return MRTM_ERR_BUS when the 1-Wire bus reset or the first conversion start fails. */
     }
 
     requirement <'MRTM-LLR-002'> MRTM_LLR_002 {
@@ -425,7 +429,7 @@ package ProjectRequirements {
     }
 
     requirement <'MRTM-LLR-042'> MRTM_LLR_042 {
-        doc /* rtc_clock_tick shall refresh the UTC copy and keep the last copy when a read fails. */
+        doc /* rtc_clock_tick shall keep the last UTC copy when a clock read fails. */
     }
 
     requirement <'MRTM-LLR-043'> MRTM_LLR_043 {
@@ -744,8 +748,6 @@ package ProjectRequirements {
     dependency from MRTM_HLR_013 to MRTM_SAF_015;
     dependency from MRTM_HLR_014 to MRTM_SAF_006;
     dependency from MRTM_HLR_015 to MRTM_SAF_019;
-    dependency from MRTM_HLR_015 to MRTM_SAF_008;
-    dependency from MRTM_HLR_015 to MRTM_SAF_017;
     dependency from MRTM_HLR_016 to MRTM_SAF_010;
     dependency from MRTM_HLR_016 to MRTM_SAF_009;
     dependency from MRTM_HLR_017 to MRTM_SAF_004;
@@ -786,6 +788,8 @@ package ProjectRequirements {
     dependency from MRTM_HLR_035 to MRTM_IFC_003;
     dependency from MRTM_HLR_035 to MRTM_PRF_003;
     dependency from MRTM_HLR_036 to MRTM_SYS_014;
+    dependency from MRTM_HLR_038 to MRTM_SAF_008;
+    dependency from MRTM_HLR_038 to MRTM_SAF_017;
     dependency from MRTM_HWR_001 to MRTM_SYS_024;
     dependency from MRTM_HWR_001 to MRTM_SYS_001;
     dependency from MRTM_HWR_002 to MRTM_PRF_001;
@@ -840,6 +844,7 @@ package ProjectRequirements {
     dependency from MRTM_LLR_013 to MRTM_HLR_012;
     dependency from MRTM_LLR_013 to MRTM_HLR_013;
     dependency from MRTM_LLR_013 to MRTM_HLR_015;
+    dependency from MRTM_LLR_013 to MRTM_HLR_038;
     dependency from MRTM_LLR_014 to MRTM_HLR_009;
     dependency from MRTM_LLR_015 to MRTM_HLR_009;
     dependency from MRTM_LLR_015 to MRTM_HLR_015;

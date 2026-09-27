@@ -5,7 +5,7 @@ package SystemFunctions {
 
     doc /* Functional decomposition at SYSTEM level: the nine system functions the items perform (from run 2's MrtmLogical, without the performers). No satisfy here. */
 
-    action def SystemFunctions {
+    action def MonitoringFunctions {
         action acquireSample { doc /* sensor-hw, alarm-sw */ out item sample : TemperatureSample; }
         action checkProbe { doc /* alarm-sw */ in item sample : TemperatureSample; out item valid : TemperatureSample; }
         action detectExcursion { doc /* alarm-sw */ in item valid : TemperatureSample; out item excursion : ExcursionState; }

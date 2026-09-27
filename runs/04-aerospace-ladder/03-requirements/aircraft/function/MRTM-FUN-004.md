@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, RUN-04)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-STK-005","MRTM-STK-006"]
 safetyClass: "C"
@@ -16,7 +16,7 @@ derived: false
 
 ## Description
 
-The monitor shall keep a record of every excursion and every alarm event that nobody can change.
+The monitor shall keep an unchangeable record of every excursion and alarm event.
 
 ## Rationale
 

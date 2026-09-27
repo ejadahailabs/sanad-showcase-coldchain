@@ -8,7 +8,7 @@ package System_functionsView {
     private import SanadRenderings::*;
 
     view 'system_functions' : StandardViewDefinitions::ActionFlowView {
-        expose SystemFunctions::SystemFunctions::**;
+        expose SystemFunctions::MonitoringFunctions::**;
         render asActionFlowView;
     }
 }

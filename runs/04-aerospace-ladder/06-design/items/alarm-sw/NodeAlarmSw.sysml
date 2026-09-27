@@ -35,4 +35,5 @@ package NodeAlarmSw {
     satisfy 'MRTM-HLR-013' by alarmSw;
     satisfy 'MRTM-HLR-014' by alarmSw;
     satisfy 'MRTM-HLR-015' by alarmSw;
+    satisfy 'MRTM-HLR-038' by alarmSw;
 }

@@ -5,23 +5,23 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, RUN-04)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
-uplinks: ["MRTM-SAF-019","MRTM-SAF-008","MRTM-SAF-017"]
+uplinks: ["MRTM-SAF-019"]
 safetyClass: "A"
 implemented_by: []
 derived: false
 ---
 
-# Stuck button and fail-safe
+# Stuck button
 
 ## Description
 
-The alarm software item shall ignore an acknowledge press held for 60 s until release, and shall drive the buzzer while a fail-safe or battery-low signal is set.
+The alarm software item shall ignore an acknowledge press held for 60 s until the button is released.
 
 ## Rationale
 
-DO-178C §5.1 HLR.
+DO-178C §5.1 HLR. Gate round 1 split the fail-safe half into A16 (atomicity).
 
 ## Verification
 
