@@ -112,33 +112,5 @@ package MrtmPhysical {
         flow of DisplayFrame from esp32.i2c to oled.i2c;
         flow of AlarmCommand from esp32.buzzerPin to buzzer.drive;
 
-        satisfy 'MRTM-SYS-001' by esp32;
-        satisfy 'MRTM-IFC-001' by probe;
-        satisfy 'MRTM-PRF-001' by probe;
-        satisfy 'MRTM-ENV-004' by probe;
-        satisfy 'MRTM-MNT-001' by probe;
-        satisfy 'MRTM-IFC-004' by oled;
-        satisfy 'MRTM-SYS-011' by oled;
-        satisfy 'MRTM-SYS-020' by rtc;
-        satisfy 'MRTM-SAF-001' by buzzer;
-        satisfy 'MRTM-SYS-003' by buzzer;
-        satisfy 'MRTM-SYS-004' by redLed;
-        satisfy 'MRTM-STK-004' by greenLed;
-        satisfy 'MRTM-SYS-006' by ackButton;
-        satisfy 'MRTM-ENV-001' by battery;
-        satisfy 'MRTM-SYS-016' by powerPath;
-        satisfy 'MRTM-IFC-001' by probeLink;
-        satisfy 'MRTM-SYS-012' by probeLink;
-        satisfy 'MRTM-IFC-004' by displayLink;
-        satisfy 'MRTM-SYS-020' by clockLink;
-        satisfy 'MRTM-SYS-003' by buzzerLine;
-        satisfy 'MRTM-SYS-004' by redLine;
-        satisfy 'MRTM-STK-004' by greenLine;
-        satisfy 'MRTM-IFC-002' by ackLine;
-        satisfy 'MRTM-ENV-001' by batteryFeed;
-        satisfy 'MRTM-SAF-008' by batterySenseLine;
-        satisfy 'MRTM-SYS-016' by supplyFeed;
-        satisfy 'MRTM-SAF-005' by mains;
-        satisfy 'MRTM-IFC-003' by usb;
     }
 }

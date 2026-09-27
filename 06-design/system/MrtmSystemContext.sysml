@@ -34,13 +34,5 @@ package MrtmSystemContext {
         flow of AirHeat from fridge.air to monitor.hardware.probe.air;
         flow of LogFile from monitor.hardware.usb to usbHost.usb;
 
-        satisfy 'MRTM-ENV-004' by fridge;
-        satisfy 'MRTM-STK-001' by monitor;
-        satisfy 'MRTM-IFC-003' by usbHost;
-        satisfy 'MRTM-SYS-016' by mains;
-        satisfy 'MRTM-ENV-004' by airContact;
-        satisfy 'MRTM-IFC-003' by historyLink;
-        satisfy 'MRTM-PRF-003' by historyLink;
-        satisfy 'MRTM-STK-008' by mainsFeed;
     }
 }

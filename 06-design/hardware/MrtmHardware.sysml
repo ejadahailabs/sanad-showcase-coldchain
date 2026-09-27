@@ -225,24 +225,5 @@ package MrtmHardware {
             attribute :>> gpio = 2;
         }
 
-        satisfy 'MRTM-PRF-001' by probe;
-        satisfy 'MRTM-ENV-004' by probe;
-        satisfy 'MRTM-SYS-020' by rtc;
-        satisfy 'MRTM-SAF-022' by rtc;
-        satisfy 'MRTM-IFC-003' by esp32;
-        satisfy 'MRTM-IFC-004' by oled;
-        satisfy 'MRTM-SAF-001' by buzzer;
-        satisfy 'MRTM-SAF-014' by buzzer;
-        satisfy 'MRTM-SAF-015' by redLed;
-        satisfy 'MRTM-ENV-001' by battery;
-        satisfy 'MRTM-SAF-008' by batterySenseLine;
-        satisfy 'MRTM-SAF-005' by mainsSenseLine;
-        satisfy 'MRTM-SYS-016' by powerPath;
-        satisfy 'MRTM-SAF-009' by backupAlarm;
-        satisfy 'MRTM-SAF-013' by holdUpCap;
-        satisfy 'MRTM-IFC-002' by ackLine;
-        satisfy 'MRTM-SAF-019' by ackLine;
-        satisfy 'MRTM-SAF-021' by displayLink;
-        satisfy 'MRTM-ENV-002' by esp32;
     }
 }

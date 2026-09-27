@@ -15,18 +15,18 @@ package MrtmSeqExcursion {
     part probe : MrtmPhysical::Ds18b20Probe;
     part sampler : SensorSampler;
     part evaluator : LimitEvaluator;
-    part alarm : AlarmMgr;
-    part display : DisplayMgr;
+    part alarmMgr : AlarmMgr;
+    part displayMgr : DisplayMgr;
     part logger : EventLog;
     part buzzer : MrtmPhysical::Buzzer;
 
     message readProbe of TemperatureSample from probe to sampler;
     message sampleOut of TemperatureSample from sampler to evaluator;
-    message early of ExcursionEarly from evaluator to alarm;
-    message confirmed of ExcursionConfirmed from evaluator to alarm;
-    message soundBuzzer of AlarmCommand from alarm to buzzer;
-    message showWarning of AlarmCommand from alarm to display;
-    message logStart of LogRecord from alarm to logger;
+    message early of ExcursionEarly from evaluator to alarmMgr;
+    message confirmed of ExcursionConfirmed from evaluator to alarmMgr;
+    message soundBuzzer of AlarmCommand from alarmMgr to buzzer;
+    message showWarning of AlarmCommand from alarmMgr to displayMgr;
+    message logStart of LogRecord from alarmMgr to logger;
 
     succession first readProbe then sampleOut;
     succession first sampleOut then early;

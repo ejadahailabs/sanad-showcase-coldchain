@@ -157,99 +157,38 @@ package MrtmSoftware {
     #Service part def SensorItem {
         attribute safetyClass : SafetyClass = SafetyClass::C;
         part sensorSampler : SensorSampler;
-        satisfy 'MRTM-SYS-001' by sensorSampler;
-        satisfy 'MRTM-SYS-012' by sensorSampler;
-        satisfy 'MRTM-SAF-003' by sensorSampler;
-        satisfy 'MRTM-IFC-001' by sensorSampler;
-        satisfy 'MRTM-PRF-001' by sensorSampler;
     }
     #Service part def ExcursionItem {
         attribute safetyClass : SafetyClass = SafetyClass::C;
         part limitEvaluator : LimitEvaluator;
-        satisfy 'MRTM-SYS-002' by limitEvaluator;
-        satisfy 'MRTM-SYS-024' by limitEvaluator;
-        satisfy 'MRTM-SYS-017' by limitEvaluator;
-        satisfy 'MRTM-SYS-018' by limitEvaluator;
     }
     #Service part def AlarmItem {
         attribute safetyClass : SafetyClass = SafetyClass::C;
         part alarmMgr : AlarmMgr;
-        satisfy 'MRTM-SAF-008' by alarmMgr;  // Phase 9: code-trace + conformance found this unit implements it (DEF-007)
-        satisfy 'MRTM-SAF-010' by alarmMgr;  // Phase 9: code-trace + conformance found this unit implements it (DEF-007)
-        satisfy 'MRTM-SAF-017' by alarmMgr;  // Phase 9: code-trace + conformance found this unit implements it (DEF-007)
-        satisfy 'MRTM-SYS-003' by alarmMgr;
-        satisfy 'MRTM-SYS-024' by alarmMgr;
-        satisfy 'MRTM-SYS-004' by alarmMgr;
-        satisfy 'MRTM-SYS-006' by alarmMgr;
-        satisfy 'MRTM-SYS-019' by alarmMgr;
-        satisfy 'MRTM-PRF-002' by alarmMgr;
-        satisfy 'MRTM-SAF-001' by alarmMgr;
-        satisfy 'MRTM-SAF-002' by alarmMgr;
-        satisfy 'MRTM-SAF-006' by alarmMgr;
-        satisfy 'MRTM-SAF-011' by alarmMgr;
-        satisfy 'MRTM-SAF-014' by alarmMgr;
-        satisfy 'MRTM-SAF-015' by alarmMgr;
-        satisfy 'MRTM-SAF-019' by alarmMgr;
-        satisfy 'MRTM-IFC-002' by alarmMgr;
     }
     #Service part def DisplayItem {
         attribute safetyClass : SafetyClass = SafetyClass::C;
         part displayMgr : DisplayMgr;
-        satisfy 'MRTM-MNT-002' by displayMgr;  // Phase 9: code-trace + conformance found this unit implements it (DEF-007)
-        satisfy 'MRTM-MNT-003' by displayMgr;  // Phase 9: code-trace + conformance found this unit implements it (DEF-007)
-        satisfy 'MRTM-SYS-005' by displayMgr;
-        satisfy 'MRTM-SYS-007' by displayMgr;
-        satisfy 'MRTM-SYS-011' by displayMgr;
-        satisfy 'MRTM-SYS-013' by displayMgr;
-        satisfy 'MRTM-SYS-022' by displayMgr;
-        satisfy 'MRTM-PRF-004' by displayMgr;
-        satisfy 'MRTM-IFC-004' by displayMgr;
-        satisfy 'MRTM-SAF-012' by displayMgr;
-        satisfy 'MRTM-SAF-016' by displayMgr;
-        satisfy 'MRTM-SAF-021' by displayMgr;
     }
     #Service part def LogItem {
         attribute safetyClass : SafetyClass = SafetyClass::C;
         part eventLog : EventLog;
         part historyRing : HistoryRingStore;
-        satisfy 'MRTM-SAF-018' by historyRing;  // Phase 9: code-trace + conformance found this unit implements it (DEF-007)
         part rtcClock : RtcClock;
-        satisfy 'MRTM-SYS-008' by eventLog;
-        satisfy 'MRTM-SYS-009' by eventLog;
-        satisfy 'MRTM-SYS-010' by eventLog;
-        satisfy 'MRTM-SYS-023' by eventLog;
-        satisfy 'MRTM-SAF-018' by eventLog;
-        satisfy 'MRTM-SYS-015' by historyRing;
-        satisfy 'MRTM-SYS-021' by historyRing;
-        satisfy 'MRTM-SYS-022' by historyRing;
-        satisfy 'MRTM-SYS-020' by rtcClock;
-        satisfy 'MRTM-SAF-022' by rtcClock;
     }
     #Service part def UsbItem {
         attribute safetyClass : SafetyClass = SafetyClass::C;
         part usbExport : UsbExport;
-        satisfy 'MRTM-SYS-014' by usbExport;
-        satisfy 'MRTM-IFC-003' by usbExport;
-        satisfy 'MRTM-PRF-003' by usbExport;
     }
     #Service part def PowerItem {
         attribute safetyClass : SafetyClass = SafetyClass::C;
         part powerMon : PowerMon;
-        satisfy 'MRTM-SAF-005' by powerMon;
-        satisfy 'MRTM-SAF-008' by powerMon;
-        satisfy 'MRTM-SYS-016' by powerMon;
     }
     #Service part def SupervisorItem {
         attribute safetyClass : SafetyClass = SafetyClass::C;
         part wdtKicker : WdtKicker;
         part diagnostics : Diagnostics;
         part configMgr : ConfigMgr;
-        satisfy 'MRTM-SAF-017' by configMgr;
-        satisfy 'MRTM-SAF-004' by wdtKicker;
-        satisfy 'MRTM-SAF-009' by wdtKicker;
-        satisfy 'MRTM-SAF-010' by wdtKicker;
-        satisfy 'MRTM-SAF-007' by diagnostics;
-        satisfy 'MRTM-SAF-023' by diagnostics;
     }
 
     // ---- The software system: items, tasks, wiring, requirement links -------

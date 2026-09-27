@@ -30,17 +30,6 @@ package MrtmPartitions {
         part powerService;
         part supervisor;
 
-        satisfy 'MRTM-SYS-001' by sensorService;
-        satisfy 'MRTM-SYS-002' by excursionService;
-        satisfy 'MRTM-SYS-024' by excursionService;
-        satisfy 'MRTM-SYS-003' by alarmService;
-        satisfy 'MRTM-SYS-005' by displayService;
-        satisfy 'MRTM-SYS-015' by logService;
-        satisfy 'MRTM-SYS-021' by logService;
-        satisfy 'MRTM-SYS-022' by logService;
-        satisfy 'MRTM-IFC-003' by usbService;
-        satisfy 'MRTM-SAF-008' by powerService;
-        satisfy 'MRTM-SAF-004' by supervisor;
     }
 
     part def MrtmSystem {
@@ -62,10 +51,5 @@ package MrtmPartitions {
         allocate functions.selfTest to firmware.supervisor;
         allocate functions.timekeeper to firmware.logService;
 
-        satisfy 'MRTM-ENV-002' by hardware;
-        satisfy 'MRTM-ENV-003' by hardware;
-        satisfy 'MRTM-SAF-004' by firmware;
-        satisfy 'MRTM-SAF-006' by firmware;
-        satisfy 'MRTM-STK-001' by functions;
     }
 }

@@ -89,33 +89,5 @@ package MrtmSafety {
     part def MrtmRiskControls :> MrtmSystem {
         doc /* The system with each new risk control allocated to the part that implements it (ISO 14971 cl. 7.2).
            MRTM-SAF-020 is information for safety (instructions for use), not a part. Controls MRTM-SAF-001, -004, -008 are allocated in MrtmPhysical and MrtmPartitions (Phase 4). */
-        satisfy 'MRTM-SAF-009' by hardware.backupAlarm;
-        satisfy 'MRTM-SAF-009' by hardware.wdtKickLine;
-        satisfy 'MRTM-SAF-009' by hardware.backupBuzzerLine;
-        satisfy 'MRTM-SAF-010' by firmware.alarmService;
-        satisfy 'MRTM-SAF-010' by firmware.supervisor;
-        satisfy 'MRTM-SAF-011' by firmware.alarmService;
-        satisfy 'MRTM-SAF-012' by firmware.displayService;
-        satisfy 'MRTM-SAF-013' by hardware.holdUpCap;
-        satisfy 'MRTM-SAF-013' by hardware.backupAlarm;
-        satisfy 'MRTM-SAF-014' by hardware.buzzerSenseLine;
-        satisfy 'MRTM-SAF-014' by firmware.alarmService;
-        satisfy 'MRTM-SAF-015' by firmware.alarmService;
-        satisfy 'MRTM-SAF-015' by hardware.redLine;
-        satisfy 'MRTM-SAF-016' by firmware.displayService;
-        satisfy 'MRTM-SAF-017' by firmware.supervisor;
-        satisfy 'MRTM-SAF-018' by firmware.logService;
-        satisfy 'MRTM-SAF-002' by firmware.alarmService;
-        satisfy 'MRTM-SAF-003' by firmware.sensorService;
-        satisfy 'MRTM-SAF-005' by firmware.logService;
-        satisfy 'MRTM-SAF-006' by firmware.alarmService;
-        satisfy 'MRTM-SAF-007' by firmware.supervisor;
-        satisfy 'MRTM-SAF-019' by firmware.alarmService;
-        satisfy 'MRTM-SAF-021' by firmware.displayService;
-        satisfy 'MRTM-SAF-022' by firmware.logService;
-        satisfy 'MRTM-SAF-022' by hardware.rtc;
-        satisfy 'MRTM-SAF-023' by firmware.supervisor;
-        satisfy 'MRTM-SAF-023' by hardware.backupAlarm;
-        satisfy 'MRTM-SAF-023' by hardware.buzzerSenseLine;
     }
 }
