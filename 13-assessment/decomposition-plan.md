@@ -1,0 +1,33 @@
+# Decomposition plan — rebuild the model in levels (owner finding, 2026-09-27 morning)
+
+**Owner's words:** "I do not see a clear breakup of Diagrams at each level, and I am unable to see a proper decomposition story. this will have challenges in understanding. As I see each diagram is satisfying all the level of requirements, that not what I was expecting."
+
+**What is wrong today:** one system block satisfies STK, SYS, SAF and IFC requirements at once; pictures are grouped by kind (blocks, interfaces, states) not by level; there is no derive chain between requirement levels; no index says which pictures belong to which level.
+
+## Target structure
+
+| Level | Folder | Diagrams (one index page per level) | Satisfies only | Requirement ids |
+|---|---|---|---|---|
+| L0 Context | `06-design/L0-context/` | context view (system = one box; clinic staff, technician, fridge, mains, USB host), use-case view | stakeholder | `MRTM-STK-*` |
+| L1 System | `06-design/L1-system/` | system block (system → 6 subsystems), system interconnection (subsystem ports only), system modes state view, top-level scenarios (excursion, power loss, probe fault) at subsystem granularity | system + system-level safety | `MRTM-SYS-*`, `MRTM-SAF-*` (system level) |
+| L2 Subsystems | `06-design/L2-subsystems/<name>/` × 6: sensing · alarm-and-indication · display · logging-and-history · power · supervision | per subsystem: block view (its parts), interconnection view (its ports and internal wires), state view where it has one | derived subsystem requirements | new level `MRTM-SUB-*`, each `derive`d from one L1 id, `safetyClass` inherited |
+| L3 Components | `06-design/L3-hardware/` and `06-design/L3-software/` | hardware: chosen parts, pin map, buses (one interconnection per bus); software: items, tasks, components with the profile, state machines and sequences per component | hardware / software requirements | new levels `MRTM-HW-*`, `MRTM-SW-*`, derived from L2 |
+| L4 Code and tests | `10-src/`, `11-verification/` | none (contracts and tables) | — | `@implements`, `@verifies` |
+
+## Rules (each one becomes a check in `tools/level-check.py` and a finding if Sanad cannot check it)
+
+1. A block at level N satisfies requirements of level N only. (Today: violated everywhere.)
+2. Every requirement below L1 carries a `derive` link to exactly one or more requirements one level up; the chain STK → SYS → SUB → HW/SW is unbroken for every leaf.
+3. Every level has `INDEX.md`: the pictures of that level in reading order, one line each, and the requirement ids it covers.
+4. The generated requirement package is split per level (one `requirements-L<n>.sysml` each) so a level's views expose only their own.
+5. A picture carries at most ~12 boxes; a bigger scope is split by subsystem.
+6. Views are named `<level>-<subject>-<kind>` (e.g. `L2-alarm-interconnection`).
+7. The traceability view (Sanad) shows the alarm path unbroken from `MRTM-STK-002` to the unit test that holds the 5 s budget.
+
+## Sanad finding (F-124)
+
+Sanad neither asks for levels nor checks them: templates carry no level, `satisfy` accepts any requirement on any block, there is no `derive` discipline check, no per-level index or "decomposition story" view. Proposed features: (a) requirement level as a template field with the recommended STK/SYS/SUB/HW/SW ladder; (b) a rule "a block satisfies its own level only" in the design checks; (c) a derive-chain check (every leaf reaches L0); (d) a Decomposition view: the levels as a tree, each node opening its pictures; (e) the requirement package generated per level.
+
+## Work order
+
+MODEL-LEVELS worker (next slot): restructure the model and requirements into this plan with Sanad's own create/derive paths, re-render every picture per level, rerun Pilot + gate + package, write `tools/level-check.py`, update STRUCTURE.md, and ONLY THEN SYSML-EVAL judges the pictures level by level.
