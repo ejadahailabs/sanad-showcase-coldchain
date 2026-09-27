@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test_rtc_clock" tests="3" failures="0" errors="0" skipped="0" timestamp="2026-09-27T00:00:00">
+  <properties>
+    <property name="tester" value="DOGFOOD-6 (agent, no independence)"/>
+    <property name="date" value="2026-09-27"/>
+    <property name="build" value="c32f4f1"/>
+    <property name="environment" value="host: gcc 15.2 + Unity v2.6.1 + hal_host stubs"/>
+    <property name="evidence" value="11-verification/evidence/unit/test_rtc_clock.out"/>
+  </properties>
+  <testcase classname="test_rtc_clock" name="test_oscillator_stop_at_power_up_logs_clock_fault" time="0"/>
+  <testcase classname="test_rtc_clock" name="test_now_is_the_rtc_copy_refreshed_each_second" time="0"/>
+  <testcase classname="test_rtc_clock" name="test_error_codes_bus_and_arg" time="0"/>
+</testsuite>

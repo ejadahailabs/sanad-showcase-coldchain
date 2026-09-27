@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test_diagnostics" tests="3" failures="0" errors="0" skipped="0" timestamp="2026-09-27T00:00:00">
+  <properties>
+    <property name="tester" value="DOGFOOD-6 (agent, no independence)"/>
+    <property name="date" value="2026-09-27"/>
+    <property name="build" value="c32f4f1"/>
+    <property name="environment" value="host: gcc 15.2 + Unity v2.6.1 + hal_host stubs"/>
+    <property name="evidence" value="11-verification/evidence/unit/test_diagnostics.out"/>
+  </properties>
+  <testcase classname="test_diagnostics" name="test_power_up_tests_pass_inside_their_windows" time="0"/>
+  <testcase classname="test_diagnostics" name="test_silent_buzzer_fails_the_power_up_test" time="0"/>
+  <testcase classname="test_diagnostics" name="test_backup_alarm_not_heard_fails_and_pulses_resume" time="0"/>
+</testsuite>

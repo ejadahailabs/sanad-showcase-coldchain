@@ -1,0 +1,9 @@
+firmware/components/event_log/test/test_event_log.c:64:test_time_stamp_is_the_utc_second_of_the_post:PASS
+firmware/components/event_log/test/test_event_log.c:65:test_end_record_carries_the_peak_in_tenths:PASS
+firmware/components/event_log/test/test_event_log.c:66:test_step_numbers_checksums_and_stores_every_queued_record:PASS
+firmware/components/event_log/test/test_event_log.c:67:test_error_code_full_after_32:PASS
+firmware/components/event_log/test/test_event_log.c:68:test_flash_failure_does_not_loop:PASS
+
+-----------------------
+5 Tests 0 Failures 0 Ignored 
+OK

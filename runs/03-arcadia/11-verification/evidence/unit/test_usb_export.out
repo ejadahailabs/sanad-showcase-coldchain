@@ -1,0 +1,10 @@
+firmware/components/usb_export/test/test_usb_export.c:87:test_boot_sector_is_a_fat12_volume:PASS
+firmware/components/usb_export/test/test_usb_export.c:88:test_history_csv_is_marked_read_only:PASS
+firmware/components/usb_export/test/test_usb_export.c:89:test_every_write_is_refused:PASS
+firmware/components/usb_export/test/test_usb_export.c:90:test_csv_lines_oldest_first_newest_last:PASS
+firmware/components/usb_export/test/test_usb_export.c:91:test_unreadable_record_is_a_corrupt_line:PASS
+firmware/components/usb_export/test/test_usb_export.c:92:test_full_history_fits_and_fat_chain_ends:PASS
+
+-----------------------
+6 Tests 0 Failures 0 Ignored 
+OK

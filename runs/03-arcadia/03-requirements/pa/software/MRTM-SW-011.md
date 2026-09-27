@@ -1,0 +1,32 @@
+---
+id: "MRTM-SW-011"
+type: "software"
+status: "draft"
+priority: "medium"
+author: "Masood (drafted by Claude, RUN-03-ARCADIA)"
+created: "2026-09-27"
+modified: ""
+tags: []
+uplinks: ["MRTM-LA-013"]
+safetyClass: "C"
+derived: false
+implemented_by: []
+---
+
+# Log item ring
+
+## Description
+
+When the **Event Log** holds 10000 records, the log item shall write each new **Event Record** over the oldest one.
+
+## Rationale
+
+A ring: the log never stops accepting events (HAZ-008).
+
+## Verification
+
+Test: unit tests of history_ring.
+
+## Safety
+
+Class C (IEC 62304 §4.3): a failure of this software item can leave a real excursion unalarmed or unrecorded, and vaccines that lost potency may then be given (hazard chain HAZ-001…HAZ-008, severity serious). Same class as the layer element above it.
