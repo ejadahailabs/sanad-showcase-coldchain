@@ -36,4 +36,4 @@ Only safety requirements can carry a `hazard:` field today (the field was added 
 
 ## Four blocks
 - **Assumptions:** A-04, A-18, A-19, A-20, A-21. **Risks:** R-04, R-05, R-08, R-09, R-10, R-11. **Open questions:** Q-05, Q-12, Q-13 (answered by assumption).
-- **Trace links:** 03-requirements/safety/ (23 controls), 06-design/system/MrtmSafety.sysml, fmea.md, fault-tree.md, failure-mode-assessment.md, ADR-0012, ADR-0013, ADR-0014. Verification cases: Phase 10 (each control's `## Verification` section is the seed).
+- **Trace links:** 03-requirements/safety/ (23 controls), 06-design/system/MrtmSafety.sysml, 01a-risk-analysis-fmea.md, 01b-risk-analysis-fault-tree.md, 03b-risk-control-single-fault-assessment.md, ADR-0012, ADR-0013, ADR-0014. Verification cases: Phase 10 (each control's `## Verification` section is the seed).

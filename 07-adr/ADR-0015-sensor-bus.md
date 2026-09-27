@@ -22,4 +22,4 @@ A probe fault shows up as missing or bad-CRC samples (SYS-012, 30 s), never as a
 
 ## Four blocks
 - **Assumptions:** A-04. **Risks:** R-09. **Open questions:** none.
-- **Trace links:** 09-hardware/pin-map.md, component-selection.md; 08-safety/fmea.md FM-06…FM-09, FM-27.
+- **Trace links:** 09-hardware/pin-map.md, component-selection.md; 08-safety/01a-risk-analysis-fmea.md FM-06…FM-09, FM-27.

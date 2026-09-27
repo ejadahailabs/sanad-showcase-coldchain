@@ -1,6 +1,6 @@
 # Click list — the only things that need Masood at a keyboard
 
-**Total: 29 clicks · 143 minutes** (133 without C-26, which is only for AI proposals). Run complete 2026-09-27 — do them in one sitting.
+**Total: 32 clicks · 171 minutes** (161 without C-26, which is only for AI proposals). MODEL-LEVELS added C-30…C-32; C-30 replaces the per-view checks C-02, C-03, C-10, C-13, C-15, C-17, C-20 (their views were archived), so skip those. Run complete 2026-09-27 — do them in one sitting.
 
 **Recommended order** (grouped by the screen you are on, so you open each view once):
 1. Setup + config: C-01 (10)
@@ -48,3 +48,6 @@ Each line: what to press · on which file · what to check · minutes.
 | C-27 | 10b | Sanad: Test coverage view + Problems panel after the results | 11-verification/results/ | "covered 53 · not covered 16 · 16 blocked"; 16 `missing-result` warnings = the bench-only requirements (F-102); SP-01-H green; matches 13-assessment/sanad-runs/phase-10b/report-test-coverage.md | 4 |
 | C-28 | 11 | Open MRTM-SYS-024, then Command Palette → Sanad: Impact of a Requirement → Export | 03-requirements/system/MRTM-SYS-024.md | 11 artifacts (4 code functions, 7 cases), impact to depth 1 — matches 12-impact/sanad-impact-after/impact-of-MRTM-SYS-024.md. Then run it on MRTM-SYS-002 and note: does anything on screen warn of the clash with SYS-024 (headless: no, F-106)? | 5 |
 | C-29 | 11 | Sanad Baselines view → REQ-BL-2 listed → Compare with REQ-BL-1 | .ejadah/rew/baselines.json | REQ-BL-2 names the Phase 11 commit; compare shows the new findings (headless: 60 new, 7 gone since REQ-BL-1) — note whether the 4 reworded requirements appear (headless: no, F-112) | 3 |
+| C-30 | MODEL-LEVELS | Sanad: Open Design → walk the 23 views in the order of 06-design/DECOMPOSITION.md (context → system → each subsystem → backup alarm) | 06-design/views/*View.sysml | Each picture matches the PNG in its node's `pictures/` folder; no picture shows another node's parts; note any box you would move (the canvas cannot place nested parts, F-129). Replaces C-02, C-03, C-10, C-13, C-15, C-17, C-20 (their views are archived) | 20 |
+| C-31 | MODEL-LEVELS | Open MRTM-ALM-001 in the requirement form; then the Traceability view on MRTM-STK-002 | 03-requirements/mrtm/alarm/MRTM-ALM-001.md | The form shows the node template "Alarm requirement"; traceability walks STK-002 → SYS-002 → ALM-002 → EXI-002 → code → test (13-assessment/alarm-path-trace.md) | 5 |
+| C-32 | MODEL-LEVELS | Sanad Baselines view → REQ-BL-3 → Compare with REQ-BL-2 | .ejadah/rew/baselines.json | REQ-BL-3 lists the node requirements as new; note whether moved satisfy links show (headless: no, F-112) | 3 |

@@ -6,7 +6,7 @@
 **In one line:** one small board with an ESP32-S3, a probe on a lead, a screen, a buzzer, two lights, a button, a battery — plus a tiny timer and a capacitor that can sound the buzzer when everything else has failed.
 
 ## 1. What the hardware must keep doing (essential performance, cl. 4.3)
-Measure the fridge air and **alarm** an excursion within the time budget (ADR-0014). Everything else (screen, history, USB) supports that. Losing the alarm without an alarm about it is the one thing a single fault must never cause (cl. 4.7 → 08-safety/failure-mode-assessment.md §1).
+Measure the fridge air and **alarm** an excursion within the time budget (ADR-0014). Everything else (screen, history, USB) supports that. Losing the alarm without an alarm about it is the one thing a single fault must never cause (cl. 4.7 → 08-safety/03b-risk-control-single-fault-assessment.md §1).
 
 ## 2. The pictures (from the model, drawn by Sanad)
 | Picture | Shows |

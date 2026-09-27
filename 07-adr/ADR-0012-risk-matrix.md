@@ -33,10 +33,10 @@ Two scales of three steps. Risk = severity × probability.
 - **Unacceptable (6–9):** a risk control is mandatory before release.
 
 ## Consequences
-- Every hazard in `08-safety/hazard-analysis.md` carries both numbers before and after control; the SysML concerns carry the same numbers as attributes.
+- Every hazard in `08-safety/01-risk-analysis.md` carries both numbers before and after control; the SysML concerns carry the same numbers as attributes.
 - Software failure is scored at probability 3 before control (IEC 62304 cl. 4.3 note: assume software fails), then reduced only by a control outside that software item.
 - Sanad has no place for the matrix or the numbers (F-48); `tools/hazard-link-check.py` keeps only the links consistent.
 
 ## Four blocks
 - **Assumptions:** A-20 (scales synthetic). **Risks:** R-04. **Open questions:** Q-05 (answered by assumption).
-- **Trace links:** 08-safety/hazard-analysis.md, 00-project/risk-management-plan.md, 06-design/system/MrtmSafety.sysml.
+- **Trace links:** 08-safety/01-risk-analysis.md, 00-project/risk-management-plan.md, 06-design/system/MrtmSafety.sysml.

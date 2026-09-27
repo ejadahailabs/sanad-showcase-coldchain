@@ -19,9 +19,9 @@ ADR-0013 decided a backup alarm exists. This ADR decides the parts. Like a doorb
 - *Coin cell for hold-up:* must be replaced; a flat cell is a latent fault.
 
 ## Consequences
-- The buzzer is a single shared output — FMEA FM-14 (buzzer open) defeats both paths; it is detected by current sense and signalled by the red LED (cut set 3, 08-safety/fault-tree.md).
+- The buzzer is a single shared output — FMEA FM-14 (buzzer open) defeats both paths; it is detected by current sense and signalled by the red LED (cut set 3, 08-safety/01b-risk-analysis-fault-tree.md).
 - EE-REVIEW: MOSFET and diode choice, comparator threshold, timer tolerance, capacitor leakage and charge limit.
 
 ## Four blocks
 - **Assumptions:** A-18, A-19. **Risks:** R-11, R-13. **Open questions:** Q-14.
-- **Trace links:** 09-hardware/hardware-design-description.md §5, power-budget.md, pin-map.md; 08-safety/fault-tree.md; ADR-0010, ADR-0013, ADR-0014.
+- **Trace links:** 09-hardware/hardware-design-description.md §5, power-budget.md, pin-map.md; 08-safety/01b-risk-analysis-fault-tree.md; ADR-0010, ADR-0013, ADR-0014.

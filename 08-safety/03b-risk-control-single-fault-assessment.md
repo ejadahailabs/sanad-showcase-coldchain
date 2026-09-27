@@ -42,4 +42,4 @@ No hazard is unacceptable after control. Four residuals sit in "review". Overall
 
 ## Four blocks
 - **Assumptions:** A-04, A-18, A-20. **Risks:** R-08, R-11, R-12. **Open questions:** none new; owner confirms the benefit-risk sentences.
-- **Trace links:** hazard-analysis.md, fmea.md, fault-tree.md, ADR-0012, ADR-0013, ADR-0014.
+- **Trace links:** 01-risk-analysis.md, 01a-risk-analysis-fmea.md, 01b-risk-analysis-fault-tree.md, ADR-0012, ADR-0013, ADR-0014.

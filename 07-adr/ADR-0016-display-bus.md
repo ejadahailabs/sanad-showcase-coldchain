@@ -21,4 +21,4 @@ FMEA FM-11 (bus hang) is a two-device effect, covered by SAF-021; residual accep
 
 ## Four blocks
 - **Assumptions:** A-23. **Risks:** R-13. **Open questions:** none.
-- **Trace links:** 09-hardware/pin-map.md; 08-safety/fmea.md FM-10…FM-13.
+- **Trace links:** 09-hardware/pin-map.md; 08-safety/01a-risk-analysis-fmea.md FM-10…FM-13.

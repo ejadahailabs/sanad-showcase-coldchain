@@ -2,7 +2,7 @@
 
 - **Status:** Accepted (DRAFT — needs Masood's review) · **Date:** 2026-09-27 · **Phase:** 5 · **MANUAL** ADR shape (F-09) · ISO 14971 cl. 7.1 · IEC 62304 cl. 5.3.1 · IEC 60601-1-8 frame (alarm condition delay)
 - **Model:** `LogicalMonitor::sampler → excursionDetector → alarmManager`, `MrtmUnit::buzzerLine`, `backupAlarm`
-- **Top event it defends:** "excursion not alarmed within the required time" (08-safety/fault-tree.md)
+- **Top event it defends:** "excursion not alarmed within the required time" (08-safety/01b-risk-analysis-fault-tree.md)
 
 ## Context
 "Alarm in time" only means something if every step has a number and the numbers add up. Like planning a train trip: each leg has a time, and the sum must fit before the meeting.

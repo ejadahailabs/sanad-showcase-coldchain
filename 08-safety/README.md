@@ -4,14 +4,21 @@
 
 **In one line:** this folder answers "what could hurt someone, how did we stop it, and how will we prove it?" — one file per question.
 
+**Files are numbered in ISO 14971's own order** (MODEL-LEVELS): analysis → evaluation → control → residual risk → overall residual risk → report.
+
 | File | ISO 14971 clause | What it holds | Sanad home? |
 |---|---|---|---|
-| hazard-analysis.md | 5.2–5.5, 6, 7.1–7.3 | 8 hazards, sequences, harms, scores before/after | links yes (`hazard:` field → Safety engine); table no (F-48) |
-| fmea.md | 5.4 (via IEC 60812) | 27 failure modes over 16 model elements | no (F-48) |
-| fault-tree.md | 5.4 (via IEC 61025) | top event "excursion not alarmed in 65 s", 9 cut sets | no (F-51) |
-| failure-mode-assessment.md | 7.3, 7.4, 7.6, 8 | single-fault check, 4 residuals, completeness | no (F-48) |
-| `../06-design/system/MrtmSafety.sysml` | 5.4, 7.1, 7.2 | hazards as SysML concerns, control → hazard dependencies, control → part satisfy | model yes; hazard part not traced (F-49) |
-| `../03-requirements/safety/` | 7.1 | 23 risk-control requirements, `safetyClass: C`, `hazard:` links | yes (create path, allocator ids) |
+| 01-risk-analysis.md | 5.2–5.5 | 8 hazards, sequences, harms, scores before/after | links yes (`hazard:` field → Safety engine); table no (F-48) |
+| 01a-risk-analysis-fmea.md | 5.4 (via IEC 60812) | 27 failure modes over 16 model elements | no (F-48) |
+| 01b-risk-analysis-fault-tree.md | 5.4 (via IEC 61025) | top event "excursion not alarmed in 65 s", 9 cut sets | no (F-51) |
+| 02-risk-evaluation.md | 6 | each hazard against the ADR-0012 table | no — **new** |
+| 03-risk-control.md | 7.1–7.2 | option analysis per hazard, node of each control | links yes; option analysis no — **new** |
+| 03b-risk-control-single-fault-assessment.md | 7.3, 7.4, 7.6 (+ IEC 60601-1 cl. 4.7) | single-fault check, residuals R1–R4 | no (F-48) |
+| 04-residual-risk.md | 7.3–7.6 | residual per hazard, benefit-risk (owner), risks from controls | no — **new** |
+| 05-overall-residual-risk.md | 8 | all residuals together; not accepted yet | no — **new** |
+| 06-risk-management-report.md | 9, 10 | release review; cl. 10 not started | no — **new** |
+| `../06-design/system/MrtmSafety.sysml` | 5.4, 7.1, 7.2 | hazards as SysML concerns, control → hazard dependencies | model yes |
+| `../03-requirements/safety/` | 7.1 | 23 risk-control requirements, `hazard:` links | yes (create path, allocator ids) |
 | `../07-adr/ADR-0012…0014` | 4.2, 7.1 | risk matrix, backup alarm, alarm timing budget | no (F-09) |
 
 ## The chain: hazard → control → part → verification

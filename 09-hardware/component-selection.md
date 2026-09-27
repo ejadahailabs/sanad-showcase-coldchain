@@ -24,4 +24,4 @@
 
 ## Four blocks
 - **Assumptions:** A-05, A-11, A-17, A-18, A-25. **Risks:** R-13. **Open questions:** Q-14.
-- **Trace links:** 06-design/hardware/MrtmHardware.sysml; hardware-trace-matrix.md; ADR-0015, ADR-0016, ADR-0017; 08-safety/fmea.md.
+- **Trace links:** 06-design/hardware/MrtmHardware.sysml; hardware-trace-matrix.md; ADR-0015, ADR-0016, ADR-0017; 08-safety/01a-risk-analysis-fmea.md.

@@ -21,7 +21,7 @@
 | FM-12 | `rtc` | Clock drifts or stops | Crystal, temperature | Wrong time | Wrong audit times | HAZ-008 | 2 | 2 | 4 | SYS-020 (≤ 2 s/day), SAF-022 (stop logged) | 1 | 2 |
 | FM-13 | `rtc` coin cell | Flat | Age | Time lost at power cut | Wrong audit times | HAZ-008 | 2 | 3 | 6 | SAF-022 | 1 | 2 |
 | FM-14 | `buzzer` | Open / driver dead | Wire, component | No sound | Alarm not heard | HAZ-006 | 3 | 2 | 6 | SAF-007 (power-up test), SAF-014, SAF-015 | 1 | 3 |
-| FM-15 | `buzzer` | Weak sound | Ageing, blocked port | Quieter than 65 dB(A) | Alarm not heard in a noisy room | HAZ-006 | 3 | 1 | 3 | SAF-001 (production test); residual — see failure-mode-assessment.md | 1 | 3 |
+| FM-15 | `buzzer` | Weak sound | Ageing, blocked port | Quieter than 65 dB(A) | Alarm not heard in a noisy room | HAZ-006 | 3 | 1 | 3 | SAF-001 (production test); residual — see 03b-risk-control-single-fault-assessment.md | 1 | 3 |
 | FM-16 | `redLed` | Dead | LED failure | No flash | One of three signals lost | HAZ-006 | 2 | 1 | 2 | Buzzer + screen remain | 1 | 2 |
 | FM-17 | `greenLed` | Dead | LED failure | "All good" light off | Staff call a technician | — | 1 | 2 | 2 | none needed | 2 | 2 |
 | FM-18 | `ackButton` | Stuck pressed | Jammed, liquid | Button always "pressed" | Alarm silenced | HAZ-006 | 3 | 2 | 6 | SAF-019 (button fault at 60 s), SYS-019 (re-sound) | 1 | 3 |
@@ -31,12 +31,12 @@
 | FM-22 | `powerPath` | Over-voltage passed on | Adapter fault | Chip damage | Monitor dead | HAZ-003 | 3 | 1 | 3 | SAF-009, SAF-013; protection part EE-REVIEW (IEC 60601-1 cl. 8) | 1 | 3 |
 | FM-23 | `backupAlarm` | Fails silent (latent) | Component | Backup channel gone | Only matters if the firmware also dies | HAZ-003 | 3 | 2 | 6 | SAF-023 (tested at every power-up) | 1 | 3 |
 | FM-24 | `backupAlarm` | False trigger | Noise on the pulse line | Short spurious sound | Nuisance alarm | HAZ-002 | 2 | 1 | 2 | Self-clears at next pulse; acceptable | 1 | 2 |
-| FM-25 | `holdUpCap` | Capacitance lost | Ageing, heat | Power-fail alarm shorter | Dead monitor may go unannounced | HAZ-005 | 3 | 2 | 6 | Capacitor derated 2× for life at 35 °C (EE-REVIEW, design rule, not a requirement) — see failure-mode-assessment.md | 1 | 3 |
+| FM-25 | `holdUpCap` | Capacitance lost | Ageing, heat | Power-fail alarm shorter | Dead monitor may go unannounced | HAZ-005 | 3 | 2 | 6 | Capacitor derated 2× for life at 35 °C (EE-REVIEW, design rule, not a requirement) — see 03b-risk-control-single-fault-assessment.md | 1 | 3 |
 | FM-26 | `usb` | Host writes to the log | Tampering, OS bug | Records changed | Audit untrue | HAZ-008 | 2 | 2 | 4 | SYS-014, IFC-003 (read-only volume) | 1 | 2 |
 | FM-27 | `probeLink` | Noise on 1-Wire | Long lead, interference | Bad CRC | Samples dropped | HAZ-001 | 3 | 3 | 9 | SYS-012 (fault after 30 s of bad CRC), SAF-002 | 1 | 3 |
 
-**Counts:** 27 rows over 16 model elements (12 parts, 3 interfaces, 1 port). After control no row is unacceptable; 18 rows stay in "review" (R = 3) and are argued in failure-mode-assessment.md.
+**Counts:** 27 rows over 16 model elements (12 parts, 3 interfaces, 1 port). After control no row is unacceptable; 18 rows stay in "review" (R = 3) and are argued in 03b-risk-control-single-fault-assessment.md.
 
 ## Four blocks
 - **Assumptions:** A-17, A-18, A-23; every P is SYNTHETIC. **Risks:** R-08, R-10, R-11. **Open questions:** none new.
-- **Trace links:** hazard-analysis.md, 06-design/system/MrtmPhysical.sysml, MrtmSafety.sysml, 03-requirements/safety/.
+- **Trace links:** 01-risk-analysis.md, 06-design/system/MrtmPhysical.sysml, MrtmSafety.sysml, 03-requirements/safety/.

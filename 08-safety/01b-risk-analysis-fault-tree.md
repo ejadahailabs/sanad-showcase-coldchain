@@ -60,4 +60,4 @@ flowchart TD
 
 ## Four blocks
 - **Assumptions:** A-18, A-19. **Risks:** R-08, R-11. **Open questions:** none new.
-- **Trace links:** hazard-analysis.md, fmea.md, ADR-0013, ADR-0014, 06-design/system/MrtmSafety.sysml.
+- **Trace links:** 01-risk-analysis.md, 01a-risk-analysis-fmea.md, ADR-0013, ADR-0014, 06-design/system/MrtmSafety.sysml.

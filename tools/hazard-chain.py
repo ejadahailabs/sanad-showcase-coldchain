@@ -6,7 +6,7 @@ verification matrix Sanad reads (11-verification/cases/verification-cases.csv); 
 Usage (repo root): python3 tools/hazard-chain.py > 11-verification/hazard-chain.md"""
 import csv, glob, json, re, pathlib, xml.etree.ElementTree as ET
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-haz = {m.group(1): m.group(2).strip() for m in re.finditer(r"\*\*(HAZ-\d+)\*\* ([^|]+)\|", (ROOT / "08-safety/hazard-analysis.md").read_text())}
+haz = {m.group(1): m.group(2).strip() for m in re.finditer(r"\*\*(HAZ-\d+)\*\* ([^|]+)\|", (ROOT / "08-safety/01-risk-analysis.md").read_text())}
 ctl = {}
 for f in sorted((ROOT / "03-requirements/safety").glob("MRTM-SAF-*.md")):
     t = f.read_text(); m = re.search(r"^hazard: (\[.*\])$", t, re.M)

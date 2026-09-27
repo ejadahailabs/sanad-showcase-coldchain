@@ -24,7 +24,7 @@ Timing of the early tier (worst case): wait for the next sample ≤ 2 s + DS18B2
 
 ## Consequences
 - Early tier is not logged (A-38): door openings would fill the 10 000-record log (HAZ-008). Owner to confirm.
-- HAZ-002 gains one cause (frequent red-light flashes) and one control (the early tier is silent and self-clearing); residual risk unchanged at "review" (08-safety/hazard-analysis.md).
+- HAZ-002 gains one cause (frequent red-light flashes) and one control (the early tier is silent and self-clearing); residual risk unchanged at "review" (08-safety/01-risk-analysis.md).
 - The screen does not yet show a pre-alarm text; only the red light changes. Display text is a follow-up (12-impact/impact-report.md, row SW-6).
 - Bench procedure SP-01 gets step SP-01.11 (10 timed trials).
 

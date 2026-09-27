@@ -35,11 +35,11 @@
 | 19 | Problem resolution log | IEC 62304 §9 | 05-reviews/defect-log.md (DEF-001…008), FINDINGS.md (tool) | no (F-94) | partly — DEF ↔ requirement in prose |
 | 20 | Traceability requirement → architecture → design → code → unit → integration → system test | IEC 62304 §5.1.1, §5.7.4 | report-traceability-audit.md (phase-11) | yes | partly — detailed-design states and actions are not nodes (F-73) |
 | 21 | Risk management plan | ISO 14971 §4.4 | 00-project/risk-management-plan.md | no (F-06) | no |
-| 22 | Hazard analysis (hazards, sequences, situations) | ISO 14971 §5 | 08-safety/hazard-analysis.md, MrtmSafety.sysml | partly — hazard ids only (F-48) | yes — hazard ↔ control |
+| 22 | Hazard analysis (hazards, sequences, situations) | ISO 14971 §5 | 08-safety/01-risk-analysis.md, MrtmSafety.sysml | partly — hazard ids only (F-48) | yes — hazard ↔ control |
 | 23 | Risk evaluation + risk-control measures | ISO 14971 §6, §7.1–7.2 | SAF-001…023 with `hazard:`; FMEA; fault tree | yes — Safety engine `mitigates` | yes |
 | 24 | Verification of risk controls (hazard → control → requirement → test) | ISO 14971 §7.2, §7.3 | 11-verification/hazard-chain.md | no — hand tool (F-97) | partly — 3 controls with no passing evidence |
-| 25 | Residual risk + benefit-risk, risk management review | ISO 14971 §7.4–§9 | 08-safety/failure-mode-assessment.md | no | no |
-| 26 | Risks arising from risk control / from changes | ISO 14971 §7.6, §10 | hazard-analysis.md § "Change CR-001" | no | partly |
+| 25 | Residual risk + benefit-risk, risk management review | ISO 14971 §7.4–§9 | 08-safety/03b-risk-control-single-fault-assessment.md | no | no |
+| 26 | Risks arising from risk control / from changes | ISO 14971 §7.6, §10 | 01-risk-analysis.md § "Change CR-001" | no | partly |
 
 ## What the list says (plain words)
 - Everything that is **a requirement, a model element, code or a test** has a home in Sanad and is linked.
