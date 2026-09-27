@@ -17,7 +17,7 @@
 - Tools run from inside the run folder: `bash tools/sanad-checks.sh 13-assessment/sanad-runs/<name>`, `python3 tools/level-check.py`.
 - After changing code comments or `@implements` markers, refresh the code index (`tools/code-index-headless.cjs`) before the gate (F-139).
 - Baseline reads across the 2026-09-27 move do not work yet (F-140): `--diff-config REQ-BL-1` fails from `runs/02-magicgrid/`.
-- Commits: `git -c user.name=Masood -c user.email=mohd.masood26@gmail.com commit …`. Local repository; no remote unless Masood adds one.
+- Commits: `git -c user.name="Ejadah AI Labs" -c user.email=ejadahailabs@gmail.com commit …`. Local repository; no remote unless Masood adds one.
 - Synthetic data only. No VS Code, no `git stash`, no `pkill` by pattern, no `/tmp` (use `~/.cache/tmp-<task>`).
 - Sanad wording: a build in progress. Never say built, complete or qualified.
 - Replies to Masood: table first, plain words, one next step.

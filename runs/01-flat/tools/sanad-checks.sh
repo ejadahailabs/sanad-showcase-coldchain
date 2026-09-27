@@ -11,7 +11,7 @@ cap() { systemd-run --user --scope -q -p MemoryMax=6G -p MemorySwapMax=1G "$@"; 
 erew() { cap node "$EXT/dist/cli-entry.js" "$ROOT" "$@"; }
 IDX=$(mktemp -p "$HOME/.cache/tmp-dogfood1"); cp "$ROOT/.git/index" "$IDX"
 SNAP=$(cd "$ROOT" && GIT_INDEX_FILE=$IDX git add -A && T=$(GIT_INDEX_FILE=$IDX git write-tree) \
-  && git -c user.name=Masood -c user.email=mohd.masood26@gmail.com commit-tree "$T" -p HEAD -m snapshot)
+  && git -c user.name="Ejadah AI Labs" -c user.email=ejadahailabs@gmail.com commit-tree "$T" -p HEAD -m snapshot)
 rm -f "$IDX"
 echo "snapshot $SNAP" > "$OUT/SUMMARY.txt"
 run() { local name=$1; shift; erew "$@" > "$OUT/$name" 2> "$OUT/$name.stderr"; rc=$?; echo "$name rc=$rc" >> "$OUT/SUMMARY.txt"; [ "$rc" != 0 ] || [ "$name" = gate.txt ] || rm -f "$OUT/$name.stderr"; }

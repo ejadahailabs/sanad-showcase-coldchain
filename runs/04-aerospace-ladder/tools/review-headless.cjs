@@ -61,8 +61,8 @@ if (mode !== "close") return;
     inputHash: createHash("sha256").update(JSON.stringify(snapshot)).digest("hex"),
     checklistShas: new Map(ckFiles.map((n) => [`${ckFolder}/${n}`, git("hash-object", join(ckFolder, n))])),
     checklists, declaration: decl };
-  const env = { ...process.env, GIT_AUTHOR_NAME: "Masood", GIT_AUTHOR_EMAIL: "mohd.masood26@gmail.com",
-    GIT_COMMITTER_NAME: "Masood", GIT_COMMITTER_EMAIL: "mohd.masood26@gmail.com" };
+  const env = { ...process.env, GIT_AUTHOR_NAME: "Masood", GIT_AUTHOR_EMAIL: "ejadahailabs@gmail.com",
+    GIT_COMMITTER_NAME: "Masood", GIT_COMMITTER_EMAIL: "ejadahailabs@gmail.com" };
   const store = { write: async (p, t) => { fs.mkdirSync(join(root, p, ".."), { recursive: true }); fs.writeFileSync(join(root, p), t); },
     git: async (args) => execFileSync("git", args, { cwd: root, env, encoding: "utf8" }) };
   fs.writeFileSync(join(root, "05-reviews/round-1/snapshot-close.json"), JSON.stringify(snapshot, null, 1) + "\n");

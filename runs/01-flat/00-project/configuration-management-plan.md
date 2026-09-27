@@ -12,4 +12,4 @@ Configuration management means: always know exactly which version of every file 
 | 8.2 change control | one commit per phase; later changes through Sanad review rounds (Phase 3) |
 | 8.3 status accounting | Sanad baselines in `.ejadah/rew/baselines.json`, copies in 04-baselines/ (Phase 2b) |
 
-Commits are made as `Masood <mohd.masood26@gmail.com>`. Local repo only; no remote until Masood adds one.
+Commits are made as `Masood <ejadahailabs@gmail.com>`. Local repo only; no remote until Masood adds one.
