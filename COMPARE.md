@@ -15,3 +15,25 @@
 - **Class-C yardstick differs.** Run 1 counted 26 artifacts. Run 2 counted 28 IEC 62304 clauses. Runs 03+ use run 2's clause index so rows compare.
 - **Gate at the end.** Run 1: 17 warnings, kept on purpose (bench results cannot exist without a board). Run 2: 0 errors, 167 warnings (46 of them the same missing bench results).
 - **Sources:** run 1 — `runs/01-flat/13-assessment/SUMMARY.md`, `class-c-checklist.md`, `CLICK-LIST.md`. Run 2 — `runs/02-magicgrid/DOGFOOD-STATE.md`, `13-assessment/iec62304-compliance-index.md`, `alarm-path-trace.md`, `sanad-runs/phase-12b/gate.txt`.
+
+## Across the runs
+
+**In one line:** put all five runs side by side and the same three things keep breaking, no matter which way the model is drawn.
+
+| Run | What a reader can follow | Best / worst picture grade | Requirement count | Class-C / DAL homes | Click minutes |
+|---|---|---|---|---|---|
+| 01 flat | No — Masood: "unable to see a proper decomposition story" | A / F (3 A, 7 B, 6 C, 6 F) | 70 | 26 artifacts: yes 8 · partly 5 · no 13 | 143 |
+| 02 magicgrid | Not yet judged by Masood; the alarm path reads end to end | A / F, but far fewer bad ones (6 A, 12 B, 4 C, 1 F) | 132 | 28 clauses: yes 13 · partly 2 · no 13 | 171 |
+| 03 arcadia | Yes, top-down — each layer answers one question and links to the next | A / B- (5 A, 4 A-, 1 B+, 1 B, 1 B-) | 138 | 28 clauses: yes 13 · partly 3 · no 12 | 45 |
+| 04 aerospace-ladder | Yes, top to bottom — every requirement points one rung up, every item has a DAL with a reason | A / C (2 A, 6 B, 2 C) | 177 | 71 DO-178C objectives (DAL A): yes 15 · partly 22 · no 32 · n/a 2 | 55 |
+| 05 iec62304-pinned | Yes, floor by floor — each 62304 clause has one folder that owes it | A / D (1 A, 12 B, 4 C, 3 D) | 146 | 28 clauses: yes 13 · partly 2 · no 13 | 45 |
+
+Sanad is a build in progress: none of the five is "built", "complete" or "qualified" — each is one more data point on what the tool does and does not do yet.
+
+**Conclusion, from the rows above and LESSONS.md:**
+
+1. Every framework after the flat one had to write its own script to check its own layers, because Sanad still reads no framework file at all — runs 3, 4 and 5 each repeat the same workaround (`level-check.py`) that run 2 invented, instead of Sanad enforcing it.
+2. Run 2 (recursive MagicGrid) and run 5 (pinned floors) each get half the decomposition story right: the pinned stack is the clearer read clause-by-clause for the software, but it loses the product's own story above the software line — so the framework file needs a `depth: pinned` option living inside the same `step` shape, pinned from the software system down and recursive above it, declared once per branch.
+3. Sanad's own report wording defaults to DO-178C language no matter what standard a project declares — runs 3, 4 and 5 all had to remap clause numbers by hand because the reports keep citing DO-178C tables on an IEC 62304 / Arcadia project.
+4. The canvas is the one part of Sanad that did not keep pace as the runs got harder: every run from 02 onward graded its wiring pictures C or worse for the same two reasons (ports on the wrong side of the box, labels parked on dotted leaders away from their wire), even while the requirement and safety side of Sanad kept improving run over run.
+5. Running the same monitor five times surfaced three things no single run would have found on its own: a budget split across a functional chain reads to Sanad as a conflict rather than a legal derivation (run 3); one "parent type per requirement type" rule cannot express "derive from any requirement of the layer above" (runs 3, 4, 5); and five projects sharing one git repository make every baseline read dirty regardless of which project actually changed (runs 3, 4).
