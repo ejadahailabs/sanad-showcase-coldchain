@@ -162,11 +162,14 @@ def main():
         for f, ln in x.get("sites", []): site_comp[IDS[key]] = COMP.get(f.split("/")[2])
     for item, (pd, parts, links) in DESIGN.items():
         use = pd[0].lower() + pd[1:]
-        body = (f"\n    part def {pd} {{\n        doc /* Software architecture of `{item}` with Sanad's software profile (#Component, #Thread from MrtmSoftware). */\n"
-                + "".join(f"        part {p};\n" for p in parts) + "".join(f"        {l}\n" for l in links) + f"    }}\n    part {use} : {pd};\n")
+        arch = pd.replace("Design", "Architecture")
+        write(f"{FW_PATH(item)}/design/{arch}.sysml", imp("ScalarValues", "SoftwareProfile", "MrtmInterfaces", "MrtmSoftware"), arch,
+              f"Software architecture of `{item}` (DO-178C §5.2.1) with Sanad's software profile (#Component, #Thread from MrtmSoftware). No satisfy here.",
+              f"\n    part def {pd} {{\n" + "".join(f"        part {p};\n" for p in parts) + "".join(f"        {l}\n" for l in links) + "    }\n")
+        body = f"\n    part {use} : {pd};\n"
         sat = [(r, f"{use}.{site_comp[r]}" if site_comp.get(r) else use) for r in reqs_in(f"llr/{item}")]
         n += write(f"{FW_PATH(item)}/design/{pkg(item + '-design')}.sysml",
-                   imp("ScalarValues", "SoftwareProfile", "ProjectRequirements", "MrtmInterfaces", "MrtmSoftware"), pkg(item + "-design"),
+                   imp("ScalarValues", "ProjectRequirements", arch), pkg(item + "-design"),
                    f"SOFTWARE DESIGN of `{item}` (DO-178C §5.2): its architecture and its low-level requirements. Satisfies its own LLR only, each by the component whose code implements it.",
                    body, sat)
     # ---- system ----
@@ -249,6 +252,27 @@ def main():
     succession first logStart then acknowledge;
     succession first acknowledge then ackLine;
     succession first ackLine then silence;
+""")
+    write("system/SystemFunctions.sysml", imp("MrtmInterfaces"), "SystemFunctions",
+      "Functional decomposition at SYSTEM level: the nine system functions the items perform (from run 2's MrtmLogical, without the performers). No satisfy here.", """
+    action def SystemFunctions {
+        action acquireSample { doc /* sensor-hw, alarm-sw */ out item sample : TemperatureSample; }
+        action checkProbe { doc /* alarm-sw */ in item sample : TemperatureSample; out item valid : TemperatureSample; }
+        action detectExcursion { doc /* alarm-sw */ in item valid : TemperatureSample; out item excursion : ExcursionState; }
+        action annunciateAlarm { doc /* alarm-sw, alarm-hw */ in item excursion : ExcursionState; out item command : AlarmCommand; }
+        action showStatus { doc /* display-sw, display-hw */ in item excursion : ExcursionState; }
+        action recordEvent { doc /* record-sw */ in item excursion : ExcursionState; in item power : PowerEvent; out item record : LogRecord; }
+        action serveHistory { doc /* export-sw */ in item record : LogRecord; }
+        action supervisePower { doc /* power-hw, platform-sw */ out item power : PowerEvent; }
+        action superviseSoftware { doc /* platform-sw, controller-hw, backup alarm */ }
+        flow of TemperatureSample from acquireSample.sample to checkProbe.sample;
+        flow of TemperatureSample from checkProbe.valid to detectExcursion.valid;
+        flow of ExcursionState from detectExcursion.excursion to annunciateAlarm.excursion;
+        flow of ExcursionState from detectExcursion.excursion to showStatus.excursion;
+        flow of ExcursionState from detectExcursion.excursion to recordEvent.excursion;
+        flow of PowerEvent from supervisePower.power to recordEvent.power;
+        flow of LogRecord from recordEvent.record to serveHistory.record;
+    }
 """)
     write("items/alarm-sw/AlarmSwFunctions.sysml", imp("MrtmInterfaces", "MrtmSwStates"), "AlarmSwFunctions",
       "Functional decomposition of the alarm software item (item level): what its HLR ask, in order. No satisfy here.", """

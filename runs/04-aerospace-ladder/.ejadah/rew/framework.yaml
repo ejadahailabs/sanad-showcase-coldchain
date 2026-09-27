@@ -119,15 +119,15 @@ nodes:
   - {name: alarm-hw,        path: items/alarm-hw,         kind: hardware-item,   level: item,     dal: A, parent: system}
   - {name: controller-hw,   path: items/controller-hw,    kind: hardware-item,   level: item,     dal: A, parent: system}
   - {name: power-hw,        path: items/power-hw,         kind: hardware-item,   level: item,     dal: B, parent: system}
-  - {name: display-hw,      path: items/display-hw,       kind: hardware-item,   level: item,     dal: C, parent: system}
+  - {name: display-hw,      path: items/display-hw,       kind: hardware-item,   level: item,     dal: B, parent: system}
   - {name: alarm-sw,        path: items/alarm-sw,         kind: software-item,   level: item,     dal: A, parent: system}
   - {name: platform-sw,     path: items/platform-sw,      kind: software-item,   level: item,     dal: A, parent: system}
-  - {name: display-sw,      path: items/display-sw,       kind: software-item,   level: item,     dal: C, parent: system}
+  - {name: display-sw,      path: items/display-sw,       kind: software-item,   level: item,     dal: B, parent: system}
   - {name: record-sw,       path: items/record-sw,        kind: software-item,   level: item,     dal: C, parent: system}
   - {name: export-sw,       path: items/export-sw,        kind: software-item,   level: item,     dal: D, parent: system}
   - {name: alarm-sw-design,    path: items/alarm-sw/design,    kind: software-design, level: software-design, dal: A, parent: alarm-sw,    components: [sensorSampler, limitEvaluator, alarmMgr]}
   - {name: platform-sw-design, path: items/platform-sw/design, kind: software-design, level: software-design, dal: A, parent: platform-sw, components: [wdtKicker, diagnostics, configMgr, powerMon]}
-  - {name: display-sw-design,  path: items/display-sw/design,  kind: software-design, level: software-design, dal: C, parent: display-sw,  components: [displayMgr]}
+  - {name: display-sw-design,  path: items/display-sw/design,  kind: software-design, level: software-design, dal: B, parent: display-sw,  components: [displayMgr]}
   - {name: record-sw-design,   path: items/record-sw/design,   kind: software-design, level: software-design, dal: C, parent: record-sw,   components: [eventLog, historyRing, rtcClock]}
   - {name: export-sw-design,   path: items/export-sw/design,   kind: software-design, level: software-design, dal: D, parent: export-sw,   components: [usbExport]}
 
