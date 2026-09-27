@@ -1,0 +1,102 @@
+erew: symbol index — rew-builtin 0.6.3: 46 symbol(s), no kinds (schema 1) · 46 tracing to 97 requirement(s)
+erew: data dictionary — 01-data-dictionary/data-dictionary.md: 14 parameter(s), 13 mapped to software names
+erew: verification cases — 11-verification/cases/verification-cases.csv: 99 case(s) · carrying level, category, author, state
+erew: test results — 11-verification/results/unit (verification-ll): 79 case result(s) from 13 report(s), 1 naming no declared case
+erew: test results — 11-verification/results/integration (verification-component): 5 case result(s) from 1 report(s)
+erew: test results — 11-verification/results/system (systems-verification-results): 15 case result(s) from 1 report(s)
+erew: coverage — 11-verification/evidence/coverage/host-unit-integration.info: 40 symbol(s) in 14 indexed file(s), 47 matching no single indexed symbol
+erew: code source text — 0 of 104 covered file(s) swept, 0 symbol(s) with attached text
+erew: architecture conformance — 12 component(s) declaring code · 24 of 104 indexed file(s) assigned · 16 dependency(ies) · 35 directive(s) naming nothing indexed
+erew: sysml project — 80 file(s), 385 element(s), 180 relation(s), 89 check(s)
+erew: sysml project — 06-design/L1-device/LevelPorts.sysml declares `LevelPorts`
+erew: sysml project — 06-design/L1-device/NodeDevice.sysml declares `NodeDevice`
+erew: sysml project — 06-design/L1-device/NodeDeviceContext.sysml declares `NodeDeviceContext`
+erew: sysml project — 06-design/L1-device/NodeDeviceWhiteBox.sysml declares `NodeDeviceWhiteBox`
+erew: sysml project — 06-design/L2-hardware-item/NodeHardwareItem.sysml declares `NodeHardwareItem`
+erew: sysml project — 06-design/L2-hardware-item/NodeHardwareItemParts.sysml declares `NodeHardwareItemParts`
+erew: sysml project — 06-design/L2-software-system/L2SeqExcursion.sysml declares `L2SeqExcursion`
+erew: sysml project — 06-design/L2-software-system/NodeSoftwareSystem.sysml declares `NodeSoftwareSystem`
+erew: sysml project — 06-design/L2-software-system/NodeSoftwareSystemArchitecture.sysml declares `NodeSoftwareSystemArchitecture`
+erew: sysml project — 06-design/L2-software-system/NodeSoftwareSystemHardwareInterface.sysml declares `NodeSoftwareSystemHardwareInterface`
+erew: sysml project — 06-design/L3-software-items/alarm-item/NodeAlarmItem.sysml declares `NodeAlarmItem`
+erew: sysml project — 06-design/L3-software-items/alarm-item/NodeAlarmItemStructure.sysml declares `NodeAlarmItemStructure`
+erew: sysml project — 06-design/L3-software-items/display-item/NodeDisplayItem.sysml declares `NodeDisplayItem`
+erew: sysml project — 06-design/L3-software-items/display-item/NodeDisplayItemStructure.sysml declares `NodeDisplayItemStructure`
+erew: sysml project — 06-design/L3-software-items/excursion-item/NodeExcursionItem.sysml declares `NodeExcursionItem`
+erew: sysml project — 06-design/L3-software-items/excursion-item/NodeExcursionItemStructure.sysml declares `NodeExcursionItemStructure`
+erew: sysml project — 06-design/L3-software-items/log-item/NodeLogItem.sysml declares `NodeLogItem`
+erew: sysml project — 06-design/L3-software-items/log-item/NodeLogItemStructure.sysml declares `NodeLogItemStructure`
+erew: sysml project — 06-design/L3-software-items/power-item/NodePowerItem.sysml declares `NodePowerItem`
+erew: sysml project — 06-design/L3-software-items/power-item/NodePowerItemStructure.sysml declares `NodePowerItemStructure`
+erew: sysml project — 06-design/L3-software-items/sensor-item/NodeSensorItem.sysml declares `NodeSensorItem`
+erew: sysml project — 06-design/L3-software-items/sensor-item/NodeSensorItemStructure.sysml declares `NodeSensorItemStructure`
+erew: sysml project — 06-design/L3-software-items/supervisor-item/NodeSupervisorItem.sysml declares `NodeSupervisorItem`
+erew: sysml project — 06-design/L3-software-items/supervisor-item/NodeSupervisorItemStructure.sysml declares `NodeSupervisorItemStructure`
+erew: sysml project — 06-design/L3-software-items/usb-item/NodeUsbItem.sysml declares `NodeUsbItem`
+erew: sysml project — 06-design/L3-software-items/usb-item/NodeUsbItemStructure.sysml declares `NodeUsbItemStructure`
+erew: sysml project — 06-design/L4-software-units/alarm-mgr/NodeAlarmMgr.sysml declares `NodeAlarmMgr`
+erew: sysml project — 06-design/L4-software-units/config-mgr/NodeConfigMgr.sysml declares `NodeConfigMgr`
+erew: sysml project — 06-design/L4-software-units/diagnostics/NodeDiagnostics.sysml declares `NodeDiagnostics`
+erew: sysml project — 06-design/L4-software-units/display-mgr/NodeDisplayMgr.sysml declares `NodeDisplayMgr`
+erew: sysml project — 06-design/L4-software-units/event-log/NodeEventLog.sysml declares `NodeEventLog`
+erew: sysml project — 06-design/L4-software-units/history-ring/NodeHistoryRing.sysml declares `NodeHistoryRing`
+erew: sysml project — 06-design/L4-software-units/limit-evaluator/NodeLimitEvaluator.sysml declares `NodeLimitEvaluator`
+erew: sysml project — 06-design/L4-software-units/power-mon/NodePowerMon.sysml declares `NodePowerMon`
+erew: sysml project — 06-design/L4-software-units/rtc-clock/NodeRtcClock.sysml declares `NodeRtcClock`
+erew: sysml project — 06-design/L4-software-units/sensor-sampler/NodeSensorSampler.sysml declares `NodeSensorSampler`
+erew: sysml project — 06-design/L4-software-units/usb-export/NodeUsbExport.sysml declares `NodeUsbExport`
+erew: sysml project — 06-design/L4-software-units/wdt-kicker/NodeWdtKicker.sysml declares `NodeWdtKicker`
+erew: sysml project — 06-design/hardware/MrtmHardware.sysml declares `MrtmHardware`
+erew: sysml project — 06-design/packages/per-level/ReqL1Device.sysml declares `ReqL1Device`
+erew: sysml project — 06-design/packages/per-level/ReqL2HardwareItem.sysml declares `ReqL2HardwareItem`
+erew: sysml project — 06-design/packages/per-level/ReqL2SoftwareSystem.sysml declares `ReqL2SoftwareSystem`
+erew: sysml project — 06-design/packages/per-level/ReqL3SoftwareItem.sysml declares `ReqL3SoftwareItem`
+erew: sysml project — 06-design/packages/per-level/ReqL4SoftwareUnit.sysml declares `ReqL4SoftwareUnit`
+erew: sysml project — 06-design/packages/requirements.sysml declares `ProjectRequirements` (generated — edit the Markdown requirement)
+erew: sysml project — 06-design/software/MrtmSeqExcursion.sysml declares `MrtmSeqExcursion`
+erew: sysml project — 06-design/software/MrtmSeqPowerLoss.sysml declares `MrtmSeqPowerLoss`
+erew: sysml project — 06-design/software/MrtmSeqProbeFault.sysml declares `MrtmSeqProbeFault`
+erew: sysml project — 06-design/software/MrtmSoftware.sysml declares `MrtmSoftware`
+erew: sysml project — 06-design/software/MrtmSwCodes.sysml declares `MrtmSwCodes`
+erew: sysml project — 06-design/software/MrtmSwDetail.sysml declares `MrtmSwDetail`
+erew: sysml project — 06-design/software/MrtmSwStates.sysml declares `MrtmSwStates`
+erew: sysml project — 06-design/system/MrtmInterfaces.sysml declares `MrtmInterfaces`
+erew: sysml project — 06-design/system/MrtmLogical.sysml declares `MrtmLogical`
+erew: sysml project — 06-design/system/MrtmPartitions.sysml declares `MrtmPartitions`
+erew: sysml project — 06-design/system/MrtmPhysical.sysml declares `MrtmPhysical`
+erew: sysml project — 06-design/system/MrtmSafety.sysml declares `MrtmSafety`
+erew: sysml project — 06-design/system/MrtmSystemContext.sysml declares `MrtmSystemContext`
+erew: sysml project — 06-design/system/MrtmUseCases.sysml declares `MrtmUseCases`
+erew: sysml project — 06-design/views/L1_device_blockView.sysml declares `L1_device_blockView`
+erew: sysml project — 06-design/views/L1_device_contextView.sysml declares `L1_device_contextView`
+erew: sysml project — 06-design/views/L1_device_usecasesView.sysml declares `L1_device_usecasesView`
+erew: sysml project — 06-design/views/L2_hardware_item_partsView.sysml declares `L2_hardware_item_partsView`
+erew: sysml project — 06-design/views/L2_software_system_architectureView.sysml declares `L2_software_system_architectureView`
+erew: sysml project — 06-design/views/L2_software_system_excursionView.sysml declares `L2_software_system_excursionView`
+erew: sysml project — 06-design/views/L2_software_system_hardwareView.sysml declares `L2_software_system_hardwareView`
+erew: sysml project — 06-design/views/L2_software_system_modesView.sysml declares `L2_software_system_modesView`
+erew: sysml project — 06-design/views/L3_alarm_item_statesView.sysml declares `L3_alarm_item_statesView`
+erew: sysml project — 06-design/views/L3_alarm_item_structureView.sysml declares `L3_alarm_item_structureView`
+erew: sysml project — 06-design/views/L3_display_item_structureView.sysml declares `L3_display_item_structureView`
+erew: sysml project — 06-design/views/L3_excursion_item_structureView.sysml declares `L3_excursion_item_structureView`
+erew: sysml project — 06-design/views/L3_log_item_structureView.sysml declares `L3_log_item_structureView`
+erew: sysml project — 06-design/views/L3_power_item_structureView.sysml declares `L3_power_item_structureView`
+erew: sysml project — 06-design/views/L3_sensor_item_structureView.sysml declares `L3_sensor_item_structureView`
+erew: sysml project — 06-design/views/L3_supervisor_item_structureView.sysml declares `L3_supervisor_item_structureView`
+erew: sysml project — 06-design/views/L3_usb_item_structureView.sysml declares `L3_usb_item_structureView`
+erew: sysml project — 06-design/views/L4_display_mgr_classesView.sysml declares `L4_display_mgr_classesView`
+erew: sysml project — 06-design/views/L4_units_alarm_path_contractsView.sysml declares `L4_units_alarm_path_contractsView`
+erew: sysml project — 06-design/views/L4_units_data_contractsView.sysml declares `L4_units_data_contractsView`
+erew: sysml project — 06-design/views/SanadRenderings.sysml declares `SanadRenderings`
+erew: context layer: 295 file(s), 2377 node(s), 46 skipped (18 ignored, 21 binary, 7 empty, 0 over the size ceiling, 0 unread at the total ceiling) · cut short: 06-design/hardware/MrtmHardware.sysml, 06-design/L1-device/INDEX.md, 06-design/packages/requirements.sysml, 06-design/system/MrtmSafety.sysml, 06-design/views/rendered/L1_device_block.svg, 06-design/views/rendered/L1_device_context.svg, 06-design/views/rendered/L1_device_usecases.svg, 06-design/views/rendered/L2_hardware_item_parts.svg, 06-design/views/rendered/L2_software_system_architecture.svg, 06-design/views/rendered/L2_software_system_excursion.svg, 06-design/views/rendered/L2_software_system_hardware.svg, 06-design/views/rendered/L2_software_system_modes.svg, 06-design/views/rendered/L3_alarm_item_states.svg, 06-design/views/rendered/L3_alarm_item_structure.svg, 06-design/views/rendered/L3_display_item_structure.svg, 06-design/views/rendered/L3_excursion_item_structure.svg, 06-design/views/rendered/L3_log_item_structure.svg, 06-design/views/rendered/L3_power_item_structure.svg, 06-design/views/rendered/L3_sensor_item_structure.svg, 06-design/views/rendered/L3_supervisor_item_structure.svg, 06-design/views/rendered/L3_usb_item_structure.svg, 06-design/views/rendered/L4_display_mgr_classes.svg, 06-design/views/rendered/L4_units_alarm_path_contracts.svg, 06-design/views/rendered/L4_units_data_contracts.svg, 08-safety/01a-risk-analysis-fmea.md, 09-hardware/component-selection.md, 09-hardware/hardware-trace-matrix.md, 11-verification/procedures/system-procedures.md, 13-assessment/sanad-runs/first-gate/evidence.json, 13-assessment/sanad-runs/first-gate/gate.txt, 13-assessment/sanad-runs/first-gate/gate.txt.stderr, 13-assessment/sanad-runs/first-gate/ledger.json.stderr, 13-assessment/sanad-runs/first-gate/report-eiwr.md.stderr, 13-assessment/sanad-runs/first-gate/report-requirements-trace.md, 13-assessment/sanad-runs/first-gate/report-requirements-trace.md.stderr, 13-assessment/sanad-runs/first-gate/report-requirements.md, 13-assessment/sanad-runs/first-gate/report-requirements.md.stderr, 13-assessment/sanad-runs/first-gate/report-statistics.md.stderr, 13-assessment/sanad-runs/first-gate/report-test-coverage.csv.stderr, 13-assessment/sanad-runs/first-gate/report-test-coverage.md.stderr, 13-assessment/sanad-runs/first-gate/report-traceability-audit.csv, 13-assessment/sanad-runs/first-gate/report-traceability-audit.csv.stderr, 13-assessment/sanad-runs/first-gate/report-traceability-audit.md, 13-assessment/sanad-runs/first-gate/report-traceability-audit.md.stderr, 13-assessment/sanad-runs/first-gate/report-traceability.md.stderr, 13-assessment/sanad-runs/first-gate/report-validation.md, 13-assessment/sanad-runs/first-gate/report-validation.md.stderr, 13-assessment/sanad-runs/gate-2/gate.txt, tools/picture.css
+erew: rule pack: requirements-writing (Requirements writing — deterministic prose rules)
+erew: code trace — 160 asserted implements edge(s) (160 codeIndex) · 0 candidate DD-term link(s) · 342 symbol↔verification pair(s) through the trace
+erew: test outcome — 99 case(s) with a declared result (85 pass, 14 skipped) · 40 symbol(s) with measured coverage, 0 traced and never exercised
+erew: dictionary values — 1 enum-value mention(s) — 0 resolved in scope, 1 sole-owner out of scope (both bound), 0 ambiguous (carded, not bound)
+erew: read ledger — 7 item(s) this repository states that Sanad did not read
+erew:   Links and claims not made: 7
+erew:     MRTM-ALI-002 — 23 reference(s) use the prefix "ADR", which no type declares
+erew:     MRTM-SYS-024 — 1 reference(s) use the prefix "CR", which no type declares
+erew:     MRTM-AMG-003 — 1 reference(s) use the prefix "IFC", which no type declares
+erew:     …and 4 more
+erew: --baseline REQ-BL-M1: no baseline with that label in /home/masood/Masood/Office_Projects/dogfood-fridge/runs/05-iec62304-pinned.
