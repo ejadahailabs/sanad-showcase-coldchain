@@ -6,7 +6,7 @@ private import AeroPorts::*;
 
 package NodeAircraft {
 
-    doc /* AIRCRAFT LEVEL (ARP4754A §5.1): the monitor as ONE product among its neighbours, and its five functions. Satisfies the stakeholder needs, the product functions and the FHA safety objectives only. */
+    doc /* AIRCRAFT LEVEL (ARP4754A §5.1): the monitor as ONE product among its neighbours, and its five functions. Covers the stakeholder needs, the product functions and the FHA safety objectives only. */
 
     part def MonitorDevice {
         doc /* The product seen from outside: what the clinic touches. DAL A (FHA, 08-safety/01-fha.md). */

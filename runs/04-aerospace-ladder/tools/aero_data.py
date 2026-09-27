@@ -3,7 +3,7 @@ hardware item requirements, software HLR and LLR), in the order Sanad's allocato
 the copied code, tests and bench procedures are re-pointed. Read by tools/aero-build.py.
 Row: (key, type, node, parents, title, statement, rationale, verification, dal, extra)
   parents = keys of this file or existing ids (MRTM-SYS-001 ...); [] with extra["derived"] = derived requirement
-  extra: hazards=[...], old=[run-2 ids this row re-homes], sites=[(file, line)] (LLR only: the implements-marker lines).
+  extra: hazards=[...], old=[run-2 ids this row re-homes], sites=[(file, line)] (LLR only: the code-trace marker lines).
 Statement text of re-homed rows is run 2's (tools/levels_data.py there) with the subject changed to the item.
 DRAFT — needs Masood's review. Synthetic data only."""
 

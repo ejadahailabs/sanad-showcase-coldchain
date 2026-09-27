@@ -6,7 +6,7 @@ private import AeroPorts::*;
 
 package NodeDisplaySw {
 
-    doc /* ITEM `display-sw` (ARP4754A §5.3 item, DAL B). Satisfies its own high-level requirements (DO-178C §5.1) only. */
+    doc /* ITEM `display-sw` (ARP4754A §5.3 item, DAL B). Covers its own high-level requirements (DO-178C §5.1) only. */
 
     part def DisplaySw {
         doc /* Draws the temperature, the warning and the maintenance messages. */

@@ -6,7 +6,7 @@ private import AeroPorts::*;
 
 package NodeAlarmSw {
 
-    doc /* ITEM `alarm-sw` (ARP4754A §5.3 item, DAL A). Satisfies its own high-level requirements (DO-178C §5.1) only. */
+    doc /* ITEM `alarm-sw` (ARP4754A §5.3 item, DAL A). Covers its own high-level requirements (DO-178C §5.1) only. */
 
     part def AlarmSw {
         doc /* Samples the probe, decides early / confirmed / ended excursions and drives the alarm signals. The alarm path. */

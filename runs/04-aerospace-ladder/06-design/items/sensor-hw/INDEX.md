@@ -3,7 +3,7 @@
 **In one line:** a hardware item (DO-254 shape).
 
 - **Parent:** system · **Children:** — (leaf)
-- **Requirements:** `03-requirements/hwr/sensor-hw/` (3) · **Model:** the `.sysml` files in this folder; the `satisfy` lines name this node's requirements only.
+- **Requirements:** `03-requirements/hwr/sensor-hw/` (3) · **Model:** the `.sysml` files in this folder; the satisfy lines name this node's requirements only.
 
 ## Pictures
 

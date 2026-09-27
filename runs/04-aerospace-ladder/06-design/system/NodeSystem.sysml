@@ -17,7 +17,7 @@ private import NodeExportSw::*;
 
 package NodeSystem {
 
-    doc /* SYSTEM LEVEL (ARP4754A §5.2–5.3): the monitoring system and its ten items. Satisfies the system requirements only. */
+    doc /* SYSTEM LEVEL (ARP4754A §5.2–5.3): the monitoring system and its ten items. Covers the system requirements only. */
 
     part def MonitorSystem :> MonitorDevice {
         doc /* The system: five hardware items, five software items hosted on the controller hardware. */

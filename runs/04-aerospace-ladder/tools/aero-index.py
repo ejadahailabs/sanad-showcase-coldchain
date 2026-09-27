@@ -37,7 +37,7 @@ for n in FW["nodes"]:
     t = [f"# {n['name']} — {n['kind'].replace('-', ' ')} (rung: {n['level']}, DAL {n['dal']})", "",
          f"**In one line:** {WHAT[n['kind']]}.", "",
          f"- **Parent:** {n.get('parent', '— (top)')} · **Children:** {', '.join(kids) or '— (leaf)'}",
-         f"- **Requirements:** `03-requirements/{k}/` ({len(rs)}) · **Model:** the `.sysml` files in this folder; the `satisfy` lines name this node's requirements only.", ""]
+         f"- **Requirements:** `03-requirements/{k}/` ({len(rs)}) · **Model:** the `.sysml` files in this folder; the satisfy lines name this node's requirements only.", ""]
     if pics:
         t += ["## Pictures, in reading order", ""] + [f"{i}. `{p}` — {PIC.get(p[:-4], '')}  \n   ![{p}](pictures/{p})" for i, p in enumerate(pics, 1)] + [""]
     else:

@@ -6,7 +6,7 @@ private import AeroPorts::*;
 
 package NodePlatformSw {
 
-    doc /* ITEM `platform-sw` (ARP4754A §5.3 item, DAL A). Satisfies its own high-level requirements (DO-178C §5.1) only. */
+    doc /* ITEM `platform-sw` (ARP4754A §5.3 item, DAL A). Covers its own high-level requirements (DO-178C §5.1) only. */
 
     part def PlatformSw {
         doc /* Power-up order and self-tests, the band check, the watchdog gate, mains and battery events, task priorities. */

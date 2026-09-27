@@ -5,7 +5,7 @@ private import DisplaySwArchitecture::*;
 
 package NodeDisplaySwDesign {
 
-    doc /* SOFTWARE DESIGN of `display-sw` (DO-178C §5.2): its architecture and its low-level requirements. Satisfies its own LLR only, each by the component whose code implements it. */
+    doc /* SOFTWARE DESIGN of `display-sw` (DO-178C §5.2): its architecture and its low-level requirements. Covers its own LLR only, each by the component whose code implements it. */
 
     part displaySwDesign : DisplaySwDesign;
 

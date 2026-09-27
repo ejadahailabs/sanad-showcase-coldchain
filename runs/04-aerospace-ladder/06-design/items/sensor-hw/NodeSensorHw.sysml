@@ -6,7 +6,7 @@ private import AeroPorts::*;
 
 package NodeSensorHw {
 
-    doc /* ITEM `sensor-hw` (ARP4754A §5.3 item, DAL A). Satisfies its own hardware item requirements only. */
+    doc /* ITEM `sensor-hw` (ARP4754A §5.3 item, DAL A). Covers its own hardware item requirements only. */
 
     part def SensorHw {
         doc /* The temperature probe on its 1-Wire bus (DS18B20 class, synthetic). */

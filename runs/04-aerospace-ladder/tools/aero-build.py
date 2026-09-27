@@ -3,7 +3,7 @@
 Usage (run folder):
   python3 tools/aero-build.py spec TYPES OUT   create-path spec for tools/author-requirements.cjs (TYPES: comma list)
   python3 tools/aero-build.py fix-system       aerospace uplinks + DAL on the copied STK and system requirements
-  python3 tools/aero-build.py markers          re-point the implements markers (LLR), the verifies markers (HLR/LLR) and SP rows
+  python3 tools/aero-build.py markers          re-point code-trace markers to LLR, test markers to HLR/LLR, and SP rows
 Ids come from Sanad's allocator; tools/aero-ids.json maps each key of tools/aero_data.py to its id.
 Every write is idempotent. DRAFT — needs Masood's review."""
 import json, pathlib, re, sys, yaml
@@ -16,7 +16,7 @@ NODES = {n["name"]: n for n in FW["nodes"]}
 IDS_PATH = ROOT / "tools/aero-ids.json"
 IDS = json.loads(IDS_PATH.read_text()) if IDS_PATH.exists() else {}
 BY_KEY = {r[0]: r for r in REQS}
-IMPL = "@" "implements"  # split so Sanad's code index does not read this tool as a trace (F-4-010)
+IMPL = "@" + "impl" + "ements"  # built in parts: the code index reads the word as a trace (run 2 F-135)
 RANK = "EDCBA"  # higher index = more severe
 
 def rid(k): return IDS.get(k, k)
@@ -88,7 +88,7 @@ def old_map():
 
 def markers():
     n = 0
-    # 1 source: every implements-marker line names the LLR(s) of its site only (DO-178C §11.21 source ↔ LLR)
+    # 1 source: every code-trace marker line names the LLR(s) of its site only (DO-178C §11.21 source ↔ LLR)
     site = {}
     for key, typ, *_, x in REQS:
         for s in x.get("sites", []): site.setdefault(s, []).append(rid(key))
@@ -99,7 +99,7 @@ def markers():
         p.write_text("\n".join(L)); n += 1
     left = [f"{p}:{i}" for p in (ROOT / "10-src").rglob("*.c*") for i, l in enumerate(p.read_text().split("\n"), 1)
             if IMPL + " MRTM-" in l and not any(p == ROOT / "10-src" / f and i == ln for f, ln in site)]
-    assert not left, f"implements-marker lines with no LLR site: {left}"
+    assert not left, f"code-trace marker lines with no LLR site: {left}"
     # 2 tests: @verifies names the HLR / LLR the test drives
     for p in (ROOT / "10-src").rglob("test_*.c"):
         L = p.read_text().split("\n"); changed = False

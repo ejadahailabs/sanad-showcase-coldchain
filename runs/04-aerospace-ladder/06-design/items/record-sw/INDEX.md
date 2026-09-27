@@ -3,7 +3,7 @@
 **In one line:** a software item: its HLR (DO-178C §5.1).
 
 - **Parent:** system · **Children:** record-sw-design
-- **Requirements:** `03-requirements/hlr/record-sw/` (5) · **Model:** the `.sysml` files in this folder; the `satisfy` lines name this node's requirements only.
+- **Requirements:** `03-requirements/hlr/record-sw/` (5) · **Model:** the `.sysml` files in this folder; the satisfy lines name this node's requirements only.
 
 ## Pictures
 

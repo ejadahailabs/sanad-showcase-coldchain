@@ -6,7 +6,7 @@ private import AeroPorts::*;
 
 package NodePowerHw {
 
-    doc /* ITEM `power-hw` (ARP4754A §5.3 item, DAL B). Satisfies its own hardware item requirements only. */
+    doc /* ITEM `power-hw` (ARP4754A §5.3 item, DAL B). Covers its own hardware item requirements only. */
 
     part def PowerHw {
         doc /* Mains adapter input, power path and the Li-ion battery. */

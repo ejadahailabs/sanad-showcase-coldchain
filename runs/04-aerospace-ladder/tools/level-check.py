@@ -7,7 +7,7 @@
                        has no uplink and is named in 08-safety/02-pssa.md
   4 depth pinned     : each node sits exactly one rung below its parent; a software design only under a software item
   5 DAL              : an item / design requirement carries its node's DAL
-  6 code → LLR       : every implements-marker id in 10-src is an LLR (DO-178C §11.21)
+  6 code → LLR       : every code-trace marker id in 10-src is an LLR (DO-178C §11.21)
   7 boxes            : every view's picture has <= max_boxes_per_view boxes
   8 index            : every node has INDEX.md, and it shows every picture in its pictures/ folder
 The node of a requirement is its FOLDER: 03-requirements/{aircraft,system}/…, {hwr,hlr}/<item>, llr/<item> (F-4-005).
@@ -41,7 +41,7 @@ def load():
     impl = []
     for p in (ROOT / "10-src").rglob("*.c*"):
         for i, l in enumerate(p.read_text().split("\n"), 1):
-            m = re.search("@" "implements" r"\s+([^*]*)", l)  # split: F-4-010
+            m = re.search("@" + "impl" + "ements" + r"\s+([^*]*)", l)
             if m and "MRTM-" in m.group(1): impl += [(i2, f"{p.relative_to(ROOT)}:{i}") for i2 in m.group(1).split()]
     pssa = (ROOT / "08-safety/02-pssa.md").read_text() if (ROOT / "08-safety/02-pssa.md").exists() else ""
     return fw, reqs, sat, views, impl, pssa

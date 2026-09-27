@@ -3,7 +3,7 @@
 **In one line:** the whole product and its needs, functions and FHA objectives.
 
 - **Parent:** — (top) · **Children:** system
-- **Requirements:** `03-requirements/aircraft/` (18) · **Model:** the `.sysml` files in this folder; the `satisfy` lines name this node's requirements only.
+- **Requirements:** `03-requirements/aircraft/` (18) · **Model:** the `.sysml` files in this folder; the satisfy lines name this node's requirements only.
 
 ## Pictures, in reading order
 

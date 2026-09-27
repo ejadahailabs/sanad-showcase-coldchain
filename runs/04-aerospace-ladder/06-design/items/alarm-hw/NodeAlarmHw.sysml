@@ -6,7 +6,7 @@ private import AeroPorts::*;
 
 package NodeAlarmHw {
 
-    doc /* ITEM `alarm-hw` (ARP4754A §5.3 item, DAL A). Satisfies its own hardware item requirements only. */
+    doc /* ITEM `alarm-hw` (ARP4754A §5.3 item, DAL A). Covers its own hardware item requirements only. */
 
     part def AlarmHw {
         doc /* Buzzer, red and green lights, acknowledge button and the backup alarm (external watchdog timer, driver, hold-up store). */

@@ -5,7 +5,7 @@ private import RecordSwArchitecture::*;
 
 package NodeRecordSwDesign {
 
-    doc /* SOFTWARE DESIGN of `record-sw` (DO-178C §5.2): its architecture and its low-level requirements. Satisfies its own LLR only, each by the component whose code implements it. */
+    doc /* SOFTWARE DESIGN of `record-sw` (DO-178C §5.2): its architecture and its low-level requirements. Covers its own LLR only, each by the component whose code implements it. */
 
     part recordSwDesign : RecordSwDesign;
 

@@ -3,7 +3,7 @@
 **In one line:** the software design of an item: architecture + LLR (DO-178C §5.2).
 
 - **Parent:** platform-sw · **Children:** — (leaf)
-- **Requirements:** `03-requirements/llr/platform-sw/` (10) · **Model:** the `.sysml` files in this folder; the `satisfy` lines name this node's requirements only.
+- **Requirements:** `03-requirements/llr/platform-sw/` (10) · **Model:** the `.sysml` files in this folder; the satisfy lines name this node's requirements only.
 
 ## Pictures
 

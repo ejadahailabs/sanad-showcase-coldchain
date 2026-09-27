@@ -3,7 +3,7 @@
 **In one line:** the monitoring system: requirements, functions, ten items.
 
 - **Parent:** aircraft · **Children:** sensor-hw, alarm-hw, controller-hw, power-hw, display-hw, alarm-sw, platform-sw, display-sw, record-sw, export-sw
-- **Requirements:** `03-requirements/system/` (62) · **Model:** the `.sysml` files in this folder; the `satisfy` lines name this node's requirements only.
+- **Requirements:** `03-requirements/system/` (62) · **Model:** the `.sysml` files in this folder; the satisfy lines name this node's requirements only.
 
 ## Pictures, in reading order
 

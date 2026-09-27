@@ -6,7 +6,7 @@ private import AeroPorts::*;
 
 package NodeControllerHw {
 
-    doc /* ITEM `controller-hw` (ARP4754A §5.3 item, DAL A). Satisfies its own hardware item requirements only. */
+    doc /* ITEM `controller-hw` (ARP4754A §5.3 item, DAL A). Covers its own hardware item requirements only. */
 
     part def ControllerHw {
         doc /* The processor board: ESP32-S3 class microcontroller, real-time clock, flash. Hosts all five software items. */

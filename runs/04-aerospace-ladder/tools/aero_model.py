@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """RUN-04: writes the SysML v2 model of the aerospace ladder into 06-design/<node-path>/.
 Structure is written below as text (MANUAL, run 2 F-127); `satisfy` lines are generated from the requirement
-folders: a node satisfies ITS OWN requirements only (rule satisfy: own-node-only).
+folders: a node covers its own requirements only (framework rule "own node only").
 Usage (run folder): python3 tools/aero_model.py.  DRAFT — needs Masood's review."""
 import json, pathlib, re, sys, yaml
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -110,7 +110,7 @@ def main():
         + "\n".join(imp("ScalarValues", "MrtmInterfaces")) + "\n\npackage AeroPorts {\n" + PORTS + "}\n")
     # ---- aircraft ----
     n += write("aircraft/NodeAircraft.sysml", imp("ScalarValues", "ProjectRequirements", "MrtmInterfaces", "AeroPorts"), "NodeAircraft",
-      "AIRCRAFT LEVEL (ARP4754A §5.1): the monitor as ONE product among its neighbours, and its five functions. Satisfies the stakeholder needs, the product functions and the FHA safety objectives only.",
+      "AIRCRAFT LEVEL (ARP4754A §5.1): the monitor as ONE product among its neighbours, and its five functions. Covers the stakeholder needs, the product functions and the FHA safety objectives only.",
       """
     part def MonitorDevice {
         doc /* The product seen from outside: what the clinic touches. DAL A (FHA, 08-safety/01-fha.md). */
@@ -154,7 +154,7 @@ def main():
         body = f"\n    part def {pd} {{\n        doc /* {doc} */\n        {dal(node)}\n" + "".join(f"        {p}\n" for p in ports) + f"    }}\n    part {use} : {pd};\n"
         kind = "hwr" if node.endswith("-hw") else "hlr"
         n += write(f"{FW_PATH(node)}/{pkg(node)}.sysml", imp("ScalarValues", "ProjectRequirements", "MrtmInterfaces", "AeroPorts"), pkg(node),
-                   f"ITEM `{node}` (ARP4754A §5.3 item, DAL {next(x['dal'] for x in FW['nodes'] if x['name'] == node)}). Satisfies its own {'hardware item requirements' if kind == 'hwr' else 'high-level requirements (DO-178C §5.1)'} only.",
+                   f"ITEM `{node}` (ARP4754A §5.3 item, DAL {next(x['dal'] for x in FW['nodes'] if x['name'] == node)}). Covers its own {'hardware item requirements' if kind == 'hwr' else 'high-level requirements (DO-178C §5.1)'} only.",
                    body, [(r, use) for r in reqs_in(f"{kind}/{node}")])
     # ---- software designs (DO-178C §5.2: architecture + LLR) ----
     site_comp = {}
@@ -170,12 +170,12 @@ def main():
         sat = [(r, f"{use}.{site_comp[r]}" if site_comp.get(r) else use) for r in reqs_in(f"llr/{item}")]
         n += write(f"{FW_PATH(item)}/design/{pkg(item + '-design')}.sysml",
                    imp("ScalarValues", "ProjectRequirements", arch), pkg(item + "-design"),
-                   f"SOFTWARE DESIGN of `{item}` (DO-178C §5.2): its architecture and its low-level requirements. Satisfies its own LLR only, each by the component whose code implements it.",
+                   f"SOFTWARE DESIGN of `{item}` (DO-178C §5.2): its architecture and its low-level requirements. Covers its own LLR only, each by the component whose code implements it.",
                    body, sat)
     # ---- system ----
     items = HW + SW
     n += write("system/NodeSystem.sysml", imp("ScalarValues", "ProjectRequirements", "MrtmInterfaces", "AeroPorts", "NodeAircraft", *[pkg(i[0]) for i in items]), "NodeSystem",
-      "SYSTEM LEVEL (ARP4754A §5.2–5.3): the monitoring system and its ten items. Satisfies the system requirements only.",
+      "SYSTEM LEVEL (ARP4754A §5.2–5.3): the monitoring system and its ten items. Covers the system requirements only.",
       "\n    part def MonitorSystem :> MonitorDevice {\n        doc /* The system: five hardware items, five software items hosted on the controller hardware. */\n"
       + "".join(f"        part {u} : {p};\n" for _, p, u, *_ in items)
       + "".join(f"        allocate {u} to controllerHw;\n" for _, p, u, *_ in SW) + "    }\n    part system : MonitorSystem;\n",

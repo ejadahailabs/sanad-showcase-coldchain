@@ -6,7 +6,7 @@ private import AeroPorts::*;
 
 package NodeExportSw {
 
-    doc /* ITEM `export-sw` (ARP4754A §5.3 item, DAL D). Satisfies its own high-level requirements (DO-178C §5.1) only. */
+    doc /* ITEM `export-sw` (ARP4754A §5.3 item, DAL D). Covers its own high-level requirements (DO-178C §5.1) only. */
 
     part def ExportSw {
         doc /* Shows the history to a USB host as a read-only volume. */

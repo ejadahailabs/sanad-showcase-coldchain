@@ -6,7 +6,7 @@ private import AeroPorts::*;
 
 package NodeDisplayHw {
 
-    doc /* ITEM `display-hw` (ARP4754A §5.3 item, DAL B). Satisfies its own hardware item requirements only. */
+    doc /* ITEM `display-hw` (ARP4754A §5.3 item, DAL B). Covers its own hardware item requirements only. */
 
     part def DisplayHw {
         doc /* The 0.96 in OLED panel on the I2C bus. */

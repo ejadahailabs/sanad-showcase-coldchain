@@ -433,49 +433,6 @@
       ]
     },
     {
-      "symbol": "IMPL",
-      "file": "tools/aero-build.py",
-      "implements": [
-        "F-4-010"
-      ]
-    },
-    {
-      "symbol": "site",
-      "file": "tools/aero-build.py",
-      "implements": [
-        "DO-178C"
-      ]
-    },
-    {
-      "symbol": "only",
-      "file": "tools/aero_model.py",
-      "implements": [
-        "own-node-only"
-      ]
-    },
-    {
-      "symbol": "next",
-      "file": "tools/aero_model.py",
-      "implements": [
-        "high-level",
-        "DO-178C"
-      ]
-    },
-    {
-      "symbol": "LLR",
-      "file": "tools/level-check.py",
-      "implements": [
-        "DO-178C"
-      ]
-    },
-    {
-      "symbol": "search",
-      "file": "tools/level-check.py",
-      "implements": [
-        "F-4-010"
-      ]
-    },
-    {
       "symbol": "startswith",
       "file": "tools/level-check.py",
       "implements": [

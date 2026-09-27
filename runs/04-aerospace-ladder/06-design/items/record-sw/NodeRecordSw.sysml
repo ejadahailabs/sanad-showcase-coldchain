@@ -6,7 +6,7 @@ private import AeroPorts::*;
 
 package NodeRecordSw {
 
-    doc /* ITEM `record-sw` (ARP4754A §5.3 item, DAL C). Satisfies its own high-level requirements (DO-178C §5.1) only. */
+    doc /* ITEM `record-sw` (ARP4754A §5.3 item, DAL C). Covers its own high-level requirements (DO-178C §5.1) only. */
 
     part def RecordSw {
         doc /* Time-stamps every event and keeps two copies in flash. */
