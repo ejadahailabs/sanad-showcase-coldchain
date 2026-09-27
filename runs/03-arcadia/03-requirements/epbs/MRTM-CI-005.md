@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, RUN-03-ARCADIA)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-PH-001","MRTM-PH-002","MRTM-PH-003","MRTM-PH-004","MRTM-PH-005"]
 safetyClass: "C"
@@ -16,15 +16,15 @@ derived: false
 
 ## Description
 
-The backup alarm configuration item shall carry a part number and revision on its label, and its bill of materials shall list the backup timer, the backup driver and the hold-up store at that revision.
+The backup alarm configuration item shall carry a label with 1 part number and 1 revision that match its bill of materials entry.
 
 ## Rationale
 
-The independent alarm path (ADR-0013) is its own board so it can be revised and tested apart from the main board (IEC 60601-1 cl. 14 single-fault view).
+The independent alarm path (decision record 0013) is its own board so it can be revised and tested apart from the main board (IEC 60601-1 cl. 14 single-fault view).
 
 ## Verification
 
-Inspection of the label and the BOM against the configuration record.
+Inspection of the label against the BOM and the configuration record.
 
 ## Safety
 

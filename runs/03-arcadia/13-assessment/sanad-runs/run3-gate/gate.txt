@@ -1,0 +1,327 @@
+warning consistency/duplicate-requirement  MRTM-CI-002  Candidate — MRTM-CI-002 repeats MRTM-CI-003 (90 % of its words) — merge them, or say what differs (Inferred from the text, so this is for human judgement, not an established fact.)
+warning consistency/duplicate-requirement  MRTM-CI-002  Candidate — MRTM-CI-002 repeats MRTM-CI-004 (90 % of its words) — merge them, or say what differs (Inferred from the text, so this is for human judgement, not an established fact.)
+warning consistency/duplicate-requirement  MRTM-CI-002  Candidate — MRTM-CI-002 repeats MRTM-CI-005 (90 % of its words) — merge them, or say what differs (Inferred from the text, so this is for human judgement, not an established fact.)
+warning consistency/duplicate-requirement  MRTM-CI-002  Candidate — MRTM-CI-002 repeats MRTM-CI-006 (90 % of its words) — merge them, or say what differs (Inferred from the text, so this is for human judgement, not an established fact.)
+warning consistency/duplicate-requirement  MRTM-CI-003  Candidate — MRTM-CI-003 repeats MRTM-CI-004 (90 % of its words) — merge them, or say what differs (Inferred from the text, so this is for human judgement, not an established fact.)
+warning consistency/duplicate-requirement  MRTM-CI-003  Candidate — MRTM-CI-003 repeats MRTM-CI-005 (90 % of its words) — merge them, or say what differs (Inferred from the text, so this is for human judgement, not an established fact.)
+warning consistency/duplicate-requirement  MRTM-CI-003  Candidate — MRTM-CI-003 repeats MRTM-CI-006 (90 % of its words) — merge them, or say what differs (Inferred from the text, so this is for human judgement, not an established fact.)
+warning consistency/duplicate-requirement  MRTM-CI-004  Candidate — MRTM-CI-004 repeats MRTM-CI-005 (95 % of its words) — merge them, or say what differs (Inferred from the text, so this is for human judgement, not an established fact.)
+warning consistency/duplicate-requirement  MRTM-CI-004  Candidate — MRTM-CI-004 repeats MRTM-CI-006 (95 % of its words) — merge them, or say what differs (Inferred from the text, so this is for human judgement, not an established fact.)
+warning consistency/duplicate-requirement  MRTM-CI-005  Candidate — MRTM-CI-005 repeats MRTM-CI-006 (90 % of its words) — merge them, or say what differs (Inferred from the text, so this is for human judgement, not an established fact.)
+warning architecture/empty-component  (repository)  Component "alarmMgr" is declared in the architecture, and no requirement is allocated to it. Either a requirement should say this component is answerable for it, or the component is a name the design outgrew and should come out of the inventory.
+warning architecture/empty-component  (repository)  Component "configMgr" is declared in the architecture, and no requirement is allocated to it. Either a requirement should say this component is answerable for it, or the component is a name the design outgrew and should come out of the inventory.
+warning architecture/empty-component  (repository)  Component "diagnostics" is declared in the architecture, and no requirement is allocated to it. Either a requirement should say this component is answerable for it, or the component is a name the design outgrew and should come out of the inventory.
+warning architecture/empty-component  (repository)  Component "displayMgr" is declared in the architecture, and no requirement is allocated to it. Either a requirement should say this component is answerable for it, or the component is a name the design outgrew and should come out of the inventory.
+warning architecture/empty-component  (repository)  Component "eventLog" is declared in the architecture, and no requirement is allocated to it. Either a requirement should say this component is answerable for it, or the component is a name the design outgrew and should come out of the inventory.
+warning architecture/empty-component  (repository)  Component "historyRing" is declared in the architecture, and no requirement is allocated to it. Either a requirement should say this component is answerable for it, or the component is a name the design outgrew and should come out of the inventory.
+warning architecture/empty-component  (repository)  Component "limitEvaluator" is declared in the architecture, and no requirement is allocated to it. Either a requirement should say this component is answerable for it, or the component is a name the design outgrew and should come out of the inventory.
+warning architecture/empty-component  (repository)  Component "powerMon" is declared in the architecture, and no requirement is allocated to it. Either a requirement should say this component is answerable for it, or the component is a name the design outgrew and should come out of the inventory.
+warning architecture/empty-component  (repository)  Component "rtcClock" is declared in the architecture, and no requirement is allocated to it. Either a requirement should say this component is answerable for it, or the component is a name the design outgrew and should come out of the inventory.
+warning architecture/empty-component  (repository)  Component "sensorSampler" is declared in the architecture, and no requirement is allocated to it. Either a requirement should say this component is answerable for it, or the component is a name the design outgrew and should come out of the inventory.
+warning architecture/empty-component  (repository)  Component "usbExport" is declared in the architecture, and no requirement is allocated to it. Either a requirement should say this component is answerable for it, or the component is a name the design outgrew and should come out of the inventory.
+warning architecture/empty-component  (repository)  Component "wdtKicker" is declared in the architecture, and no requirement is allocated to it. Either a requirement should say this component is answerable for it, or the component is a name the design outgrew and should come out of the inventory.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-IFC-002 is allocated to SaFunctions::announceAlarm but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-IFC-002 is allocated to SaFunctions::announceAlarm but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-PRF-002 is allocated to SaFunctions::announceAlarm but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-SAF-002 is allocated to SaFunctions::announceAlarm but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-SAF-002 is allocated to SaFunctions::announceAlarm but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-SAF-006 is allocated to SaFunctions::superviseItself but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-SAF-008 is allocated to SaFunctions::keepPowered but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-SAF-010 is allocated to SaFunctions::superviseItself but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-SAF-011 is allocated to SaFunctions::announceAlarm but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-SAF-014 is allocated to SaFunctions::announceAlarm but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-SAF-015 is allocated to SaFunctions::announceAlarm but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-SAF-017 is allocated to SaFunctions::superviseItself but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-SAF-019 is allocated to SaFunctions::announceAlarm but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/alarm_mgr/src/alarm_mgr.c  MRTM-SAF-019 is allocated to SaFunctions::announceAlarm but claimed by code in alarmMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/config_mgr/src/config_mgr.c  MRTM-SAF-017 is allocated to SaFunctions::superviseItself but claimed by code in configMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/config_mgr/src/config_mgr.c  MRTM-SAF-017 is allocated to SaFunctions::superviseItself but claimed by code in configMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/diagnostics/src/diagnostics.c  MRTM-SAF-007 is allocated to SaFunctions::superviseItself but claimed by code in diagnostics.
+warning conformance/implementation-outside-component  10-src/firmware/components/diagnostics/src/diagnostics.c  MRTM-SAF-023 is allocated to SaFunctions::superviseItself but claimed by code in diagnostics.
+warning conformance/implementation-outside-component  10-src/firmware/components/display_mgr/src/display_mgr.cpp  MRTM-IFC-004 is allocated to SaFunctions::showStatus but claimed by code in displayMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/display_mgr/src/display_mgr.cpp  MRTM-MNT-002 is allocated to SaFunctions::keepPowered but claimed by code in displayMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/display_mgr/src/display_mgr.cpp  MRTM-MNT-003 is allocated to SaFunctions::superviseItself but claimed by code in displayMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/display_mgr/src/display_mgr.cpp  MRTM-MNT-003 is allocated to SaFunctions::superviseItself but claimed by code in displayMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/display_mgr/src/display_mgr.cpp  MRTM-PRF-004 is allocated to SaFunctions::showStatus but claimed by code in displayMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/display_mgr/src/display_mgr.cpp  MRTM-PRF-004 is allocated to SaFunctions::showStatus but claimed by code in displayMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/display_mgr/src/display_mgr.cpp  MRTM-SAF-012 is allocated to SaFunctions::showStatus but claimed by code in displayMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/display_mgr/src/display_mgr.cpp  MRTM-SAF-016 is allocated to SaFunctions::showStatus but claimed by code in displayMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/display_mgr/src/display_mgr.cpp  MRTM-SAF-016 is allocated to SaFunctions::showStatus but claimed by code in displayMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/display_mgr/src/display_mgr.cpp  MRTM-SAF-016 is allocated to SaFunctions::showStatus but claimed by code in displayMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/display_mgr/src/display_mgr.cpp  MRTM-SAF-021 is allocated to SaFunctions::showStatus but claimed by code in displayMgr.
+warning conformance/implementation-outside-component  10-src/firmware/components/event_log/src/event_log.c  MRTM-SAF-018 is allocated to SaFunctions::recordEvents but claimed by code in eventLog.
+warning conformance/implementation-outside-component  10-src/firmware/components/history_ring/src/history_ring.c  MRTM-SAF-018 is allocated to SaFunctions::recordEvents but claimed by code in historyRing.
+warning conformance/implementation-outside-component  10-src/firmware/components/power_mon/src/power_mon.c  MRTM-SAF-005 is allocated to SaFunctions::keepPowered but claimed by code in powerMon.
+warning conformance/implementation-outside-component  10-src/firmware/components/power_mon/src/power_mon.c  MRTM-SAF-008 is allocated to SaFunctions::keepPowered but claimed by code in powerMon.
+warning conformance/implementation-outside-component  10-src/firmware/components/rtc_clock/src/rtc_clock.c  MRTM-SAF-022 is allocated to SaFunctions::recordEvents but claimed by code in rtcClock.
+warning conformance/implementation-outside-component  10-src/firmware/components/sensor_sampler/src/sensor_sampler.c  MRTM-IFC-001 is allocated to SaFunctions::acquireTemperature but claimed by code in sensorSampler.
+warning conformance/implementation-outside-component  10-src/firmware/components/sensor_sampler/src/sensor_sampler.c  MRTM-IFC-001 is allocated to SaFunctions::acquireTemperature but claimed by code in sensorSampler.
+warning conformance/implementation-outside-component  10-src/firmware/components/sensor_sampler/src/sensor_sampler.c  MRTM-PRF-001 is allocated to SaFunctions::acquireTemperature but claimed by code in sensorSampler.
+warning conformance/implementation-outside-component  10-src/firmware/components/sensor_sampler/src/sensor_sampler.c  MRTM-SAF-003 is allocated to SaFunctions::acquireTemperature but claimed by code in sensorSampler.
+warning conformance/implementation-outside-component  10-src/firmware/components/sensor_sampler/src/sensor_sampler.c  MRTM-SAF-003 is allocated to SaFunctions::acquireTemperature but claimed by code in sensorSampler.
+warning conformance/implementation-outside-component  10-src/firmware/components/usb_export/src/usb_export.c  MRTM-IFC-003 is allocated to SaFunctions::exportHistory but claimed by code in usbExport.
+warning conformance/implementation-outside-component  10-src/firmware/components/usb_export/src/usb_export.c  MRTM-IFC-003 is allocated to SaFunctions::exportHistory but claimed by code in usbExport.
+warning conformance/implementation-outside-component  10-src/firmware/components/usb_export/src/usb_export.c  MRTM-IFC-003 is allocated to SaFunctions::exportHistory but claimed by code in usbExport.
+warning conformance/implementation-outside-component  10-src/firmware/components/usb_export/src/usb_export.c  MRTM-PRF-003 is allocated to SaFunctions::exportHistory but claimed by code in usbExport.
+warning conformance/implementation-outside-component  10-src/firmware/components/wdt_kicker/src/wdt_kicker.c  MRTM-SAF-004 is allocated to SaFunctions::superviseItself but claimed by code in wdtKicker.
+warning conformance/implementation-outside-component  10-src/firmware/components/wdt_kicker/src/wdt_kicker.c  MRTM-SAF-009 is allocated to SaFunctions::alarmOnOwnFailure but claimed by code in wdtKicker.
+warning conformance/implementation-outside-component  10-src/firmware/components/wdt_kicker/src/wdt_kicker.c  MRTM-SAF-010 is allocated to SaFunctions::superviseItself but claimed by code in wdtKicker.
+warning verification/missing-case  MRTM-LA-006  Nothing verifies MRTM-LA-006 — write a case for it, or record why it needs none
+warning verification/missing-result  MRTM-CI-001  Nothing in the declared test reports says what happened when MRTM-CI-001's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-CI-002  Nothing in the declared test reports says what happened when MRTM-CI-002's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-CI-003  Nothing in the declared test reports says what happened when MRTM-CI-003's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-CI-004  Nothing in the declared test reports says what happened when MRTM-CI-004's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-CI-005  Nothing in the declared test reports says what happened when MRTM-CI-005's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-CI-006  Nothing in the declared test reports says what happened when MRTM-CI-006's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-ENV-001  Nothing in the declared test reports says what happened when MRTM-ENV-001's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-ENV-002  Nothing in the declared test reports says what happened when MRTM-ENV-002's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-ENV-003  Nothing in the declared test reports says what happened when MRTM-ENV-003's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-ENV-004  Nothing in the declared test reports says what happened when MRTM-ENV-004's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-IFC-004  Nothing in the declared test reports says what happened when MRTM-IFC-004's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-LA-008  Nothing in the declared test reports says what happened when MRTM-LA-008's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-LA-010  Nothing in the declared test reports says what happened when MRTM-LA-010's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-LA-011  Nothing in the declared test reports says what happened when MRTM-LA-011's cases ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-LA-012  Nothing in the declared test reports says what happened when MRTM-LA-012's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-LA-013  Nothing in the declared test reports says what happened when MRTM-LA-013's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-LA-014  Nothing in the declared test reports says what happened when MRTM-LA-014's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-LA-015  Nothing in the declared test reports says what happened when MRTM-LA-015's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-LA-016  Nothing in the declared test reports says what happened when MRTM-LA-016's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-LA-017  Nothing in the declared test reports says what happened when MRTM-LA-017's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-LA-019  Nothing in the declared test reports says what happened when MRTM-LA-019's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-LA-021  Nothing in the declared test reports says what happened when MRTM-LA-021's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-LA-022  Nothing in the declared test reports says what happened when MRTM-LA-022's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-LA-023  Nothing in the declared test reports says what happened when MRTM-LA-023's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-LA-024  Nothing in the declared test reports says what happened when MRTM-LA-024's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-MNT-001  Nothing in the declared test reports says what happened when MRTM-MNT-001's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-PH-001  Nothing in the declared test reports says what happened when MRTM-PH-001's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-PH-002  Nothing in the declared test reports says what happened when MRTM-PH-002's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-PH-003  Nothing in the declared test reports says what happened when MRTM-PH-003's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-PH-004  Nothing in the declared test reports says what happened when MRTM-PH-004's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-PH-005  Nothing in the declared test reports says what happened when MRTM-PH-005's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-PH-006  Nothing in the declared test reports says what happened when MRTM-PH-006's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-PH-007  Nothing in the declared test reports says what happened when MRTM-PH-007's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-PH-008  Nothing in the declared test reports says what happened when MRTM-PH-008's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-PH-009  Nothing in the declared test reports says what happened when MRTM-PH-009's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-PH-010  Nothing in the declared test reports says what happened when MRTM-PH-010's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-PH-011  Nothing in the declared test reports says what happened when MRTM-PH-011's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-PH-012  Nothing in the declared test reports says what happened when MRTM-PH-012's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-PH-013  Nothing in the declared test reports says what happened when MRTM-PH-013's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-PH-014  Nothing in the declared test reports says what happened when MRTM-PH-014's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-PH-015  Nothing in the declared test reports says what happened when MRTM-PH-015's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-PH-016  Nothing in the declared test reports says what happened when MRTM-PH-016's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-SAF-001  Nothing in the declared test reports says what happened when MRTM-SAF-001's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-SAF-013  Nothing in the declared test reports says what happened when MRTM-SAF-013's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-SAF-020  Nothing in the declared test reports says what happened when MRTM-SAF-020's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-STK-001  Nothing in the declared test reports says what happened when MRTM-STK-001's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-STK-003  Nothing in the declared test reports says what happened when MRTM-STK-003's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-STK-004  Nothing in the declared test reports says what happened when MRTM-STK-004's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-STK-005  Nothing in the declared test reports says what happened when MRTM-STK-005's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-STK-007  Nothing in the declared test reports says what happened when MRTM-STK-007's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-STK-008  Nothing in the declared test reports says what happened when MRTM-STK-008's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning verification/missing-result  MRTM-SYS-016  Nothing in the declared test reports says what happened when MRTM-SYS-016's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.
+warning quality/testability  MRTM-CI-001  Nothing here a test could check — add a number, or name what changes
+warning quality/testability  MRTM-CI-002  Nothing here a test could check — add a number, or name what changes
+warning quality/testability  MRTM-CI-003  Nothing here a test could check — add a number, or name what changes
+warning quality/testability  MRTM-CI-004  Nothing here a test could check — add a number, or name what changes
+warning quality/testability  MRTM-CI-005  Nothing here a test could check — add a number, or name what changes
+warning quality/testability  MRTM-CI-006  Nothing here a test could check — add a number, or name what changes
+warning graph/undeclared-id-prefix  MRTM-LA-001  31 reference(s) use the prefix "ADR", which no type declares
+warning graph/undeclared-id-prefix  MRTM-SW-008  4 reference(s) use the prefix "SAF", which no type declares
+warning graph/undeclared-id-prefix  MRTM-SYS-024  1 reference(s) use the prefix "CR", which no type declares
+info    quality/decimal-format  MRTM-SW-010  a range with no unit on it - give the unit, e.g. between 3 V and 4 V
+info    quality/indefinite-article  MRTM-CI-002  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-CI-003  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-CI-004  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-CI-005  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-CI-006  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-ENV-002  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-ENV-003  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-ENV-004  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-IFC-003  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-IFC-004  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-LA-004  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-LA-006  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-LA-010  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-LA-015  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-LA-019  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-LA-021  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-LA-022  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-LA-023  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-LA-025  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-MNT-001  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-PH-006  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-PH-008  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-PH-009  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-PH-010  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-PH-014  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-PH-015  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-PRF-001  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-PRF-004  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SAF-001  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SAF-003  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SAF-004  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SAF-011  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SAF-021  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SAF-022  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-STK-008  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SW-003  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SW-008  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SW-012  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SW-013  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SW-016  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SW-018  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SYS-012  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SYS-020  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SYS-021  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SYS-024  an indefinite article leaves which one open - use "the" and name the item
+info    validation/link-role-unreadable  /home/masood/Masood/Office_Projects/dogfood-fridge/runs/03-arcadia/.ejadah/rew/templates/interface.md  allocation counts as 0: no Interface Requirement carries it — point it at your field
+info    validation/link-role-unreadable  /home/masood/Masood/Office_Projects/dogfood-fridge/runs/03-arcadia/.ejadah/rew/templates/performance.md  allocation counts as 0: no Performance Requirement carries it — point it at your field
+info    validation/link-role-unreadable  /home/masood/Masood/Office_Projects/dogfood-fridge/runs/03-arcadia/.ejadah/rew/templates/safety.md  allocation counts as 0: no Safety Requirement carries it — point it at your field
+info    validation/link-role-unreadable  /home/masood/Masood/Office_Projects/dogfood-fridge/runs/03-arcadia/.ejadah/rew/templates/system.md  allocation counts as 0: no System Requirement carries it — point it at your field
+info    quality/logical-expression  MRTM-LA-008  2 unbracketed and/or words - state the grouping, e.g. [X AND Y]
+info    quality/logical-expression  MRTM-PH-002  2 unbracketed and/or words - state the grouping, e.g. [X AND Y]
+info    quality/logical-expression  MRTM-PH-005  2 unbracketed and/or words - state the grouping, e.g. [X AND Y]
+info    quality/logical-expression  MRTM-SAF-013  2 unbracketed and/or words - state the grouping, e.g. [X AND Y]
+info    quality/requirement-pattern  MRTM-SAF-015  Candidate — Sets a deadline but gives no time — add one (e.g. 50 ms) (Inferred from the text, so this is for human judgement, not an established fact.)
+info    quality/requirement-pattern  MRTM-SW-001  Candidate — Sets a deadline but gives no time — add one (e.g. 50 ms) (Inferred from the text, so this is for human judgement, not an established fact.)
+info    quality/requirement-pattern  MRTM-SYS-004  Candidate — Sets a deadline but gives no time — add one (e.g. 50 ms) (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/single-point-failure  MRTM-SAF-011  HAZ-002 is mitigated by MRTM-SAF-011 alone, so that one requirement is everything standing between the hazard and its consequence. If the applicable standard expects independent mitigation at this level, this is where it is missing.
+info    sysml-project/sysml-file-package-mismatch  06-design/pa/PaHardware.sysml  this file declares 3 packages — `PaNodes`, `PaInterconnection`, `PaBackupAlarm` — one per file is the recommendation
+info    sysml-project/sysml-file-package-mismatch  06-design/sa/SaFunctions.sysml  this file declares 3 packages — `SaFunctions`, `SaAlarmChain`, `SaDataFlow` — one per file is the recommendation
+info    sysml-project/sysml-file-package-mismatch  06-design/transitions/Transitions.sysml  this file declares 4 packages — `TransitionOaToSa`, `TransitionSaToLa`, `TransitionLaToPa`, `TransitionPaToEpbs` — one per file is the recommendation
+info    sysml-project/sysml-unresolved-import  06-design/la/LaArchitecture.sysml  line 3: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/la/LaComponents.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/la/LaInterfaces.sysml  line 2: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/library/hardware/MrtmHardware.sysml  line 11: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/library/software/MrtmSeqExcursion.sysml  line 6: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/library/software/MrtmSeqPowerLoss.sysml  line 3: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/library/software/MrtmSeqProbeFault.sysml  line 4: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/library/software/MrtmSoftware.sysml  line 10: `import SoftwareProfile` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/library/software/MrtmSoftware.sysml  line 9: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/library/software/MrtmSwCodes.sysml  line 4: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/library/software/MrtmSwDetail.sysml  line 6: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/library/software/MrtmSwDetail.sysml  line 7: `import SoftwareProfile` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/library/software/MrtmSwStates.sysml  line 5: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/library/system/MrtmInterfaces.sysml  line 4: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/library/system/MrtmPhysical.sysml  line 6: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/oa/OaModel.sysml  line 3: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/pa/PaHardware.sysml  line 4: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/sa/SaActors.sysml  line 3: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/sa/SaContext.sysml  line 3: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/sa/SaFunctions.sysml  line 3: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/Epbs_breakdownView.sysml  line 23: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/La_architectureView.sysml  line 22: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/Oa_architectureView.sysml  line 22: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/Oa_capabilitiesView.sysml  line 22: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/Pa_architectureView.sysml  line 23: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/Pa_backup_alarmView.sysml  line 22: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/Pa_interconnectionView.sysml  line 22: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/Pa_softwareView.sysml  line 24: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/Sa_contextView.sysml  line 22: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/SanadRenderings.sysml  line 8: `import Views` names nothing this project declares
+info    quality/temporal-keyword  MRTM-SW-015  "after" states an order, not a time - give the bound
+info    safety/undeclared-hazard  MRTM-PH-003  Candidate — MRTM-PH-003's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-PH-004  Candidate — MRTM-PH-004's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-PH-005  Candidate — MRTM-PH-005's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-PH-006  Candidate — MRTM-PH-006's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-PH-007  Candidate — MRTM-PH-007's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-PH-008  Candidate — MRTM-PH-008's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-PH-009  Candidate — MRTM-PH-009's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-PH-010  Candidate — MRTM-PH-010's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-PH-011  Candidate — MRTM-PH-011's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-PH-012  Candidate — MRTM-PH-012's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-PH-013  Candidate — MRTM-PH-013's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-PH-014  Candidate — MRTM-PH-014's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-PH-015  Candidate — MRTM-PH-015's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-PH-016  Candidate — MRTM-PH-016's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-SW-012  Candidate — MRTM-SW-012's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    safety/undeclared-hazard  MRTM-SW-013  Candidate — MRTM-SW-013's "Safety" section describes safety work but names no hazard, so nothing records what it protects against. Name the hazard, or the safety argument has no premise. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    structure/under-decomposition  MRTM-ENV-001  MRTM-ENV-001 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-ENV-004  MRTM-ENV-004 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-IFC-002  MRTM-IFC-002 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-IFC-003  MRTM-IFC-003 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-IFC-004  MRTM-IFC-004 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-LA-002  MRTM-LA-002 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-LA-007  MRTM-LA-007 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-LA-009  MRTM-LA-009 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-LA-011  MRTM-LA-011 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-LA-012  MRTM-LA-012 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-LA-013  MRTM-LA-013 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-LA-015  MRTM-LA-015 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-LA-016  MRTM-LA-016 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-LA-017  MRTM-LA-017 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-LA-019  MRTM-LA-019 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-LA-021  MRTM-LA-021 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-LA-024  MRTM-LA-024 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-LA-025  MRTM-LA-025 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-LA-026  MRTM-LA-026 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PH-001  MRTM-PH-001 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PH-002  MRTM-PH-002 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PH-003  MRTM-PH-003 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PH-004  MRTM-PH-004 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PH-005  MRTM-PH-005 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PH-006  MRTM-PH-006 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PH-007  MRTM-PH-007 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PH-008  MRTM-PH-008 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PH-009  MRTM-PH-009 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PH-010  MRTM-PH-010 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PH-011  MRTM-PH-011 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PH-012  MRTM-PH-012 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PH-013  MRTM-PH-013 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PH-014  MRTM-PH-014 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PH-015  MRTM-PH-015 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PH-016  MRTM-PH-016 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PRF-001  MRTM-PRF-001 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PRF-002  MRTM-PRF-002 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PRF-003  MRTM-PRF-003 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-PRF-004  MRTM-PRF-004 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-003  MRTM-SAF-003 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-004  MRTM-SAF-004 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-005  MRTM-SAF-005 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-006  MRTM-SAF-006 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-007  MRTM-SAF-007 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-008  MRTM-SAF-008 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-009  MRTM-SAF-009 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-012  MRTM-SAF-012 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-013  MRTM-SAF-013 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-016  MRTM-SAF-016 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-017  MRTM-SAF-017 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-018  MRTM-SAF-018 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-022  MRTM-SAF-022 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SAF-023  MRTM-SAF-023 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SW-001  MRTM-SW-001 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SW-002  MRTM-SW-002 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SW-003  MRTM-SW-003 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SW-004  MRTM-SW-004 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SW-005  MRTM-SW-005 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SW-006  MRTM-SW-006 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SW-007  MRTM-SW-007 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SW-008  MRTM-SW-008 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SW-009  MRTM-SW-009 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SW-010  MRTM-SW-010 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SW-011  MRTM-SW-011 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SW-012  MRTM-SW-012 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SW-013  MRTM-SW-013 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SW-014  MRTM-SW-014 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SW-015  MRTM-SW-015 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SW-016  MRTM-SW-016 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SW-017  MRTM-SW-017 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SW-018  MRTM-SW-018 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SW-019  MRTM-SW-019 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SW-020  MRTM-SW-020 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SYS-002  MRTM-SYS-002 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SYS-004  MRTM-SYS-004 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SYS-007  MRTM-SYS-007 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SYS-009  MRTM-SYS-009 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SYS-010  MRTM-SYS-010 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SYS-013  MRTM-SYS-013 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SYS-018  MRTM-SYS-018 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SYS-022  MRTM-SYS-022 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SYS-023  MRTM-SYS-023 has one child, which restates it — merge the two, or add the sibling
+info    quality/universal-quantifier  MRTM-PH-005  "all power" quantifies a set the sentence never bounds
+info    impact/wide-impact  MRTM-STK-002  Candidate — Changing MRTM-STK-002 reaches 43 other artifacts — 8 already implemented, 6 code symbols traced to them. MRTM-STK-002 rests on nothing above it, so a change here starts at the top and every artifact below has to be revisited. Ask Sanad what a specific change affects to see the trace path to each one. 27 of them were reached through a link inferred from prose rather than a structured field — treat those as candidates. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    impact/wide-impact  MRTM-STK-003  Candidate — Changing MRTM-STK-003 reaches 31 other artifacts — 7 already implemented, 7 code symbols traced to them. MRTM-STK-003 rests on nothing above it, so a change here starts at the top and every artifact below has to be revisited. Ask Sanad what a specific change affects to see the trace path to each one. 3 of them were reached through a link inferred from prose rather than a structured field — treat those as candidates. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    impact/wide-impact  MRTM-STK-004  Candidate — Changing MRTM-STK-004 reaches 74 other artifacts — 15 already implemented, 15 code symbols traced to them. MRTM-STK-004 rests on nothing above it, so a change here starts at the top and every artifact below has to be revisited. Ask Sanad what a specific change affects to see the trace path to each one. 5 of them were reached through a link inferred from prose rather than a structured field — treat those as candidates. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    impact/wide-impact  MRTM-STK-006  Candidate — Changing MRTM-STK-006 reaches 33 other artifacts — 7 already implemented, 7 code symbols traced to them. MRTM-STK-006 rests on nothing above it, so a change here starts at the top and every artifact below has to be revisited. Ask Sanad what a specific change affects to see the trace path to each one. 15 of them were reached through a link inferred from prose rather than a structured field — treat those as candidates. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    impact/wide-impact  MRTM-STK-007  Candidate — Changing MRTM-STK-007 reaches 37 other artifacts — 6 already implemented, 9 code symbols traced to them. MRTM-STK-007 rests on nothing above it, so a change here starts at the top and every artifact below has to be revisited. Ask Sanad what a specific change affects to see the trace path to each one. 2 of them were reached through a link inferred from prose rather than a structured field — treat those as candidates. (Inferred from the text, so this is for human judgement, not an established fact.)
+info    impact/wide-impact  MRTM-STK-008  Candidate — Changing MRTM-STK-008 reaches 41 other artifacts — 6 already implemented, 7 code symbols traced to them. MRTM-STK-008 rests on nothing above it, so a change here starts at the top and every artifact below has to be revisited. Ask Sanad what a specific change affects to see the trace path to each one. 7 of them were reached through a link inferred from prose rather than a structured field — treat those as candidates. (Inferred from the text, so this is for human judgement, not an established fact.)

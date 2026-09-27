@@ -1719,7 +1719,7 @@
   ],
   "safetyClass": "C",
   "hazard": null,
-  "body": "# Firmware image\n\n## Description\n\nThe firmware configuration item shall be released as one binary image identified by a version number and a SHA-256 checksum, and the monitor shall show that version number at power-up.\n\n## Rationale\n\nIEC 62304 §8.1.1 (identify each configuration item and its version) and §5.8.4 (release). One image holds all eight software items, so one version names the whole software system; the power-up display lets a technician confirm the running version (MRTM-MNT-003).\n\n## Verification\n\nInspection of the release record (checksum recomputed from the image); test: power-up screen shows the version.\n\n## Safety\n\nClass C: it contains parts that carry class-C risk controls (ISO 14971; hazard chain HAZ-001…HAZ-008). A wrong revision in the field is found by the label check.\n"
+  "body": "# Firmware image\n\n## Description\n\nThe firmware configuration item shall carry 1 version number, identical in its release record and on the power-up screen.\n\n## Rationale\n\nIEC 62304 §8.1.1 (identify each configuration item and its version) and §5.8.4 (release). One image holds all eight software items, so one version names the whole software system; the power-up display lets a technician confirm the running version (MRTM-MNT-003).\n\n## Verification\n\nInspection of the release record (checksum recomputed from the image); test: power-up screen shows the version.\n\n## Safety\n\nClass C: it contains parts that carry class-C risk controls (ISO 14971; hazard chain HAZ-001…HAZ-008). A wrong revision in the field is found by the label check.\n"
  },
  {
   "key": "CI-MB",
@@ -1737,7 +1737,7 @@
   ],
   "safetyClass": "C",
   "hazard": null,
-  "body": "# Main board assembly\n\n## Description\n\nThe main board configuration item shall carry a part number and revision on its label, and its bill of materials shall list the microcontroller, real-time clock, indicators, acknowledge button, buzzer stage and power path at that revision.\n\n## Rationale\n\nIEC 62304 §8.1.2 asks the software's SOUP and platform to be identified; the board is the platform the firmware runs on. The BOM (09-hardware) is the content list. Part classes are synthetic (A-40).\n\n## Verification\n\nInspection of the label and the BOM against the configuration record.\n\n## Safety\n\nClass C: it contains parts that carry class-C risk controls (ISO 14971; hazard chain HAZ-001…HAZ-008). A wrong revision in the field is found by the label check.\n"
+  "body": "# Main board assembly\n\n## Description\n\nThe main board configuration item shall carry a label with 1 part number and 1 revision that match its bill of materials entry.\n\n## Rationale\n\nIEC 62304 §8.1.2 asks the software's SOUP and platform to be identified; the board is the platform the firmware runs on. The BOM (09-hardware) is the content list. Part classes are synthetic (A-40).\n\n## Verification\n\nInspection of the label and the BOM against the configuration record.\n\n## Safety\n\nClass C: it contains parts that carry class-C risk controls (ISO 14971; hazard chain HAZ-001…HAZ-008). A wrong revision in the field is found by the label check.\n"
  },
  {
   "key": "CI-PR",
@@ -1752,7 +1752,7 @@
   ],
   "safetyClass": "C",
   "hazard": null,
-  "body": "# Probe assembly\n\n## Description\n\nThe probe configuration item shall carry a part number and revision on its cable label, and a replacement probe of the same part number shall meet the ±0.5 °C accuracy without calibration.\n\n## Rationale\n\nThe probe is the field-replaceable part (MRTM-MNT-001); interchangeability is the part's factory accuracy (A-40).\n\n## Verification\n\nInspection of the label; test: SP-10 with two probes of the same part number.\n\n## Safety\n\nClass C: it contains parts that carry class-C risk controls (ISO 14971; hazard chain HAZ-001…HAZ-008). A wrong revision in the field is found by the label check.\n"
+  "body": "# Probe assembly\n\n## Description\n\nThe probe configuration item shall carry a cable label with 1 part number and 1 revision that match its bill of materials entry.\n\n## Rationale\n\nThe probe is the field-replaceable part (MRTM-MNT-001); interchangeability is the part's factory accuracy (A-40).\n\n## Verification\n\nInspection of the label; test: SP-10 with two probes of the same part number.\n\n## Safety\n\nClass C: it contains parts that carry class-C risk controls (ISO 14971; hazard chain HAZ-001…HAZ-008). A wrong revision in the field is found by the label check.\n"
  },
  {
   "key": "CI-DM",
@@ -1765,7 +1765,7 @@
   ],
   "safetyClass": "C",
   "hazard": null,
-  "body": "# Display module\n\n## Description\n\nThe display configuration item shall carry a part number and revision, and its bill of materials entry shall name the panel's character height of 5 mm or more.\n\n## Rationale\n\nA bought module; its identity and the one figure the requirements depend on are recorded (MRTM-IFC-004).\n\n## Verification\n\nInspection of the BOM entry and the module label.\n\n## Safety\n\nClass C: it contains parts that carry class-C risk controls (ISO 14971; hazard chain HAZ-001…HAZ-008). A wrong revision in the field is found by the label check.\n"
+  "body": "# Display module\n\n## Description\n\nThe display configuration item shall carry a label with 1 part number and 1 revision that match its bill of materials entry.\n\n## Rationale\n\nA bought module; its identity and the one figure the requirements depend on are recorded (MRTM-IFC-004).\n\n## Verification\n\nInspection of the BOM entry and the module label.\n\n## Safety\n\nClass C: it contains parts that carry class-C risk controls (ISO 14971; hazard chain HAZ-001…HAZ-008). A wrong revision in the field is found by the label check.\n"
  },
  {
   "key": "CI-BA",
@@ -1782,7 +1782,7 @@
   ],
   "safetyClass": "C",
   "hazard": null,
-  "body": "# Backup alarm board\n\n## Description\n\nThe backup alarm configuration item shall carry a part number and revision on its label, and its bill of materials shall list the backup timer, the backup driver and the hold-up store at that revision.\n\n## Rationale\n\nThe independent alarm path (ADR-0013) is its own board so it can be revised and tested apart from the main board (IEC 60601-1 cl. 14 single-fault view).\n\n## Verification\n\nInspection of the label and the BOM against the configuration record.\n\n## Safety\n\nClass C: it contains parts that carry class-C risk controls (ISO 14971; hazard chain HAZ-001…HAZ-008). A wrong revision in the field is found by the label check.\n"
+  "body": "# Backup alarm board\n\n## Description\n\nThe backup alarm configuration item shall carry a label with 1 part number and 1 revision that match its bill of materials entry.\n\n## Rationale\n\nThe independent alarm path (ADR-0013) is its own board so it can be revised and tested apart from the main board (IEC 60601-1 cl. 14 single-fault view).\n\n## Verification\n\nInspection of the label and the BOM against the configuration record.\n\n## Safety\n\nClass C: it contains parts that carry class-C risk controls (ISO 14971; hazard chain HAZ-001…HAZ-008). A wrong revision in the field is found by the label check.\n"
  },
  {
   "key": "CI-BP",
@@ -1795,6 +1795,6 @@
   ],
   "safetyClass": "C",
   "hazard": null,
-  "body": "# Battery pack\n\n## Description\n\nThe battery configuration item shall carry a part number, a revision and a manufacturing date code on its label.\n\n## Rationale\n\nThe only part with a shelf life; the date code lets service replace it on time (MRTM-MNT-002). Synthetic part class (A-40).\n\n## Verification\n\nInspection of the label.\n\n## Safety\n\nClass C: it contains parts that carry class-C risk controls (ISO 14971; hazard chain HAZ-001…HAZ-008). A wrong revision in the field is found by the label check.\n"
+  "body": "# Battery pack\n\n## Description\n\nThe battery configuration item shall carry a label with 1 part number, 1 revision and 1 date code that match its bill of materials entry.\n\n## Rationale\n\nThe only part with a shelf life; the date code lets service replace it on time (MRTM-MNT-002). Synthetic part class (A-40).\n\n## Verification\n\nInspection of the label.\n\n## Safety\n\nClass C: it contains parts that carry class-C risk controls (ISO 14971; hazard chain HAZ-001…HAZ-008). A wrong revision in the field is found by the label check.\n"
  }
 ]

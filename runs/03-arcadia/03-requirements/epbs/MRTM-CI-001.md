@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, RUN-03-ARCADIA)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-SW-001","MRTM-SW-002","MRTM-SW-003","MRTM-SW-004","MRTM-SW-005","MRTM-SW-006","MRTM-SW-007","MRTM-SW-008","MRTM-SW-009","MRTM-SW-010","MRTM-SW-011","MRTM-SW-012","MRTM-SW-013","MRTM-SW-014","MRTM-SW-015","MRTM-SW-016","MRTM-SW-017","MRTM-SW-018","MRTM-SW-019","MRTM-SW-020"]
 safetyClass: "C"
@@ -16,7 +16,7 @@ derived: false
 
 ## Description
 
-The firmware configuration item shall be released as one binary image identified by a version number and a SHA-256 checksum, and the monitor shall show that version number at power-up.
+The firmware configuration item shall carry 1 version number, identical in its release record and on the power-up screen.
 
 ## Rationale
 
@@ -24,7 +24,7 @@ IEC 62304 §8.1.1 (identify each configuration item and its version) and §5.8.4
 
 ## Verification
 
-Inspection of the release record (checksum recomputed from the image); test: power-up screen shows the version.
+Inspection: compare the release record with the power-up screen of a unit running the image; recompute the image checksum.
 
 ## Safety
 

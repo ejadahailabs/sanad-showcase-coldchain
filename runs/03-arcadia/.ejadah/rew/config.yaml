@@ -510,6 +510,124 @@ suppressions:
     reason: USB item stays class B under the class C logging node because it is
       segregated from the class C items (ADR-0034, IEC 62304 §5.3.5; A-48).
       Segregation allowed is an owner decision still to confirm (F-133).
+  - rule: sysml-unresolved-id
+    path: 06-design/transitions/**
+    reason: "Arcadia transition: one part-to-part `allocate` per element between two
+      layers; Sanad reads an allocate as a requirement allocation and looks each
+      end up as a requirement id (run 2 F-35, F-3-005). The OMG Pilot reads them
+      clean. Accepted RUN-03."
+  - rule: sysml-unresolved-id
+    path: 06-design/pa/PaSoftware.sysml
+    reason: "Deployment: software item -> microcontroller allocate, read as a
+      requirement allocation (run 2 F-35). Accepted RUN-03."
+  - rule: allocation-target-undeclared
+    path: 06-design/oa/OaTrace.sysml
+    reason: "Arcadia layer elements (capabilities, system functions, logical
+      components, physical parts, configuration items) satisfy their layer's
+      requirements; only software components are declared in
+      .ejadah/rew/architecture/ (run 2 F-70; Sanad has no layer kinds, F-3-001).
+      Accepted RUN-03."
+  - rule: allocation-target-undeclared
+    path: 06-design/sa/SaTrace.sysml
+    reason: "Arcadia layer elements (capabilities, system functions, logical
+      components, physical parts, configuration items) satisfy their layer's
+      requirements; only software components are declared in
+      .ejadah/rew/architecture/ (run 2 F-70; Sanad has no layer kinds, F-3-001).
+      Accepted RUN-03."
+  - rule: allocation-target-undeclared
+    path: 06-design/la/LaTrace.sysml
+    reason: "Arcadia layer elements (capabilities, system functions, logical
+      components, physical parts, configuration items) satisfy their layer's
+      requirements; only software components are declared in
+      .ejadah/rew/architecture/ (run 2 F-70; Sanad has no layer kinds, F-3-001).
+      Accepted RUN-03."
+  - rule: allocation-target-undeclared
+    path: 06-design/pa/PaTrace.sysml
+    reason: "Arcadia layer elements (capabilities, system functions, logical
+      components, physical parts, configuration items) satisfy their layer's
+      requirements; only software components are declared in
+      .ejadah/rew/architecture/ (run 2 F-70; Sanad has no layer kinds, F-3-001).
+      Accepted RUN-03."
+  - rule: allocation-target-undeclared
+    path: 06-design/epbs/EpbsTrace.sysml
+    reason: "Arcadia layer elements (capabilities, system functions, logical
+      components, physical parts, configuration items) satisfy their layer's
+      requirements; only software components are declared in
+      .ejadah/rew/architecture/ (run 2 F-70; Sanad has no layer kinds, F-3-001).
+      Accepted RUN-03."
+  - rule: allocation-target-undeclared
+    path: 06-design/transitions/**
+    reason: "Arcadia layer elements (capabilities, system functions, logical
+      components, physical parts, configuration items) satisfy their layer's
+      requirements; only software components are declared in
+      .ejadah/rew/architecture/ (run 2 F-70; Sanad has no layer kinds, F-3-001).
+      Accepted RUN-03."
+  - rule: allocation-target-undeclared
+    path: 06-design/pa/PaSoftware.sysml
+    reason: "Arcadia layer elements (capabilities, system functions, logical
+      components, physical parts, configuration items) satisfy their layer's
+      requirements; only software components are declared in
+      .ejadah/rew/architecture/ (run 2 F-70; Sanad has no layer kinds, F-3-001).
+      Accepted RUN-03."
+  - rule: parent-child-inconsistency
+    path: 03-requirements/la/MRTM-LA-001.md
+    reason: "Arcadia PA has two requirement types at ONE layer (physical and
+      software); Sanad reads each type as its own level, so a logical
+      requirement refined by both looks refined at 2 levels (run 2 F-18/F-134,
+      F-3-003). Accepted RUN-03."
+  - rule: parent-child-inconsistency
+    path: 03-requirements/la/MRTM-LA-003.md
+    reason: "Arcadia PA has two requirement types at ONE layer (physical and
+      software); Sanad reads each type as its own level, so a logical
+      requirement refined by both looks refined at 2 levels (run 2 F-18/F-134,
+      F-3-003). Accepted RUN-03."
+  - rule: parent-child-inconsistency
+    path: 03-requirements/la/MRTM-LA-004.md
+    reason: "Arcadia PA has two requirement types at ONE layer (physical and
+      software); Sanad reads each type as its own level, so a logical
+      requirement refined by both looks refined at 2 levels (run 2 F-18/F-134,
+      F-3-003). Accepted RUN-03."
+  - rule: parent-child-inconsistency
+    path: 03-requirements/la/MRTM-LA-005.md
+    reason: "Arcadia PA has two requirement types at ONE layer (physical and
+      software); Sanad reads each type as its own level, so a logical
+      requirement refined by both looks refined at 2 levels (run 2 F-18/F-134,
+      F-3-003). Accepted RUN-03."
+  - rule: parent-child-inconsistency
+    path: 03-requirements/la/MRTM-LA-010.md
+    reason: "Arcadia PA has two requirement types at ONE layer (physical and
+      software); Sanad reads each type as its own level, so a logical
+      requirement refined by both looks refined at 2 levels (run 2 F-18/F-134,
+      F-3-003). Accepted RUN-03."
+  - rule: parent-child-inconsistency
+    path: 03-requirements/la/MRTM-LA-020.md
+    reason: "Arcadia PA has two requirement types at ONE layer (physical and
+      software); Sanad reads each type as its own level, so a logical
+      requirement refined by both looks refined at 2 levels (run 2 F-18/F-134,
+      F-3-003). Accepted RUN-03."
+  - rule: parent-child-inconsistency
+    path: 03-requirements/la/MRTM-LA-022.md
+    reason: "Arcadia PA has two requirement types at ONE layer (physical and
+      software); Sanad reads each type as its own level, so a logical
+      requirement refined by both looks refined at 2 levels (run 2 F-18/F-134,
+      F-3-003). Accepted RUN-03."
+  - rule: parent-child-inconsistency
+    path: 03-requirements/la/MRTM-LA-023.md
+    reason: "Arcadia PA has two requirement types at ONE layer (physical and
+      software); Sanad reads each type as its own level, so a logical
+      requirement refined by both looks refined at 2 levels (run 2 F-18/F-134,
+      F-3-003). Accepted RUN-03."
+  - rule: duplicate-requirement
+    path: 03-requirements/pa/software/MRTM-SW-006.md
+    reason: "Confirmation (outside the band) and end (inside the band) are different
+      events; same sentence shape on purpose (run 2 carried the same pair).
+      Accepted RUN-03."
+  - rule: testability
+    path: 03-requirements/epbs/**
+    reason: "EPBS configuration items are identification records (IEC 62304 §8.1.1): each says 'this part carries this label', so the six read alike and their measure is a match, not a number. Sanad has no configuration-item kind, only requirements (F-3-008). Accepted RUN-03."
+  - rule: duplicate-requirement
+    path: 03-requirements/epbs/**
+    reason: "EPBS configuration items are identification records (IEC 62304 §8.1.1): each says 'this part carries this label', so the six read alike and their measure is a match, not a number. Sanad has no configuration-item kind, only requirements (F-3-008). Accepted RUN-03."
 review:
   platform: github
   project: local/dogfood-fridge

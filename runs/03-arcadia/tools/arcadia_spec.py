@@ -7,7 +7,7 @@ import json, pathlib, re, sys
 
 R2 = pathlib.Path(sys.argv[1]) / "03-requirements"
 
-# SA: each system requirement -> the system function that satisfies it (ENV-002/003 = the system as a whole).
+# SA: each system requirement -> the system function that carries it (the two environmental ones: the system as a whole).
 FUNCTION = {
  "acquireTemperature": "SYS-001 SYS-012 SAF-003 SAF-020 PRF-001 ENV-004 IFC-001 MNT-001",
  "detectExcursion":    "SYS-002 SYS-017 SYS-018 SYS-024",
@@ -64,7 +64,7 @@ pa_of = lambda comps: [r["key"] for r in rows if r["layer"] == "pa" and r["eleme
 CI = [
  ("CI-FW", "firmwareImage", ["sensorItem", "excursionItem", "alarmItem", "displayItem", "logItem", "usbItem", "powerItem", "supervisorItem"], "C",
   "Firmware image",
-  "The firmware configuration item shall be released as one binary image identified by a version number and a SHA-256 checksum, and the monitor shall show that version number at power-up.",
+  "The firmware configuration item shall carry 1 version number, identical in its release record and on the power-up screen.",
   "IEC 62304 §8.1.1 (identify each configuration item and its version) and §5.8.4 (release). One image holds all eight software items, so one version names the whole software system; the power-up display lets a technician confirm the running version (MRTM-MNT-003).",
   "Inspection of the release record (checksum recomputed from the image); test: power-up screen shows the version."),
  ("CI-MB", "mainBoard", ["mcu", "rtc", "indicators", "buzzer", "powerPath"], "C",

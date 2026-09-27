@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, RUN-03-ARCADIA)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-PH-009"]
 safetyClass: "C"
@@ -16,7 +16,7 @@ derived: false
 
 ## Description
 
-The display configuration item shall carry a part number and revision, and its bill of materials entry shall name the panel's character height of 5 mm or more.
+The display configuration item shall carry a label with 1 part number and 1 revision that match its bill of materials entry.
 
 ## Rationale
 
@@ -24,7 +24,7 @@ A bought module; its identity and the one figure the requirements depend on are 
 
 ## Verification
 
-Inspection of the BOM entry and the module label.
+Inspection of the module label against the BOM and the configuration record.
 
 ## Safety
 

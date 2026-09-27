@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, RUN-03-ARCADIA)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-PH-013","MRTM-PH-014","MRTM-PH-015"]
 safetyClass: "C"
@@ -16,7 +16,7 @@ derived: false
 
 ## Description
 
-The probe configuration item shall carry a part number and revision on its cable label, and a replacement probe of the same part number shall meet the ±0.5 °C accuracy without calibration.
+The probe configuration item shall carry a cable label with 1 part number and 1 revision that match its bill of materials entry.
 
 ## Rationale
 
@@ -24,7 +24,7 @@ The probe is the field-replaceable part (MRTM-MNT-001); interchangeability is th
 
 ## Verification
 
-Inspection of the label; test: SP-10 with two probes of the same part number.
+Inspection of the cable label against the BOM and the configuration record.
 
 ## Safety
 

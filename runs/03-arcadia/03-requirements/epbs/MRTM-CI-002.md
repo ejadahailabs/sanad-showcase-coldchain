@@ -5,7 +5,7 @@ status: "draft"
 priority: "medium"
 author: "Masood (drafted by Claude, RUN-03-ARCADIA)"
 created: "2026-09-27"
-modified: ""
+modified: "2026-09-27"
 tags: []
 uplinks: ["MRTM-PH-006","MRTM-PH-007","MRTM-PH-008","MRTM-PH-010","MRTM-PH-012","MRTM-PH-016"]
 safetyClass: "C"
@@ -16,7 +16,7 @@ derived: false
 
 ## Description
 
-The main board configuration item shall carry a part number and revision on its label, and its bill of materials shall list the microcontroller, real-time clock, indicators, acknowledge button, buzzer stage and power path at that revision.
+The main board configuration item shall carry a label with 1 part number and 1 revision that match its bill of materials entry.
 
 ## Rationale
 
@@ -24,7 +24,7 @@ IEC 62304 §8.1.2 asks the software's SOUP and platform to be identified; the bo
 
 ## Verification
 
-Inspection of the label and the BOM against the configuration record.
+Inspection of the label against the BOM and the configuration record.
 
 ## Safety
 

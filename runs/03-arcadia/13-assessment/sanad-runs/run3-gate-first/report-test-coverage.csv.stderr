@@ -1,0 +1,73 @@
+erew: symbol index — rew-builtin 0.6.3: 47 symbol(s), no kinds (schema 1) · 47 tracing to 74 requirement(s)
+erew: data dictionary — 01-data-dictionary/data-dictionary.md: 14 parameter(s), 13 mapped to software names
+erew: verification cases — 11-verification/cases/verification-cases.csv: 99 case(s) · carrying level, category, author, state
+erew: test results — 11-verification/results/unit (verification-ll): 79 case result(s) from 13 report(s), 1 naming no declared case
+erew: test results — 11-verification/results/integration (verification-component): 5 case result(s) from 1 report(s)
+erew: test results — 11-verification/results/system (systems-verification-results): 15 case result(s) from 1 report(s)
+erew: coverage — 11-verification/evidence/coverage/host-unit-integration.info: 40 symbol(s) in 14 indexed file(s), 47 matching no single indexed symbol
+erew: code source text — 0 of 106 covered file(s) swept, 0 symbol(s) with attached text
+erew: architecture conformance — 12 component(s) declaring code · 24 of 106 indexed file(s) assigned · 16 dependency(ies) · 35 directive(s) naming nothing indexed
+erew: sysml project — 48 file(s), 298 element(s), 233 relation(s), 33 check(s)
+erew: sysml project — 06-design/epbs/EpbsBreakdown.sysml declares `EpbsBreakdown`
+erew: sysml project — 06-design/epbs/EpbsTrace.sysml declares `EpbsTrace`
+erew: sysml project — 06-design/la/LaArchitecture.sysml declares `LaArchitecture`
+erew: sysml project — 06-design/la/LaComponents.sysml declares `LaComponents`
+erew: sysml project — 06-design/la/LaInterfaces.sysml declares `LaInterfaces`
+erew: sysml project — 06-design/la/LaTrace.sysml declares `LaTrace`
+erew: sysml project — 06-design/library/hardware/MrtmHardware.sysml declares `MrtmHardware`
+erew: sysml project — 06-design/library/software/MrtmSeqExcursion.sysml declares `MrtmSeqExcursion`
+erew: sysml project — 06-design/library/software/MrtmSeqPowerLoss.sysml declares `MrtmSeqPowerLoss`
+erew: sysml project — 06-design/library/software/MrtmSeqProbeFault.sysml declares `MrtmSeqProbeFault`
+erew: sysml project — 06-design/library/software/MrtmSoftware.sysml declares `MrtmSoftware`
+erew: sysml project — 06-design/library/software/MrtmSwCodes.sysml declares `MrtmSwCodes`
+erew: sysml project — 06-design/library/software/MrtmSwDetail.sysml declares `MrtmSwDetail`
+erew: sysml project — 06-design/library/software/MrtmSwStates.sysml declares `MrtmSwStates`
+erew: sysml project — 06-design/library/system/MrtmInterfaces.sysml declares `MrtmInterfaces`
+erew: sysml project — 06-design/library/system/MrtmPhysical.sysml declares `MrtmPhysical`
+erew: sysml project — 06-design/oa/OaArchitecture.sysml declares `OaArchitecture`
+erew: sysml project — 06-design/oa/OaCapabilities.sysml declares `OaCapabilities`
+erew: sysml project — 06-design/oa/OaModel.sysml declares `OaModel`
+erew: sysml project — 06-design/oa/OaTrace.sysml declares `OaTrace`
+erew: sysml project — 06-design/pa/PaHardware.sysml declares `PaNodes`, `PaInterconnection`, `PaBackupAlarm`
+erew: sysml project — 06-design/pa/PaSoftware.sysml declares `PaSoftware`
+erew: sysml project — 06-design/pa/PaTrace.sysml declares `PaTrace`
+erew: sysml project — 06-design/packages/per-layer/ReqEPBS.sysml declares `ReqEPBS`
+erew: sysml project — 06-design/packages/per-layer/ReqLA.sysml declares `ReqLA`
+erew: sysml project — 06-design/packages/per-layer/ReqOA.sysml declares `ReqOA`
+erew: sysml project — 06-design/packages/per-layer/ReqPA.sysml declares `ReqPA`
+erew: sysml project — 06-design/packages/per-layer/ReqSA.sysml declares `ReqSA`
+erew: sysml project — 06-design/packages/requirements.sysml declares `ProjectRequirements` (generated — edit the Markdown requirement)
+erew: sysml project — 06-design/sa/SaActors.sysml declares `SaActors`
+erew: sysml project — 06-design/sa/SaContext.sysml declares `SaContext`
+erew: sysml project — 06-design/sa/SaFunctions.sysml declares `SaFunctions`, `SaAlarmChain`, `SaDataFlow`
+erew: sysml project — 06-design/sa/SaTrace.sysml declares `SaTrace`
+erew: sysml project — 06-design/transitions/Transitions.sysml declares `TransitionOaToSa`, `TransitionSaToLa`, `TransitionLaToPa`, `TransitionPaToEpbs`
+erew: sysml project — 06-design/views/Epbs_breakdownView.sysml declares `Epbs_breakdownView`
+erew: sysml project — 06-design/views/La_architectureView.sysml declares `La_architectureView`
+erew: sysml project — 06-design/views/La_interfacesView.sysml declares `La_interfacesView`
+erew: sysml project — 06-design/views/Oa_architectureView.sysml declares `Oa_architectureView`
+erew: sysml project — 06-design/views/Oa_capabilitiesView.sysml declares `Oa_capabilitiesView`
+erew: sysml project — 06-design/views/Pa_architectureView.sysml declares `Pa_architectureView`
+erew: sysml project — 06-design/views/Pa_backup_alarmView.sysml declares `Pa_backup_alarmView`
+erew: sysml project — 06-design/views/Pa_interconnectionView.sysml declares `Pa_interconnectionView`
+erew: sysml project — 06-design/views/Pa_softwareView.sysml declares `Pa_softwareView`
+erew: sysml project — 06-design/views/Sa_alarm_chainView.sysml declares `Sa_alarm_chainView`
+erew: sysml project — 06-design/views/Sa_contextView.sysml declares `Sa_contextView`
+erew: sysml project — 06-design/views/Sa_functionsView.sysml declares `Sa_functionsView`
+erew: sysml project — 06-design/views/SanadRenderings.sysml declares `SanadRenderings`
+erew: sysml project — 06-design/views/Transition_sa_laView.sysml declares `Transition_sa_laView`
+erew: context layer: 191 file(s), 1310 node(s), 28 skipped (13 ignored, 15 binary, 0 empty, 0 over the size ceiling, 0 unread at the total ceiling) · cut short: 06-design/library/hardware/MrtmHardware.sysml, 06-design/packages/requirements.sysml, 06-design/views/rendered/epbs_breakdown.svg, 06-design/views/rendered/la_architecture.svg, 06-design/views/rendered/la_interfaces.svg, 06-design/views/rendered/oa_architecture.svg, 06-design/views/rendered/oa_capabilities.svg, 06-design/views/rendered/pa_architecture.svg, 06-design/views/rendered/pa_backup_alarm.svg, 06-design/views/rendered/pa_interconnection.svg, 06-design/views/rendered/pa_software.svg, 06-design/views/rendered/sa_alarm_chain.svg, 06-design/views/rendered/sa_context.svg, 06-design/views/rendered/sa_functions.svg, 08-safety/01a-risk-analysis-fmea.md, 09-hardware/component-selection.md, 09-hardware/hardware-trace-matrix.md, 11-verification/procedures/system-procedures.md, tools/picture.css
+erew: rule pack: requirements-writing (Requirements writing — deterministic prose rules)
+erew: code trace — 137 asserted implements edge(s) (137 codeIndex) · 0 candidate DD-term link(s) · 342 symbol↔verification pair(s) through the trace
+erew: test outcome — 99 case(s) with a declared result (85 pass, 14 skipped) · 40 symbol(s) with measured coverage, 0 traced and never exercised
+erew: read ledger — 4 item(s) this repository states that Sanad did not read
+erew:   Links and claims not made: 4
+erew:     MRTM-CI-005 — 32 reference(s) use the prefix "ADR", which no type declares
+erew:     MRTM-SYS-024 — 1 reference(s) use the prefix "CR", which no type declares
+erew:     MRTM-SW-008 — 4 reference(s) use the prefix "SAF", which no type declares
+erew:     …and 1 more
+erew: analyses that ran: validation, traceability, quality, structure, verification, implementation, safety, architecture, consistency, conformance, impact.
+erew: security: DID NOT RUN — this repository declares no threat role. It produced no findings, and that silence is not a clean result.
+erew: interface: DID NOT RUN — this repository declares no interface role. It produced no findings, and that silence is not a clean result.
+erew: 462 finding(s) (6 error, 253 warning, 203 info) across 11 analysis(es), 2 did not run in 45ms.
+erew: GATE FAILED — 6 finding(s) at or above "error".

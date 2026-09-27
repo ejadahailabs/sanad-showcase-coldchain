@@ -1,0 +1,1229 @@
+# Audit-Ready Traceability Report
+
+**Index**
+
+- [Configuration identity and completeness](#configuration-identity-and-completeness)
+- [Trace legs required by criticality band](#trace-legs-required-by-criticality-band)
+- [Level trace matrices](#level-trace-matrices)
+  - [Stakeholder Requirement ⇄ System Requirement](#stakeholder-requirement--system-requirement)
+    - [Stakeholder Requirement → System Requirement (parent to children)](#stakeholder-requirement--system-requirement-parent-to-children)
+    - [System Requirement → Stakeholder Requirement (child to parents)](#system-requirement--stakeholder-requirement-child-to-parents)
+  - [System Requirement ⇄ Environmental Requirement](#system-requirement--environmental-requirement)
+    - [System Requirement → Environmental Requirement (parent to children)](#system-requirement--environmental-requirement-parent-to-children)
+    - [Environmental Requirement → System Requirement (child to parents)](#environmental-requirement--system-requirement-child-to-parents)
+  - [System Requirement ⇄ Interface Requirement](#system-requirement--interface-requirement)
+    - [System Requirement → Interface Requirement (parent to children)](#system-requirement--interface-requirement-parent-to-children)
+    - [Interface Requirement → System Requirement (child to parents)](#interface-requirement--system-requirement-child-to-parents)
+  - [System Requirement ⇄ Maintainability Requirement](#system-requirement--maintainability-requirement)
+    - [System Requirement → Maintainability Requirement (parent to children)](#system-requirement--maintainability-requirement-parent-to-children)
+    - [Maintainability Requirement → System Requirement (child to parents)](#maintainability-requirement--system-requirement-child-to-parents)
+  - [System Requirement ⇄ Performance Requirement](#system-requirement--performance-requirement)
+    - [System Requirement → Performance Requirement (parent to children)](#system-requirement--performance-requirement-parent-to-children)
+    - [Performance Requirement → System Requirement (child to parents)](#performance-requirement--system-requirement-child-to-parents)
+  - [System Requirement ⇄ Safety Requirement](#system-requirement--safety-requirement)
+    - [System Requirement → Safety Requirement (parent to children)](#system-requirement--safety-requirement-parent-to-children)
+    - [Safety Requirement → System Requirement (child to parents)](#safety-requirement--system-requirement-child-to-parents)
+  - [Environmental Requirement ⇄ Logical Requirement (LA)](#environmental-requirement--logical-requirement-la)
+    - [Environmental Requirement → Logical Requirement (LA) (parent to children)](#environmental-requirement--logical-requirement-la-parent-to-children)
+    - [Logical Requirement (LA) → Environmental Requirement (child to parents)](#logical-requirement-la--environmental-requirement-child-to-parents)
+  - [Interface Requirement ⇄ Logical Requirement (LA)](#interface-requirement--logical-requirement-la)
+    - [Interface Requirement → Logical Requirement (LA) (parent to children)](#interface-requirement--logical-requirement-la-parent-to-children)
+    - [Logical Requirement (LA) → Interface Requirement (child to parents)](#logical-requirement-la--interface-requirement-child-to-parents)
+  - [Performance Requirement ⇄ Logical Requirement (LA)](#performance-requirement--logical-requirement-la)
+    - [Performance Requirement → Logical Requirement (LA) (parent to children)](#performance-requirement--logical-requirement-la-parent-to-children)
+    - [Logical Requirement (LA) → Performance Requirement (child to parents)](#logical-requirement-la--performance-requirement-child-to-parents)
+  - [Safety Requirement ⇄ Logical Requirement (LA)](#safety-requirement--logical-requirement-la)
+    - [Safety Requirement → Logical Requirement (LA) (parent to children)](#safety-requirement--logical-requirement-la-parent-to-children)
+    - [Logical Requirement (LA) → Safety Requirement (child to parents)](#logical-requirement-la--safety-requirement-child-to-parents)
+  - [System Requirement ⇄ Logical Requirement (LA)](#system-requirement--logical-requirement-la)
+    - [System Requirement → Logical Requirement (LA) (parent to children)](#system-requirement--logical-requirement-la-parent-to-children)
+    - [Logical Requirement (LA) → System Requirement (child to parents)](#logical-requirement-la--system-requirement-child-to-parents)
+  - [Logical Requirement (LA) ⇄ Physical Requirement (PA hardware)](#logical-requirement-la--physical-requirement-pa-hardware)
+    - [Logical Requirement (LA) → Physical Requirement (PA hardware) (parent to children)](#logical-requirement-la--physical-requirement-pa-hardware-parent-to-children)
+    - [Physical Requirement (PA hardware) → Logical Requirement (LA) (child to parents)](#physical-requirement-pa-hardware--logical-requirement-la-child-to-parents)
+  - [Logical Requirement (LA) ⇄ Software Requirement (PA software)](#logical-requirement-la--software-requirement-pa-software)
+    - [Logical Requirement (LA) → Software Requirement (PA software) (parent to children)](#logical-requirement-la--software-requirement-pa-software-parent-to-children)
+    - [Software Requirement (PA software) → Logical Requirement (LA) (child to parents)](#software-requirement-pa-software--logical-requirement-la-child-to-parents)
+  - [Physical Requirement (PA hardware) ⇄ Configuration Item (EPBS)](#physical-requirement-pa-hardware--configuration-item-epbs)
+    - [Physical Requirement (PA hardware) → Configuration Item (EPBS) (parent to children)](#physical-requirement-pa-hardware--configuration-item-epbs-parent-to-children)
+    - [Configuration Item (EPBS) → Physical Requirement (PA hardware) (child to parents)](#configuration-item-epbs--physical-requirement-pa-hardware-child-to-parents)
+  - [Software Requirement (PA software) ⇄ Configuration Item (EPBS)](#software-requirement-pa-software--configuration-item-epbs)
+    - [Software Requirement (PA software) → Configuration Item (EPBS) (parent to children)](#software-requirement-pa-software--configuration-item-epbs-parent-to-children)
+    - [Configuration Item (EPBS) → Software Requirement (PA software) (child to parents)](#configuration-item-epbs--software-requirement-pa-software-child-to-parents)
+  - [Requirements ⇄ Allocated items](#requirements--allocated-items)
+    - [Requirements → Allocated items (requirement to allocated item)](#requirements--allocated-items-requirement-to-allocated-item)
+    - [Allocated items → Requirements (item to requirements)](#allocated-items--requirements-item-to-requirements)
+- [Derived requirements](#derived-requirements)
+- [Traceability deficiencies](#traceability-deficiencies)
+- [Declared gaps](#declared-gaps)
+  - [Orphans — requirements tracing up to nothing](#orphans--requirements-tracing-up-to-nothing)
+  - [Childless — an approved requirement nothing traces up to](#childless--an-approved-requirement-nothing-traces-up-to)
+  - [Unverified — requirements with no verifying case](#unverified--requirements-with-no-verifying-case)
+  - [Derived / exempted — requirements a declaration waived from the orphan rule](#derived--exempted--requirements-a-declaration-waived-from-the-orphan-rule)
+
+## Configuration identity and completeness
+
+**Mode:** Engineering — generated on a workstation, outside the certification recipe; this report carries no certification credit.
+
+**Generated from commit:** `5c0c579424b71735371815ebf7586c0c571979ec`
+
+**Tool version:** `sanad 0.6.3`
+
+**Inputs:** `138 requirements`, `symbol index`, `architecture inventory`, `glossary`, `data dictionary`, `verification cases`
+
+This report regenerates byte-identically from the same commit with the same tool version and inputs — it names no clock and reads nothing outside those inputs, so any second run that differs is evidence something changed, not that the report drifted.
+
+**Rule pack:** `requirements-writing`
+
+**Analyses that ran:** `validation`, `traceability`, `quality`, `structure`, `verification`, `implementation`, `safety`, `architecture`, `consistency`, `conformance`, `impact`
+
+**Analyses that did not run:**
+
+- `interface` — did not run: no template in this repository declares the role `interface`. It produced no findings, and that silence is not a clean result.
+- `security` — did not run: no template in this repository declares the role `threat`. It produced no findings, and that silence is not a clean result.
+
+**Criticality levels present:** `B`, `C`
+
+## Trace legs required by criticality band
+
+The resolved band decides which trace legs are *mandatory*; a leg a band does not require is shown as one that did not run, never dropped (rule 4). Policy is resolved once at load — this table renders that result, it does not compute it (rule 11).
+
+| Band (rigour) | Native level(s) | Requirements | Mandatory legs | Did not run at this level |
+|---|---|---|---|---|
+| rigour 2 | `B` | 2 | none | trace up (uplink), verification, implementation (code) |
+| rigour 4 | `C` | 136 | none | trace up (uplink), verification, implementation (code) |
+
+## Level trace matrices
+
+**Objective:** DO-178C Table A-3 objective 6, *high-level requirements are traceable to system requirements*, and the same objective at each level below it; evidenced by the trace data of §5.5, *the bi-directional association between* requirements at adjacent levels.
+
+### Stakeholder Requirement ⇄ System Requirement
+
+#### Stakeholder Requirement → System Requirement (parent to children)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-STK-001 | Alert on excursion | C (rigour 4) | `MRTM-SYS-003`, `MRTM-SYS-004`, `MRTM-SYS-005`, `MRTM-SYS-017`, `MRTM-SYS-024` | `SP-01` | verified | — |
+| MRTM-STK-002 | No alert on brief door opening | C (rigour 4) | `MRTM-SYS-002`, `MRTM-SYS-018` | `SP-01`, `test_alarm_mgr.test_early_alarm_is_red_1_hz_without_buzzer_then_escalates`, `test_limit_evaluator.test_back_in_band_clears_the_early_alarm`, `test_limit_evaluator.test_n_minus_one_out_then_one_in_does_not_confirm` | verified | — |
+| MRTM-STK-003 | Silence the alert | C (rigour 4) | `MRTM-SYS-006`, `MRTM-SYS-007`, `MRTM-SYS-019` | `SP-01` | verified | — |
+| MRTM-STK-004 | See the temperature | C (rigour 4) | `MRTM-SYS-001`, `MRTM-SYS-011` | `SP-09` | verified | — |
+| MRTM-STK-005 | Audit history | C (rigour 4) | `MRTM-SYS-008`, `MRTM-SYS-009`, `MRTM-SYS-010`, `MRTM-SYS-015`, `MRTM-SYS-020`, `MRTM-SYS-022` | `SP-08` | verified | — |
+| MRTM-STK-006 | History cannot be edited | C (rigour 4) | `MRTM-SYS-014`, `MRTM-SYS-021` | `SP-08`, `test_usb_export.test_every_write_is_refused` | verified | — |
+| MRTM-STK-007 | Probe failure is visible | C (rigour 4) | `MRTM-SYS-012`, `MRTM-SYS-013` | `SP-02` | verified | — |
+| MRTM-STK-008 | Monitoring through a power cut | C (rigour 4) | `MRTM-SYS-016`, `MRTM-SYS-023` | `SP-04` | verified | — |
+
+#### System Requirement → Stakeholder Requirement (child to parents)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-SYS-001 | Sampling period | C (rigour 4) | `MRTM-STK-004` | `SP-01`, `SP-01-H`, `test_sensor_sampler.test_good_scratchpad_gives_a_valid_sample` | verified | `10-src/config/mrtm_config.h#off`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read` |
+| MRTM-SYS-002 | Excursion confirmation | C (rigour 4) | `MRTM-STK-002` | `SP-01`, `SP-01-H`, `test_int_chains.test_int01_excursion_chain`, `test_limit_evaluator.test_invalid_sample_neither_counts_nor_resets`, `test_limit_evaluator.test_n_minus_one_out_then_one_in_does_not_confirm`, `test_limit_evaluator.test_nth_consecutive_out_sample_confirms` | verified | `10-src/config/mrtm_config.h#off`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+| MRTM-SYS-003 | Buzzer on excursion | C (rigour 4) | `MRTM-STK-001` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz`, `test_int_chains.test_int01_excursion_chain` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take` |
+| MRTM-SYS-004 | Red indicator on excursion | C (rigour 4) | `MRTM-STK-001` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SYS-005 | Warning on excursion | C (rigour 4) | `MRTM-STK-001` | `SP-01`, `SP-01-H`, `test_display_mgr.test_excursion_warning_for_the_whole_excursion`, `test_int_chains.test_int01_excursion_chain` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_display_step` |
+| MRTM-SYS-006 | Acknowledge silences buzzer | C (rigour 4) | `MRTM-STK-003` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_button_debounced`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_post`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take` |
+| MRTM-SYS-007 | Warning stays while excursion is open | C (rigour 4) | `MRTM-STK-003` | `SP-01`, `test_display_mgr.test_excursion_warning_for_the_whole_excursion` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw` |
+| MRTM-SYS-008 | Log excursion start | C (rigour 4) | `MRTM-STK-005` | `SP-01`, `SP-01-H`, `test_event_log.test_time_stamp_is_the_utc_second_of_the_post`, `test_int_chains.test_int01_excursion_chain`, `test_usb_export.test_csv_lines_oldest_first_newest_last` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now` |
+| MRTM-SYS-009 | Log excursion end | C (rigour 4) | `MRTM-STK-005` | `SP-01`, `SP-01-H`, `test_event_log.test_end_record_carries_the_peak_in_tenths`, `test_limit_evaluator.test_peak_below_band_counts_distance_downwards`, `test_limit_evaluator.test_peak_is_the_most_extreme_sample` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_peak`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+| MRTM-SYS-010 | Log acknowledgement | C (rigour 4) | `MRTM-STK-005` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs`, `test_event_log.test_time_stamp_is_the_utc_second_of_the_post` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now` |
+| MRTM-SYS-011 | Display resolution | C (rigour 4) | `MRTM-STK-004` | `SP-09`, `test_display_mgr.test_temperature_refreshes_every_10_s_in_tenths`, `test_sensor_sampler.test_conversion_rounds_to_a_tenth_and_adds_the_offset` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_to_tenths` |
+| MRTM-SYS-012 | Probe fault detection | C (rigour 4) | `MRTM-STK-007` | `SP-02`, `test_mrtm_common.test_crc8_over_a_scratchpad`, `test_mrtm_common.test_crc_check_values`, `test_sensor_sampler.test_bad_crc_is_invalid_but_not_out_of_range`, `test_sensor_sampler.test_fault_after_30_s_without_a_correct_crc`, `test_sensor_sampler.test_fault_clears_on_the_next_valid_sample` | verified | `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step`, `10-src/firmware/components/mrtm_common/src/mrtm_crc.c#mrtm_crc8_maxim`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_probe_fault`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read` |
+| MRTM-SYS-013 | Probe fault message | C (rigour 4) | `MRTM-STK-007` | `SP-02`, `test_display_mgr.test_probe_fault_message` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_display_step` |
+| MRTM-SYS-014 | Read-only event log | C (rigour 4) | `MRTM-STK-006` | `SP-08`, `test_usb_export.test_every_write_is_refused`, `test_usb_export.test_history_csv_is_marked_read_only` | verified | `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_init`, `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_write10` |
+| MRTM-SYS-015 | Event log capacity | C (rigour 4) | `MRTM-STK-005` | `SP-07`, `test_history_ring.test_init_finds_the_head_again_after_a_restart`, `test_history_ring.test_retains_10000_records_after_wrapping`, `test_history_ring.test_retains_10000_straight_after_an_erase_ahead`, `test_usb_export.test_full_history_fits_and_fat_chain_ends` | verified | `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_append`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_init`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_read` |
+| MRTM-SYS-016 | Battery operation | C (rigour 4) | `MRTM-STK-008` | `SP-04` | verified | — |
+| MRTM-SYS-017 | Allowed band | C (rigour 4) | `MRTM-STK-001` | `SP-13`, `test_config_mgr.test_band_outside_2_to_8_is_refused`, `test_config_mgr.test_valid_record_loads_the_2_to_8_degree_band`, `test_limit_evaluator.test_band_edges_two_and_eight_degrees_are_inside` | verified | `10-src/firmware/components/config_mgr/src/config_mgr.c#config_mgr_load`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_init`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step` |
+| MRTM-SYS-018 | Excursion end confirmation | C (rigour 4) | `MRTM-STK-002` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_end_returns_to_quiet_from_sounding_and_silenced`, `test_limit_evaluator.test_hysteresis_knob_is_zero`, `test_limit_evaluator.test_nth_consecutive_in_sample_ends_excursion`, `test_limit_evaluator.test_out_sample_restarts_the_in_run` | verified | `10-src/config/mrtm_config.h#off`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step` |
+| MRTM-SYS-019 | Alarm comes back after silence | C (rigour 4) | `MRTM-STK-003` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_re_sounds_15_minutes_after_the_ack` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SYS-020 | Clock drift | C (rigour 4) | `MRTM-STK-005` | `SP-12`, `test_rtc_clock.test_now_is_the_rtc_copy_refreshed_each_second` | verified | `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_tick` |
+| MRTM-SYS-021 | Event log integrity | C (rigour 4) | `MRTM-STK-006` | `SP-07`, `test_history_ring.test_both_copies_corrupt_reports_err_crc_and_logs_it`, `test_history_ring.test_corrupt_copy_a_is_read_from_copy_b`, `test_mrtm_common.test_crc_check_values`, `test_usb_export.test_unreadable_record_is_a_corrupt_line` | verified | `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_read`, `10-src/firmware/components/mrtm_common/src/mrtm_crc.c#mrtm_crc32` |
+| MRTM-SYS-022 | Log capacity warning | C (rigour 4) | `MRTM-STK-005` | `SP-07`, `test_display_mgr.test_calibration_due_and_log_capacity_messages`, `test_history_ring.test_capacity_warning_once_at_9000` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_append`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step` |
+| MRTM-SYS-023 | Power restore event | C (rigour 4) | `MRTM-STK-008` | `SP-04`, `test_event_log.test_time_stamp_is_the_utc_second_of_the_post`, `test_power_mon.test_mains_loss_and_restore_are_logged_from_the_edge` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/power_mon/src/power_mon.c#power_mon_isr`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now` |
+| MRTM-SYS-024 | Early excursion alarm | C (rigour 4) | `MRTM-STK-001` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_early_alarm_clears_back_to_quiet`, `test_alarm_mgr.test_early_alarm_is_red_1_hz_without_buzzer_then_escalates`, `test_limit_evaluator.test_back_in_band_clears_the_early_alarm`, `test_limit_evaluator.test_early_alarm_budget_fits_5_s`, `test_limit_evaluator.test_first_out_sample_raises_the_early_alarm` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+
+### System Requirement ⇄ Environmental Requirement
+
+#### System Requirement → Environmental Requirement (parent to children)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-SYS-001 | Sampling period | C (rigour 4) | `MRTM-ENV-002`, `MRTM-ENV-003`, `MRTM-ENV-004` | `SP-01`, `SP-01-H`, `test_sensor_sampler.test_good_scratchpad_gives_a_valid_sample` | verified | `10-src/config/mrtm_config.h#off`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read` |
+| MRTM-SYS-002 | Excursion confirmation | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_int_chains.test_int01_excursion_chain`, `test_limit_evaluator.test_invalid_sample_neither_counts_nor_resets`, `test_limit_evaluator.test_n_minus_one_out_then_one_in_does_not_confirm`, `test_limit_evaluator.test_nth_consecutive_out_sample_confirms` | verified | `10-src/config/mrtm_config.h#off`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+| MRTM-SYS-003 | Buzzer on excursion | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz`, `test_int_chains.test_int01_excursion_chain` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take` |
+| MRTM-SYS-004 | Red indicator on excursion | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SYS-005 | Warning on excursion | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_display_mgr.test_excursion_warning_for_the_whole_excursion`, `test_int_chains.test_int01_excursion_chain` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_display_step` |
+| MRTM-SYS-006 | Acknowledge silences buzzer | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_button_debounced`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_post`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take` |
+| MRTM-SYS-007 | Warning stays while excursion is open | C (rigour 4) | none | `SP-01`, `test_display_mgr.test_excursion_warning_for_the_whole_excursion` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw` |
+| MRTM-SYS-008 | Log excursion start | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_event_log.test_time_stamp_is_the_utc_second_of_the_post`, `test_int_chains.test_int01_excursion_chain`, `test_usb_export.test_csv_lines_oldest_first_newest_last` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now` |
+| MRTM-SYS-009 | Log excursion end | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_event_log.test_end_record_carries_the_peak_in_tenths`, `test_limit_evaluator.test_peak_below_band_counts_distance_downwards`, `test_limit_evaluator.test_peak_is_the_most_extreme_sample` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_peak`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+| MRTM-SYS-010 | Log acknowledgement | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs`, `test_event_log.test_time_stamp_is_the_utc_second_of_the_post` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now` |
+| MRTM-SYS-011 | Display resolution | C (rigour 4) | none | `SP-09`, `test_display_mgr.test_temperature_refreshes_every_10_s_in_tenths`, `test_sensor_sampler.test_conversion_rounds_to_a_tenth_and_adds_the_offset` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_to_tenths` |
+| MRTM-SYS-012 | Probe fault detection | C (rigour 4) | none | `SP-02`, `test_mrtm_common.test_crc8_over_a_scratchpad`, `test_mrtm_common.test_crc_check_values`, `test_sensor_sampler.test_bad_crc_is_invalid_but_not_out_of_range`, `test_sensor_sampler.test_fault_after_30_s_without_a_correct_crc`, `test_sensor_sampler.test_fault_clears_on_the_next_valid_sample` | verified | `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step`, `10-src/firmware/components/mrtm_common/src/mrtm_crc.c#mrtm_crc8_maxim`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_probe_fault`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read` |
+| MRTM-SYS-013 | Probe fault message | C (rigour 4) | none | `SP-02`, `test_display_mgr.test_probe_fault_message` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_display_step` |
+| MRTM-SYS-014 | Read-only event log | C (rigour 4) | none | `SP-08`, `test_usb_export.test_every_write_is_refused`, `test_usb_export.test_history_csv_is_marked_read_only` | verified | `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_init`, `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_write10` |
+| MRTM-SYS-015 | Event log capacity | C (rigour 4) | none | `SP-07`, `test_history_ring.test_init_finds_the_head_again_after_a_restart`, `test_history_ring.test_retains_10000_records_after_wrapping`, `test_history_ring.test_retains_10000_straight_after_an_erase_ahead`, `test_usb_export.test_full_history_fits_and_fat_chain_ends` | verified | `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_append`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_init`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_read` |
+| MRTM-SYS-016 | Battery operation | C (rigour 4) | `MRTM-ENV-001` | `SP-04` | verified | — |
+| MRTM-SYS-017 | Allowed band | C (rigour 4) | none | `SP-13`, `test_config_mgr.test_band_outside_2_to_8_is_refused`, `test_config_mgr.test_valid_record_loads_the_2_to_8_degree_band`, `test_limit_evaluator.test_band_edges_two_and_eight_degrees_are_inside` | verified | `10-src/firmware/components/config_mgr/src/config_mgr.c#config_mgr_load`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_init`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step` |
+| MRTM-SYS-018 | Excursion end confirmation | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_end_returns_to_quiet_from_sounding_and_silenced`, `test_limit_evaluator.test_hysteresis_knob_is_zero`, `test_limit_evaluator.test_nth_consecutive_in_sample_ends_excursion`, `test_limit_evaluator.test_out_sample_restarts_the_in_run` | verified | `10-src/config/mrtm_config.h#off`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step` |
+| MRTM-SYS-019 | Alarm comes back after silence | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_re_sounds_15_minutes_after_the_ack` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SYS-020 | Clock drift | C (rigour 4) | none | `SP-12`, `test_rtc_clock.test_now_is_the_rtc_copy_refreshed_each_second` | verified | `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_tick` |
+| MRTM-SYS-021 | Event log integrity | C (rigour 4) | none | `SP-07`, `test_history_ring.test_both_copies_corrupt_reports_err_crc_and_logs_it`, `test_history_ring.test_corrupt_copy_a_is_read_from_copy_b`, `test_mrtm_common.test_crc_check_values`, `test_usb_export.test_unreadable_record_is_a_corrupt_line` | verified | `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_read`, `10-src/firmware/components/mrtm_common/src/mrtm_crc.c#mrtm_crc32` |
+| MRTM-SYS-022 | Log capacity warning | C (rigour 4) | none | `SP-07`, `test_display_mgr.test_calibration_due_and_log_capacity_messages`, `test_history_ring.test_capacity_warning_once_at_9000` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_append`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step` |
+| MRTM-SYS-023 | Power restore event | C (rigour 4) | none | `SP-04`, `test_event_log.test_time_stamp_is_the_utc_second_of_the_post`, `test_power_mon.test_mains_loss_and_restore_are_logged_from_the_edge` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/power_mon/src/power_mon.c#power_mon_isr`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now` |
+| MRTM-SYS-024 | Early excursion alarm | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_early_alarm_clears_back_to_quiet`, `test_alarm_mgr.test_early_alarm_is_red_1_hz_without_buzzer_then_escalates`, `test_limit_evaluator.test_back_in_band_clears_the_early_alarm`, `test_limit_evaluator.test_early_alarm_budget_fits_5_s`, `test_limit_evaluator.test_first_out_sample_raises_the_early_alarm` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+
+#### Environmental Requirement → System Requirement (child to parents)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-ENV-001 | Battery endurance | C (rigour 4) | `MRTM-SYS-016` | `SP-04` | verified | — |
+| MRTM-ENV-002 | Ambient temperature | C (rigour 4) | `MRTM-SYS-001` | `SP-11` | verified | — |
+| MRTM-ENV-003 | Humidity | C (rigour 4) | `MRTM-SYS-001` | `SP-11` | verified | — |
+| MRTM-ENV-004 | Probe environment | C (rigour 4) | `MRTM-SYS-001` | `SP-10` | verified | — |
+
+### System Requirement ⇄ Interface Requirement
+
+#### System Requirement → Interface Requirement (parent to children)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-SYS-001 | Sampling period | C (rigour 4) | `MRTM-IFC-001` | `SP-01`, `SP-01-H`, `test_sensor_sampler.test_good_scratchpad_gives_a_valid_sample` | verified | `10-src/config/mrtm_config.h#off`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read` |
+| MRTM-SYS-002 | Excursion confirmation | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_int_chains.test_int01_excursion_chain`, `test_limit_evaluator.test_invalid_sample_neither_counts_nor_resets`, `test_limit_evaluator.test_n_minus_one_out_then_one_in_does_not_confirm`, `test_limit_evaluator.test_nth_consecutive_out_sample_confirms` | verified | `10-src/config/mrtm_config.h#off`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+| MRTM-SYS-003 | Buzzer on excursion | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz`, `test_int_chains.test_int01_excursion_chain` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take` |
+| MRTM-SYS-004 | Red indicator on excursion | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SYS-005 | Warning on excursion | C (rigour 4) | `MRTM-IFC-004` | `SP-01`, `SP-01-H`, `test_display_mgr.test_excursion_warning_for_the_whole_excursion`, `test_int_chains.test_int01_excursion_chain` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_display_step` |
+| MRTM-SYS-006 | Acknowledge silences buzzer | C (rigour 4) | `MRTM-IFC-002` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_button_debounced`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_post`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take` |
+| MRTM-SYS-007 | Warning stays while excursion is open | C (rigour 4) | none | `SP-01`, `test_display_mgr.test_excursion_warning_for_the_whole_excursion` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw` |
+| MRTM-SYS-008 | Log excursion start | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_event_log.test_time_stamp_is_the_utc_second_of_the_post`, `test_int_chains.test_int01_excursion_chain`, `test_usb_export.test_csv_lines_oldest_first_newest_last` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now` |
+| MRTM-SYS-009 | Log excursion end | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_event_log.test_end_record_carries_the_peak_in_tenths`, `test_limit_evaluator.test_peak_below_band_counts_distance_downwards`, `test_limit_evaluator.test_peak_is_the_most_extreme_sample` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_peak`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+| MRTM-SYS-010 | Log acknowledgement | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs`, `test_event_log.test_time_stamp_is_the_utc_second_of_the_post` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now` |
+| MRTM-SYS-011 | Display resolution | C (rigour 4) | none | `SP-09`, `test_display_mgr.test_temperature_refreshes_every_10_s_in_tenths`, `test_sensor_sampler.test_conversion_rounds_to_a_tenth_and_adds_the_offset` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_to_tenths` |
+| MRTM-SYS-012 | Probe fault detection | C (rigour 4) | none | `SP-02`, `test_mrtm_common.test_crc8_over_a_scratchpad`, `test_mrtm_common.test_crc_check_values`, `test_sensor_sampler.test_bad_crc_is_invalid_but_not_out_of_range`, `test_sensor_sampler.test_fault_after_30_s_without_a_correct_crc`, `test_sensor_sampler.test_fault_clears_on_the_next_valid_sample` | verified | `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step`, `10-src/firmware/components/mrtm_common/src/mrtm_crc.c#mrtm_crc8_maxim`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_probe_fault`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read` |
+| MRTM-SYS-013 | Probe fault message | C (rigour 4) | none | `SP-02`, `test_display_mgr.test_probe_fault_message` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_display_step` |
+| MRTM-SYS-014 | Read-only event log | C (rigour 4) | `MRTM-IFC-003` | `SP-08`, `test_usb_export.test_every_write_is_refused`, `test_usb_export.test_history_csv_is_marked_read_only` | verified | `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_init`, `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_write10` |
+| MRTM-SYS-015 | Event log capacity | C (rigour 4) | none | `SP-07`, `test_history_ring.test_init_finds_the_head_again_after_a_restart`, `test_history_ring.test_retains_10000_records_after_wrapping`, `test_history_ring.test_retains_10000_straight_after_an_erase_ahead`, `test_usb_export.test_full_history_fits_and_fat_chain_ends` | verified | `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_append`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_init`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_read` |
+| MRTM-SYS-016 | Battery operation | C (rigour 4) | none | `SP-04` | verified | — |
+| MRTM-SYS-017 | Allowed band | C (rigour 4) | none | `SP-13`, `test_config_mgr.test_band_outside_2_to_8_is_refused`, `test_config_mgr.test_valid_record_loads_the_2_to_8_degree_band`, `test_limit_evaluator.test_band_edges_two_and_eight_degrees_are_inside` | verified | `10-src/firmware/components/config_mgr/src/config_mgr.c#config_mgr_load`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_init`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step` |
+| MRTM-SYS-018 | Excursion end confirmation | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_end_returns_to_quiet_from_sounding_and_silenced`, `test_limit_evaluator.test_hysteresis_knob_is_zero`, `test_limit_evaluator.test_nth_consecutive_in_sample_ends_excursion`, `test_limit_evaluator.test_out_sample_restarts_the_in_run` | verified | `10-src/config/mrtm_config.h#off`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step` |
+| MRTM-SYS-019 | Alarm comes back after silence | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_re_sounds_15_minutes_after_the_ack` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SYS-020 | Clock drift | C (rigour 4) | none | `SP-12`, `test_rtc_clock.test_now_is_the_rtc_copy_refreshed_each_second` | verified | `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_tick` |
+| MRTM-SYS-021 | Event log integrity | C (rigour 4) | none | `SP-07`, `test_history_ring.test_both_copies_corrupt_reports_err_crc_and_logs_it`, `test_history_ring.test_corrupt_copy_a_is_read_from_copy_b`, `test_mrtm_common.test_crc_check_values`, `test_usb_export.test_unreadable_record_is_a_corrupt_line` | verified | `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_read`, `10-src/firmware/components/mrtm_common/src/mrtm_crc.c#mrtm_crc32` |
+| MRTM-SYS-022 | Log capacity warning | C (rigour 4) | none | `SP-07`, `test_display_mgr.test_calibration_due_and_log_capacity_messages`, `test_history_ring.test_capacity_warning_once_at_9000` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_append`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step` |
+| MRTM-SYS-023 | Power restore event | C (rigour 4) | none | `SP-04`, `test_event_log.test_time_stamp_is_the_utc_second_of_the_post`, `test_power_mon.test_mains_loss_and_restore_are_logged_from_the_edge` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/power_mon/src/power_mon.c#power_mon_isr`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now` |
+| MRTM-SYS-024 | Early excursion alarm | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_early_alarm_clears_back_to_quiet`, `test_alarm_mgr.test_early_alarm_is_red_1_hz_without_buzzer_then_escalates`, `test_limit_evaluator.test_back_in_band_clears_the_early_alarm`, `test_limit_evaluator.test_early_alarm_budget_fits_5_s`, `test_limit_evaluator.test_first_out_sample_raises_the_early_alarm` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+
+#### Interface Requirement → System Requirement (child to parents)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-IFC-001 | Probe bus | C (rigour 4) | `MRTM-SYS-001` | `SP-10`, `test_sensor_sampler.test_error_codes_arg_and_bus`, `test_sensor_sampler.test_good_scratchpad_gives_a_valid_sample` | verified | `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_init`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read` |
+| MRTM-IFC-002 | Acknowledge input | C (rigour 4) | `MRTM-SYS-006` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_button_debounce_50_ms` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_button_debounced`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_button_isr` |
+| MRTM-IFC-003 | USB readout | C (rigour 4) | `MRTM-SYS-014` | `SP-08`, `test_usb_export.test_boot_sector_is_a_fat12_volume`, `test_usb_export.test_csv_lines_oldest_first_newest_last`, `test_usb_export.test_every_write_is_refused`, `test_usb_export.test_history_csv_is_marked_read_only` | verified | `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_init`, `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_read10`, `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_write10` |
+| MRTM-IFC-004 | Display character height | C (rigour 4) | `MRTM-SYS-005` | `SP-09` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw` |
+
+### System Requirement ⇄ Maintainability Requirement
+
+#### System Requirement → Maintainability Requirement (parent to children)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-SYS-001 | Sampling period | C (rigour 4) | `MRTM-MNT-003` | `SP-01`, `SP-01-H`, `test_sensor_sampler.test_good_scratchpad_gives_a_valid_sample` | verified | `10-src/config/mrtm_config.h#off`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read` |
+| MRTM-SYS-002 | Excursion confirmation | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_int_chains.test_int01_excursion_chain`, `test_limit_evaluator.test_invalid_sample_neither_counts_nor_resets`, `test_limit_evaluator.test_n_minus_one_out_then_one_in_does_not_confirm`, `test_limit_evaluator.test_nth_consecutive_out_sample_confirms` | verified | `10-src/config/mrtm_config.h#off`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+| MRTM-SYS-003 | Buzzer on excursion | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz`, `test_int_chains.test_int01_excursion_chain` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take` |
+| MRTM-SYS-004 | Red indicator on excursion | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SYS-005 | Warning on excursion | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_display_mgr.test_excursion_warning_for_the_whole_excursion`, `test_int_chains.test_int01_excursion_chain` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_display_step` |
+| MRTM-SYS-006 | Acknowledge silences buzzer | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_button_debounced`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_post`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take` |
+| MRTM-SYS-007 | Warning stays while excursion is open | C (rigour 4) | none | `SP-01`, `test_display_mgr.test_excursion_warning_for_the_whole_excursion` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw` |
+| MRTM-SYS-008 | Log excursion start | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_event_log.test_time_stamp_is_the_utc_second_of_the_post`, `test_int_chains.test_int01_excursion_chain`, `test_usb_export.test_csv_lines_oldest_first_newest_last` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now` |
+| MRTM-SYS-009 | Log excursion end | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_event_log.test_end_record_carries_the_peak_in_tenths`, `test_limit_evaluator.test_peak_below_band_counts_distance_downwards`, `test_limit_evaluator.test_peak_is_the_most_extreme_sample` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_peak`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+| MRTM-SYS-010 | Log acknowledgement | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs`, `test_event_log.test_time_stamp_is_the_utc_second_of_the_post` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now` |
+| MRTM-SYS-011 | Display resolution | C (rigour 4) | none | `SP-09`, `test_display_mgr.test_temperature_refreshes_every_10_s_in_tenths`, `test_sensor_sampler.test_conversion_rounds_to_a_tenth_and_adds_the_offset` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_to_tenths` |
+| MRTM-SYS-012 | Probe fault detection | C (rigour 4) | `MRTM-MNT-001` | `SP-02`, `test_mrtm_common.test_crc8_over_a_scratchpad`, `test_mrtm_common.test_crc_check_values`, `test_sensor_sampler.test_bad_crc_is_invalid_but_not_out_of_range`, `test_sensor_sampler.test_fault_after_30_s_without_a_correct_crc`, `test_sensor_sampler.test_fault_clears_on_the_next_valid_sample` | verified | `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step`, `10-src/firmware/components/mrtm_common/src/mrtm_crc.c#mrtm_crc8_maxim`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_probe_fault`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read` |
+| MRTM-SYS-013 | Probe fault message | C (rigour 4) | none | `SP-02`, `test_display_mgr.test_probe_fault_message` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_display_step` |
+| MRTM-SYS-014 | Read-only event log | C (rigour 4) | none | `SP-08`, `test_usb_export.test_every_write_is_refused`, `test_usb_export.test_history_csv_is_marked_read_only` | verified | `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_init`, `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_write10` |
+| MRTM-SYS-015 | Event log capacity | C (rigour 4) | none | `SP-07`, `test_history_ring.test_init_finds_the_head_again_after_a_restart`, `test_history_ring.test_retains_10000_records_after_wrapping`, `test_history_ring.test_retains_10000_straight_after_an_erase_ahead`, `test_usb_export.test_full_history_fits_and_fat_chain_ends` | verified | `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_append`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_init`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_read` |
+| MRTM-SYS-016 | Battery operation | C (rigour 4) | `MRTM-MNT-002` | `SP-04` | verified | — |
+| MRTM-SYS-017 | Allowed band | C (rigour 4) | none | `SP-13`, `test_config_mgr.test_band_outside_2_to_8_is_refused`, `test_config_mgr.test_valid_record_loads_the_2_to_8_degree_band`, `test_limit_evaluator.test_band_edges_two_and_eight_degrees_are_inside` | verified | `10-src/firmware/components/config_mgr/src/config_mgr.c#config_mgr_load`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_init`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step` |
+| MRTM-SYS-018 | Excursion end confirmation | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_end_returns_to_quiet_from_sounding_and_silenced`, `test_limit_evaluator.test_hysteresis_knob_is_zero`, `test_limit_evaluator.test_nth_consecutive_in_sample_ends_excursion`, `test_limit_evaluator.test_out_sample_restarts_the_in_run` | verified | `10-src/config/mrtm_config.h#off`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step` |
+| MRTM-SYS-019 | Alarm comes back after silence | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_re_sounds_15_minutes_after_the_ack` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SYS-020 | Clock drift | C (rigour 4) | none | `SP-12`, `test_rtc_clock.test_now_is_the_rtc_copy_refreshed_each_second` | verified | `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_tick` |
+| MRTM-SYS-021 | Event log integrity | C (rigour 4) | none | `SP-07`, `test_history_ring.test_both_copies_corrupt_reports_err_crc_and_logs_it`, `test_history_ring.test_corrupt_copy_a_is_read_from_copy_b`, `test_mrtm_common.test_crc_check_values`, `test_usb_export.test_unreadable_record_is_a_corrupt_line` | verified | `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_read`, `10-src/firmware/components/mrtm_common/src/mrtm_crc.c#mrtm_crc32` |
+| MRTM-SYS-022 | Log capacity warning | C (rigour 4) | none | `SP-07`, `test_display_mgr.test_calibration_due_and_log_capacity_messages`, `test_history_ring.test_capacity_warning_once_at_9000` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_append`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step` |
+| MRTM-SYS-023 | Power restore event | C (rigour 4) | none | `SP-04`, `test_event_log.test_time_stamp_is_the_utc_second_of_the_post`, `test_power_mon.test_mains_loss_and_restore_are_logged_from_the_edge` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/power_mon/src/power_mon.c#power_mon_isr`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now` |
+| MRTM-SYS-024 | Early excursion alarm | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_early_alarm_clears_back_to_quiet`, `test_alarm_mgr.test_early_alarm_is_red_1_hz_without_buzzer_then_escalates`, `test_limit_evaluator.test_back_in_band_clears_the_early_alarm`, `test_limit_evaluator.test_early_alarm_budget_fits_5_s`, `test_limit_evaluator.test_first_out_sample_raises_the_early_alarm` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+
+#### Maintainability Requirement → System Requirement (child to parents)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-MNT-001 | Probe replacement | C (rigour 4) | `MRTM-SYS-012` | `SP-10` | verified | — |
+| MRTM-MNT-002 | Battery level | C (rigour 4) | `MRTM-SYS-016` | `SP-09`, `test_display_mgr.test_battery_shown_in_steps_of_10_percent` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step` |
+| MRTM-MNT-003 | Firmware version | C (rigour 4) | `MRTM-SYS-001` | `SP-05`, `test_display_mgr.test_band_and_version_shown_in_the_first_3_s` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_power_up` |
+
+### System Requirement ⇄ Performance Requirement
+
+#### System Requirement → Performance Requirement (parent to children)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-SYS-001 | Sampling period | C (rigour 4) | `MRTM-PRF-001` | `SP-01`, `SP-01-H`, `test_sensor_sampler.test_good_scratchpad_gives_a_valid_sample` | verified | `10-src/config/mrtm_config.h#off`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read` |
+| MRTM-SYS-002 | Excursion confirmation | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_int_chains.test_int01_excursion_chain`, `test_limit_evaluator.test_invalid_sample_neither_counts_nor_resets`, `test_limit_evaluator.test_n_minus_one_out_then_one_in_does_not_confirm`, `test_limit_evaluator.test_nth_consecutive_out_sample_confirms` | verified | `10-src/config/mrtm_config.h#off`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+| MRTM-SYS-003 | Buzzer on excursion | C (rigour 4) | `MRTM-PRF-002` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz`, `test_int_chains.test_int01_excursion_chain` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take` |
+| MRTM-SYS-004 | Red indicator on excursion | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SYS-005 | Warning on excursion | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_display_mgr.test_excursion_warning_for_the_whole_excursion`, `test_int_chains.test_int01_excursion_chain` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_display_step` |
+| MRTM-SYS-006 | Acknowledge silences buzzer | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_button_debounced`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_post`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take` |
+| MRTM-SYS-007 | Warning stays while excursion is open | C (rigour 4) | none | `SP-01`, `test_display_mgr.test_excursion_warning_for_the_whole_excursion` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw` |
+| MRTM-SYS-008 | Log excursion start | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_event_log.test_time_stamp_is_the_utc_second_of_the_post`, `test_int_chains.test_int01_excursion_chain`, `test_usb_export.test_csv_lines_oldest_first_newest_last` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now` |
+| MRTM-SYS-009 | Log excursion end | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_event_log.test_end_record_carries_the_peak_in_tenths`, `test_limit_evaluator.test_peak_below_band_counts_distance_downwards`, `test_limit_evaluator.test_peak_is_the_most_extreme_sample` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_peak`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+| MRTM-SYS-010 | Log acknowledgement | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs`, `test_event_log.test_time_stamp_is_the_utc_second_of_the_post` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now` |
+| MRTM-SYS-011 | Display resolution | C (rigour 4) | `MRTM-PRF-004` | `SP-09`, `test_display_mgr.test_temperature_refreshes_every_10_s_in_tenths`, `test_sensor_sampler.test_conversion_rounds_to_a_tenth_and_adds_the_offset` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_to_tenths` |
+| MRTM-SYS-012 | Probe fault detection | C (rigour 4) | none | `SP-02`, `test_mrtm_common.test_crc8_over_a_scratchpad`, `test_mrtm_common.test_crc_check_values`, `test_sensor_sampler.test_bad_crc_is_invalid_but_not_out_of_range`, `test_sensor_sampler.test_fault_after_30_s_without_a_correct_crc`, `test_sensor_sampler.test_fault_clears_on_the_next_valid_sample` | verified | `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step`, `10-src/firmware/components/mrtm_common/src/mrtm_crc.c#mrtm_crc8_maxim`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_probe_fault`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read` |
+| MRTM-SYS-013 | Probe fault message | C (rigour 4) | none | `SP-02`, `test_display_mgr.test_probe_fault_message` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_display_step` |
+| MRTM-SYS-014 | Read-only event log | C (rigour 4) | none | `SP-08`, `test_usb_export.test_every_write_is_refused`, `test_usb_export.test_history_csv_is_marked_read_only` | verified | `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_init`, `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_write10` |
+| MRTM-SYS-015 | Event log capacity | C (rigour 4) | `MRTM-PRF-003` | `SP-07`, `test_history_ring.test_init_finds_the_head_again_after_a_restart`, `test_history_ring.test_retains_10000_records_after_wrapping`, `test_history_ring.test_retains_10000_straight_after_an_erase_ahead`, `test_usb_export.test_full_history_fits_and_fat_chain_ends` | verified | `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_append`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_init`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_read` |
+| MRTM-SYS-016 | Battery operation | C (rigour 4) | none | `SP-04` | verified | — |
+| MRTM-SYS-017 | Allowed band | C (rigour 4) | none | `SP-13`, `test_config_mgr.test_band_outside_2_to_8_is_refused`, `test_config_mgr.test_valid_record_loads_the_2_to_8_degree_band`, `test_limit_evaluator.test_band_edges_two_and_eight_degrees_are_inside` | verified | `10-src/firmware/components/config_mgr/src/config_mgr.c#config_mgr_load`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_init`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step` |
+| MRTM-SYS-018 | Excursion end confirmation | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_end_returns_to_quiet_from_sounding_and_silenced`, `test_limit_evaluator.test_hysteresis_knob_is_zero`, `test_limit_evaluator.test_nth_consecutive_in_sample_ends_excursion`, `test_limit_evaluator.test_out_sample_restarts_the_in_run` | verified | `10-src/config/mrtm_config.h#off`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step` |
+| MRTM-SYS-019 | Alarm comes back after silence | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_re_sounds_15_minutes_after_the_ack` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SYS-020 | Clock drift | C (rigour 4) | none | `SP-12`, `test_rtc_clock.test_now_is_the_rtc_copy_refreshed_each_second` | verified | `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_tick` |
+| MRTM-SYS-021 | Event log integrity | C (rigour 4) | none | `SP-07`, `test_history_ring.test_both_copies_corrupt_reports_err_crc_and_logs_it`, `test_history_ring.test_corrupt_copy_a_is_read_from_copy_b`, `test_mrtm_common.test_crc_check_values`, `test_usb_export.test_unreadable_record_is_a_corrupt_line` | verified | `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_read`, `10-src/firmware/components/mrtm_common/src/mrtm_crc.c#mrtm_crc32` |
+| MRTM-SYS-022 | Log capacity warning | C (rigour 4) | none | `SP-07`, `test_display_mgr.test_calibration_due_and_log_capacity_messages`, `test_history_ring.test_capacity_warning_once_at_9000` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_append`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step` |
+| MRTM-SYS-023 | Power restore event | C (rigour 4) | none | `SP-04`, `test_event_log.test_time_stamp_is_the_utc_second_of_the_post`, `test_power_mon.test_mains_loss_and_restore_are_logged_from_the_edge` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/power_mon/src/power_mon.c#power_mon_isr`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now` |
+| MRTM-SYS-024 | Early excursion alarm | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_early_alarm_clears_back_to_quiet`, `test_alarm_mgr.test_early_alarm_is_red_1_hz_without_buzzer_then_escalates`, `test_limit_evaluator.test_back_in_band_clears_the_early_alarm`, `test_limit_evaluator.test_early_alarm_budget_fits_5_s`, `test_limit_evaluator.test_first_out_sample_raises_the_early_alarm` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+
+#### Performance Requirement → System Requirement (child to parents)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-PRF-001 | Measurement accuracy | C (rigour 4) | `MRTM-SYS-001` | `SP-10`, `test_sensor_sampler.test_conversion_rounds_to_a_tenth_and_adds_the_offset` | verified | `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_to_tenths` |
+| MRTM-PRF-002 | End-to-end alert time | C (rigour 4) | `MRTM-SYS-003` | `SP-01`, `SP-01-H`, `test_int_chains.test_int01_excursion_chain` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-PRF-003 | Log readout time | C (rigour 4) | `MRTM-SYS-015` | `SP-08`, `test_usb_export.test_full_history_fits_and_fat_chain_ends` | verified | `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_read10` |
+| MRTM-PRF-004 | Display refresh | C (rigour 4) | `MRTM-SYS-011` | `SP-09`, `test_display_mgr.test_temperature_refreshes_every_10_s_in_tenths` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#display_mgr_tick`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame` |
+
+### System Requirement ⇄ Safety Requirement
+
+#### System Requirement → Safety Requirement (parent to children)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-SYS-001 | Sampling period | C (rigour 4) | `MRTM-SAF-003`, `MRTM-SAF-004`, `MRTM-SAF-012`, `MRTM-SAF-020` | `SP-01`, `SP-01-H`, `test_sensor_sampler.test_good_scratchpad_gives_a_valid_sample` | verified | `10-src/config/mrtm_config.h#off`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read` |
+| MRTM-SYS-002 | Excursion confirmation | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_int_chains.test_int01_excursion_chain`, `test_limit_evaluator.test_invalid_sample_neither_counts_nor_resets`, `test_limit_evaluator.test_n_minus_one_out_then_one_in_does_not_confirm`, `test_limit_evaluator.test_nth_consecutive_out_sample_confirms` | verified | `10-src/config/mrtm_config.h#off`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+| MRTM-SYS-003 | Buzzer on excursion | C (rigour 4) | `MRTM-SAF-001`, `MRTM-SAF-006`, `MRTM-SAF-007`, `MRTM-SAF-009`, `MRTM-SAF-010`, `MRTM-SAF-014`, `MRTM-SAF-023` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz`, `test_int_chains.test_int01_excursion_chain` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take` |
+| MRTM-SYS-004 | Red indicator on excursion | C (rigour 4) | `MRTM-SAF-015` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SYS-005 | Warning on excursion | C (rigour 4) | `MRTM-SAF-021` | `SP-01`, `SP-01-H`, `test_display_mgr.test_excursion_warning_for_the_whole_excursion`, `test_int_chains.test_int01_excursion_chain` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_display_step` |
+| MRTM-SYS-006 | Acknowledge silences buzzer | C (rigour 4) | `MRTM-SAF-019` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_button_debounced`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_post`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take` |
+| MRTM-SYS-007 | Warning stays while excursion is open | C (rigour 4) | none | `SP-01`, `test_display_mgr.test_excursion_warning_for_the_whole_excursion` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw` |
+| MRTM-SYS-008 | Log excursion start | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_event_log.test_time_stamp_is_the_utc_second_of_the_post`, `test_int_chains.test_int01_excursion_chain`, `test_usb_export.test_csv_lines_oldest_first_newest_last` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now` |
+| MRTM-SYS-009 | Log excursion end | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_event_log.test_end_record_carries_the_peak_in_tenths`, `test_limit_evaluator.test_peak_below_band_counts_distance_downwards`, `test_limit_evaluator.test_peak_is_the_most_extreme_sample` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_peak`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+| MRTM-SYS-010 | Log acknowledgement | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs`, `test_event_log.test_time_stamp_is_the_utc_second_of_the_post` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now` |
+| MRTM-SYS-011 | Display resolution | C (rigour 4) | none | `SP-09`, `test_display_mgr.test_temperature_refreshes_every_10_s_in_tenths`, `test_sensor_sampler.test_conversion_rounds_to_a_tenth_and_adds_the_offset` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_to_tenths` |
+| MRTM-SYS-012 | Probe fault detection | C (rigour 4) | `MRTM-SAF-002`, `MRTM-SAF-011` | `SP-02`, `test_mrtm_common.test_crc8_over_a_scratchpad`, `test_mrtm_common.test_crc_check_values`, `test_sensor_sampler.test_bad_crc_is_invalid_but_not_out_of_range`, `test_sensor_sampler.test_fault_after_30_s_without_a_correct_crc`, `test_sensor_sampler.test_fault_clears_on_the_next_valid_sample` | verified | `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step`, `10-src/firmware/components/mrtm_common/src/mrtm_crc.c#mrtm_crc8_maxim`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_probe_fault`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read` |
+| MRTM-SYS-013 | Probe fault message | C (rigour 4) | none | `SP-02`, `test_display_mgr.test_probe_fault_message` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_display_step` |
+| MRTM-SYS-014 | Read-only event log | C (rigour 4) | none | `SP-08`, `test_usb_export.test_every_write_is_refused`, `test_usb_export.test_history_csv_is_marked_read_only` | verified | `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_init`, `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_write10` |
+| MRTM-SYS-015 | Event log capacity | C (rigour 4) | `MRTM-SAF-018` | `SP-07`, `test_history_ring.test_init_finds_the_head_again_after_a_restart`, `test_history_ring.test_retains_10000_records_after_wrapping`, `test_history_ring.test_retains_10000_straight_after_an_erase_ahead`, `test_usb_export.test_full_history_fits_and_fat_chain_ends` | verified | `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_append`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_init`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_read` |
+| MRTM-SYS-016 | Battery operation | C (rigour 4) | `MRTM-SAF-005`, `MRTM-SAF-008`, `MRTM-SAF-013` | `SP-04` | verified | — |
+| MRTM-SYS-017 | Allowed band | C (rigour 4) | `MRTM-SAF-016`, `MRTM-SAF-017` | `SP-13`, `test_config_mgr.test_band_outside_2_to_8_is_refused`, `test_config_mgr.test_valid_record_loads_the_2_to_8_degree_band`, `test_limit_evaluator.test_band_edges_two_and_eight_degrees_are_inside` | verified | `10-src/firmware/components/config_mgr/src/config_mgr.c#config_mgr_load`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_init`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step` |
+| MRTM-SYS-018 | Excursion end confirmation | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_end_returns_to_quiet_from_sounding_and_silenced`, `test_limit_evaluator.test_hysteresis_knob_is_zero`, `test_limit_evaluator.test_nth_consecutive_in_sample_ends_excursion`, `test_limit_evaluator.test_out_sample_restarts_the_in_run` | verified | `10-src/config/mrtm_config.h#off`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step` |
+| MRTM-SYS-019 | Alarm comes back after silence | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_re_sounds_15_minutes_after_the_ack` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SYS-020 | Clock drift | C (rigour 4) | `MRTM-SAF-022` | `SP-12`, `test_rtc_clock.test_now_is_the_rtc_copy_refreshed_each_second` | verified | `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_tick` |
+| MRTM-SYS-021 | Event log integrity | C (rigour 4) | none | `SP-07`, `test_history_ring.test_both_copies_corrupt_reports_err_crc_and_logs_it`, `test_history_ring.test_corrupt_copy_a_is_read_from_copy_b`, `test_mrtm_common.test_crc_check_values`, `test_usb_export.test_unreadable_record_is_a_corrupt_line` | verified | `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_read`, `10-src/firmware/components/mrtm_common/src/mrtm_crc.c#mrtm_crc32` |
+| MRTM-SYS-022 | Log capacity warning | C (rigour 4) | none | `SP-07`, `test_display_mgr.test_calibration_due_and_log_capacity_messages`, `test_history_ring.test_capacity_warning_once_at_9000` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_append`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step` |
+| MRTM-SYS-023 | Power restore event | C (rigour 4) | none | `SP-04`, `test_event_log.test_time_stamp_is_the_utc_second_of_the_post`, `test_power_mon.test_mains_loss_and_restore_are_logged_from_the_edge` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/power_mon/src/power_mon.c#power_mon_isr`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now` |
+| MRTM-SYS-024 | Early excursion alarm | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_early_alarm_clears_back_to_quiet`, `test_alarm_mgr.test_early_alarm_is_red_1_hz_without_buzzer_then_escalates`, `test_limit_evaluator.test_back_in_band_clears_the_early_alarm`, `test_limit_evaluator.test_early_alarm_budget_fits_5_s`, `test_limit_evaluator.test_first_out_sample_raises_the_early_alarm` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+
+#### Safety Requirement → System Requirement (child to parents)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-SAF-001 | Buzzer loudness | C (rigour 4) | `MRTM-SYS-003` | `SP-06` | verified | — |
+| MRTM-SAF-002 | Probe fault raises alert | C (rigour 4) | `MRTM-SYS-012` | `SP-02`, `test_alarm_mgr.test_probe_fault_sounds_1_s_on_1_s_off` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+| MRTM-SAF-003 | Implausible sample | C (rigour 4) | `MRTM-SYS-001` | `SP-02`, `test_sensor_sampler.test_reading_outside_minus30_to_50_declares_the_fault_at_once` | verified | `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_probe_fault`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read` |
+| MRTM-SAF-004 | Watchdog restart | C (rigour 4) | `MRTM-SYS-001` | `SP-03`, `test_wdt_kicker.test_task_watchdog_armed_at_5_s` | verified | `10-src/firmware/components/wdt_kicker/src/wdt_kicker.c#wdt_kicker_init` |
+| MRTM-SAF-005 | Log power loss | C (rigour 4) | `MRTM-SYS-016` | `SP-04`, `test_int_chains.test_int05_power_loss_logged_within_1_s`, `test_power_mon.test_mains_loss_and_restore_are_logged_from_the_edge` | verified | `10-src/firmware/components/power_mon/src/power_mon.c#power_mon_isr` |
+| MRTM-SAF-006 | Alert survives restart | C (rigour 4) | `MRTM-SYS-003` | `SP-05`, `test_alarm_mgr.test_acknowledged_alarm_is_not_restored_as_sounding`, `test_alarm_mgr.test_error_codes_full_and_nvs`, `test_alarm_mgr.test_unacknowledged_alarm_is_restored_after_a_restart`, `test_int_chains.test_int04_restart_restores_the_alarm` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_init`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_power_up` |
+| MRTM-SAF-007 | Buzzer self-test | C (rigour 4) | `MRTM-SYS-003` | `SP-05`, `test_diagnostics.test_power_up_tests_pass_inside_their_windows`, `test_diagnostics.test_silent_buzzer_fails_the_power_up_test` | verified | `10-src/firmware/components/diagnostics/src/diagnostics.c#diagnostics_power_up` |
+| MRTM-SAF-008 | Low battery alarm | C (rigour 4) | `MRTM-SYS-016` | `SP-04`, `test_alarm_mgr.test_battery_low_or_fail_safe_forces_the_buzzer`, `test_power_mon.test_battery_below_3400_mv_twice_sounds_the_buzzer` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step`, `10-src/firmware/components/power_mon/src/power_mon.c#power_mon_step` |
+| MRTM-SAF-009 | Backup alarm on firmware silence | C (rigour 4) | `MRTM-SYS-003` | `SP-03`, `test_int_chains.test_int02_watchdog_chain` | verified | `10-src/firmware/components/wdt_kicker/src/wdt_kicker.c#wdt_kicker_step` |
+| MRTM-SAF-010 | Watchdog tied to the alarm service | C (rigour 4) | `MRTM-SYS-003` | `SP-03`, `test_alarm_mgr.test_heartbeat_moves_on_every_step`, `test_int_chains.test_int02_watchdog_chain`, `test_wdt_kicker.test_pulses_stop_within_2_s_of_a_missed_alarm_cycle`, `test_wdt_kicker.test_pulses_while_the_heartbeat_moves` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_heartbeat`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step`, `10-src/firmware/components/wdt_kicker/src/wdt_kicker.c#wdt_kicker_step` |
+| MRTM-SAF-011 | Fault tone differs from excursion tone | C (rigour 4) | `MRTM-SYS-012` | `SP-02`, `test_alarm_mgr.test_probe_fault_sounds_1_s_on_1_s_off` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SAF-012 | Probe calibration due | C (rigour 4) | `MRTM-SYS-001` | `SP-09`, `test_display_mgr.test_calibration_due_and_log_capacity_messages` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step` |
+| MRTM-SAF-013 | Alarm on total power loss | C (rigour 4) | `MRTM-SYS-016` | `SP-03` | verified | — |
+| MRTM-SAF-014 | Buzzer open-circuit detection | C (rigour 4) | `MRTM-SYS-003` | `SP-06`, `test_alarm_mgr.test_no_buzzer_current_for_5_steps_declares_buzzer_fault_red_4_hz` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SAF-015 | Diverse signal for buzzer fault | C (rigour 4) | `MRTM-SYS-004` | `SP-06`, `test_alarm_mgr.test_no_buzzer_current_for_5_steps_declares_buzzer_fault_red_4_hz` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SAF-016 | Show the band at power-up | C (rigour 4) | `MRTM-SYS-017` | `SP-05`, `test_display_mgr.test_band_and_version_shown_in_the_first_3_s` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#display_mgr_init`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_power_up` |
+| MRTM-SAF-017 | Band integrity check | C (rigour 4) | `MRTM-SYS-017` | `SP-05`, `test_alarm_mgr.test_battery_low_or_fail_safe_forces_the_buzzer`, `test_config_mgr.test_bad_crc_is_refused_with_err_crc`, `test_config_mgr.test_missing_record_is_err_nvs`, `test_config_mgr.test_store_writes_a_fresh_crc_and_logs_config_changed`, `test_int_chains.test_int03_corrupt_config_fail_safe` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step`, `10-src/firmware/components/config_mgr/src/config_mgr.c#config_mgr_load`, `10-src/firmware/components/config_mgr/src/config_mgr.c#config_mgr_store`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_power_up`, `10-src/firmware/components/mrtm_common/src/mrtm_crc.c#mrtm_crc32` |
+| MRTM-SAF-018 | Two copies of every record | C (rigour 4) | `MRTM-SYS-015` | `SP-07`, `test_event_log.test_error_code_full_after_32`, `test_event_log.test_flash_failure_does_not_loop`, `test_event_log.test_step_numbers_checksums_and_stores_every_queued_record`, `test_history_ring.test_append_writes_copy_a_and_copy_b`, `test_history_ring.test_corrupt_copy_a_is_read_from_copy_b`, `test_history_ring.test_error_codes_flash_arg` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_step`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_append` |
+| MRTM-SAF-019 | Stuck acknowledge button | C (rigour 4) | `MRTM-SYS-006` | `SP-01`, `test_alarm_mgr.test_button_held_60_s_is_a_button_fault_and_ignored` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_button_debounced`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SAF-020 | Probe placement in the instructions | C (rigour 4) | `MRTM-SYS-001` | `SP-14` | verified | — |
+| MRTM-SAF-021 | I2C bus recovery | C (rigour 4) | `MRTM-SYS-005` | `SP-09`, `test_display_mgr.test_i2c_timeout_resets_the_bus_within_1_s` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#recoverBus` |
+| MRTM-SAF-022 | Clock stop detection | C (rigour 4) | `MRTM-SYS-020` | `SP-05`, `test_rtc_clock.test_error_codes_bus_and_arg`, `test_rtc_clock.test_oscillator_stop_at_power_up_logs_clock_fault` | verified | `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_power_up`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_init` |
+| MRTM-SAF-023 | Backup alarm power-up test | C (rigour 4) | `MRTM-SYS-003` | `SP-05`, `test_diagnostics.test_backup_alarm_not_heard_fails_and_pulses_resume`, `test_diagnostics.test_power_up_tests_pass_inside_their_windows`, `test_wdt_kicker.test_hold_stops_pulses_and_release_resumes` | verified | `10-src/firmware/components/diagnostics/src/diagnostics.c#diagnostics_power_up` |
+
+### Environmental Requirement ⇄ Logical Requirement (LA)
+
+#### Environmental Requirement → Logical Requirement (LA) (parent to children)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-ENV-001 | Battery endurance | C (rigour 4) | `MRTM-LA-017` | `SP-04` | verified | — |
+| MRTM-ENV-002 | Ambient temperature | C (rigour 4) | none | `SP-11` | verified | — |
+| MRTM-ENV-003 | Humidity | C (rigour 4) | none | `SP-11` | verified | — |
+| MRTM-ENV-004 | Probe environment | C (rigour 4) | `MRTM-LA-021` | `SP-10` | verified | — |
+
+#### Logical Requirement (LA) → Environmental Requirement (child to parents)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-LA-001 | Alarm early signal latency | C (rigour 4) | none | `test_alarm_mgr.test_early_alarm_is_red_1_hz_without_buzzer_then_escalates`, `test_limit_evaluator.test_early_alarm_budget_fits_5_s` | verified | — |
+| MRTM-LA-002 | Alarm excursion confirmation | C (rigour 4) | none | `test_int_chains.test_int01_excursion_chain`, `test_limit_evaluator.test_early_alarm_budget_fits_5_s` | verified | — |
+| MRTM-LA-003 | Alarm buzzer latency | C (rigour 4) | none | `test_int_chains.test_int01_excursion_chain` | verified | — |
+| MRTM-LA-004 | Alarm acknowledge | C (rigour 4) | none | `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs` | verified | — |
+| MRTM-LA-005 | Alarm backup path | C (rigour 4) | none | `SP-03`, `test_int_chains.test_int02_watchdog_chain` | verified | — |
+| MRTM-LA-006 | Alarm high-priority auditory pattern | C (rigour 4) | none | — | unverified | — |
+| MRTM-LA-007 | Alarm excursion end | C (rigour 4) | none | `test_limit_evaluator.test_nth_consecutive_in_sample_ends_excursion` | verified | — |
+| MRTM-LA-008 | Alarm backup hold-up | C (rigour 4) | none | `SP-03` | verified | — |
+| MRTM-LA-009 | Display excursion warning | C (rigour 4) | none | `test_int_chains.test_int01_excursion_chain` | verified | — |
+| MRTM-LA-010 | Display temperature | C (rigour 4) | none | `SP-09` | verified | — |
+| MRTM-LA-011 | Display messages | C (rigour 4) | none | `SP-05`, `SP-09` | verified | — |
+| MRTM-LA-012 | Logging record write | C (rigour 4) | none | `SP-07` | verified | — |
+| MRTM-LA-013 | Logging retention | C (rigour 4) | none | `SP-07` | verified | — |
+| MRTM-LA-014 | Logging read-only export | C (rigour 4) | none | `SP-08` | verified | — |
+| MRTM-LA-015 | Logging time stamp | C (rigour 4) | none | `SP-12` | verified | — |
+| MRTM-LA-016 | Power switch-over | C (rigour 4) | none | `SP-04` | verified | — |
+| MRTM-LA-017 | Power battery time | C (rigour 4) | `MRTM-ENV-001` | `SP-04` | verified | — |
+| MRTM-LA-018 | Power events | C (rigour 4) | none | `test_int_chains.test_int05_power_loss_logged_within_1_s` | verified | — |
+| MRTM-LA-019 | Sensing sample period | C (rigour 4) | none | `SP-01` | verified | — |
+| MRTM-LA-020 | Sensing sample latency | C (rigour 4) | none | `test_limit_evaluator.test_early_alarm_budget_fits_5_s` | verified | — |
+| MRTM-LA-021 | Sensing accuracy | C (rigour 4) | `MRTM-ENV-004` | `SP-10` | verified | — |
+| MRTM-LA-022 | Sensing invalid sample | C (rigour 4) | none | `SP-02` | verified | — |
+| MRTM-LA-023 | Supervision restart | C (rigour 4) | none | `SP-03` | verified | — |
+| MRTM-LA-024 | Supervision power-up tests | C (rigour 4) | none | `SP-05` | verified | — |
+| MRTM-LA-025 | Supervision band check | C (rigour 4) | none | `test_int_chains.test_int03_corrupt_config_fail_safe` | verified | — |
+| MRTM-LA-026 | Supervision pulse stop | C (rigour 4) | none | `test_int_chains.test_int02_watchdog_chain` | verified | — |
+
+### Interface Requirement ⇄ Logical Requirement (LA)
+
+#### Interface Requirement → Logical Requirement (LA) (parent to children)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-IFC-001 | Probe bus | C (rigour 4) | none | `SP-10`, `test_sensor_sampler.test_error_codes_arg_and_bus`, `test_sensor_sampler.test_good_scratchpad_gives_a_valid_sample` | verified | `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_init`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read` |
+| MRTM-IFC-002 | Acknowledge input | C (rigour 4) | `MRTM-LA-004` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_button_debounce_50_ms` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_button_debounced`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_button_isr` |
+| MRTM-IFC-003 | USB readout | C (rigour 4) | `MRTM-LA-014` | `SP-08`, `test_usb_export.test_boot_sector_is_a_fat12_volume`, `test_usb_export.test_csv_lines_oldest_first_newest_last`, `test_usb_export.test_every_write_is_refused`, `test_usb_export.test_history_csv_is_marked_read_only` | verified | `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_init`, `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_read10`, `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_write10` |
+| MRTM-IFC-004 | Display character height | C (rigour 4) | `MRTM-LA-010` | `SP-09` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw` |
+
+#### Logical Requirement (LA) → Interface Requirement (child to parents)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-LA-001 | Alarm early signal latency | C (rigour 4) | none | `test_alarm_mgr.test_early_alarm_is_red_1_hz_without_buzzer_then_escalates`, `test_limit_evaluator.test_early_alarm_budget_fits_5_s` | verified | — |
+| MRTM-LA-002 | Alarm excursion confirmation | C (rigour 4) | none | `test_int_chains.test_int01_excursion_chain`, `test_limit_evaluator.test_early_alarm_budget_fits_5_s` | verified | — |
+| MRTM-LA-003 | Alarm buzzer latency | C (rigour 4) | none | `test_int_chains.test_int01_excursion_chain` | verified | — |
+| MRTM-LA-004 | Alarm acknowledge | C (rigour 4) | `MRTM-IFC-002` | `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs` | verified | — |
+| MRTM-LA-005 | Alarm backup path | C (rigour 4) | none | `SP-03`, `test_int_chains.test_int02_watchdog_chain` | verified | — |
+| MRTM-LA-006 | Alarm high-priority auditory pattern | C (rigour 4) | none | — | unverified | — |
+| MRTM-LA-007 | Alarm excursion end | C (rigour 4) | none | `test_limit_evaluator.test_nth_consecutive_in_sample_ends_excursion` | verified | — |
+| MRTM-LA-008 | Alarm backup hold-up | C (rigour 4) | none | `SP-03` | verified | — |
+| MRTM-LA-009 | Display excursion warning | C (rigour 4) | none | `test_int_chains.test_int01_excursion_chain` | verified | — |
+| MRTM-LA-010 | Display temperature | C (rigour 4) | `MRTM-IFC-004` | `SP-09` | verified | — |
+| MRTM-LA-011 | Display messages | C (rigour 4) | none | `SP-05`, `SP-09` | verified | — |
+| MRTM-LA-012 | Logging record write | C (rigour 4) | none | `SP-07` | verified | — |
+| MRTM-LA-013 | Logging retention | C (rigour 4) | none | `SP-07` | verified | — |
+| MRTM-LA-014 | Logging read-only export | C (rigour 4) | `MRTM-IFC-003` | `SP-08` | verified | — |
+| MRTM-LA-015 | Logging time stamp | C (rigour 4) | none | `SP-12` | verified | — |
+| MRTM-LA-016 | Power switch-over | C (rigour 4) | none | `SP-04` | verified | — |
+| MRTM-LA-017 | Power battery time | C (rigour 4) | none | `SP-04` | verified | — |
+| MRTM-LA-018 | Power events | C (rigour 4) | none | `test_int_chains.test_int05_power_loss_logged_within_1_s` | verified | — |
+| MRTM-LA-019 | Sensing sample period | C (rigour 4) | none | `SP-01` | verified | — |
+| MRTM-LA-020 | Sensing sample latency | C (rigour 4) | none | `test_limit_evaluator.test_early_alarm_budget_fits_5_s` | verified | — |
+| MRTM-LA-021 | Sensing accuracy | C (rigour 4) | none | `SP-10` | verified | — |
+| MRTM-LA-022 | Sensing invalid sample | C (rigour 4) | none | `SP-02` | verified | — |
+| MRTM-LA-023 | Supervision restart | C (rigour 4) | none | `SP-03` | verified | — |
+| MRTM-LA-024 | Supervision power-up tests | C (rigour 4) | none | `SP-05` | verified | — |
+| MRTM-LA-025 | Supervision band check | C (rigour 4) | none | `test_int_chains.test_int03_corrupt_config_fail_safe` | verified | — |
+| MRTM-LA-026 | Supervision pulse stop | C (rigour 4) | none | `test_int_chains.test_int02_watchdog_chain` | verified | — |
+
+### Performance Requirement ⇄ Logical Requirement (LA)
+
+#### Performance Requirement → Logical Requirement (LA) (parent to children)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-PRF-001 | Measurement accuracy | C (rigour 4) | `MRTM-LA-021` | `SP-10`, `test_sensor_sampler.test_conversion_rounds_to_a_tenth_and_adds_the_offset` | verified | `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_to_tenths` |
+| MRTM-PRF-002 | End-to-end alert time | C (rigour 4) | `MRTM-LA-003` | `SP-01`, `SP-01-H`, `test_int_chains.test_int01_excursion_chain` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-PRF-003 | Log readout time | C (rigour 4) | `MRTM-LA-014` | `SP-08`, `test_usb_export.test_full_history_fits_and_fat_chain_ends` | verified | `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_read10` |
+| MRTM-PRF-004 | Display refresh | C (rigour 4) | `MRTM-LA-010` | `SP-09`, `test_display_mgr.test_temperature_refreshes_every_10_s_in_tenths` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#display_mgr_tick`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame` |
+
+#### Logical Requirement (LA) → Performance Requirement (child to parents)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-LA-001 | Alarm early signal latency | C (rigour 4) | none | `test_alarm_mgr.test_early_alarm_is_red_1_hz_without_buzzer_then_escalates`, `test_limit_evaluator.test_early_alarm_budget_fits_5_s` | verified | — |
+| MRTM-LA-002 | Alarm excursion confirmation | C (rigour 4) | none | `test_int_chains.test_int01_excursion_chain`, `test_limit_evaluator.test_early_alarm_budget_fits_5_s` | verified | — |
+| MRTM-LA-003 | Alarm buzzer latency | C (rigour 4) | `MRTM-PRF-002` | `test_int_chains.test_int01_excursion_chain` | verified | — |
+| MRTM-LA-004 | Alarm acknowledge | C (rigour 4) | none | `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs` | verified | — |
+| MRTM-LA-005 | Alarm backup path | C (rigour 4) | none | `SP-03`, `test_int_chains.test_int02_watchdog_chain` | verified | — |
+| MRTM-LA-006 | Alarm high-priority auditory pattern | C (rigour 4) | none | — | unverified | — |
+| MRTM-LA-007 | Alarm excursion end | C (rigour 4) | none | `test_limit_evaluator.test_nth_consecutive_in_sample_ends_excursion` | verified | — |
+| MRTM-LA-008 | Alarm backup hold-up | C (rigour 4) | none | `SP-03` | verified | — |
+| MRTM-LA-009 | Display excursion warning | C (rigour 4) | none | `test_int_chains.test_int01_excursion_chain` | verified | — |
+| MRTM-LA-010 | Display temperature | C (rigour 4) | `MRTM-PRF-004` | `SP-09` | verified | — |
+| MRTM-LA-011 | Display messages | C (rigour 4) | none | `SP-05`, `SP-09` | verified | — |
+| MRTM-LA-012 | Logging record write | C (rigour 4) | none | `SP-07` | verified | — |
+| MRTM-LA-013 | Logging retention | C (rigour 4) | none | `SP-07` | verified | — |
+| MRTM-LA-014 | Logging read-only export | C (rigour 4) | `MRTM-PRF-003` | `SP-08` | verified | — |
+| MRTM-LA-015 | Logging time stamp | C (rigour 4) | none | `SP-12` | verified | — |
+| MRTM-LA-016 | Power switch-over | C (rigour 4) | none | `SP-04` | verified | — |
+| MRTM-LA-017 | Power battery time | C (rigour 4) | none | `SP-04` | verified | — |
+| MRTM-LA-018 | Power events | C (rigour 4) | none | `test_int_chains.test_int05_power_loss_logged_within_1_s` | verified | — |
+| MRTM-LA-019 | Sensing sample period | C (rigour 4) | none | `SP-01` | verified | — |
+| MRTM-LA-020 | Sensing sample latency | C (rigour 4) | none | `test_limit_evaluator.test_early_alarm_budget_fits_5_s` | verified | — |
+| MRTM-LA-021 | Sensing accuracy | C (rigour 4) | `MRTM-PRF-001` | `SP-10` | verified | — |
+| MRTM-LA-022 | Sensing invalid sample | C (rigour 4) | none | `SP-02` | verified | — |
+| MRTM-LA-023 | Supervision restart | C (rigour 4) | none | `SP-03` | verified | — |
+| MRTM-LA-024 | Supervision power-up tests | C (rigour 4) | none | `SP-05` | verified | — |
+| MRTM-LA-025 | Supervision band check | C (rigour 4) | none | `test_int_chains.test_int03_corrupt_config_fail_safe` | verified | — |
+| MRTM-LA-026 | Supervision pulse stop | C (rigour 4) | none | `test_int_chains.test_int02_watchdog_chain` | verified | — |
+
+### Safety Requirement ⇄ Logical Requirement (LA)
+
+#### Safety Requirement → Logical Requirement (LA) (parent to children)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-SAF-001 | Buzzer loudness | C (rigour 4) | none | `SP-06` | verified | — |
+| MRTM-SAF-002 | Probe fault raises alert | C (rigour 4) | none | `SP-02`, `test_alarm_mgr.test_probe_fault_sounds_1_s_on_1_s_off` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+| MRTM-SAF-003 | Implausible sample | C (rigour 4) | `MRTM-LA-022` | `SP-02`, `test_sensor_sampler.test_reading_outside_minus30_to_50_declares_the_fault_at_once` | verified | `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_probe_fault`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read` |
+| MRTM-SAF-004 | Watchdog restart | C (rigour 4) | `MRTM-LA-023` | `SP-03`, `test_wdt_kicker.test_task_watchdog_armed_at_5_s` | verified | `10-src/firmware/components/wdt_kicker/src/wdt_kicker.c#wdt_kicker_init` |
+| MRTM-SAF-005 | Log power loss | C (rigour 4) | `MRTM-LA-018` | `SP-04`, `test_int_chains.test_int05_power_loss_logged_within_1_s`, `test_power_mon.test_mains_loss_and_restore_are_logged_from_the_edge` | verified | `10-src/firmware/components/power_mon/src/power_mon.c#power_mon_isr` |
+| MRTM-SAF-006 | Alert survives restart | C (rigour 4) | `MRTM-LA-023` | `SP-05`, `test_alarm_mgr.test_acknowledged_alarm_is_not_restored_as_sounding`, `test_alarm_mgr.test_error_codes_full_and_nvs`, `test_alarm_mgr.test_unacknowledged_alarm_is_restored_after_a_restart`, `test_int_chains.test_int04_restart_restores_the_alarm` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_init`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_power_up` |
+| MRTM-SAF-007 | Buzzer self-test | C (rigour 4) | `MRTM-LA-024` | `SP-05`, `test_diagnostics.test_power_up_tests_pass_inside_their_windows`, `test_diagnostics.test_silent_buzzer_fails_the_power_up_test` | verified | `10-src/firmware/components/diagnostics/src/diagnostics.c#diagnostics_power_up` |
+| MRTM-SAF-008 | Low battery alarm | C (rigour 4) | `MRTM-LA-018` | `SP-04`, `test_alarm_mgr.test_battery_low_or_fail_safe_forces_the_buzzer`, `test_power_mon.test_battery_below_3400_mv_twice_sounds_the_buzzer` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step`, `10-src/firmware/components/power_mon/src/power_mon.c#power_mon_step` |
+| MRTM-SAF-009 | Backup alarm on firmware silence | C (rigour 4) | `MRTM-LA-005` | `SP-03`, `test_int_chains.test_int02_watchdog_chain` | verified | `10-src/firmware/components/wdt_kicker/src/wdt_kicker.c#wdt_kicker_step` |
+| MRTM-SAF-010 | Watchdog tied to the alarm service | C (rigour 4) | `MRTM-LA-005`, `MRTM-LA-026` | `SP-03`, `test_alarm_mgr.test_heartbeat_moves_on_every_step`, `test_int_chains.test_int02_watchdog_chain`, `test_wdt_kicker.test_pulses_stop_within_2_s_of_a_missed_alarm_cycle`, `test_wdt_kicker.test_pulses_while_the_heartbeat_moves` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_heartbeat`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step`, `10-src/firmware/components/wdt_kicker/src/wdt_kicker.c#wdt_kicker_step` |
+| MRTM-SAF-011 | Fault tone differs from excursion tone | C (rigour 4) | none | `SP-02`, `test_alarm_mgr.test_probe_fault_sounds_1_s_on_1_s_off` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SAF-012 | Probe calibration due | C (rigour 4) | `MRTM-LA-011` | `SP-09`, `test_display_mgr.test_calibration_due_and_log_capacity_messages` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step` |
+| MRTM-SAF-013 | Alarm on total power loss | C (rigour 4) | `MRTM-LA-008` | `SP-03` | verified | — |
+| MRTM-SAF-014 | Buzzer open-circuit detection | C (rigour 4) | none | `SP-06`, `test_alarm_mgr.test_no_buzzer_current_for_5_steps_declares_buzzer_fault_red_4_hz` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SAF-015 | Diverse signal for buzzer fault | C (rigour 4) | none | `SP-06`, `test_alarm_mgr.test_no_buzzer_current_for_5_steps_declares_buzzer_fault_red_4_hz` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SAF-016 | Show the band at power-up | C (rigour 4) | `MRTM-LA-011` | `SP-05`, `test_display_mgr.test_band_and_version_shown_in_the_first_3_s` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#display_mgr_init`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_power_up` |
+| MRTM-SAF-017 | Band integrity check | C (rigour 4) | `MRTM-LA-025` | `SP-05`, `test_alarm_mgr.test_battery_low_or_fail_safe_forces_the_buzzer`, `test_config_mgr.test_bad_crc_is_refused_with_err_crc`, `test_config_mgr.test_missing_record_is_err_nvs`, `test_config_mgr.test_store_writes_a_fresh_crc_and_logs_config_changed`, `test_int_chains.test_int03_corrupt_config_fail_safe` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step`, `10-src/firmware/components/config_mgr/src/config_mgr.c#config_mgr_load`, `10-src/firmware/components/config_mgr/src/config_mgr.c#config_mgr_store`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_power_up`, `10-src/firmware/components/mrtm_common/src/mrtm_crc.c#mrtm_crc32` |
+| MRTM-SAF-018 | Two copies of every record | C (rigour 4) | `MRTM-LA-012` | `SP-07`, `test_event_log.test_error_code_full_after_32`, `test_event_log.test_flash_failure_does_not_loop`, `test_event_log.test_step_numbers_checksums_and_stores_every_queued_record`, `test_history_ring.test_append_writes_copy_a_and_copy_b`, `test_history_ring.test_corrupt_copy_a_is_read_from_copy_b`, `test_history_ring.test_error_codes_flash_arg` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_step`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_append` |
+| MRTM-SAF-019 | Stuck acknowledge button | C (rigour 4) | none | `SP-01`, `test_alarm_mgr.test_button_held_60_s_is_a_button_fault_and_ignored` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_button_debounced`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SAF-020 | Probe placement in the instructions | C (rigour 4) | none | `SP-14` | verified | — |
+| MRTM-SAF-021 | I2C bus recovery | C (rigour 4) | none | `SP-09`, `test_display_mgr.test_i2c_timeout_resets_the_bus_within_1_s` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#recoverBus` |
+| MRTM-SAF-022 | Clock stop detection | C (rigour 4) | `MRTM-LA-015` | `SP-05`, `test_rtc_clock.test_error_codes_bus_and_arg`, `test_rtc_clock.test_oscillator_stop_at_power_up_logs_clock_fault` | verified | `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_power_up`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_init` |
+| MRTM-SAF-023 | Backup alarm power-up test | C (rigour 4) | `MRTM-LA-024` | `SP-05`, `test_diagnostics.test_backup_alarm_not_heard_fails_and_pulses_resume`, `test_diagnostics.test_power_up_tests_pass_inside_their_windows`, `test_wdt_kicker.test_hold_stops_pulses_and_release_resumes` | verified | `10-src/firmware/components/diagnostics/src/diagnostics.c#diagnostics_power_up` |
+
+#### Logical Requirement (LA) → Safety Requirement (child to parents)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-LA-001 | Alarm early signal latency | C (rigour 4) | none | `test_alarm_mgr.test_early_alarm_is_red_1_hz_without_buzzer_then_escalates`, `test_limit_evaluator.test_early_alarm_budget_fits_5_s` | verified | — |
+| MRTM-LA-002 | Alarm excursion confirmation | C (rigour 4) | none | `test_int_chains.test_int01_excursion_chain`, `test_limit_evaluator.test_early_alarm_budget_fits_5_s` | verified | — |
+| MRTM-LA-003 | Alarm buzzer latency | C (rigour 4) | none | `test_int_chains.test_int01_excursion_chain` | verified | — |
+| MRTM-LA-004 | Alarm acknowledge | C (rigour 4) | none | `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs` | verified | — |
+| MRTM-LA-005 | Alarm backup path | C (rigour 4) | `MRTM-SAF-009`, `MRTM-SAF-010` | `SP-03`, `test_int_chains.test_int02_watchdog_chain` | verified | — |
+| MRTM-LA-006 | Alarm high-priority auditory pattern | C (rigour 4) | none | — | unverified | — |
+| MRTM-LA-007 | Alarm excursion end | C (rigour 4) | none | `test_limit_evaluator.test_nth_consecutive_in_sample_ends_excursion` | verified | — |
+| MRTM-LA-008 | Alarm backup hold-up | C (rigour 4) | `MRTM-SAF-013` | `SP-03` | verified | — |
+| MRTM-LA-009 | Display excursion warning | C (rigour 4) | none | `test_int_chains.test_int01_excursion_chain` | verified | — |
+| MRTM-LA-010 | Display temperature | C (rigour 4) | none | `SP-09` | verified | — |
+| MRTM-LA-011 | Display messages | C (rigour 4) | `MRTM-SAF-012`, `MRTM-SAF-016` | `SP-05`, `SP-09` | verified | — |
+| MRTM-LA-012 | Logging record write | C (rigour 4) | `MRTM-SAF-018` | `SP-07` | verified | — |
+| MRTM-LA-013 | Logging retention | C (rigour 4) | none | `SP-07` | verified | — |
+| MRTM-LA-014 | Logging read-only export | C (rigour 4) | none | `SP-08` | verified | — |
+| MRTM-LA-015 | Logging time stamp | C (rigour 4) | `MRTM-SAF-022` | `SP-12` | verified | — |
+| MRTM-LA-016 | Power switch-over | C (rigour 4) | none | `SP-04` | verified | — |
+| MRTM-LA-017 | Power battery time | C (rigour 4) | none | `SP-04` | verified | — |
+| MRTM-LA-018 | Power events | C (rigour 4) | `MRTM-SAF-005`, `MRTM-SAF-008` | `test_int_chains.test_int05_power_loss_logged_within_1_s` | verified | — |
+| MRTM-LA-019 | Sensing sample period | C (rigour 4) | none | `SP-01` | verified | — |
+| MRTM-LA-020 | Sensing sample latency | C (rigour 4) | none | `test_limit_evaluator.test_early_alarm_budget_fits_5_s` | verified | — |
+| MRTM-LA-021 | Sensing accuracy | C (rigour 4) | none | `SP-10` | verified | — |
+| MRTM-LA-022 | Sensing invalid sample | C (rigour 4) | `MRTM-SAF-003` | `SP-02` | verified | — |
+| MRTM-LA-023 | Supervision restart | C (rigour 4) | `MRTM-SAF-004`, `MRTM-SAF-006` | `SP-03` | verified | — |
+| MRTM-LA-024 | Supervision power-up tests | C (rigour 4) | `MRTM-SAF-007`, `MRTM-SAF-023` | `SP-05` | verified | — |
+| MRTM-LA-025 | Supervision band check | C (rigour 4) | `MRTM-SAF-017` | `test_int_chains.test_int03_corrupt_config_fail_safe` | verified | — |
+| MRTM-LA-026 | Supervision pulse stop | C (rigour 4) | `MRTM-SAF-010` | `test_int_chains.test_int02_watchdog_chain` | verified | — |
+
+### System Requirement ⇄ Logical Requirement (LA)
+
+#### System Requirement → Logical Requirement (LA) (parent to children)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-SYS-001 | Sampling period | C (rigour 4) | `MRTM-LA-019` | `SP-01`, `SP-01-H`, `test_sensor_sampler.test_good_scratchpad_gives_a_valid_sample` | verified | `10-src/config/mrtm_config.h#off`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read` |
+| MRTM-SYS-002 | Excursion confirmation | C (rigour 4) | `MRTM-LA-002` | `SP-01`, `SP-01-H`, `test_int_chains.test_int01_excursion_chain`, `test_limit_evaluator.test_invalid_sample_neither_counts_nor_resets`, `test_limit_evaluator.test_n_minus_one_out_then_one_in_does_not_confirm`, `test_limit_evaluator.test_nth_consecutive_out_sample_confirms` | verified | `10-src/config/mrtm_config.h#off`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+| MRTM-SYS-003 | Buzzer on excursion | C (rigour 4) | `MRTM-LA-003`, `MRTM-LA-006` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz`, `test_int_chains.test_int01_excursion_chain` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take` |
+| MRTM-SYS-004 | Red indicator on excursion | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SYS-005 | Warning on excursion | C (rigour 4) | `MRTM-LA-009` | `SP-01`, `SP-01-H`, `test_display_mgr.test_excursion_warning_for_the_whole_excursion`, `test_int_chains.test_int01_excursion_chain` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_display_step` |
+| MRTM-SYS-006 | Acknowledge silences buzzer | C (rigour 4) | `MRTM-LA-004` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_button_debounced`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_post`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take` |
+| MRTM-SYS-007 | Warning stays while excursion is open | C (rigour 4) | `MRTM-LA-009` | `SP-01`, `test_display_mgr.test_excursion_warning_for_the_whole_excursion` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw` |
+| MRTM-SYS-008 | Log excursion start | C (rigour 4) | `MRTM-LA-012`, `MRTM-LA-015` | `SP-01`, `SP-01-H`, `test_event_log.test_time_stamp_is_the_utc_second_of_the_post`, `test_int_chains.test_int01_excursion_chain`, `test_usb_export.test_csv_lines_oldest_first_newest_last` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now` |
+| MRTM-SYS-009 | Log excursion end | C (rigour 4) | `MRTM-LA-012` | `SP-01`, `SP-01-H`, `test_event_log.test_end_record_carries_the_peak_in_tenths`, `test_limit_evaluator.test_peak_below_band_counts_distance_downwards`, `test_limit_evaluator.test_peak_is_the_most_extreme_sample` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_peak`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+| MRTM-SYS-010 | Log acknowledgement | C (rigour 4) | `MRTM-LA-012` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs`, `test_event_log.test_time_stamp_is_the_utc_second_of_the_post` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now` |
+| MRTM-SYS-011 | Display resolution | C (rigour 4) | `MRTM-LA-010` | `SP-09`, `test_display_mgr.test_temperature_refreshes_every_10_s_in_tenths`, `test_sensor_sampler.test_conversion_rounds_to_a_tenth_and_adds_the_offset` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_to_tenths` |
+| MRTM-SYS-012 | Probe fault detection | C (rigour 4) | `MRTM-LA-022` | `SP-02`, `test_mrtm_common.test_crc8_over_a_scratchpad`, `test_mrtm_common.test_crc_check_values`, `test_sensor_sampler.test_bad_crc_is_invalid_but_not_out_of_range`, `test_sensor_sampler.test_fault_after_30_s_without_a_correct_crc`, `test_sensor_sampler.test_fault_clears_on_the_next_valid_sample` | verified | `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step`, `10-src/firmware/components/mrtm_common/src/mrtm_crc.c#mrtm_crc8_maxim`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_probe_fault`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read` |
+| MRTM-SYS-013 | Probe fault message | C (rigour 4) | `MRTM-LA-011` | `SP-02`, `test_display_mgr.test_probe_fault_message` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_display_step` |
+| MRTM-SYS-014 | Read-only event log | C (rigour 4) | `MRTM-LA-014` | `SP-08`, `test_usb_export.test_every_write_is_refused`, `test_usb_export.test_history_csv_is_marked_read_only` | verified | `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_init`, `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_write10` |
+| MRTM-SYS-015 | Event log capacity | C (rigour 4) | `MRTM-LA-013` | `SP-07`, `test_history_ring.test_init_finds_the_head_again_after_a_restart`, `test_history_ring.test_retains_10000_records_after_wrapping`, `test_history_ring.test_retains_10000_straight_after_an_erase_ahead`, `test_usb_export.test_full_history_fits_and_fat_chain_ends` | verified | `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_append`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_init`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_read` |
+| MRTM-SYS-016 | Battery operation | C (rigour 4) | `MRTM-LA-016` | `SP-04` | verified | — |
+| MRTM-SYS-017 | Allowed band | C (rigour 4) | `MRTM-LA-025` | `SP-13`, `test_config_mgr.test_band_outside_2_to_8_is_refused`, `test_config_mgr.test_valid_record_loads_the_2_to_8_degree_band`, `test_limit_evaluator.test_band_edges_two_and_eight_degrees_are_inside` | verified | `10-src/firmware/components/config_mgr/src/config_mgr.c#config_mgr_load`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_init`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step` |
+| MRTM-SYS-018 | Excursion end confirmation | C (rigour 4) | `MRTM-LA-007` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_end_returns_to_quiet_from_sounding_and_silenced`, `test_limit_evaluator.test_hysteresis_knob_is_zero`, `test_limit_evaluator.test_nth_consecutive_in_sample_ends_excursion`, `test_limit_evaluator.test_out_sample_restarts_the_in_run` | verified | `10-src/config/mrtm_config.h#off`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step` |
+| MRTM-SYS-019 | Alarm comes back after silence | C (rigour 4) | none | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_re_sounds_15_minutes_after_the_ack` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SYS-020 | Clock drift | C (rigour 4) | `MRTM-LA-015` | `SP-12`, `test_rtc_clock.test_now_is_the_rtc_copy_refreshed_each_second` | verified | `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_tick` |
+| MRTM-SYS-021 | Event log integrity | C (rigour 4) | none | `SP-07`, `test_history_ring.test_both_copies_corrupt_reports_err_crc_and_logs_it`, `test_history_ring.test_corrupt_copy_a_is_read_from_copy_b`, `test_mrtm_common.test_crc_check_values`, `test_usb_export.test_unreadable_record_is_a_corrupt_line` | verified | `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_read`, `10-src/firmware/components/mrtm_common/src/mrtm_crc.c#mrtm_crc32` |
+| MRTM-SYS-022 | Log capacity warning | C (rigour 4) | `MRTM-LA-011` | `SP-07`, `test_display_mgr.test_calibration_due_and_log_capacity_messages`, `test_history_ring.test_capacity_warning_once_at_9000` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_append`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step` |
+| MRTM-SYS-023 | Power restore event | C (rigour 4) | `MRTM-LA-018` | `SP-04`, `test_event_log.test_time_stamp_is_the_utc_second_of_the_post`, `test_power_mon.test_mains_loss_and_restore_are_logged_from_the_edge` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/power_mon/src/power_mon.c#power_mon_isr`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now` |
+| MRTM-SYS-024 | Early excursion alarm | C (rigour 4) | `MRTM-LA-001`, `MRTM-LA-020` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_early_alarm_clears_back_to_quiet`, `test_alarm_mgr.test_early_alarm_is_red_1_hz_without_buzzer_then_escalates`, `test_limit_evaluator.test_back_in_band_clears_the_early_alarm`, `test_limit_evaluator.test_early_alarm_budget_fits_5_s`, `test_limit_evaluator.test_first_out_sample_raises_the_early_alarm` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+
+#### Logical Requirement (LA) → System Requirement (child to parents)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-LA-001 | Alarm early signal latency | C (rigour 4) | `MRTM-SYS-024` | `test_alarm_mgr.test_early_alarm_is_red_1_hz_without_buzzer_then_escalates`, `test_limit_evaluator.test_early_alarm_budget_fits_5_s` | verified | — |
+| MRTM-LA-002 | Alarm excursion confirmation | C (rigour 4) | `MRTM-SYS-002` | `test_int_chains.test_int01_excursion_chain`, `test_limit_evaluator.test_early_alarm_budget_fits_5_s` | verified | — |
+| MRTM-LA-003 | Alarm buzzer latency | C (rigour 4) | `MRTM-SYS-003` | `test_int_chains.test_int01_excursion_chain` | verified | — |
+| MRTM-LA-004 | Alarm acknowledge | C (rigour 4) | `MRTM-SYS-006` | `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs` | verified | — |
+| MRTM-LA-005 | Alarm backup path | C (rigour 4) | none | `SP-03`, `test_int_chains.test_int02_watchdog_chain` | verified | — |
+| MRTM-LA-006 | Alarm high-priority auditory pattern | C (rigour 4) | `MRTM-SYS-003` | — | unverified | — |
+| MRTM-LA-007 | Alarm excursion end | C (rigour 4) | `MRTM-SYS-018` | `test_limit_evaluator.test_nth_consecutive_in_sample_ends_excursion` | verified | — |
+| MRTM-LA-008 | Alarm backup hold-up | C (rigour 4) | none | `SP-03` | verified | — |
+| MRTM-LA-009 | Display excursion warning | C (rigour 4) | `MRTM-SYS-005`, `MRTM-SYS-007` | `test_int_chains.test_int01_excursion_chain` | verified | — |
+| MRTM-LA-010 | Display temperature | C (rigour 4) | `MRTM-SYS-011` | `SP-09` | verified | — |
+| MRTM-LA-011 | Display messages | C (rigour 4) | `MRTM-SYS-013`, `MRTM-SYS-022` | `SP-05`, `SP-09` | verified | — |
+| MRTM-LA-012 | Logging record write | C (rigour 4) | `MRTM-SYS-008`, `MRTM-SYS-009`, `MRTM-SYS-010` | `SP-07` | verified | — |
+| MRTM-LA-013 | Logging retention | C (rigour 4) | `MRTM-SYS-015` | `SP-07` | verified | — |
+| MRTM-LA-014 | Logging read-only export | C (rigour 4) | `MRTM-SYS-014` | `SP-08` | verified | — |
+| MRTM-LA-015 | Logging time stamp | C (rigour 4) | `MRTM-SYS-008`, `MRTM-SYS-020` | `SP-12` | verified | — |
+| MRTM-LA-016 | Power switch-over | C (rigour 4) | `MRTM-SYS-016` | `SP-04` | verified | — |
+| MRTM-LA-017 | Power battery time | C (rigour 4) | none | `SP-04` | verified | — |
+| MRTM-LA-018 | Power events | C (rigour 4) | `MRTM-SYS-023` | `test_int_chains.test_int05_power_loss_logged_within_1_s` | verified | — |
+| MRTM-LA-019 | Sensing sample period | C (rigour 4) | `MRTM-SYS-001` | `SP-01` | verified | — |
+| MRTM-LA-020 | Sensing sample latency | C (rigour 4) | `MRTM-SYS-024` | `test_limit_evaluator.test_early_alarm_budget_fits_5_s` | verified | — |
+| MRTM-LA-021 | Sensing accuracy | C (rigour 4) | none | `SP-10` | verified | — |
+| MRTM-LA-022 | Sensing invalid sample | C (rigour 4) | `MRTM-SYS-012` | `SP-02` | verified | — |
+| MRTM-LA-023 | Supervision restart | C (rigour 4) | none | `SP-03` | verified | — |
+| MRTM-LA-024 | Supervision power-up tests | C (rigour 4) | none | `SP-05` | verified | — |
+| MRTM-LA-025 | Supervision band check | C (rigour 4) | `MRTM-SYS-017` | `test_int_chains.test_int03_corrupt_config_fail_safe` | verified | — |
+| MRTM-LA-026 | Supervision pulse stop | C (rigour 4) | none | `test_int_chains.test_int02_watchdog_chain` | verified | — |
+
+### Logical Requirement (LA) ⇄ Physical Requirement (PA hardware)
+
+#### Logical Requirement (LA) → Physical Requirement (PA hardware) (parent to children)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-LA-001 | Alarm early signal latency | C (rigour 4) | `MRTM-PH-007` | `test_alarm_mgr.test_early_alarm_is_red_1_hz_without_buzzer_then_escalates`, `test_limit_evaluator.test_early_alarm_budget_fits_5_s` | verified | — |
+| MRTM-LA-002 | Alarm excursion confirmation | C (rigour 4) | none | `test_int_chains.test_int01_excursion_chain`, `test_limit_evaluator.test_early_alarm_budget_fits_5_s` | verified | — |
+| MRTM-LA-003 | Alarm buzzer latency | C (rigour 4) | `MRTM-PH-006` | `test_int_chains.test_int01_excursion_chain` | verified | — |
+| MRTM-LA-004 | Alarm acknowledge | C (rigour 4) | `MRTM-PH-008` | `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs` | verified | — |
+| MRTM-LA-005 | Alarm backup path | C (rigour 4) | `MRTM-PH-001`, `MRTM-PH-003`, `MRTM-PH-004`, `MRTM-PH-006` | `SP-03`, `test_int_chains.test_int02_watchdog_chain` | verified | — |
+| MRTM-LA-006 | Alarm high-priority auditory pattern | C (rigour 4) | none | — | unverified | — |
+| MRTM-LA-007 | Alarm excursion end | C (rigour 4) | none | `test_limit_evaluator.test_nth_consecutive_in_sample_ends_excursion` | verified | — |
+| MRTM-LA-008 | Alarm backup hold-up | C (rigour 4) | `MRTM-PH-002`, `MRTM-PH-005` | `SP-03` | verified | — |
+| MRTM-LA-009 | Display excursion warning | C (rigour 4) | none | `test_int_chains.test_int01_excursion_chain` | verified | — |
+| MRTM-LA-010 | Display temperature | C (rigour 4) | `MRTM-PH-009` | `SP-09` | verified | — |
+| MRTM-LA-011 | Display messages | C (rigour 4) | none | `SP-05`, `SP-09` | verified | — |
+| MRTM-LA-012 | Logging record write | C (rigour 4) | none | `SP-07` | verified | — |
+| MRTM-LA-013 | Logging retention | C (rigour 4) | none | `SP-07` | verified | — |
+| MRTM-LA-014 | Logging read-only export | C (rigour 4) | none | `SP-08` | verified | — |
+| MRTM-LA-015 | Logging time stamp | C (rigour 4) | `MRTM-PH-010` | `SP-12` | verified | — |
+| MRTM-LA-016 | Power switch-over | C (rigour 4) | `MRTM-PH-012` | `SP-04` | verified | — |
+| MRTM-LA-017 | Power battery time | C (rigour 4) | `MRTM-PH-011` | `SP-04` | verified | — |
+| MRTM-LA-018 | Power events | C (rigour 4) | none | `test_int_chains.test_int05_power_loss_logged_within_1_s` | verified | — |
+| MRTM-LA-019 | Sensing sample period | C (rigour 4) | none | `SP-01` | verified | — |
+| MRTM-LA-020 | Sensing sample latency | C (rigour 4) | `MRTM-PH-013` | `test_limit_evaluator.test_early_alarm_budget_fits_5_s` | verified | — |
+| MRTM-LA-021 | Sensing accuracy | C (rigour 4) | `MRTM-PH-014` | `SP-10` | verified | — |
+| MRTM-LA-022 | Sensing invalid sample | C (rigour 4) | `MRTM-PH-015` | `SP-02` | verified | — |
+| MRTM-LA-023 | Supervision restart | C (rigour 4) | `MRTM-PH-016` | `SP-03` | verified | — |
+| MRTM-LA-024 | Supervision power-up tests | C (rigour 4) | none | `SP-05` | verified | — |
+| MRTM-LA-025 | Supervision band check | C (rigour 4) | none | `test_int_chains.test_int03_corrupt_config_fail_safe` | verified | — |
+| MRTM-LA-026 | Supervision pulse stop | C (rigour 4) | none | `test_int_chains.test_int02_watchdog_chain` | verified | — |
+
+#### Physical Requirement (PA hardware) → Logical Requirement (LA) (child to parents)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-PH-001 | Backup alarm timeout | C (rigour 4) | `MRTM-LA-005` | `SP-03` | verified | — |
+| MRTM-PH-002 | Backup alarm hold-up | C (rigour 4) | `MRTM-LA-008` | `SP-03` | verified | — |
+| MRTM-PH-003 | Backup driver response | C (rigour 4) | `MRTM-LA-005` | `SP-03` | verified | — |
+| MRTM-PH-004 | Backup timer period | C (rigour 4) | `MRTM-LA-005` | `SP-03` | verified | — |
+| MRTM-PH-005 | Hold-up energy | C (rigour 4) | `MRTM-LA-008` | `SP-03` | verified | — |
+| MRTM-PH-006 | Buzzer loudness | C (rigour 4) | `MRTM-LA-003`, `MRTM-LA-005` | `SP-06` | verified | — |
+| MRTM-PH-007 | Red indicator response | C (rigour 4) | `MRTM-LA-001` | `SP-01` | verified | — |
+| MRTM-PH-008 | Acknowledge button contact | C (rigour 4) | `MRTM-LA-004` | `SP-01` | verified | — |
+| MRTM-PH-009 | Panel digit height | C (rigour 4) | `MRTM-LA-010` | `SP-09` | verified | — |
+| MRTM-PH-010 | Clock drift | C (rigour 4) | `MRTM-LA-015` | `SP-12` | verified | — |
+| MRTM-PH-011 | Battery capacity | C (rigour 4) | `MRTM-LA-017` | `SP-04` | verified | — |
+| MRTM-PH-012 | Power path switch | C (rigour 4) | `MRTM-LA-016` | `SP-04` | verified | — |
+| MRTM-PH-013 | Probe conversion time | C (rigour 4) | `MRTM-LA-020` | `SP-10` | verified | — |
+| MRTM-PH-014 | Probe accuracy | C (rigour 4) | `MRTM-LA-021` | `SP-10` | verified | — |
+| MRTM-PH-015 | Probe scratchpad check | C (rigour 4) | `MRTM-LA-022` | `SP-10` | verified | — |
+| MRTM-PH-016 | Processor watchdog reset | C (rigour 4) | `MRTM-LA-023` | `SP-03` | verified | — |
+
+### Logical Requirement (LA) ⇄ Software Requirement (PA software)
+
+#### Logical Requirement (LA) → Software Requirement (PA software) (parent to children)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-LA-001 | Alarm early signal latency | C (rigour 4) | `MRTM-SW-001`, `MRTM-SW-005` | `test_alarm_mgr.test_early_alarm_is_red_1_hz_without_buzzer_then_escalates`, `test_limit_evaluator.test_early_alarm_budget_fits_5_s` | verified | — |
+| MRTM-LA-002 | Alarm excursion confirmation | C (rigour 4) | `MRTM-SW-006` | `test_int_chains.test_int01_excursion_chain`, `test_limit_evaluator.test_early_alarm_budget_fits_5_s` | verified | — |
+| MRTM-LA-003 | Alarm buzzer latency | C (rigour 4) | `MRTM-SW-002` | `test_int_chains.test_int01_excursion_chain` | verified | — |
+| MRTM-LA-004 | Alarm acknowledge | C (rigour 4) | `MRTM-SW-003` | `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs` | verified | — |
+| MRTM-LA-005 | Alarm backup path | C (rigour 4) | `MRTM-SW-004` | `SP-03`, `test_int_chains.test_int02_watchdog_chain` | verified | — |
+| MRTM-LA-006 | Alarm high-priority auditory pattern | C (rigour 4) | none | — | unverified | — |
+| MRTM-LA-007 | Alarm excursion end | C (rigour 4) | `MRTM-SW-007` | `test_limit_evaluator.test_nth_consecutive_in_sample_ends_excursion` | verified | — |
+| MRTM-LA-008 | Alarm backup hold-up | C (rigour 4) | none | `SP-03` | verified | — |
+| MRTM-LA-009 | Display excursion warning | C (rigour 4) | `MRTM-SW-008` | `test_int_chains.test_int01_excursion_chain` | verified | — |
+| MRTM-LA-010 | Display temperature | C (rigour 4) | `MRTM-SW-009` | `SP-09` | verified | — |
+| MRTM-LA-011 | Display messages | C (rigour 4) | `MRTM-SW-008` | `SP-05`, `SP-09` | verified | — |
+| MRTM-LA-012 | Logging record write | C (rigour 4) | `MRTM-SW-010` | `SP-07` | verified | — |
+| MRTM-LA-013 | Logging retention | C (rigour 4) | `MRTM-SW-011` | `SP-07` | verified | — |
+| MRTM-LA-014 | Logging read-only export | C (rigour 4) | `MRTM-SW-012`, `MRTM-SW-013` | `SP-08` | verified | — |
+| MRTM-LA-015 | Logging time stamp | C (rigour 4) | none | `SP-12` | verified | — |
+| MRTM-LA-016 | Power switch-over | C (rigour 4) | none | `SP-04` | verified | — |
+| MRTM-LA-017 | Power battery time | C (rigour 4) | none | `SP-04` | verified | — |
+| MRTM-LA-018 | Power events | C (rigour 4) | `MRTM-SW-014`, `MRTM-SW-015` | `test_int_chains.test_int05_power_loss_logged_within_1_s` | verified | — |
+| MRTM-LA-019 | Sensing sample period | C (rigour 4) | `MRTM-SW-016` | `SP-01` | verified | — |
+| MRTM-LA-020 | Sensing sample latency | C (rigour 4) | `MRTM-SW-016` | `test_limit_evaluator.test_early_alarm_budget_fits_5_s` | verified | — |
+| MRTM-LA-021 | Sensing accuracy | C (rigour 4) | none | `SP-10` | verified | — |
+| MRTM-LA-022 | Sensing invalid sample | C (rigour 4) | `MRTM-SW-017` | `SP-02` | verified | — |
+| MRTM-LA-023 | Supervision restart | C (rigour 4) | `MRTM-SW-018` | `SP-03` | verified | — |
+| MRTM-LA-024 | Supervision power-up tests | C (rigour 4) | `MRTM-SW-019` | `SP-05` | verified | — |
+| MRTM-LA-025 | Supervision band check | C (rigour 4) | `MRTM-SW-020` | `test_int_chains.test_int03_corrupt_config_fail_safe` | verified | — |
+| MRTM-LA-026 | Supervision pulse stop | C (rigour 4) | `MRTM-SW-018` | `test_int_chains.test_int02_watchdog_chain` | verified | — |
+
+#### Software Requirement (PA software) → Logical Requirement (LA) (child to parents)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-SW-001 | Alarm item early light | C (rigour 4) | `MRTM-LA-001` | `test_alarm_mgr.test_early_alarm_is_red_1_hz_without_buzzer_then_escalates` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take` |
+| MRTM-SW-002 | Alarm item buzzer on | C (rigour 4) | `MRTM-LA-003` | `test_alarm_mgr.test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SW-003 | Alarm item buzzer off | C (rigour 4) | `MRTM-LA-004` | `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs`, `test_alarm_mgr.test_button_debounce_50_ms` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_button_debounced` |
+| MRTM-SW-004 | Alarm item heartbeat | C (rigour 4) | `MRTM-LA-005` | `test_alarm_mgr.test_heartbeat_moves_on_every_step` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_heartbeat` |
+| MRTM-SW-005 | Excursion item early report | C (rigour 4) | `MRTM-LA-001` | `test_limit_evaluator.test_early_alarm_budget_fits_5_s`, `test_limit_evaluator.test_first_out_sample_raises_the_early_alarm` | verified | `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step` |
+| MRTM-SW-006 | Excursion item confirmation | C (rigour 4) | `MRTM-LA-002` | `test_limit_evaluator.test_early_alarm_budget_fits_5_s`, `test_limit_evaluator.test_nth_consecutive_out_sample_confirms` | verified | `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step` |
+| MRTM-SW-007 | Excursion item end | C (rigour 4) | `MRTM-LA-007` | `test_limit_evaluator.test_nth_consecutive_in_sample_ends_excursion` | verified | `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step` |
+| MRTM-SW-008 | Display item redraw | C (rigour 4) | `MRTM-LA-009`, `MRTM-LA-011` | `test_display_mgr.test_calibration_due_and_log_capacity_messages`, `test_display_mgr.test_excursion_warning_for_the_whole_excursion`, `test_display_mgr.test_probe_fault_message` | verified | `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_display_step` |
+| MRTM-SW-009 | Display item number rate | C (rigour 4) | `MRTM-LA-010` | `test_display_mgr.test_temperature_refreshes_every_10_s_in_tenths` | verified | `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step` |
+| MRTM-SW-010 | Log item two copies | C (rigour 4) | `MRTM-LA-012` | `test_history_ring.test_append_writes_copy_a_and_copy_b` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_step` |
+| MRTM-SW-011 | Log item ring | C (rigour 4) | `MRTM-LA-013` | `test_history_ring.test_retains_10000_records_after_wrapping` | verified | `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_init` |
+| MRTM-SW-012 | USB item volume | B (rigour 2) | `MRTM-LA-014` | `test_usb_export.test_history_csv_is_marked_read_only` | verified | `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_init` |
+| MRTM-SW-013 | USB item read-only access | B (rigour 2) | `MRTM-LA-014` | `test_usb_export.test_every_write_is_refused` | verified | `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_write10` |
+| MRTM-SW-014 | Power item mains events | C (rigour 4) | `MRTM-LA-018` | `test_power_mon.test_mains_loss_and_restore_are_logged_from_the_edge` | verified | `10-src/firmware/components/power_mon/src/power_mon.c#power_mon_isr` |
+| MRTM-SW-015 | Power item battery low | C (rigour 4) | `MRTM-LA-018` | `test_power_mon.test_battery_below_3400_mv_twice_sounds_the_buzzer` | verified | `10-src/firmware/components/power_mon/src/power_mon.c#power_mon_step` |
+| MRTM-SW-016 | Sensor item conversion start | C (rigour 4) | `MRTM-LA-019`, `MRTM-LA-020` | `test_sensor_sampler.test_good_scratchpad_gives_a_valid_sample` | verified | `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read` |
+| MRTM-SW-017 | Sensor item invalid sample | C (rigour 4) | `MRTM-LA-022` | `test_sensor_sampler.test_bad_crc_is_invalid_but_not_out_of_range`, `test_sensor_sampler.test_reading_outside_minus30_to_50_declares_the_fault_at_once` | verified | `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_probe_fault` |
+| MRTM-SW-018 | Supervisor item pulses | C (rigour 4) | `MRTM-LA-023`, `MRTM-LA-026` | `test_wdt_kicker.test_pulses_stop_within_2_s_of_a_missed_alarm_cycle` | verified | `10-src/firmware/components/wdt_kicker/src/wdt_kicker.c#wdt_kicker_step` |
+| MRTM-SW-019 | Supervisor item self-tests | C (rigour 4) | `MRTM-LA-024` | `test_diagnostics.test_power_up_tests_pass_inside_their_windows` | verified | `10-src/firmware/components/diagnostics/src/diagnostics.c#diagnostics_power_up` |
+| MRTM-SW-020 | Supervisor item band load | C (rigour 4) | `MRTM-LA-025` | `test_config_mgr.test_bad_crc_is_refused_with_err_crc` | verified | `10-src/firmware/components/config_mgr/src/config_mgr.c#config_mgr_load` |
+
+### Physical Requirement (PA hardware) ⇄ Configuration Item (EPBS)
+
+#### Physical Requirement (PA hardware) → Configuration Item (EPBS) (parent to children)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-PH-001 | Backup alarm timeout | C (rigour 4) | `MRTM-CI-005` | `SP-03` | verified | — |
+| MRTM-PH-002 | Backup alarm hold-up | C (rigour 4) | `MRTM-CI-005` | `SP-03` | verified | — |
+| MRTM-PH-003 | Backup driver response | C (rigour 4) | `MRTM-CI-005` | `SP-03` | verified | — |
+| MRTM-PH-004 | Backup timer period | C (rigour 4) | `MRTM-CI-005` | `SP-03` | verified | — |
+| MRTM-PH-005 | Hold-up energy | C (rigour 4) | `MRTM-CI-005` | `SP-03` | verified | — |
+| MRTM-PH-006 | Buzzer loudness | C (rigour 4) | `MRTM-CI-002` | `SP-06` | verified | — |
+| MRTM-PH-007 | Red indicator response | C (rigour 4) | `MRTM-CI-002` | `SP-01` | verified | — |
+| MRTM-PH-008 | Acknowledge button contact | C (rigour 4) | `MRTM-CI-002` | `SP-01` | verified | — |
+| MRTM-PH-009 | Panel digit height | C (rigour 4) | `MRTM-CI-004` | `SP-09` | verified | — |
+| MRTM-PH-010 | Clock drift | C (rigour 4) | `MRTM-CI-002` | `SP-12` | verified | — |
+| MRTM-PH-011 | Battery capacity | C (rigour 4) | `MRTM-CI-006` | `SP-04` | verified | — |
+| MRTM-PH-012 | Power path switch | C (rigour 4) | `MRTM-CI-002` | `SP-04` | verified | — |
+| MRTM-PH-013 | Probe conversion time | C (rigour 4) | `MRTM-CI-003` | `SP-10` | verified | — |
+| MRTM-PH-014 | Probe accuracy | C (rigour 4) | `MRTM-CI-003` | `SP-10` | verified | — |
+| MRTM-PH-015 | Probe scratchpad check | C (rigour 4) | `MRTM-CI-003` | `SP-10` | verified | — |
+| MRTM-PH-016 | Processor watchdog reset | C (rigour 4) | `MRTM-CI-002` | `SP-03` | verified | — |
+
+#### Configuration Item (EPBS) → Physical Requirement (PA hardware) (child to parents)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-CI-001 | Firmware image | C (rigour 4) | none | `INS-CI-001` | verified | — |
+| MRTM-CI-002 | Main board assembly | C (rigour 4) | `MRTM-PH-006`, `MRTM-PH-007`, `MRTM-PH-008`, `MRTM-PH-010`, `MRTM-PH-012`, `MRTM-PH-016` | `INS-CI-002` | verified | — |
+| MRTM-CI-003 | Probe assembly | C (rigour 4) | `MRTM-PH-013`, `MRTM-PH-014`, `MRTM-PH-015` | `INS-CI-003` | verified | — |
+| MRTM-CI-004 | Display module | C (rigour 4) | `MRTM-PH-009` | `INS-CI-004` | verified | — |
+| MRTM-CI-005 | Backup alarm board | C (rigour 4) | `MRTM-PH-001`, `MRTM-PH-002`, `MRTM-PH-003`, `MRTM-PH-004`, `MRTM-PH-005` | `INS-CI-005` | verified | — |
+| MRTM-CI-006 | Battery pack | C (rigour 4) | `MRTM-PH-011` | `INS-CI-006` | verified | — |
+
+### Software Requirement (PA software) ⇄ Configuration Item (EPBS)
+
+#### Software Requirement (PA software) → Configuration Item (EPBS) (parent to children)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-SW-001 | Alarm item early light | C (rigour 4) | `MRTM-CI-001` | `test_alarm_mgr.test_early_alarm_is_red_1_hz_without_buzzer_then_escalates` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take` |
+| MRTM-SW-002 | Alarm item buzzer on | C (rigour 4) | `MRTM-CI-001` | `test_alarm_mgr.test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SW-003 | Alarm item buzzer off | C (rigour 4) | `MRTM-CI-001` | `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs`, `test_alarm_mgr.test_button_debounce_50_ms` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_button_debounced` |
+| MRTM-SW-004 | Alarm item heartbeat | C (rigour 4) | `MRTM-CI-001` | `test_alarm_mgr.test_heartbeat_moves_on_every_step` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_heartbeat` |
+| MRTM-SW-005 | Excursion item early report | C (rigour 4) | `MRTM-CI-001` | `test_limit_evaluator.test_early_alarm_budget_fits_5_s`, `test_limit_evaluator.test_first_out_sample_raises_the_early_alarm` | verified | `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step` |
+| MRTM-SW-006 | Excursion item confirmation | C (rigour 4) | `MRTM-CI-001` | `test_limit_evaluator.test_early_alarm_budget_fits_5_s`, `test_limit_evaluator.test_nth_consecutive_out_sample_confirms` | verified | `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step` |
+| MRTM-SW-007 | Excursion item end | C (rigour 4) | `MRTM-CI-001` | `test_limit_evaluator.test_nth_consecutive_in_sample_ends_excursion` | verified | `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step` |
+| MRTM-SW-008 | Display item redraw | C (rigour 4) | `MRTM-CI-001` | `test_display_mgr.test_calibration_due_and_log_capacity_messages`, `test_display_mgr.test_excursion_warning_for_the_whole_excursion`, `test_display_mgr.test_probe_fault_message` | verified | `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_display_step` |
+| MRTM-SW-009 | Display item number rate | C (rigour 4) | `MRTM-CI-001` | `test_display_mgr.test_temperature_refreshes_every_10_s_in_tenths` | verified | `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step` |
+| MRTM-SW-010 | Log item two copies | C (rigour 4) | `MRTM-CI-001` | `test_history_ring.test_append_writes_copy_a_and_copy_b` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_step` |
+| MRTM-SW-011 | Log item ring | C (rigour 4) | `MRTM-CI-001` | `test_history_ring.test_retains_10000_records_after_wrapping` | verified | `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_init` |
+| MRTM-SW-012 | USB item volume | B (rigour 2) | `MRTM-CI-001` | `test_usb_export.test_history_csv_is_marked_read_only` | verified | `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_init` |
+| MRTM-SW-013 | USB item read-only access | B (rigour 2) | `MRTM-CI-001` | `test_usb_export.test_every_write_is_refused` | verified | `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_write10` |
+| MRTM-SW-014 | Power item mains events | C (rigour 4) | `MRTM-CI-001` | `test_power_mon.test_mains_loss_and_restore_are_logged_from_the_edge` | verified | `10-src/firmware/components/power_mon/src/power_mon.c#power_mon_isr` |
+| MRTM-SW-015 | Power item battery low | C (rigour 4) | `MRTM-CI-001` | `test_power_mon.test_battery_below_3400_mv_twice_sounds_the_buzzer` | verified | `10-src/firmware/components/power_mon/src/power_mon.c#power_mon_step` |
+| MRTM-SW-016 | Sensor item conversion start | C (rigour 4) | `MRTM-CI-001` | `test_sensor_sampler.test_good_scratchpad_gives_a_valid_sample` | verified | `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read` |
+| MRTM-SW-017 | Sensor item invalid sample | C (rigour 4) | `MRTM-CI-001` | `test_sensor_sampler.test_bad_crc_is_invalid_but_not_out_of_range`, `test_sensor_sampler.test_reading_outside_minus30_to_50_declares_the_fault_at_once` | verified | `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_probe_fault` |
+| MRTM-SW-018 | Supervisor item pulses | C (rigour 4) | `MRTM-CI-001` | `test_wdt_kicker.test_pulses_stop_within_2_s_of_a_missed_alarm_cycle` | verified | `10-src/firmware/components/wdt_kicker/src/wdt_kicker.c#wdt_kicker_step` |
+| MRTM-SW-019 | Supervisor item self-tests | C (rigour 4) | `MRTM-CI-001` | `test_diagnostics.test_power_up_tests_pass_inside_their_windows` | verified | `10-src/firmware/components/diagnostics/src/diagnostics.c#diagnostics_power_up` |
+| MRTM-SW-020 | Supervisor item band load | C (rigour 4) | `MRTM-CI-001` | `test_config_mgr.test_bad_crc_is_refused_with_err_crc` | verified | `10-src/firmware/components/config_mgr/src/config_mgr.c#config_mgr_load` |
+
+#### Configuration Item (EPBS) → Software Requirement (PA software) (child to parents)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-CI-001 | Firmware image | C (rigour 4) | `MRTM-SW-001`, `MRTM-SW-002`, `MRTM-SW-003`, `MRTM-SW-004`, `MRTM-SW-005`, `MRTM-SW-006`, `MRTM-SW-007`, `MRTM-SW-008`, `MRTM-SW-009`, `MRTM-SW-010`, `MRTM-SW-011`, `MRTM-SW-012`, `MRTM-SW-013`, `MRTM-SW-014`, `MRTM-SW-015`, `MRTM-SW-016`, `MRTM-SW-017`, `MRTM-SW-018`, `MRTM-SW-019`, `MRTM-SW-020` | `INS-CI-001` | verified | — |
+| MRTM-CI-002 | Main board assembly | C (rigour 4) | none | `INS-CI-002` | verified | — |
+| MRTM-CI-003 | Probe assembly | C (rigour 4) | none | `INS-CI-003` | verified | — |
+| MRTM-CI-004 | Display module | C (rigour 4) | none | `INS-CI-004` | verified | — |
+| MRTM-CI-005 | Backup alarm board | C (rigour 4) | none | `INS-CI-005` | verified | — |
+| MRTM-CI-006 | Battery pack | C (rigour 4) | none | `INS-CI-006` | verified | — |
+
+### Requirements ⇄ Allocated items
+
+**Objective:** ARP4754A 5.3, *allocation of requirements to items*; and DO-178C Table A-2 objective 1, *high-level requirements are developed* — from the system requirements allocated to software.
+
+#### Requirements → Allocated items (requirement to allocated item)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| MRTM-CI-001 | Firmware image | C (rigour 4) | `EpbsBreakdown::product.firmwareImage` | `INS-CI-001` | verified | — |
+| MRTM-CI-002 | Main board assembly | C (rigour 4) | `EpbsBreakdown::product.mainBoard` | `INS-CI-002` | verified | — |
+| MRTM-CI-003 | Probe assembly | C (rigour 4) | `EpbsBreakdown::product.probeAssembly` | `INS-CI-003` | verified | — |
+| MRTM-CI-004 | Display module | C (rigour 4) | `EpbsBreakdown::product.displayModule` | `INS-CI-004` | verified | — |
+| MRTM-CI-005 | Backup alarm board | C (rigour 4) | `EpbsBreakdown::product.backupAlarmBoard` | `INS-CI-005` | verified | — |
+| MRTM-CI-006 | Battery pack | C (rigour 4) | `EpbsBreakdown::product.batteryPack` | `INS-CI-006` | verified | — |
+| MRTM-ENV-001 | Battery endurance | C (rigour 4) | `SaFunctions::keepPowered` | `SP-04` | verified | — |
+| MRTM-ENV-002 | Ambient temperature | C (rigour 4) | `SaContext::monitor` | `SP-11` | verified | — |
+| MRTM-ENV-003 | Humidity | C (rigour 4) | `SaContext::monitor` | `SP-11` | verified | — |
+| MRTM-ENV-004 | Probe environment | C (rigour 4) | `SaFunctions::acquireTemperature` | `SP-10` | verified | — |
+| MRTM-IFC-001 | Probe bus | C (rigour 4) | `SaFunctions::acquireTemperature` | `SP-10`, `test_sensor_sampler.test_error_codes_arg_and_bus`, `test_sensor_sampler.test_good_scratchpad_gives_a_valid_sample` | verified | `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_init`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read` |
+| MRTM-IFC-002 | Acknowledge input | C (rigour 4) | `SaFunctions::announceAlarm` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_button_debounce_50_ms` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_button_debounced`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_button_isr` |
+| MRTM-IFC-003 | USB readout | C (rigour 4) | `SaFunctions::exportHistory` | `SP-08`, `test_usb_export.test_boot_sector_is_a_fat12_volume`, `test_usb_export.test_csv_lines_oldest_first_newest_last`, `test_usb_export.test_every_write_is_refused`, `test_usb_export.test_history_csv_is_marked_read_only` | verified | `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_init`, `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_read10`, `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_write10` |
+| MRTM-IFC-004 | Display character height | C (rigour 4) | `SaFunctions::showStatus` | `SP-09` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw` |
+| MRTM-LA-001 | Alarm early signal latency | C (rigour 4) | `LaArchitecture::alarm` | `test_alarm_mgr.test_early_alarm_is_red_1_hz_without_buzzer_then_escalates`, `test_limit_evaluator.test_early_alarm_budget_fits_5_s` | verified | — |
+| MRTM-LA-002 | Alarm excursion confirmation | C (rigour 4) | `LaArchitecture::alarm` | `test_int_chains.test_int01_excursion_chain`, `test_limit_evaluator.test_early_alarm_budget_fits_5_s` | verified | — |
+| MRTM-LA-003 | Alarm buzzer latency | C (rigour 4) | `LaArchitecture::alarm` | `test_int_chains.test_int01_excursion_chain` | verified | — |
+| MRTM-LA-004 | Alarm acknowledge | C (rigour 4) | `LaArchitecture::alarm` | `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs` | verified | — |
+| MRTM-LA-005 | Alarm backup path | C (rigour 4) | `LaArchitecture::alarm` | `SP-03`, `test_int_chains.test_int02_watchdog_chain` | verified | — |
+| MRTM-LA-006 | Alarm high-priority auditory pattern | C (rigour 4) | `LaArchitecture::alarm` | — | unverified | — |
+| MRTM-LA-007 | Alarm excursion end | C (rigour 4) | `LaArchitecture::alarm` | `test_limit_evaluator.test_nth_consecutive_in_sample_ends_excursion` | verified | — |
+| MRTM-LA-008 | Alarm backup hold-up | C (rigour 4) | `LaArchitecture::alarm` | `SP-03` | verified | — |
+| MRTM-LA-009 | Display excursion warning | C (rigour 4) | `LaArchitecture::display` | `test_int_chains.test_int01_excursion_chain` | verified | — |
+| MRTM-LA-010 | Display temperature | C (rigour 4) | `LaArchitecture::display` | `SP-09` | verified | — |
+| MRTM-LA-011 | Display messages | C (rigour 4) | `LaArchitecture::display` | `SP-05`, `SP-09` | verified | — |
+| MRTM-LA-012 | Logging record write | C (rigour 4) | `LaArchitecture::logging` | `SP-07` | verified | — |
+| MRTM-LA-013 | Logging retention | C (rigour 4) | `LaArchitecture::logging` | `SP-07` | verified | — |
+| MRTM-LA-014 | Logging read-only export | C (rigour 4) | `LaArchitecture::logging` | `SP-08` | verified | — |
+| MRTM-LA-015 | Logging time stamp | C (rigour 4) | `LaArchitecture::logging` | `SP-12` | verified | — |
+| MRTM-LA-016 | Power switch-over | C (rigour 4) | `LaArchitecture::power` | `SP-04` | verified | — |
+| MRTM-LA-017 | Power battery time | C (rigour 4) | `LaArchitecture::power` | `SP-04` | verified | — |
+| MRTM-LA-018 | Power events | C (rigour 4) | `LaArchitecture::power` | `test_int_chains.test_int05_power_loss_logged_within_1_s` | verified | — |
+| MRTM-LA-019 | Sensing sample period | C (rigour 4) | `LaArchitecture::sensing` | `SP-01` | verified | — |
+| MRTM-LA-020 | Sensing sample latency | C (rigour 4) | `LaArchitecture::sensing` | `test_limit_evaluator.test_early_alarm_budget_fits_5_s` | verified | — |
+| MRTM-LA-021 | Sensing accuracy | C (rigour 4) | `LaArchitecture::sensing` | `SP-10` | verified | — |
+| MRTM-LA-022 | Sensing invalid sample | C (rigour 4) | `LaArchitecture::sensing` | `SP-02` | verified | — |
+| MRTM-LA-023 | Supervision restart | C (rigour 4) | `LaArchitecture::supervision` | `SP-03` | verified | — |
+| MRTM-LA-024 | Supervision power-up tests | C (rigour 4) | `LaArchitecture::supervision` | `SP-05` | verified | — |
+| MRTM-LA-025 | Supervision band check | C (rigour 4) | `LaArchitecture::supervision` | `test_int_chains.test_int03_corrupt_config_fail_safe` | verified | — |
+| MRTM-LA-026 | Supervision pulse stop | C (rigour 4) | `LaArchitecture::supervision` | `test_int_chains.test_int02_watchdog_chain` | verified | — |
+| MRTM-MNT-001 | Probe replacement | C (rigour 4) | `SaFunctions::acquireTemperature` | `SP-10` | verified | — |
+| MRTM-MNT-002 | Battery level | C (rigour 4) | `SaFunctions::keepPowered` | `SP-09`, `test_display_mgr.test_battery_shown_in_steps_of_10_percent` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step` |
+| MRTM-MNT-003 | Firmware version | C (rigour 4) | `SaFunctions::superviseItself` | `SP-05`, `test_display_mgr.test_band_and_version_shown_in_the_first_3_s` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_power_up` |
+| MRTM-PH-001 | Backup alarm timeout | C (rigour 4) | `PaInterconnection::backupAlarm` | `SP-03` | verified | — |
+| MRTM-PH-002 | Backup alarm hold-up | C (rigour 4) | `PaInterconnection::backupAlarm` | `SP-03` | verified | — |
+| MRTM-PH-003 | Backup driver response | C (rigour 4) | `PaBackupAlarm::driver` | `SP-03` | verified | — |
+| MRTM-PH-004 | Backup timer period | C (rigour 4) | `PaBackupAlarm::timer` | `SP-03` | verified | — |
+| MRTM-PH-005 | Hold-up energy | C (rigour 4) | `PaBackupAlarm::holdUp` | `SP-03` | verified | — |
+| MRTM-PH-006 | Buzzer loudness | C (rigour 4) | `PaInterconnection::buzzer` | `SP-06` | verified | — |
+| MRTM-PH-007 | Red indicator response | C (rigour 4) | `PaInterconnection::indicators` | `SP-01` | verified | — |
+| MRTM-PH-008 | Acknowledge button contact | C (rigour 4) | `PaInterconnection::indicators` | `SP-01` | verified | — |
+| MRTM-PH-009 | Panel digit height | C (rigour 4) | `PaInterconnection::oled` | `SP-09` | verified | — |
+| MRTM-PH-010 | Clock drift | C (rigour 4) | `PaInterconnection::rtc` | `SP-12` | verified | — |
+| MRTM-PH-011 | Battery capacity | C (rigour 4) | `PaInterconnection::battery` | `SP-04` | verified | — |
+| MRTM-PH-012 | Power path switch | C (rigour 4) | `PaInterconnection::powerPath` | `SP-04` | verified | — |
+| MRTM-PH-013 | Probe conversion time | C (rigour 4) | `PaInterconnection::probe` | `SP-10` | verified | — |
+| MRTM-PH-014 | Probe accuracy | C (rigour 4) | `PaInterconnection::probe` | `SP-10` | verified | — |
+| MRTM-PH-015 | Probe scratchpad check | C (rigour 4) | `PaInterconnection::probe` | `SP-10` | verified | — |
+| MRTM-PH-016 | Processor watchdog reset | C (rigour 4) | `PaInterconnection::mcu` | `SP-03` | verified | — |
+| MRTM-PRF-001 | Measurement accuracy | C (rigour 4) | `SaFunctions::acquireTemperature` | `SP-10`, `test_sensor_sampler.test_conversion_rounds_to_a_tenth_and_adds_the_offset` | verified | `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_to_tenths` |
+| MRTM-PRF-002 | End-to-end alert time | C (rigour 4) | `SaFunctions::announceAlarm` | `SP-01`, `SP-01-H`, `test_int_chains.test_int01_excursion_chain` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-PRF-003 | Log readout time | C (rigour 4) | `SaFunctions::exportHistory` | `SP-08`, `test_usb_export.test_full_history_fits_and_fat_chain_ends` | verified | `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_read10` |
+| MRTM-PRF-004 | Display refresh | C (rigour 4) | `SaFunctions::showStatus` | `SP-09`, `test_display_mgr.test_temperature_refreshes_every_10_s_in_tenths` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#display_mgr_tick`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame` |
+| MRTM-SAF-001 | Buzzer loudness | C (rigour 4) | `SaFunctions::announceAlarm` | `SP-06` | verified | — |
+| MRTM-SAF-002 | Probe fault raises alert | C (rigour 4) | `SaFunctions::announceAlarm` | `SP-02`, `test_alarm_mgr.test_probe_fault_sounds_1_s_on_1_s_off` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+| MRTM-SAF-003 | Implausible sample | C (rigour 4) | `SaFunctions::acquireTemperature` | `SP-02`, `test_sensor_sampler.test_reading_outside_minus30_to_50_declares_the_fault_at_once` | verified | `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_probe_fault`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read` |
+| MRTM-SAF-004 | Watchdog restart | C (rigour 4) | `SaFunctions::superviseItself` | `SP-03`, `test_wdt_kicker.test_task_watchdog_armed_at_5_s` | verified | `10-src/firmware/components/wdt_kicker/src/wdt_kicker.c#wdt_kicker_init` |
+| MRTM-SAF-005 | Log power loss | C (rigour 4) | `SaFunctions::keepPowered` | `SP-04`, `test_int_chains.test_int05_power_loss_logged_within_1_s`, `test_power_mon.test_mains_loss_and_restore_are_logged_from_the_edge` | verified | `10-src/firmware/components/power_mon/src/power_mon.c#power_mon_isr` |
+| MRTM-SAF-006 | Alert survives restart | C (rigour 4) | `SaFunctions::superviseItself` | `SP-05`, `test_alarm_mgr.test_acknowledged_alarm_is_not_restored_as_sounding`, `test_alarm_mgr.test_error_codes_full_and_nvs`, `test_alarm_mgr.test_unacknowledged_alarm_is_restored_after_a_restart`, `test_int_chains.test_int04_restart_restores_the_alarm` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_init`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_power_up` |
+| MRTM-SAF-007 | Buzzer self-test | C (rigour 4) | `SaFunctions::superviseItself` | `SP-05`, `test_diagnostics.test_power_up_tests_pass_inside_their_windows`, `test_diagnostics.test_silent_buzzer_fails_the_power_up_test` | verified | `10-src/firmware/components/diagnostics/src/diagnostics.c#diagnostics_power_up` |
+| MRTM-SAF-008 | Low battery alarm | C (rigour 4) | `SaFunctions::keepPowered` | `SP-04`, `test_alarm_mgr.test_battery_low_or_fail_safe_forces_the_buzzer`, `test_power_mon.test_battery_below_3400_mv_twice_sounds_the_buzzer` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step`, `10-src/firmware/components/power_mon/src/power_mon.c#power_mon_step` |
+| MRTM-SAF-009 | Backup alarm on firmware silence | C (rigour 4) | `SaFunctions::alarmOnOwnFailure` | `SP-03`, `test_int_chains.test_int02_watchdog_chain` | verified | `10-src/firmware/components/wdt_kicker/src/wdt_kicker.c#wdt_kicker_step` |
+| MRTM-SAF-010 | Watchdog tied to the alarm service | C (rigour 4) | `SaFunctions::superviseItself` | `SP-03`, `test_alarm_mgr.test_heartbeat_moves_on_every_step`, `test_int_chains.test_int02_watchdog_chain`, `test_wdt_kicker.test_pulses_stop_within_2_s_of_a_missed_alarm_cycle`, `test_wdt_kicker.test_pulses_while_the_heartbeat_moves` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_heartbeat`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step`, `10-src/firmware/components/wdt_kicker/src/wdt_kicker.c#wdt_kicker_step` |
+| MRTM-SAF-011 | Fault tone differs from excursion tone | C (rigour 4) | `SaFunctions::announceAlarm` | `SP-02`, `test_alarm_mgr.test_probe_fault_sounds_1_s_on_1_s_off` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SAF-012 | Probe calibration due | C (rigour 4) | `SaFunctions::showStatus` | `SP-09`, `test_display_mgr.test_calibration_due_and_log_capacity_messages` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step` |
+| MRTM-SAF-013 | Alarm on total power loss | C (rigour 4) | `SaFunctions::alarmOnOwnFailure` | `SP-03` | verified | — |
+| MRTM-SAF-014 | Buzzer open-circuit detection | C (rigour 4) | `SaFunctions::announceAlarm` | `SP-06`, `test_alarm_mgr.test_no_buzzer_current_for_5_steps_declares_buzzer_fault_red_4_hz` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SAF-015 | Diverse signal for buzzer fault | C (rigour 4) | `SaFunctions::announceAlarm` | `SP-06`, `test_alarm_mgr.test_no_buzzer_current_for_5_steps_declares_buzzer_fault_red_4_hz` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SAF-016 | Show the band at power-up | C (rigour 4) | `SaFunctions::showStatus` | `SP-05`, `test_display_mgr.test_band_and_version_shown_in_the_first_3_s` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#display_mgr_init`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_power_up` |
+| MRTM-SAF-017 | Band integrity check | C (rigour 4) | `SaFunctions::superviseItself` | `SP-05`, `test_alarm_mgr.test_battery_low_or_fail_safe_forces_the_buzzer`, `test_config_mgr.test_bad_crc_is_refused_with_err_crc`, `test_config_mgr.test_missing_record_is_err_nvs`, `test_config_mgr.test_store_writes_a_fresh_crc_and_logs_config_changed`, `test_int_chains.test_int03_corrupt_config_fail_safe` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step`, `10-src/firmware/components/config_mgr/src/config_mgr.c#config_mgr_load`, `10-src/firmware/components/config_mgr/src/config_mgr.c#config_mgr_store`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_power_up`, `10-src/firmware/components/mrtm_common/src/mrtm_crc.c#mrtm_crc32` |
+| MRTM-SAF-018 | Two copies of every record | C (rigour 4) | `SaFunctions::recordEvents` | `SP-07`, `test_event_log.test_error_code_full_after_32`, `test_event_log.test_flash_failure_does_not_loop`, `test_event_log.test_step_numbers_checksums_and_stores_every_queued_record`, `test_history_ring.test_append_writes_copy_a_and_copy_b`, `test_history_ring.test_corrupt_copy_a_is_read_from_copy_b`, `test_history_ring.test_error_codes_flash_arg` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_step`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_append` |
+| MRTM-SAF-019 | Stuck acknowledge button | C (rigour 4) | `SaFunctions::announceAlarm` | `SP-01`, `test_alarm_mgr.test_button_held_60_s_is_a_button_fault_and_ignored` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_button_debounced`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SAF-020 | Probe placement in the instructions | C (rigour 4) | `SaFunctions::acquireTemperature` | `SP-14` | verified | — |
+| MRTM-SAF-021 | I2C bus recovery | C (rigour 4) | `SaFunctions::showStatus` | `SP-09`, `test_display_mgr.test_i2c_timeout_resets_the_bus_within_1_s` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#recoverBus` |
+| MRTM-SAF-022 | Clock stop detection | C (rigour 4) | `SaFunctions::recordEvents` | `SP-05`, `test_rtc_clock.test_error_codes_bus_and_arg`, `test_rtc_clock.test_oscillator_stop_at_power_up_logs_clock_fault` | verified | `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_power_up`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_init` |
+| MRTM-SAF-023 | Backup alarm power-up test | C (rigour 4) | `SaFunctions::superviseItself` | `SP-05`, `test_diagnostics.test_backup_alarm_not_heard_fails_and_pulses_resume`, `test_diagnostics.test_power_up_tests_pass_inside_their_windows`, `test_wdt_kicker.test_hold_stops_pulses_and_release_resumes` | verified | `10-src/firmware/components/diagnostics/src/diagnostics.c#diagnostics_power_up` |
+| MRTM-STK-001 | Alert on excursion | C (rigour 4) | `OaCapabilities::knowTheFridgeIsSafe` | `SP-01` | verified | — |
+| MRTM-STK-002 | No alert on brief door opening | C (rigour 4) | `OaCapabilities::knowTheFridgeIsSafe` | `SP-01`, `test_alarm_mgr.test_early_alarm_is_red_1_hz_without_buzzer_then_escalates`, `test_limit_evaluator.test_back_in_band_clears_the_early_alarm`, `test_limit_evaluator.test_n_minus_one_out_then_one_in_does_not_confirm` | verified | — |
+| MRTM-STK-003 | Silence the alert | C (rigour 4) | `OaCapabilities::respondToAnExcursion` | `SP-01` | verified | — |
+| MRTM-STK-004 | See the temperature | C (rigour 4) | `OaCapabilities::knowTheFridgeIsSafe` | `SP-09` | verified | — |
+| MRTM-STK-005 | Audit history | C (rigour 4) | `OaCapabilities::proveTheStorageHistory` | `SP-08` | verified | — |
+| MRTM-STK-006 | History cannot be edited | C (rigour 4) | `OaCapabilities::proveTheStorageHistory` | `SP-08`, `test_usb_export.test_every_write_is_refused` | verified | — |
+| MRTM-STK-007 | Probe failure is visible | C (rigour 4) | `OaCapabilities::trustTheWatching` | `SP-02` | verified | — |
+| MRTM-STK-008 | Monitoring through a power cut | C (rigour 4) | `OaCapabilities::trustTheWatching` | `SP-04` | verified | — |
+| MRTM-SW-001 | Alarm item early light | C (rigour 4) | `PaSoftware::alarmItem` | `test_alarm_mgr.test_early_alarm_is_red_1_hz_without_buzzer_then_escalates` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take` |
+| MRTM-SW-002 | Alarm item buzzer on | C (rigour 4) | `PaSoftware::alarmItem` | `test_alarm_mgr.test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SW-003 | Alarm item buzzer off | C (rigour 4) | `PaSoftware::alarmItem` | `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs`, `test_alarm_mgr.test_button_debounce_50_ms` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_button_debounced` |
+| MRTM-SW-004 | Alarm item heartbeat | C (rigour 4) | `PaSoftware::alarmItem` | `test_alarm_mgr.test_heartbeat_moves_on_every_step` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_heartbeat` |
+| MRTM-SW-005 | Excursion item early report | C (rigour 4) | `PaSoftware::excursionItem` | `test_limit_evaluator.test_early_alarm_budget_fits_5_s`, `test_limit_evaluator.test_first_out_sample_raises_the_early_alarm` | verified | `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step` |
+| MRTM-SW-006 | Excursion item confirmation | C (rigour 4) | `PaSoftware::excursionItem` | `test_limit_evaluator.test_early_alarm_budget_fits_5_s`, `test_limit_evaluator.test_nth_consecutive_out_sample_confirms` | verified | `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step` |
+| MRTM-SW-007 | Excursion item end | C (rigour 4) | `PaSoftware::excursionItem` | `test_limit_evaluator.test_nth_consecutive_in_sample_ends_excursion` | verified | `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step` |
+| MRTM-SW-008 | Display item redraw | C (rigour 4) | `PaSoftware::displayItem` | `test_display_mgr.test_calibration_due_and_log_capacity_messages`, `test_display_mgr.test_excursion_warning_for_the_whole_excursion`, `test_display_mgr.test_probe_fault_message` | verified | `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_display_step` |
+| MRTM-SW-009 | Display item number rate | C (rigour 4) | `PaSoftware::displayItem` | `test_display_mgr.test_temperature_refreshes_every_10_s_in_tenths` | verified | `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step` |
+| MRTM-SW-010 | Log item two copies | C (rigour 4) | `PaSoftware::logItem` | `test_history_ring.test_append_writes_copy_a_and_copy_b` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_step` |
+| MRTM-SW-011 | Log item ring | C (rigour 4) | `PaSoftware::logItem` | `test_history_ring.test_retains_10000_records_after_wrapping` | verified | `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_init` |
+| MRTM-SW-012 | USB item volume | B (rigour 2) | `PaSoftware::usbItem` | `test_usb_export.test_history_csv_is_marked_read_only` | verified | `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_init` |
+| MRTM-SW-013 | USB item read-only access | B (rigour 2) | `PaSoftware::usbItem` | `test_usb_export.test_every_write_is_refused` | verified | `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_write10` |
+| MRTM-SW-014 | Power item mains events | C (rigour 4) | `PaSoftware::powerItem` | `test_power_mon.test_mains_loss_and_restore_are_logged_from_the_edge` | verified | `10-src/firmware/components/power_mon/src/power_mon.c#power_mon_isr` |
+| MRTM-SW-015 | Power item battery low | C (rigour 4) | `PaSoftware::powerItem` | `test_power_mon.test_battery_below_3400_mv_twice_sounds_the_buzzer` | verified | `10-src/firmware/components/power_mon/src/power_mon.c#power_mon_step` |
+| MRTM-SW-016 | Sensor item conversion start | C (rigour 4) | `PaSoftware::sensorItem` | `test_sensor_sampler.test_good_scratchpad_gives_a_valid_sample` | verified | `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read` |
+| MRTM-SW-017 | Sensor item invalid sample | C (rigour 4) | `PaSoftware::sensorItem` | `test_sensor_sampler.test_bad_crc_is_invalid_but_not_out_of_range`, `test_sensor_sampler.test_reading_outside_minus30_to_50_declares_the_fault_at_once` | verified | `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_probe_fault` |
+| MRTM-SW-018 | Supervisor item pulses | C (rigour 4) | `PaSoftware::supervisorItem` | `test_wdt_kicker.test_pulses_stop_within_2_s_of_a_missed_alarm_cycle` | verified | `10-src/firmware/components/wdt_kicker/src/wdt_kicker.c#wdt_kicker_step` |
+| MRTM-SW-019 | Supervisor item self-tests | C (rigour 4) | `PaSoftware::supervisorItem` | `test_diagnostics.test_power_up_tests_pass_inside_their_windows` | verified | `10-src/firmware/components/diagnostics/src/diagnostics.c#diagnostics_power_up` |
+| MRTM-SW-020 | Supervisor item band load | C (rigour 4) | `PaSoftware::supervisorItem` | `test_config_mgr.test_bad_crc_is_refused_with_err_crc` | verified | `10-src/firmware/components/config_mgr/src/config_mgr.c#config_mgr_load` |
+| MRTM-SYS-001 | Sampling period | C (rigour 4) | `SaFunctions::acquireTemperature` | `SP-01`, `SP-01-H`, `test_sensor_sampler.test_good_scratchpad_gives_a_valid_sample` | verified | `10-src/config/mrtm_config.h#off`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read` |
+| MRTM-SYS-002 | Excursion confirmation | C (rigour 4) | `SaFunctions::detectExcursion` | `SP-01`, `SP-01-H`, `test_int_chains.test_int01_excursion_chain`, `test_limit_evaluator.test_invalid_sample_neither_counts_nor_resets`, `test_limit_evaluator.test_n_minus_one_out_then_one_in_does_not_confirm`, `test_limit_evaluator.test_nth_consecutive_out_sample_confirms` | verified | `10-src/config/mrtm_config.h#off`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+| MRTM-SYS-003 | Buzzer on excursion | C (rigour 4) | `SaFunctions::announceAlarm` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz`, `test_int_chains.test_int01_excursion_chain` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take` |
+| MRTM-SYS-004 | Red indicator on excursion | C (rigour 4) | `SaFunctions::announceAlarm` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SYS-005 | Warning on excursion | C (rigour 4) | `SaFunctions::showStatus` | `SP-01`, `SP-01-H`, `test_display_mgr.test_excursion_warning_for_the_whole_excursion`, `test_int_chains.test_int01_excursion_chain` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_display_step` |
+| MRTM-SYS-006 | Acknowledge silences buzzer | C (rigour 4) | `SaFunctions::announceAlarm` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_button_debounced`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_post`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take` |
+| MRTM-SYS-007 | Warning stays while excursion is open | C (rigour 4) | `SaFunctions::showStatus` | `SP-01`, `test_display_mgr.test_excursion_warning_for_the_whole_excursion` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw` |
+| MRTM-SYS-008 | Log excursion start | C (rigour 4) | `SaFunctions::recordEvents` | `SP-01`, `SP-01-H`, `test_event_log.test_time_stamp_is_the_utc_second_of_the_post`, `test_int_chains.test_int01_excursion_chain`, `test_usb_export.test_csv_lines_oldest_first_newest_last` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now` |
+| MRTM-SYS-009 | Log excursion end | C (rigour 4) | `SaFunctions::recordEvents` | `SP-01`, `SP-01-H`, `test_event_log.test_end_record_carries_the_peak_in_tenths`, `test_limit_evaluator.test_peak_below_band_counts_distance_downwards`, `test_limit_evaluator.test_peak_is_the_most_extreme_sample` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_peak`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+| MRTM-SYS-010 | Log acknowledgement | C (rigour 4) | `SaFunctions::recordEvents` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_ack_stops_the_buzzer_in_the_same_step_and_logs`, `test_event_log.test_time_stamp_is_the_utc_second_of_the_post` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now` |
+| MRTM-SYS-011 | Display resolution | C (rigour 4) | `SaFunctions::showStatus` | `SP-09`, `test_display_mgr.test_temperature_refreshes_every_10_s_in_tenths`, `test_sensor_sampler.test_conversion_rounds_to_a_tenth_and_adds_the_offset` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_to_tenths` |
+| MRTM-SYS-012 | Probe fault detection | C (rigour 4) | `SaFunctions::acquireTemperature` | `SP-02`, `test_mrtm_common.test_crc8_over_a_scratchpad`, `test_mrtm_common.test_crc_check_values`, `test_sensor_sampler.test_bad_crc_is_invalid_but_not_out_of_range`, `test_sensor_sampler.test_fault_after_30_s_without_a_correct_crc`, `test_sensor_sampler.test_fault_clears_on_the_next_valid_sample` | verified | `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step`, `10-src/firmware/components/mrtm_common/src/mrtm_crc.c#mrtm_crc8_maxim`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_probe_fault`, `10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read` |
+| MRTM-SYS-013 | Probe fault message | C (rigour 4) | `SaFunctions::showStatus` | `SP-02`, `test_display_mgr.test_probe_fault_message` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_display_step` |
+| MRTM-SYS-014 | Read-only event log | C (rigour 4) | `SaFunctions::exportHistory` | `SP-08`, `test_usb_export.test_every_write_is_refused`, `test_usb_export.test_history_csv_is_marked_read_only` | verified | `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_init`, `10-src/firmware/components/usb_export/src/usb_export.c#usb_export_write10` |
+| MRTM-SYS-015 | Event log capacity | C (rigour 4) | `SaFunctions::recordEvents` | `SP-07`, `test_history_ring.test_init_finds_the_head_again_after_a_restart`, `test_history_ring.test_retains_10000_records_after_wrapping`, `test_history_ring.test_retains_10000_straight_after_an_erase_ahead`, `test_usb_export.test_full_history_fits_and_fat_chain_ends` | verified | `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_append`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_init`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_read` |
+| MRTM-SYS-016 | Battery operation | C (rigour 4) | `SaFunctions::keepPowered` | `SP-04` | verified | — |
+| MRTM-SYS-017 | Allowed band | C (rigour 4) | `SaFunctions::detectExcursion` | `SP-13`, `test_config_mgr.test_band_outside_2_to_8_is_refused`, `test_config_mgr.test_valid_record_loads_the_2_to_8_degree_band`, `test_limit_evaluator.test_band_edges_two_and_eight_degrees_are_inside` | verified | `10-src/firmware/components/config_mgr/src/config_mgr.c#config_mgr_load`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_init`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step` |
+| MRTM-SYS-018 | Excursion end confirmation | C (rigour 4) | `SaFunctions::detectExcursion` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_end_returns_to_quiet_from_sounding_and_silenced`, `test_limit_evaluator.test_hysteresis_knob_is_zero`, `test_limit_evaluator.test_nth_consecutive_in_sample_ends_excursion`, `test_limit_evaluator.test_out_sample_restarts_the_in_run` | verified | `10-src/config/mrtm_config.h#off`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step` |
+| MRTM-SYS-019 | Alarm comes back after silence | C (rigour 4) | `SaFunctions::announceAlarm` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_re_sounds_15_minutes_after_the_ack` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step` |
+| MRTM-SYS-020 | Clock drift | C (rigour 4) | `SaFunctions::recordEvents` | `SP-12`, `test_rtc_clock.test_now_is_the_rtc_copy_refreshed_each_second` | verified | `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_tick` |
+| MRTM-SYS-021 | Event log integrity | C (rigour 4) | `SaFunctions::recordEvents` | `SP-07`, `test_history_ring.test_both_copies_corrupt_reports_err_crc_and_logs_it`, `test_history_ring.test_corrupt_copy_a_is_read_from_copy_b`, `test_mrtm_common.test_crc_check_values`, `test_usb_export.test_unreadable_record_is_a_corrupt_line` | verified | `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_read`, `10-src/firmware/components/mrtm_common/src/mrtm_crc.c#mrtm_crc32` |
+| MRTM-SYS-022 | Log capacity warning | C (rigour 4) | `SaFunctions::showStatus` | `SP-07`, `test_display_mgr.test_calibration_due_and_log_capacity_messages`, `test_history_ring.test_capacity_warning_once_at_9000` | verified | `10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw`, `10-src/firmware/components/history_ring/src/history_ring.c#history_ring_append`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step` |
+| MRTM-SYS-023 | Power restore event | C (rigour 4) | `SaFunctions::keepPowered` | `SP-04`, `test_event_log.test_time_stamp_is_the_utc_second_of_the_post`, `test_power_mon.test_mains_loss_and_restore_are_logged_from_the_edge` | verified | `10-src/firmware/components/event_log/src/event_log.c#event_log_post`, `10-src/firmware/components/power_mon/src/power_mon.c#power_mon_isr`, `10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now` |
+| MRTM-SYS-024 | Early excursion alarm | C (rigour 4) | `SaFunctions::detectExcursion` | `SP-01`, `SP-01-H`, `test_alarm_mgr.test_early_alarm_clears_back_to_quiet`, `test_alarm_mgr.test_early_alarm_is_red_1_hz_without_buzzer_then_escalates`, `test_limit_evaluator.test_back_in_band_clears_the_early_alarm`, `test_limit_evaluator.test_early_alarm_budget_fits_5_s`, `test_limit_evaluator.test_first_out_sample_raises_the_early_alarm` | verified | `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step`, `10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take`, `10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step`, `10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step` |
+
+#### Allocated items → Requirements (item to requirements)
+
+| ID | Title | Criticality | Linked | Verifying cases | Verification | Implemented by |
+|---|---|---|---|---|---|---|
+| AckButton |  | not classified | none | — | n/a — allocated item | — |
+| Alarm |  | not classified | none | — | n/a — allocated item | — |
+| AlarmItem |  | not classified | none | — | n/a — allocated item | — |
+| AlarmMgr |  | not classified | none | — | n/a — allocated item | — |
+| AlarmTask |  | not classified | none | — | n/a — allocated item | — |
+| BackupAlarm |  | not classified | none | — | n/a — allocated item | — |
+| BackupAlarmBoard |  | not classified | none | — | n/a — allocated item | — |
+| BackupAlarmBoardCi |  | not classified | none | — | n/a — allocated item | — |
+| BackupDriver |  | not classified | none | — | n/a — allocated item | — |
+| BannerWidget |  | not classified | none | — | n/a — allocated item | — |
+| Battery |  | not classified | none | — | n/a — allocated item | — |
+| BatteryPack |  | not classified | none | — | n/a — allocated item | — |
+| Buzzer |  | not classified | none | — | n/a — allocated item | — |
+| ChargerPowerPath |  | not classified | none | — | n/a — allocated item | — |
+| Clinic |  | not classified | none | — | n/a — allocated item | — |
+| ClinicManager |  | not classified | none | — | n/a — allocated item | — |
+| ClinicStaff |  | not classified | none | — | n/a — allocated item | — |
+| Component |  | not classified | none | — | n/a — allocated item | — |
+| ConfigMgr |  | not classified | none | — | n/a — allocated item | — |
+| Diagnostics |  | not classified | none | — | n/a — allocated item | — |
+| Display |  | not classified | none | — | n/a — allocated item | — |
+| DisplayItem |  | not classified | none | — | n/a — allocated item | — |
+| DisplayMgr |  | not classified | none | — | n/a — allocated item | — |
+| DisplayModule |  | not classified | none | — | n/a — allocated item | — |
+| DisplayTask |  | not classified | none | — | n/a — allocated item | — |
+| Ds18b20 |  | not classified | none | — | n/a — allocated item | — |
+| Ds18b20Probe |  | not classified | none | — | n/a — allocated item | — |
+| EpbsBreakdown::product.backupAlarmBoard |  | not classified | `MRTM-CI-005` | — | n/a — unresolved reference | — |
+| EpbsBreakdown::product.batteryPack |  | not classified | `MRTM-CI-006` | — | n/a — unresolved reference | — |
+| EpbsBreakdown::product.displayModule |  | not classified | `MRTM-CI-004` | — | n/a — unresolved reference | — |
+| EpbsBreakdown::product.firmwareImage |  | not classified | `MRTM-CI-001` | — | n/a — unresolved reference | — |
+| EpbsBreakdown::product.mainBoard |  | not classified | `MRTM-CI-002` | — | n/a — unresolved reference | — |
+| EpbsBreakdown::product.probeAssembly |  | not classified | `MRTM-CI-003` | — | n/a — unresolved reference | — |
+| Esp32Module |  | not classified | none | — | n/a — allocated item | — |
+| Esp32S3Module |  | not classified | none | — | n/a — allocated item | — |
+| EventLog |  | not classified | none | — | n/a — allocated item | — |
+| ExcursionItem |  | not classified | none | — | n/a — allocated item | — |
+| FirmwareImage |  | not classified | none | — | n/a — allocated item | — |
+| FrameBuffer |  | not classified | none | — | n/a — allocated item | — |
+| Fridge |  | not classified | none | — | n/a — allocated item | — |
+| HistoryRingStore |  | not classified | none | — | n/a — allocated item | — |
+| HoldUpCapacitor |  | not classified | none | — | n/a — allocated item | — |
+| IconWidget |  | not classified | none | — | n/a — allocated item | — |
+| IndicatorLed |  | not classified | none | — | n/a — allocated item | — |
+| IndicatorPanel |  | not classified | none | — | n/a — allocated item | — |
+| LaArchitecture::alarm |  | not classified | `MRTM-LA-001`, `MRTM-LA-002`, `MRTM-LA-003`, `MRTM-LA-004`, `MRTM-LA-005`, `MRTM-LA-006`, `MRTM-LA-007`, `MRTM-LA-008` | — | n/a — unresolved reference | — |
+| LaArchitecture::display |  | not classified | `MRTM-LA-009`, `MRTM-LA-010`, `MRTM-LA-011` | — | n/a — unresolved reference | — |
+| LaArchitecture::logging |  | not classified | `MRTM-LA-012`, `MRTM-LA-013`, `MRTM-LA-014`, `MRTM-LA-015` | — | n/a — unresolved reference | — |
+| LaArchitecture::power |  | not classified | `MRTM-LA-016`, `MRTM-LA-017`, `MRTM-LA-018` | — | n/a — unresolved reference | — |
+| LaArchitecture::sensing |  | not classified | `MRTM-LA-019`, `MRTM-LA-020`, `MRTM-LA-021`, `MRTM-LA-022` | — | n/a — unresolved reference | — |
+| LaArchitecture::supervision |  | not classified | `MRTM-LA-023`, `MRTM-LA-024`, `MRTM-LA-025`, `MRTM-LA-026` | — | n/a — unresolved reference | — |
+| Led |  | not classified | none | — | n/a — allocated item | — |
+| LiIonCell |  | not classified | none | — | n/a — allocated item | — |
+| LimitEvaluator |  | not classified | none | — | n/a — allocated item | — |
+| LogItem |  | not classified | none | — | n/a — allocated item | — |
+| LogTask |  | not classified | none | — | n/a — allocated item | — |
+| Logging |  | not classified | none | — | n/a — allocated item | — |
+| MainBoardAssembly |  | not classified | none | — | n/a — allocated item | — |
+| MainsGrid |  | not classified | none | — | n/a — allocated item | — |
+| MainsSupply |  | not classified | none | — | n/a — allocated item | — |
+| MonitorProduct |  | not classified | none | — | n/a — allocated item | — |
+| MonitorSystem |  | not classified | none | — | n/a — allocated item | — |
+| MrtmBoard |  | not classified | none | — | n/a — allocated item | — |
+| MrtmFirmware |  | not classified | none | — | n/a — allocated item | — |
+| MrtmSwDeployment |  | not classified | none | — | n/a — allocated item | — |
+| MrtmUnit |  | not classified | none | — | n/a — allocated item | — |
+| MrtmUnitContracts |  | not classified | none | — | n/a — allocated item | — |
+| Nurse |  | not classified | none | — | n/a — allocated item | — |
+| OaCapabilities::knowTheFridgeIsSafe |  | not classified | `MRTM-STK-001`, `MRTM-STK-002`, `MRTM-STK-004` | — | n/a — unresolved reference | — |
+| OaCapabilities::proveTheStorageHistory |  | not classified | `MRTM-STK-005`, `MRTM-STK-006` | — | n/a — unresolved reference | — |
+| OaCapabilities::respondToAnExcursion |  | not classified | `MRTM-STK-003` | — | n/a — unresolved reference | — |
+| OaCapabilities::trustTheWatching |  | not classified | `MRTM-STK-007`, `MRTM-STK-008` | — | n/a — unresolved reference | — |
+| Oled128x64 |  | not classified | none | — | n/a — allocated item | — |
+| OledPanel |  | not classified | none | — | n/a — allocated item | — |
+| PaBackupAlarm::driver |  | not classified | `MRTM-PH-003` | — | n/a — unresolved reference | — |
+| PaBackupAlarm::holdUp |  | not classified | `MRTM-PH-005` | — | n/a — unresolved reference | — |
+| PaBackupAlarm::timer |  | not classified | `MRTM-PH-004` | — | n/a — unresolved reference | — |
+| PaInterconnection::backupAlarm |  | not classified | `MRTM-PH-001`, `MRTM-PH-002` | — | n/a — unresolved reference | — |
+| PaInterconnection::battery |  | not classified | `MRTM-PH-011` | — | n/a — unresolved reference | — |
+| PaInterconnection::buzzer |  | not classified | `MRTM-PH-006` | — | n/a — unresolved reference | — |
+| PaInterconnection::indicators |  | not classified | `MRTM-PH-007`, `MRTM-PH-008` | — | n/a — unresolved reference | — |
+| PaInterconnection::mcu |  | not classified | `MRTM-PH-016` | — | n/a — unresolved reference | — |
+| PaInterconnection::oled |  | not classified | `MRTM-PH-009` | — | n/a — unresolved reference | — |
+| PaInterconnection::powerPath |  | not classified | `MRTM-PH-012` | — | n/a — unresolved reference | — |
+| PaInterconnection::probe |  | not classified | `MRTM-PH-013`, `MRTM-PH-014`, `MRTM-PH-015` | — | n/a — unresolved reference | — |
+| PaInterconnection::rtc |  | not classified | `MRTM-PH-010` | — | n/a — unresolved reference | — |
+| PaSoftware::alarmItem |  | not classified | `MRTM-SW-001`, `MRTM-SW-002`, `MRTM-SW-003`, `MRTM-SW-004` | — | n/a — unresolved reference | — |
+| PaSoftware::displayItem |  | not classified | `MRTM-SW-008`, `MRTM-SW-009` | — | n/a — unresolved reference | — |
+| PaSoftware::excursionItem |  | not classified | `MRTM-SW-005`, `MRTM-SW-006`, `MRTM-SW-007` | — | n/a — unresolved reference | — |
+| PaSoftware::logItem |  | not classified | `MRTM-SW-010`, `MRTM-SW-011` | — | n/a — unresolved reference | — |
+| PaSoftware::powerItem |  | not classified | `MRTM-SW-014`, `MRTM-SW-015` | — | n/a — unresolved reference | — |
+| PaSoftware::sensorItem |  | not classified | `MRTM-SW-016`, `MRTM-SW-017` | — | n/a — unresolved reference | — |
+| PaSoftware::supervisorItem |  | not classified | `MRTM-SW-018`, `MRTM-SW-019`, `MRTM-SW-020` | — | n/a — unresolved reference | — |
+| PaSoftware::usbItem |  | not classified | `MRTM-SW-012`, `MRTM-SW-013` | — | n/a — unresolved reference | — |
+| PhysicalMonitor |  | not classified | none | — | n/a — allocated item | — |
+| PiezoBuzzerStage |  | not classified | none | — | n/a — allocated item | — |
+| Power |  | not classified | none | — | n/a — allocated item | — |
+| PowerItem |  | not classified | none | — | n/a — allocated item | — |
+| PowerMon |  | not classified | none | — | n/a — allocated item | — |
+| PowerPath |  | not classified | none | — | n/a — allocated item | — |
+| ProbeAssembly |  | not classified | none | — | n/a — allocated item | — |
+| RecordsComputer |  | not classified | none | — | n/a — allocated item | — |
+| RtcChip |  | not classified | none | — | n/a — allocated item | — |
+| RtcClock |  | not classified | none | — | n/a — allocated item | — |
+| RtosTask |  | not classified | none | — | n/a — allocated item | — |
+| SaContext::monitor |  | not classified | `MRTM-ENV-002`, `MRTM-ENV-003` | — | n/a — unresolved reference | — |
+| SaFunctions::acquireTemperature |  | not classified | `MRTM-ENV-004`, `MRTM-IFC-001`, `MRTM-MNT-001`, `MRTM-PRF-001`, `MRTM-SAF-003`, `MRTM-SAF-020`, `MRTM-SYS-001`, `MRTM-SYS-012` | — | n/a — unresolved reference | — |
+| SaFunctions::alarmOnOwnFailure |  | not classified | `MRTM-SAF-009`, `MRTM-SAF-013` | — | n/a — unresolved reference | — |
+| SaFunctions::announceAlarm |  | not classified | `MRTM-IFC-002`, `MRTM-PRF-002`, `MRTM-SAF-001`, `MRTM-SAF-002`, `MRTM-SAF-011`, `MRTM-SAF-014`, `MRTM-SAF-015`, `MRTM-SAF-019`, `MRTM-SYS-003`, `MRTM-SYS-004`, `MRTM-SYS-006`, `MRTM-SYS-019` | — | n/a — unresolved reference | — |
+| SaFunctions::detectExcursion |  | not classified | `MRTM-SYS-002`, `MRTM-SYS-017`, `MRTM-SYS-018`, `MRTM-SYS-024` | — | n/a — unresolved reference | — |
+| SaFunctions::exportHistory |  | not classified | `MRTM-IFC-003`, `MRTM-PRF-003`, `MRTM-SYS-014` | — | n/a — unresolved reference | — |
+| SaFunctions::keepPowered |  | not classified | `MRTM-ENV-001`, `MRTM-MNT-002`, `MRTM-SAF-005`, `MRTM-SAF-008`, `MRTM-SYS-016`, `MRTM-SYS-023` | — | n/a — unresolved reference | — |
+| SaFunctions::recordEvents |  | not classified | `MRTM-SAF-018`, `MRTM-SAF-022`, `MRTM-SYS-008`, `MRTM-SYS-009`, `MRTM-SYS-010`, `MRTM-SYS-015`, `MRTM-SYS-020`, `MRTM-SYS-021` | — | n/a — unresolved reference | — |
+| SaFunctions::showStatus |  | not classified | `MRTM-IFC-004`, `MRTM-PRF-004`, `MRTM-SAF-012`, `MRTM-SAF-016`, `MRTM-SAF-021`, `MRTM-SYS-005`, `MRTM-SYS-007`, `MRTM-SYS-011`, `MRTM-SYS-013`, `MRTM-SYS-022` | — | n/a — unresolved reference | — |
+| SaFunctions::superviseItself |  | not classified | `MRTM-MNT-003`, `MRTM-SAF-004`, `MRTM-SAF-006`, `MRTM-SAF-007`, `MRTM-SAF-010`, `MRTM-SAF-017`, `MRTM-SAF-023` | — | n/a — unresolved reference | — |
+| Screen |  | not classified | none | — | n/a — allocated item | — |
+| Sensing |  | not classified | none | — | n/a — allocated item | — |
+| SensorItem |  | not classified | none | — | n/a — allocated item | — |
+| SensorSampler |  | not classified | none | — | n/a — allocated item | — |
+| SensorTask |  | not classified | none | — | n/a — allocated item | — |
+| Ssd1306Driver |  | not classified | none | — | n/a — allocated item | — |
+| Supercap |  | not classified | none | — | n/a — allocated item | — |
+| Supervision |  | not classified | none | — | n/a — allocated item | — |
+| SupervisorItem |  | not classified | none | — | n/a — allocated item | — |
+| SupervisorTask |  | not classified | none | — | n/a — allocated item | — |
+| TactileButton |  | not classified | none | — | n/a — allocated item | — |
+| TcxoRtc |  | not classified | none | — | n/a — allocated item | — |
+| Technician |  | not classified | none | — | n/a — allocated item | — |
+| TextWidget |  | not classified | none | — | n/a — allocated item | — |
+| UsbExport |  | not classified | none | — | n/a — allocated item | — |
+| UsbItem |  | not classified | none | — | n/a — allocated item | — |
+| UsbTask |  | not classified | none | — | n/a — allocated item | — |
+| VaccineFridge |  | not classified | none | — | n/a — allocated item | — |
+| VaccineStock |  | not classified | none | — | n/a — allocated item | — |
+| WatchdogAlarmTimer |  | not classified | none | — | n/a — allocated item | — |
+| WdtKicker |  | not classified | none | — | n/a — allocated item | — |
+| Widget |  | not classified | none | — | n/a — allocated item | — |
+| ackButton |  | not classified | none | — | n/a — allocated item | — |
+| alarm |  | not classified | none | — | n/a — allocated item | — |
+| alarmItem |  | not classified | none | — | n/a — allocated item | — |
+| alarmMgr |  | not classified | none | — | n/a — allocated item | — |
+| alarmMgrApi |  | not classified | none | — | n/a — allocated item | — |
+| alarmTask |  | not classified | none | — | n/a — allocated item | — |
+| backupAlarm |  | not classified | none | — | n/a — allocated item | — |
+| backupAlarmBoard |  | not classified | none | — | n/a — allocated item | — |
+| banner |  | not classified | none | — | n/a — allocated item | — |
+| battery |  | not classified | none | — | n/a — allocated item | — |
+| batteryPack |  | not classified | none | — | n/a — allocated item | — |
+| board |  | not classified | none | — | n/a — allocated item | — |
+| buzzer |  | not classified | none | — | n/a — allocated item | — |
+| configMgr |  | not classified | none | — | n/a — allocated item | — |
+| configMgrApi |  | not classified | none | — | n/a — allocated item | — |
+| diagnostics |  | not classified | none | — | n/a — allocated item | — |
+| diagnosticsApi |  | not classified | none | — | n/a — allocated item | — |
+| display |  | not classified | none | — | n/a — allocated item | — |
+| displayItem |  | not classified | none | — | n/a — allocated item | — |
+| displayMgr |  | not classified | none | — | n/a — allocated item | — |
+| displayMgrApi |  | not classified | none | — | n/a — allocated item | — |
+| displayModule |  | not classified | none | — | n/a — allocated item | — |
+| displayTask |  | not classified | none | — | n/a — allocated item | — |
+| driver |  | not classified | none | — | n/a — allocated item | — |
+| esp32 |  | not classified | none | — | n/a — allocated item | — |
+| evaluator |  | not classified | none | — | n/a — allocated item | — |
+| eventLog |  | not classified | none | — | n/a — allocated item | — |
+| eventLogApi |  | not classified | none | — | n/a — allocated item | — |
+| excursionItem |  | not classified | none | — | n/a — allocated item | — |
+| faultAlarm |  | not classified | none | — | n/a — allocated item | — |
+| faultBuzzer |  | not classified | none | — | n/a — allocated item | — |
+| faultDisplay |  | not classified | none | — | n/a — allocated item | — |
+| faultLogger |  | not classified | none | — | n/a — allocated item | — |
+| faultProbe |  | not classified | none | — | n/a — allocated item | — |
+| faultSampler |  | not classified | none | — | n/a — allocated item | — |
+| fb |  | not classified | none | — | n/a — allocated item | — |
+| firmware |  | not classified | none | — | n/a — allocated item | — |
+| firmwareImage |  | not classified | none | — | n/a — allocated item | — |
+| fridge |  | not classified | none | — | n/a — allocated item | — |
+| greenLed |  | not classified | none | — | n/a — allocated item | — |
+| historyRing |  | not classified | none | — | n/a — allocated item | — |
+| historyRingApi |  | not classified | none | — | n/a — allocated item | — |
+| holdUp |  | not classified | none | — | n/a — allocated item | — |
+| holdUpCap |  | not classified | none | — | n/a — allocated item | — |
+| icon |  | not classified | none | — | n/a — allocated item | — |
+| indicators |  | not classified | none | — | n/a — allocated item | — |
+| limitEvaluator |  | not classified | none | — | n/a — allocated item | — |
+| limitEvaluatorApi |  | not classified | none | — | n/a — allocated item | — |
+| logItem |  | not classified | none | — | n/a — allocated item | — |
+| logTask |  | not classified | none | — | n/a — allocated item | — |
+| logger |  | not classified | none | — | n/a — allocated item | — |
+| logging |  | not classified | none | — | n/a — allocated item | — |
+| mainBoard |  | not classified | none | — | n/a — allocated item | — |
+| mains |  | not classified | none | — | n/a — allocated item | — |
+| manager |  | not classified | none | — | n/a — allocated item | — |
+| mcu |  | not classified | none | — | n/a — allocated item | — |
+| monitor |  | not classified | none | — | n/a — allocated item | — |
+| nurse |  | not classified | none | — | n/a — allocated item | — |
+| oled |  | not classified | none | — | n/a — allocated item | — |
+| power |  | not classified | none | — | n/a — allocated item | — |
+| powerClock |  | not classified | none | — | n/a — allocated item | — |
+| powerItem |  | not classified | none | — | n/a — allocated item | — |
+| powerLogger |  | not classified | none | — | n/a — allocated item | — |
+| powerMon |  | not classified | none | — | n/a — allocated item | — |
+| powerMonApi |  | not classified | none | — | n/a — allocated item | — |
+| powerPath |  | not classified | none | — | n/a — allocated item | — |
+| powerRing |  | not classified | none | — | n/a — allocated item | — |
+| probe |  | not classified | none | — | n/a — allocated item | — |
+| probeAssembly |  | not classified | none | — | n/a — allocated item | — |
+| product |  | not classified | none | — | n/a — allocated item | — |
+| recordsComputer |  | not classified | none | — | n/a — allocated item | — |
+| redLed |  | not classified | none | — | n/a — allocated item | — |
+| rtc |  | not classified | none | — | n/a — allocated item | — |
+| rtcClock |  | not classified | none | — | n/a — allocated item | — |
+| rtcClockApi |  | not classified | none | — | n/a — allocated item | — |
+| sampler |  | not classified | none | — | n/a — allocated item | — |
+| screen |  | not classified | none | — | n/a — allocated item | — |
+| sensing |  | not classified | none | — | n/a — allocated item | — |
+| sensorItem |  | not classified | none | — | n/a — allocated item | — |
+| sensorSampler |  | not classified | none | — | n/a — allocated item | — |
+| sensorSamplerApi |  | not classified | none | — | n/a — allocated item | — |
+| sensorTask |  | not classified | none | — | n/a — allocated item | — |
+| staff |  | not classified | none | — | n/a — allocated item | — |
+| stock |  | not classified | none | — | n/a — allocated item | — |
+| supervision |  | not classified | none | — | n/a — allocated item | — |
+| supervisorItem |  | not classified | none | — | n/a — allocated item | — |
+| supervisorTask |  | not classified | none | — | n/a — allocated item | — |
+| technician |  | not classified | none | — | n/a — allocated item | — |
+| temperature |  | not classified | none | — | n/a — allocated item | — |
+| timer |  | not classified | none | — | n/a — allocated item | — |
+| usbExport |  | not classified | none | — | n/a — allocated item | — |
+| usbExportApi |  | not classified | none | — | n/a — allocated item | — |
+| usbItem |  | not classified | none | — | n/a — allocated item | — |
+| usbTask |  | not classified | none | — | n/a — allocated item | — |
+| wdtKicker |  | not classified | none | — | n/a — allocated item | — |
+| wdtKickerApi |  | not classified | none | — | n/a — allocated item | — |
+
+## Derived requirements
+
+**Objective:** DO-178C Table A-2 objectives 2 and 5, *derived requirements are defined and provided to the system processes, including the system safety assessment process* (§5.1.2).
+
+Every requirement this repository marks derived, with the argument for it. A derived requirement is one no higher-level requirement demands, so nothing above it justifies it: each has to be identified, and the argument for it has to reach the system processes — the system safety assessment among them. Those are this table's last two columns. The justification is the requirement's own recorded rationale, printed verbatim — where none is recorded the row says so and names the finding, and the report does not argue the exemption for the author (rule 4).
+
+**Count:** 0
+
+No requirement in this repository is marked derived.
+
+## Traceability deficiencies
+
+**Objective:** DO-178C §11.17, a problem report records *deficiencies in software life cycle data* — here the trace data of §5.5, read against Table A-3 objective 6.
+
+Every traceability defect the analysis raised over this commit, one row each: the kind of defect, the requirement it is about, the other end of the link where the defect names one, the level that requirement belongs to, the severity THIS repository staged for that kind, and the finding in the words the engineer sees. Nothing here is recomputed for the report — these are the findings themselves, so the table and the editor cannot disagree (rule 4).
+
+**Count:** 0
+
+None found.
+
+## Declared gaps
+
+Every gap class below is present even when empty — "no gaps" is a count of zero, never a missing section (rule 4).
+
+### Orphans — requirements tracing up to nothing
+
+**Count:** 0
+
+No orphans.
+
+### Childless — an approved requirement nothing traces up to
+
+Where the repository declares a hierarchy, an approved requirement with no child is a gap in downward trace.
+
+**Count:** 0
+
+No childless approved requirements.
+
+### Unverified — requirements with no verifying case
+
+**Count:** 1
+
+- MRTM-LA-006
+
+### Derived / exempted — requirements a declaration waived from the orphan rule
+
+**Count:** 0
+
+No derived exemptions.
+
