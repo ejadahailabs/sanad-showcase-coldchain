@@ -2,3 +2,4 @@ node_modules/
 .cache/
 *.log
 !runs/*/11-verification/evidence/**/*.log
+__pycache__/
