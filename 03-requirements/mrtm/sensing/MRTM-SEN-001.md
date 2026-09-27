@@ -16,7 +16,7 @@ derived: false
 
 ## Description
 
-The sensing subsystem shall deliver one fridge air temperature sample every 2 s.
+The sensing subsystem shall deliver one fridge air temperature sample at a period of 2 s.
 
 ## Rationale
 

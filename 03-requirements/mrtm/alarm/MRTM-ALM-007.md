@@ -16,11 +16,11 @@ derived: false
 
 ## Description
 
-The alarm subsystem shall end the excursion after 31 consecutive valid samples inside the allowed band.
+The alarm subsystem shall end the excursion after 31 consecutive valid samples, spanning 60 s, inside the allowed band.
 
 ## Rationale
 
-Symmetric with ALM-002, so a sensor reading near the edge does not toggle the alarm (ADR-0031).
+Symmetric with MRTM-ALM-002, so a sensor reading near the edge does not toggle the alarm (ADR-0031).
 
 ## Verification
 

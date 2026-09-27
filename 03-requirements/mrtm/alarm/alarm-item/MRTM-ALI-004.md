@@ -17,11 +17,11 @@ implemented_by: []
 
 ## Description
 
-The alarm item shall advance its heartbeat counter in every 1 s alarm cycle.
+The alarm item shall advance its heartbeat counter once per 1 s alarm cycle.
 
 ## Rationale
 
-The supervisor item stops the watchdog pulses when this counter stops (SVI-001), which lets the backup alarm sound.
+The supervisor item stops the watchdog pulses when this counter stops (MRTM-SVI-001), which lets the backup alarm sound.
 
 ## Verification
 

@@ -17,7 +17,7 @@ implemented_by: []
 
 ## Description
 
-The log item shall keep the newest 10000 records and overwrite the oldest record when full.
+When the **Event Log** holds 10000 records, the log item shall write each new **Event Record** over the oldest one.
 
 ## Rationale
 

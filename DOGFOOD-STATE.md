@@ -1,8 +1,14 @@
 # Dogfood run state — keep current; a fresh session reads this first
 
-## RESUME HERE — MODEL-LEVELS done; next SYSML-EVAL (judge the 23 pictures node by node, start at 06-design/DECOMPOSITION.md; tag `dogfood-run-2`, baseline REQ-BL-3)
+## RESUME HERE — phase 12b done (gate closed for run 2: 0 errors, 167 warnings); next SYSML-EVAL (judge the 23 pictures node by node, start at 06-design/DECOMPOSITION.md; tag `dogfood-run-2`, baseline REQ-BL-3)
 
 ## Phase log (newest first; one block per finished phase, the four lines verbatim)
+
+### Phase 12b — gate closed for run 2 (2026-09-27, RESTRUCTURE worker, coordinator rulings)
+- SANAD DID: (headless) `createBuiltinIndex` refreshed `.ejadah/rew/symbols.json` (99 files, 46 traced symbols, 73 ids); `writeRequirementsPackage` + `requirementsPackage` per node regenerated the packages (13 node packages changed, only the reworded nodes); the gate ran over the result.
+- PROVED BY: `erew --gate warning` → **0 errors**, 167 warnings (was 3 errors, 194 warnings): all 19 quality warnings gone (12 testability, 6 weak-term "every", 1 passive), undeclared-id-prefix 12 → 4 (short ids written in full); the rest unchanged (46 missing-result bench, 46 implementation-outside-component, 27 allocation-target-undeclared, 19 sysml-not-read, 12 empty-component, 10 parent-child, 3 consistency/case candidates); 13-assessment/sanad-runs/phase-12b/gate.txt. The first run of the two still showed F-135: the stored code index was stale — the fix needs the index refreshed, not only the word changed.
+- MANUAL: F-133 suppression `rigour-inconsistency` on `03-requirements/mrtm/logging/usb-item/**` citing ADR-0034 / IEC 62304 §5.3.5 = A-48 (segregation allowed — OWNER TO CONFIRM); F-135 "Satisfies" → "Covers" in the tools/levels_model.py header comment (28 node files re-stamped); 16 statements reworded, one claim each, meaning kept (typed into the files, the form's edit path; mirrored in tools/levels_data.py); 22 short ids in rationales written in full.
+- UI-ONLY: none new.
 
 ### MODEL-LEVELS — decomposition story, MagicGrid framework, medical clarity (2026-09-27)
 - SANAD DID: (headless) `createRequirement` + `planSerials` allocated 62 node requirements (MRTM-SEN/ALM/DSP/LOG/PWR/SUP/BKA + 19 leaf prefixes) from 26 node templates; `writeRequirementsPackage` regenerated the package (132) and `requirementsPackage` was called once per node (28 packages); the view writer wrote 23 views, `layoutPackageText` stored their arrangement (incl. one `Hidden` entry), `canvasFor` drew them; `validateWithPilot` checked 116 files; the gate + every report ran once over the node tree; the code index read 47 symbols → 74 ids; `makeBaseline` wrote **REQ-BL-3**.

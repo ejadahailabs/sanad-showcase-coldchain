@@ -17,7 +17,7 @@ implemented_by: []
 
 ## Description
 
-The excursion item shall report the excursion end at the 31st consecutive valid sample inside the allowed band.
+The excursion item shall report the excursion end at the 31st consecutive valid sample inside the allowed band, 60 s after the first of them.
 
 ## Rationale
 

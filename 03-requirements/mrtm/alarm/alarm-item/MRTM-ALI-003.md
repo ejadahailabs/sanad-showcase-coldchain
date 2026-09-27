@@ -21,7 +21,7 @@ The alarm item shall switch the buzzer drive off within one 1 s alarm cycle of a
 
 ## Rationale
 
-The button is read with a 50 ms debounce inside the alarm item (IFC-002).
+The button is read with a 50 ms debounce inside the alarm item (MRTM-IFC-002).
 
 ## Verification
 

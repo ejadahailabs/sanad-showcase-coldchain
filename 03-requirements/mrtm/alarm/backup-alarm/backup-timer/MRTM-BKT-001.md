@@ -20,7 +20,7 @@ The backup timer shall assert its timeout output 9 s ± 0.9 s after the last ser
 
 ## Rationale
 
-9.9 s worst case stays inside the 10 s of BKA-001; the tolerance is a synthetic part-class figure (A-40).
+9.9 s worst case stays inside the 10 s of MRTM-BKA-001; the tolerance is a synthetic part-class figure (A-40).
 
 ## Verification
 

@@ -16,7 +16,7 @@ derived: false
 
 ## Description
 
-The logging subsystem shall retain the newest 10000 event records.
+When the **Event Log** reaches its capacity, the logging subsystem shall store the newest 10000 records in the **Event Log**.
 
 ## Rationale
 

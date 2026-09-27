@@ -16,7 +16,7 @@ derived: false
 
 ## Description
 
-The probe shall send a CRC-8 value with every scratchpad read.
+When the sensor item reads the scratchpad, the probe shall send a CRC-8 value with the **Sample** data.
 
 ## Rationale
 

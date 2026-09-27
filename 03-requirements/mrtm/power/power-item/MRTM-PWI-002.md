@@ -21,7 +21,7 @@ The power item shall post the battery-low signal after 2 consecutive battery rea
 
 ## Rationale
 
-Two readings filter one noisy conversion; 2 s stays inside the 5 s of SAF-008.
+Two readings filter one noisy conversion; 2 s stays inside the 5 s of MRTM-SAF-008.
 
 ## Verification
 

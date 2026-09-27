@@ -16,11 +16,11 @@ derived: false
 
 ## Description
 
-The acknowledge button shall close its contact for as long as it is pressed.
+While a clinic staff member presses the acknowledge button, the button shall close the contact that signals an **Acknowledgement**.
 
 ## Rationale
 
-A momentary contact; the alarm item debounces it (ALI-003).
+A momentary contact; the alarm item debounces it (MRTM-ALI-003).
 
 ## Verification
 

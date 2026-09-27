@@ -20,7 +20,7 @@ The logging subsystem shall give the USB host read-only access to the event reco
 
 ## Rationale
 
-The history for audit (STK-005) must not be changeable from outside (STK-006).
+The history for audit (MRTM-STK-005) must not be changeable from outside (MRTM-STK-006).
 
 ## Verification
 

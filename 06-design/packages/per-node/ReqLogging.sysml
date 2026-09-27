@@ -1,5 +1,5 @@
 package ReqLogging {
-    comment /* GENERATED from the Markdown requirement corpus at 74eef786303f3f64.
+    comment /* GENERATED from the Markdown requirement corpus at cdd14a4abe9d792b.
        Read-only: edit the Markdown requirement, not this file. Sanad regenerates it on
        every corpus change and the same corpus always gives byte-identical text. */
 
@@ -8,7 +8,7 @@ package ReqLogging {
     }
 
     requirement <'MRTM-LOG-002'> MRTM_LOG_002 {
-        doc /* The logging subsystem shall retain the newest 10000 event records. */
+        doc /* When the **Event Log** reaches its capacity, the logging subsystem shall store the newest 10000 records in the **Event Log**. */
     }
 
     requirement <'MRTM-LOG-003'> MRTM_LOG_003 {

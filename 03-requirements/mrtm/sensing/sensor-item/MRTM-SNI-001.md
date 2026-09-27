@@ -17,7 +17,7 @@ implemented_by: []
 
 ## Description
 
-The sensor item shall start one probe conversion every 2 s and read the scratchpad 750 ms after the start.
+The sensor item shall start one probe conversion at a period of 2 s and read the scratchpad 750 ms after the start.
 
 ## Rationale
 

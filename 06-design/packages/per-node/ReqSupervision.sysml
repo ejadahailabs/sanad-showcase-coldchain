@@ -1,5 +1,5 @@
 package ReqSupervision {
-    comment /* GENERATED from the Markdown requirement corpus at f7a50864e5011869.
+    comment /* GENERATED from the Markdown requirement corpus at bb00413df741b55b.
        Read-only: edit the Markdown requirement, not this file. Sanad regenerates it on
        every corpus change and the same corpus always gives byte-identical text. */
 
@@ -12,7 +12,7 @@ package ReqSupervision {
     }
 
     requirement <'MRTM-SUP-003'> MRTM_SUP_003 {
-        doc /* The supervision subsystem shall refuse a stored allowed band that fails its CRC-32 check. */
+        doc /* When a stored allowed band fails its CRC-32 check, the supervision subsystem shall disable that **Allowed Band**. */
     }
 
     requirement <'MRTM-SUP-004'> MRTM_SUP_004 {

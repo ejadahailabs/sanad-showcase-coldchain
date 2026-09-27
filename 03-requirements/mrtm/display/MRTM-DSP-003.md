@@ -20,7 +20,7 @@ The display subsystem shall show the probe fault, calibration due, band limits a
 
 ## Rationale
 
-Two of these messages are risk controls with no other signal (SAF-012 HAZ-004, SAF-016 HAZ-007) — why this subsystem stays class C (ADR-0034).
+Two of these messages are risk controls with no other signal (MRTM-SAF-012 HAZ-004, MRTM-SAF-016 HAZ-007) — why this subsystem stays class C (ADR-0034).
 
 ## Verification
 

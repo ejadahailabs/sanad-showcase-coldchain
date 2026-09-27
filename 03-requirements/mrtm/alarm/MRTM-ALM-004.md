@@ -20,7 +20,7 @@ The alarm subsystem shall stop the buzzer within 1 s of a debounced acknowledge 
 
 ## Rationale
 
-Carries SYS-006 down; the 50 ms debounce of IFC-002 sits inside the 1 s.
+Carries MRTM-SYS-006 down; the 50 ms debounce of MRTM-IFC-002 sits inside the 1 s.
 
 ## Verification
 

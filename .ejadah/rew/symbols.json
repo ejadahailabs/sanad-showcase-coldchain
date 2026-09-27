@@ -513,13 +513,6 @@
         "MRTM-SAF-009",
         "MRTM-SVI-001"
       ]
-    },
-    {
-      "symbol": "join",
-      "file": "tools/levels_model.py",
-      "implements": [
-        "MODEL-LEVELS"
-      ]
     }
   ]
 }

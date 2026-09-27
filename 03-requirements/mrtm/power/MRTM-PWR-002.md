@@ -20,7 +20,7 @@ The power subsystem shall supply the monitor from the battery for 4 h.
 
 ## Rationale
 
-4 h is the mains-loss need of STK-008 (assumption A-11).
+4 h is the mains-loss need of MRTM-STK-008 (assumption A-11).
 
 ## Verification
 

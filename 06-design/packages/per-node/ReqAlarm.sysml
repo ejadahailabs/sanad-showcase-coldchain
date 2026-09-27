@@ -1,5 +1,5 @@
 package ReqAlarm {
-    comment /* GENERATED from the Markdown requirement corpus at 6f8ddaecf2b3c896.
+    comment /* GENERATED from the Markdown requirement corpus at ee7c509e4000459c.
        Read-only: edit the Markdown requirement, not this file. Sanad regenerates it on
        every corpus change and the same corpus always gives byte-identical text. */
 
@@ -8,7 +8,7 @@ package ReqAlarm {
     }
 
     requirement <'MRTM-ALM-002'> MRTM_ALM_002 {
-        doc /* The alarm subsystem shall confirm the excursion when 31 consecutive valid samples are outside the allowed band. */
+        doc /* The alarm subsystem shall confirm the excursion when 31 consecutive valid samples, spanning 60 s, are outside the allowed band. */
     }
 
     requirement <'MRTM-ALM-003'> MRTM_ALM_003 {
@@ -28,7 +28,7 @@ package ReqAlarm {
     }
 
     requirement <'MRTM-ALM-007'> MRTM_ALM_007 {
-        doc /* The alarm subsystem shall end the excursion after 31 consecutive valid samples inside the allowed band. */
+        doc /* The alarm subsystem shall end the excursion after 31 consecutive valid samples, spanning 60 s, inside the allowed band. */
     }
 
     requirement <'MRTM-ALM-008'> MRTM_ALM_008 {

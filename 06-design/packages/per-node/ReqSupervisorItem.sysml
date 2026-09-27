@@ -1,5 +1,5 @@
 package ReqSupervisorItem {
-    comment /* GENERATED from the Markdown requirement corpus at e3b0908a9e5f5393.
+    comment /* GENERATED from the Markdown requirement corpus at a06e9cf06fcada64.
        Read-only: edit the Markdown requirement, not this file. Sanad regenerates it on
        every corpus change and the same corpus always gives byte-identical text. */
 
@@ -12,6 +12,6 @@ package ReqSupervisorItem {
     }
 
     requirement <'MRTM-SVI-003'> MRTM_SVI_003 {
-        doc /* The supervisor item shall load the allowed band only when its CRC-32 check passes. */
+        doc /* When the stored band passes its CRC-32 check, and only then, the supervisor item shall set the **Allowed Band** from it. */
     }
 }

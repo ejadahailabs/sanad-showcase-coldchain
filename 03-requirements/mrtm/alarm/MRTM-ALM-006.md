@@ -20,7 +20,7 @@ The alarm subsystem shall sound the confirmed excursion alarm as bursts of 10 pu
 
 ## Rationale
 
-Derived from the standard, not from a stakeholder: IEC 60601-1-8 high-priority auditory alarm signal (§6.3.3, table 3); source: IEC 60601-1-8 (edition assumed :2006+A1:2012+A2:2020, to be confirmed against the customer's edition). The design today sounds a continuous tone (SYS-003 as built) — delta D-2 in 13-assessment/iec60601-1-8-check.md. NOT YET DECOMPOSED OR IMPLEMENTED: owner decision Q-20.
+Derived from the standard, not from a stakeholder: IEC 60601-1-8 high-priority auditory alarm signal (§6.3.3, table 3); source: IEC 60601-1-8 (edition assumed :2006+A1:2012+A2:2020, to be confirmed against the customer's edition). The design today sounds a continuous tone (MRTM-SYS-003 as built) — delta D-2 in 13-assessment/iec60601-1-8-check.md. NOT YET DECOMPOSED OR IMPLEMENTED: owner decision Q-20.
 
 ## Verification
 

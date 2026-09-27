@@ -21,7 +21,7 @@ The supervisor item shall stop the watchdog service pulses within 2 s of a misse
 
 ## Rationale
 
-The software half of the backup chain (SAF-010).
+The software half of the backup chain (MRTM-SAF-010).
 
 ## Verification
 

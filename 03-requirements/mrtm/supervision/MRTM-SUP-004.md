@@ -20,7 +20,7 @@ The supervision subsystem shall stop the watchdog service pulses within 2 s of t
 
 ## Rationale
 
-Hands a stuck alarm item to the backup alarm (ALM-005).
+Hands a stuck alarm item to the backup alarm (MRTM-ALM-005).
 
 ## Verification
 

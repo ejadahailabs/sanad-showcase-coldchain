@@ -1,5 +1,5 @@
 package ReqProbe {
-    comment /* GENERATED from the Markdown requirement corpus at 1fce31426c3eae32.
+    comment /* GENERATED from the Markdown requirement corpus at 6fd5b52619b42b91.
        Read-only: edit the Markdown requirement, not this file. Sanad regenerates it on
        every corpus change and the same corpus always gives byte-identical text. */
 
@@ -12,6 +12,6 @@ package ReqProbe {
     }
 
     requirement <'MRTM-PRB-003'> MRTM_PRB_003 {
-        doc /* The probe shall send a CRC-8 value with every scratchpad read. */
+        doc /* When the sensor item reads the scratchpad, the probe shall send a CRC-8 value with the **Sample** data. */
     }
 }

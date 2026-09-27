@@ -1,10 +1,10 @@
 package ReqSensing {
-    comment /* GENERATED from the Markdown requirement corpus at 09984ab3d4b363fb.
+    comment /* GENERATED from the Markdown requirement corpus at 738590cefa101b08.
        Read-only: edit the Markdown requirement, not this file. Sanad regenerates it on
        every corpus change and the same corpus always gives byte-identical text. */
 
     requirement <'MRTM-SEN-001'> MRTM_SEN_001 {
-        doc /* The sensing subsystem shall deliver one fridge air temperature sample every 2 s. */
+        doc /* The sensing subsystem shall deliver one fridge air temperature sample at a period of 2 s. */
     }
 
     requirement <'MRTM-SEN-002'> MRTM_SEN_002 {

@@ -20,7 +20,7 @@ The power subsystem shall report mains loss, mains restore and battery voltage b
 
 ## Rationale
 
-Feeds the log (SAF-005) and the low-battery alarm (SAF-008).
+Feeds the log (MRTM-SAF-005) and the low-battery alarm (MRTM-SAF-008).
 
 ## Verification
 

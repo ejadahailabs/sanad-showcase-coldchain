@@ -1,5 +1,5 @@
 package ReqLogItem {
-    comment /* GENERATED from the Markdown requirement corpus at 0bb2ecea70fa35cd.
+    comment /* GENERATED from the Markdown requirement corpus at 10f2fa53ebe670f8.
        Read-only: edit the Markdown requirement, not this file. Sanad regenerates it on
        every corpus change and the same corpus always gives byte-identical text. */
 
@@ -8,6 +8,6 @@ package ReqLogItem {
     }
 
     requirement <'MRTM-LGI-002'> MRTM_LGI_002 {
-        doc /* The log item shall keep the newest 10000 records and overwrite the oldest record when full. */
+        doc /* When the **Event Log** holds 10000 records, the log item shall write each new **Event Record** over the oldest one. */
     }
 }

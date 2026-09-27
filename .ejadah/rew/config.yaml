@@ -500,6 +500,11 @@ suppressions:
     reason: Its children without code are hardware or labelling requirements
       accepted as not-implemented by design (suppressions above). Accepted
       DOGFOOD-5.
+  - rule: rigour-inconsistency
+    path: 03-requirements/mrtm/logging/usb-item/**
+    reason: USB item stays class B under the class C logging node because it is
+      segregated from the class C items (ADR-0034, IEC 62304 §5.3.5; A-48).
+      Segregation allowed is an owner decision still to confirm (F-133).
 review:
   platform: github
   project: local/dogfood-fridge

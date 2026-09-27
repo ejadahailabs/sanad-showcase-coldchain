@@ -17,7 +17,7 @@ implemented_by: []
 
 ## Description
 
-The excursion item shall report the early excursion at the first valid sample outside the allowed band.
+The excursion item shall report the early excursion within the 2 s sample period of the first valid sample outside the allowed band.
 
 ## Rationale
 

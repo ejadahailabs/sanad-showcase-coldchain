@@ -16,11 +16,11 @@ derived: false
 
 ## Description
 
-The alarm subsystem shall confirm the excursion when 31 consecutive valid samples are outside the allowed band.
+The alarm subsystem shall confirm the excursion when 31 consecutive valid samples, spanning 60 s, are outside the allowed band.
 
 ## Rationale
 
-31 samples at 2 s span 60 s: the door-opening filter of STK-002 (ADR-0031). 60 s is assumption A-04; source: WHO PQS E006 / CDC Vaccine Storage and Handling Toolkit (assumed sources, edition and clause to confirm).
+31 samples at 2 s span 60 s: the door-opening filter of MRTM-STK-002 (ADR-0031). 60 s is assumption A-04; source: WHO PQS E006 / CDC Vaccine Storage and Handling Toolkit (assumed sources, edition and clause to confirm).
 
 ## Verification
 

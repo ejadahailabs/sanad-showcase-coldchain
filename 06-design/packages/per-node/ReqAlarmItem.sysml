@@ -1,5 +1,5 @@
 package ReqAlarmItem {
-    comment /* GENERATED from the Markdown requirement corpus at 304078253ca010ad.
+    comment /* GENERATED from the Markdown requirement corpus at 2294b67b27baa02b.
        Read-only: edit the Markdown requirement, not this file. Sanad regenerates it on
        every corpus change and the same corpus always gives byte-identical text. */
 
@@ -16,6 +16,6 @@ package ReqAlarmItem {
     }
 
     requirement <'MRTM-ALI-004'> MRTM_ALI_004 {
-        doc /* The alarm item shall advance its heartbeat counter in every 1 s alarm cycle. */
+        doc /* The alarm item shall advance its heartbeat counter once per 1 s alarm cycle. */
     }
 }

@@ -20,7 +20,7 @@ The display subsystem shall show the excursion warning within 1 s of excursion c
 
 ## Rationale
 
-The display share of the 5 s of SYS-005.
+The display share of the 5 s of MRTM-SYS-005.
 
 ## Verification
 

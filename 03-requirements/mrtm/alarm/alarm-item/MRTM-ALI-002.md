@@ -21,7 +21,7 @@ The alarm item shall switch the buzzer drive on within one 1 s alarm cycle of th
 
 ## Rationale
 
-The software share of ALM-003; the alarm task runs every 1 s (ADR-0019).
+The software share of MRTM-ALM-003; the alarm task runs every 1 s (ADR-0019).
 
 ## Verification
 

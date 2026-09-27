@@ -16,7 +16,7 @@ derived: false
 
 ## Description
 
-The display subsystem shall show the current temperature at 0.1 °C resolution in digits of 5 mm or more, refreshed every 10 s.
+The display subsystem shall show the current temperature at 0.1 °C resolution in digits of 5 mm or more, refreshed at a period of 10 s.
 
 ## Rationale
 

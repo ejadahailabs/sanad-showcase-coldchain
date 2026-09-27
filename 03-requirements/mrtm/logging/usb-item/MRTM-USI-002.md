@@ -17,7 +17,7 @@ implemented_by: []
 
 ## Description
 
-The USB item shall refuse every write request from the USB host.
+When the USB host sends a write request, the USB item shall inhibit the write to the **Event Log**.
 
 ## Rationale
 

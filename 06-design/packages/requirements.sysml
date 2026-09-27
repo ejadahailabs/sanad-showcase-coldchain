@@ -1,5 +1,5 @@
 package ProjectRequirements {
-    comment /* GENERATED from the Markdown requirement corpus at aa3028a8d2652e68.
+    comment /* GENERATED from the Markdown requirement corpus at 8d28b0610273756b.
        Read-only: edit the Markdown requirement, not this file. Sanad regenerates it on
        every corpus change and the same corpus always gives byte-identical text. */
 
@@ -16,7 +16,7 @@ package ProjectRequirements {
     }
 
     requirement <'MRTM-ALI-004'> MRTM_ALI_004 {
-        doc /* The alarm item shall advance its heartbeat counter in every 1 s alarm cycle. */
+        doc /* The alarm item shall advance its heartbeat counter once per 1 s alarm cycle. */
     }
 
     requirement <'MRTM-ALM-001'> MRTM_ALM_001 {
@@ -24,7 +24,7 @@ package ProjectRequirements {
     }
 
     requirement <'MRTM-ALM-002'> MRTM_ALM_002 {
-        doc /* The alarm subsystem shall confirm the excursion when 31 consecutive valid samples are outside the allowed band. */
+        doc /* The alarm subsystem shall confirm the excursion when 31 consecutive valid samples, spanning 60 s, are outside the allowed band. */
     }
 
     requirement <'MRTM-ALM-003'> MRTM_ALM_003 {
@@ -44,7 +44,7 @@ package ProjectRequirements {
     }
 
     requirement <'MRTM-ALM-007'> MRTM_ALM_007 {
-        doc /* The alarm subsystem shall end the excursion after 31 consecutive valid samples inside the allowed band. */
+        doc /* The alarm subsystem shall end the excursion after 31 consecutive valid samples, spanning 60 s, inside the allowed band. */
     }
 
     requirement <'MRTM-ALM-008'> MRTM_ALM_008 {
@@ -92,7 +92,7 @@ package ProjectRequirements {
     }
 
     requirement <'MRTM-DSP-002'> MRTM_DSP_002 {
-        doc /* The display subsystem shall show the current temperature at 0.1 °C resolution in digits of 5 mm or more, refreshed every 10 s. */
+        doc /* The display subsystem shall show the current temperature at 0.1 °C resolution in digits of 5 mm or more, refreshed at a period of 10 s. */
     }
 
     requirement <'MRTM-DSP-003'> MRTM_DSP_003 {
@@ -116,15 +116,15 @@ package ProjectRequirements {
     }
 
     requirement <'MRTM-EXI-001'> MRTM_EXI_001 {
-        doc /* The excursion item shall report the early excursion at the first valid sample outside the allowed band. */
+        doc /* The excursion item shall report the early excursion within the 2 s sample period of the first valid sample outside the allowed band. */
     }
 
     requirement <'MRTM-EXI-002'> MRTM_EXI_002 {
-        doc /* The excursion item shall report the confirmed excursion at the 31st consecutive valid sample outside the allowed band. */
+        doc /* The excursion item shall report the confirmed excursion at the 31st consecutive valid sample outside the allowed band, 60 s after the first of them. */
     }
 
     requirement <'MRTM-EXI-003'> MRTM_EXI_003 {
-        doc /* The excursion item shall report the excursion end at the 31st consecutive valid sample inside the allowed band. */
+        doc /* The excursion item shall report the excursion end at the 31st consecutive valid sample inside the allowed band, 60 s after the first of them. */
     }
 
     requirement <'MRTM-IFC-001'> MRTM_IFC_001 {
@@ -148,7 +148,7 @@ package ProjectRequirements {
     }
 
     requirement <'MRTM-IND-002'> MRTM_IND_002 {
-        doc /* The acknowledge button shall close its contact for as long as it is pressed. */
+        doc /* While a clinic staff member presses the acknowledge button, the button shall close the contact that signals an **Acknowledgement**. */
     }
 
     requirement <'MRTM-LGI-001'> MRTM_LGI_001 {
@@ -156,7 +156,7 @@ package ProjectRequirements {
     }
 
     requirement <'MRTM-LGI-002'> MRTM_LGI_002 {
-        doc /* The log item shall keep the newest 10000 records and overwrite the oldest record when full. */
+        doc /* When the **Event Log** holds 10000 records, the log item shall write each new **Event Record** over the oldest one. */
     }
 
     requirement <'MRTM-LOG-001'> MRTM_LOG_001 {
@@ -164,7 +164,7 @@ package ProjectRequirements {
     }
 
     requirement <'MRTM-LOG-002'> MRTM_LOG_002 {
-        doc /* The logging subsystem shall retain the newest 10000 event records. */
+        doc /* When the **Event Log** reaches its capacity, the logging subsystem shall store the newest 10000 records in the **Event Log**. */
     }
 
     requirement <'MRTM-LOG-003'> MRTM_LOG_003 {
@@ -208,7 +208,7 @@ package ProjectRequirements {
     }
 
     requirement <'MRTM-PRB-003'> MRTM_PRB_003 {
-        doc /* The probe shall send a CRC-8 value with every scratchpad read. */
+        doc /* When the sensor item reads the scratchpad, the probe shall send a CRC-8 value with the **Sample** data. */
     }
 
     requirement <'MRTM-PRF-001'> MRTM_PRF_001 {
@@ -344,7 +344,7 @@ package ProjectRequirements {
     }
 
     requirement <'MRTM-SEN-001'> MRTM_SEN_001 {
-        doc /* The sensing subsystem shall deliver one fridge air temperature sample every 2 s. */
+        doc /* The sensing subsystem shall deliver one fridge air temperature sample at a period of 2 s. */
     }
 
     requirement <'MRTM-SEN-002'> MRTM_SEN_002 {
@@ -360,7 +360,7 @@ package ProjectRequirements {
     }
 
     requirement <'MRTM-SNI-001'> MRTM_SNI_001 {
-        doc /* The sensor item shall start one probe conversion every 2 s and read the scratchpad 750 ms after the start. */
+        doc /* The sensor item shall start one probe conversion at a period of 2 s and read the scratchpad 750 ms after the start. */
     }
 
     requirement <'MRTM-SNI-002'> MRTM_SNI_002 {
@@ -408,7 +408,7 @@ package ProjectRequirements {
     }
 
     requirement <'MRTM-SUP-003'> MRTM_SUP_003 {
-        doc /* The supervision subsystem shall refuse a stored allowed band that fails its CRC-32 check. */
+        doc /* When a stored allowed band fails its CRC-32 check, the supervision subsystem shall disable that **Allowed Band**. */
     }
 
     requirement <'MRTM-SUP-004'> MRTM_SUP_004 {
@@ -424,7 +424,7 @@ package ProjectRequirements {
     }
 
     requirement <'MRTM-SVI-003'> MRTM_SVI_003 {
-        doc /* The supervisor item shall load the allowed band only when its CRC-32 check passes. */
+        doc /* When the stored band passes its CRC-32 check, and only then, the supervisor item shall set the **Allowed Band** from it. */
     }
 
     requirement <'MRTM-SYS-001'> MRTM_SYS_001 {
@@ -528,7 +528,7 @@ package ProjectRequirements {
     }
 
     requirement <'MRTM-USI-002'> MRTM_USI_002 {
-        doc /* The USB item shall refuse every write request from the USB host. */
+        doc /* When the USB host sends a write request, the USB item shall inhibit the write to the **Event Log**. */
     }
 
     dependency from MRTM_ALI_001 to MRTM_ALM_001;

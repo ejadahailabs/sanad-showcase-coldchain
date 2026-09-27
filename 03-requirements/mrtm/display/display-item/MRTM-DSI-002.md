@@ -21,7 +21,7 @@ The display item shall change the displayed temperature at most once per 10 s, a
 
 ## Rationale
 
-Carries DSP-002's refresh down to the software.
+Carries MRTM-DSP-002's refresh down to the software.
 
 ## Verification
 

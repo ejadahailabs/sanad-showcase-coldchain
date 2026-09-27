@@ -17,7 +17,7 @@ implemented_by: []
 
 ## Description
 
-The supervisor item shall load the allowed band only when its CRC-32 check passes.
+When the stored band passes its CRC-32 check, and only then, the supervisor item shall set the **Allowed Band** from it.
 
 ## Rationale
 

@@ -16,7 +16,7 @@ derived: false
 
 ## Description
 
-The supervision subsystem shall refuse a stored allowed band that fails its CRC-32 check.
+When a stored allowed band fails its CRC-32 check, the supervision subsystem shall disable that **Allowed Band**.
 
 ## Rationale
 
