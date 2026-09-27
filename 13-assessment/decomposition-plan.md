@@ -41,3 +41,11 @@ MODEL-LEVELS worker (next slot): restructure the model and requirements into thi
 **Mapping of this run:** L0 = black box · L1/L2 = white box · L3 = solution · L4 = implementation. MODEL-LEVELS is re-scoped to rebuild under a MagicGrid framework file (hand-written until Sanad reads it — finding F-125), so the dogfood exercises the default flavour.
 
 **Sanad findings:** F-125 no framework file / no Decomposition view; F-124 stands (checks). Stage 1 sentences to draft: framework file + validation (configuration), own-layer-only + derive-chain checks (system-design), Decomposition view (system-design), package per layer (system-design), migration report (configuration).
+
+## Owner ruling 2026-09-27 (third pass): the black-box / white-box step repeats
+
+**His words:** "some times we may have to iterate the Black/white box layers to get to the solution, we may need to consider that, as we may have multiple levels of decomposition."
+
+**Design answer:** the framework describes a **repeating step**, not a fixed stack: `top` (stakeholder) → `step { black_box, white_box, children_become: black_box }` applied to every non-leaf element → `leaf` (solution rows) → `bottom` (implementation). Depth is per branch; the organisation declares leaves (or a rule does: a part with no internal parts). Requirement ids carry the element (node), not a level number; `derive` follows the parent element; the Decomposition view is a tree of small grids (one per element, empty cells grey); the workflow gate is per node (a child's black box opens once the parent's white box exists). The fixed L0–L4 ladder = this pattern with the depth pinned, read from the same file.
+
+**Run mapping:** system (black/white) → six subsystems (black/white each) → leaves (buzzer driver, probe, display, …) with solution rows; the alarm path goes one turn deeper (backup alarm has its own parts). MODEL-LEVELS rebuilds this way. F-125 updated accordingly.
