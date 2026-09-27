@@ -1,5 +1,7 @@
 # 08-safety — the risk management file (ISO 14971)
 
+> **Run 05:** this ISO 14971 file is owned by the **device (level 1)** of the pinned IEC 62304 stack — see `../06-design/L1-device/INDEX.md`. Reused unchanged from run 2.
+
 > **Standard:** ISO 14971:2019 cl. 4.5 (risk management file), 5–8; IEC 62304 cl. 7 (software risk management); IEC 60601-1 cl. 4.2 (risk management for ME equipment). Plan: `00-project/risk-management-plan.md`. DRAFT — needs Masood's review.
 
 **In one line:** this folder answers "what could hurt someone, how did we stop it, and how will we prove it?" — one file per question.

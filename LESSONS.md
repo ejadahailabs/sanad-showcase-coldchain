@@ -65,6 +65,23 @@ Sanad is a build in progress. "Could not do" below means "not yet", with the fin
 
 ## Run 05 — IEC 62304 pinned
 ### What the pattern made easy
+- The floors ARE the clauses: device (60601-1, ISO 14971) → software system (§5.2 SRS, §5.3) → items (§4.3, §5.3.5) → units (§5.4, §5.5). An auditor asking "show me §5.4" opens one folder (`L4-software-units/`).
+- Class per item is one field in the framework file, and one rule checks it: a unit takes its item's class; an item below C must name its segregation (usb-item B, ruling A-48).
+- Reuse was cheap: run 2's code, tests and item/unit text dropped straight onto floors 3 and 4 — the allocator gave the same item ids, so most code markers kept working.
+- Pictures stayed small (most 3–8 boxes); 12 of 20 graded B, the software modes A.
+
 ### What it made hard
+- The product's own story disappears above the software: run 2's six subsystems (alarm-and-indication, power, …) mix hardware and software, and the pinned stack has no floor for them. The alarm story is now split between the SRS and ONE flat hardware item; the backup alarm (a class-C risk control) is just three parts inside it.
+- One level holds very different sizes: 8 items but 12 units, and a unit level needs one template and one id prefix per unit (F-5-002).
+- 45 code markers still name device ids (a jump over three floors), because Sanad's implementation check asks for them (F-5-009).
+
 ### What Sanad could not do
+- Read the framework file or the pinned depth; check "parent one level up" and "class per item" (F-5-001) — our `level-check.py` did.
+- Make a lower item class legal through segregation: a suppression was needed again (F-5-003).
+- Draw a unit contract's functions (F-5-005), keep unused ports off a picture (F-5-006), keep a sequence to its own package (F-5-004).
+- Tell floors apart: 7 "refined at several levels" warnings because it reads each type as a level (F-5-010).
+
 ### What we would keep
+- **For a notified-body reader the fixed 62304 stack is clearer than run 2's recursive grid** for the software: the reader's checklist and the folder tree are the same list, and the "owed at" column falls out of the level names. For the device above the software it is weaker — it hides the subsystems where the hardware and software risk controls meet.
+- So `depth: pinned` should stay a first-class option of the SAME `step` in the framework file, with each pinned level bound to its clauses (Sanad can then generate the "owed at" index). Best of both: **recursive above the software system, pinned from the software system down** — declare it per branch in one framework file.
+- `level-check.py` with the two new rules (depth pinned, class per item) — selftest 9/9 — as the yardstick for any pinned framework.

@@ -4,7 +4,7 @@ What changed between two configurations, compared by EFFECT and not by bytes: on
 
 **Repository:** `05-iec62304-pinned`
 
-**At a:** `REQ-BL-M1` — unresolved — **not read:** "REQ-BL-M1" is not a commit, a branch, a tag or a baseline label here
+**At a:** `REQ-BL-M1` — the baseline "REQ-BL-M1", taken 2026-09-27T05:56:32.173Z, commit `6cf5ffb1c30a0b7232718a6b9d832531b24fc176`
 
 **At b:** `the working tree` — the working tree
 
@@ -12,4 +12,4 @@ What changed between two configurations, compared by EFFECT and not by bytes: on
 
 **How the commit behind each row was found:** each difference is attributed by reading the configuration at every commit in the range that touched `.ejadah/rew/config.yaml` or a rule pack, through the same reader, and naming the newest commit whose reading differs from the one before it — not `git blame`, which answers for a line and not for what a value does.
 
-**Nothing was compared.** A side whose configuration cannot be read is named, never diffed — a comparison against a configuration nobody read is not evidence.
+**Nothing differs.** Every key and every staged rule has the same effect on both sides.

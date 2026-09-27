@@ -1,0 +1,14 @@
+test_alarm_mgr: 15 Tests 0 Failures 0 Ignored 
+test_config_mgr: 5 Tests 0 Failures 0 Ignored 
+test_diagnostics: 3 Tests 0 Failures 0 Ignored 
+test_display_mgr: 7 Tests 0 Failures 0 Ignored 
+test_event_log: 5 Tests 0 Failures 0 Ignored 
+test_history_ring: 8 Tests 0 Failures 0 Ignored 
+test_limit_evaluator: 12 Tests 0 Failures 0 Ignored 
+test_mrtm_common: 3 Tests 0 Failures 0 Ignored 
+test_power_mon: 2 Tests 0 Failures 0 Ignored 
+test_rtc_clock: 3 Tests 0 Failures 0 Ignored 
+test_sensor_sampler: 7 Tests 0 Failures 0 Ignored 
+test_usb_export: 6 Tests 0 Failures 0 Ignored 
+test_wdt_kicker: 4 Tests 0 Failures 0 Ignored 
+test_int_chains: 5 Tests 0 Failures 0 Ignored 

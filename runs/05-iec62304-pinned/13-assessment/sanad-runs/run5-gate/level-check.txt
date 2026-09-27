@@ -1,0 +1,2 @@
+level-check: 23 nodes on levels 1-4 · 146 requirements (per level {1: 70, 2: 32, 3: 21, 4: 23}) · 146 satisfy lines · 20 views (most boxes 12) · violations 0
+selftest: 9 of 9 planted cases behave
