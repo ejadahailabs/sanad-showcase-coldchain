@@ -15,7 +15,7 @@ static void add(uint32_t n)
     }
 }
 
-/* @verifies MRTM-SAF-018 MRTM-LGI-001 */
+/* @verifies MRTM-LLR-038 MRTM-HLR-030 */
 void test_append_writes_copy_a_and_copy_b(void)
 {
     add(1);
@@ -27,7 +27,7 @@ void test_append_writes_copy_a_and_copy_b(void)
 }
 
 /* The ring wraps 2.5 times; every one of the newest 10 000 records still reads back. */
-/* @verifies MRTM-SYS-015 MRTM-LGI-002 */
+/* @verifies MRTM-LLR-038 MRTM-HLR-031 */
 void test_retains_10000_records_after_wrapping(void)
 {
     add(25000);
@@ -40,7 +40,7 @@ void test_retains_10000_records_after_wrapping(void)
 }
 
 /* Worst case: straight after an erase-ahead the ring still holds >= 10 000 (DEF-001). */
-/* @verifies MRTM-SYS-015 */
+/* @verifies MRTM-LLR-038 MRTM-HLR-031 */
 void test_retains_10000_straight_after_an_erase_ahead(void)
 {
     add(HISTORY_SLOTS);                                 /* seq 10240 lands in slot 0: sector 0 was just erased */
@@ -54,7 +54,7 @@ void test_retains_10000_straight_after_an_erase_ahead(void)
     TEST_ASSERT_GREATER_OR_EQUAL_UINT32(10000, readable);
 }
 
-/* @verifies MRTM-SAF-018 MRTM-SYS-021 */
+/* @verifies MRTM-LLR-039 MRTM-HLR-033 */
 void test_corrupt_copy_a_is_read_from_copy_b(void)
 {
     add(3);
@@ -64,7 +64,7 @@ void test_corrupt_copy_a_is_read_from_copy_b(void)
     TEST_ASSERT_EQUAL_UINT32(2, e.seq);
 }
 
-/* @verifies MRTM-SYS-021 */
+/* @verifies MRTM-LLR-039 MRTM-HLR-033 */
 void test_both_copies_corrupt_reports_err_crc_and_logs_it(void)
 {
     add(3);
@@ -75,7 +75,7 @@ void test_both_copies_corrupt_reports_err_crc_and_logs_it(void)
     TEST_ASSERT_TRUE(ts_find(MRTM_EV_LOG_RECORD_CORRUPT, &e));
 }
 
-/* @verifies MRTM-SYS-022 */
+/* @verifies MRTM-LLR-038 MRTM-HLR-034 */
 void test_capacity_warning_once_at_9000(void)
 {
     add(8999);
@@ -86,7 +86,7 @@ void test_capacity_warning_once_at_9000(void)
     TEST_ASSERT_EQUAL_UINT32(9000 + 1, e.seq);         /* the warning is itself record 9001 */
 }
 
-/* @verifies MRTM-SYS-015 */
+/* @verifies MRTM-LLR-037 MRTM-HLR-031 */
 void test_init_finds_the_head_again_after_a_restart(void)
 {
     add(12345);
@@ -97,7 +97,7 @@ void test_init_finds_the_head_again_after_a_restart(void)
 }
 
 /* Error codes of the contract. */
-/* @verifies MRTM-SAF-018 */
+/* @verifies MRTM-LLR-038 */
 void test_error_codes_flash_arg(void)
 {
     event_record_t r = { .seq = 5 };

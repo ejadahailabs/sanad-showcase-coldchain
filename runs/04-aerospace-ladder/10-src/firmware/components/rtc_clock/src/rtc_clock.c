@@ -7,7 +7,7 @@
 
 static volatile uint32_t utc_copy;
 
-/* @implements MRTM-SAF-022 */
+/* @implements MRTM-LLR-040 */
 mrtm_err_t rtc_clock_init(bool *osc_stopped)
 {
     if (osc_stopped == NULL) return MRTM_ERR_ARG;
@@ -20,13 +20,13 @@ mrtm_err_t rtc_clock_init(bool *osc_stopped)
 }
 
 /* REVIEW: drift (<= 2 s/day) is the RTC crystal's; the firmware only never keeps its own clock. */
-/* @implements MRTM-SYS-020 MRTM-SYS-008 MRTM-SYS-010 MRTM-SYS-023 */
+/* @implements MRTM-LLR-041 */
 uint32_t rtc_clock_now(void)
 {
     return utc_copy;
 }
 
-/* @implements MRTM-SYS-020 */
+/* @implements MRTM-LLR-042 */
 void rtc_clock_tick(void)
 {
     uint32_t utc;

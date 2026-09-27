@@ -15,7 +15,7 @@ void setUp(void)
 void tearDown(void) {}
 static void at(uint32_t ms) { host_advance(ms - host.now_ms); display_mgr_update(&m); display_mgr_tick(); }
 
-/* @verifies MRTM-SAF-016 MRTM-MNT-003 */
+/* @verifies MRTM-LLR-033 MRTM-HLR-027 */
 void test_band_and_version_shown_in_the_first_3_s(void)
 {
     at(100);  TEST_ASSERT_EQUAL(MSG_BAND, display_mgr_banner());
@@ -24,7 +24,7 @@ void test_band_and_version_shown_in_the_first_3_s(void)
     at(3000); TEST_ASSERT_EQUAL(MSG_NONE, display_mgr_banner());
 }
 
-/* @verifies MRTM-SYS-005 MRTM-SYS-007 MRTM-DSI-001 */
+/* @verifies MRTM-LLR-029 MRTM-LLR-032 MRTM-HLR-025 */
 void test_excursion_warning_for_the_whole_excursion(void)
 {
     at(4000);
@@ -33,14 +33,14 @@ void test_excursion_warning_for_the_whole_excursion(void)
     m.alarm = ALARM_QUIET;     at(5500);  TEST_ASSERT_EQUAL(MSG_NONE, display_mgr_banner());
 }
 
-/* @verifies MRTM-SYS-013 MRTM-DSI-001 */
+/* @verifies MRTM-LLR-029 MRTM-HLR-025 */
 void test_probe_fault_message(void)
 {
     m.alarm = ALARM_PROBE_FAULT; at(4000);
     TEST_ASSERT_EQUAL(MSG_PROBE_FAULT, display_mgr_banner());
 }
 
-/* @verifies MRTM-SAF-012 MRTM-SYS-022 MRTM-DSI-001 */
+/* @verifies MRTM-LLR-029 MRTM-HLR-028 */
 void test_calibration_due_and_log_capacity_messages(void)
 {
     m.calib_due = true; at(4000);
@@ -50,7 +50,7 @@ void test_calibration_due_and_log_capacity_messages(void)
 }
 
 /* The number on screen changes at most every 10 s, at 0.1 degC. */
-/* @verifies MRTM-PRF-004 MRTM-SYS-011 MRTM-DSI-002 */
+/* @verifies MRTM-LLR-028 MRTM-LLR-032 MRTM-HLR-026 */
 void test_temperature_refreshes_every_10_s_in_tenths(void)
 {
     at(500); TEST_ASSERT_EQUAL_INT16(51, display_mgr_shown_tenths());
@@ -58,7 +58,7 @@ void test_temperature_refreshes_every_10_s_in_tenths(void)
     at(10500); TEST_ASSERT_EQUAL_INT16(57, display_mgr_shown_tenths());
 }
 
-/* @verifies MRTM-MNT-002 */
+/* @verifies MRTM-LLR-030 MRTM-HLR-028 */
 void test_battery_shown_in_steps_of_10_percent(void)
 {
     at(500); TEST_ASSERT_EQUAL_UINT8(80, display_mgr_shown_battery_pct());
@@ -67,7 +67,7 @@ void test_battery_shown_in_steps_of_10_percent(void)
 }
 
 /* A 100 ms timeout triggers the bus reset and a log record, all inside 1 s. */
-/* @verifies MRTM-SAF-021 */
+/* @verifies MRTM-LLR-031 MRTM-HLR-029 */
 void test_i2c_timeout_resets_the_bus_within_1_s(void)
 {
     at(500);

@@ -21,7 +21,7 @@ rew:
   label: "Performance Requirement"
   idPrefix: "MRTM-PRF"
   order: 1
-  folder: "03-requirements/performance"
+  folder: "03-requirements/system/performance"
 
   # Conventional names are inferred: status, priority, author, tags, uplinks,
   # derived, and the "## Description" / "## Rationale" / "## Verification" /

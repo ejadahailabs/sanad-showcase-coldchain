@@ -21,7 +21,7 @@ rew:
   label: "Interface Requirement"
   idPrefix: "MRTM-IFC"
   order: 1
-  folder: "03-requirements/interface"
+  folder: "03-requirements/system/interface"
 
   # Conventional names are inferred: status, priority, author, tags, uplinks,
   # derived, and the "## Description" / "## Rationale" / "## Verification" /

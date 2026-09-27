@@ -62,7 +62,7 @@ public:
         if (tenths != tenths_ || valid != valid_) { tenths_ = tenths; valid_ = valid; dirty_ = true; }
     }
     int16_t tenths() const { return tenths_; }
-    // @implements MRTM-SYS-011 MRTM-IFC-004
+    // @implements MRTM-LLR-028
     void draw(FrameBuffer &fb) override
     {
         fb.fill(x_, y_, 96, kGlyphH, false);
@@ -96,7 +96,7 @@ public:
     using Widget::Widget;
     void setMessage(display_msg_t m) { if (m != msg_) { msg_ = m; dirty_ = true; } }
     display_msg_t message() const { return msg_; }
-    // @implements MRTM-SYS-005 MRTM-SYS-007 MRTM-SYS-013 MRTM-SYS-022 MRTM-SAF-012 MRTM-SAF-016 MRTM-MNT-003
+    // @implements MRTM-LLR-029
     void draw(FrameBuffer &fb) override
     {
         fb.fill(x_, y_, FrameBuffer::kW, 16, false);
@@ -117,7 +117,7 @@ public:
         if (step != pct_) { pct_ = step; dirty_ = true; }
     }
     uint8_t pct() const { return pct_; }
-    // @implements MRTM-MNT-002
+    // @implements MRTM-LLR-030
     void draw(FrameBuffer &fb) override
     {
         fb.fill(x_, y_, 22, 8, false);
@@ -154,7 +154,7 @@ public:
         return MRTM_OK;
     }
     // REVIEW: timing — 9 SCL pulses + re-init must fit in 1 s after a 100 ms timeout (MRTM-SAF-021).
-    // @implements MRTM-SAF-021
+    // @implements MRTM-LLR-031
     mrtm_err_t recoverBus()
     {
         hal_i2c_bus_reset();
@@ -166,7 +166,7 @@ public:
 class Screen {
 public:
     void update(const display_model_t &m) { model_ = m; }
-    // @implements MRTM-PRF-004 MRTM-SYS-005 MRTM-SYS-013 MRTM-SAF-016 MRTM-MNT-003
+    // @implements MRTM-LLR-032
     void renderFrame(uint32_t now_ms)
     {
         if (!haveTemp_ || now_ms - lastTempMs_ >= MRTM_TEMP_REFRESH_MS) {  // temperature every 10 s
@@ -215,7 +215,7 @@ Screen g_screen;
 
 }  // namespace
 
-// @implements MRTM-SAF-016
+// @implements MRTM-LLR-033
 extern "C" mrtm_err_t display_mgr_init(void)
 {
     return g_screen.start(hal_now_ms()) == MRTM_OK ? MRTM_OK : MRTM_ERR_BUS;
@@ -227,7 +227,7 @@ extern "C" void display_mgr_update(const display_model_t *m)
     if (m != nullptr) g_screen.update(*m);
 }
 
-// @implements MRTM-PRF-004
+// @implements MRTM-LLR-034
 extern "C" void display_mgr_tick(void)
 {
     g_screen.renderFrame(hal_now_ms());

@@ -16,7 +16,7 @@ static int band_ok(const mrtm_config_t *c)
 }
 
 /* A missing or bad record returns an error; the caller enters failSafe (buzzer on). */
-/* @implements MRTM-SAF-017 MRTM-SYS-017 MRTM-SVI-003 */
+/* @implements MRTM-LLR-020 */
 mrtm_err_t config_mgr_load(mrtm_config_t *out)
 {
     if (out == NULL) return MRTM_ERR_ARG;
@@ -28,7 +28,7 @@ mrtm_err_t config_mgr_load(mrtm_config_t *out)
 }
 
 /* Technician command over USB (Q-15); takes effect at the next restart. */
-/* @implements MRTM-SAF-017 */
+/* @implements MRTM-LLR-021 */
 mrtm_err_t config_mgr_store(const mrtm_config_t *in)
 {
     if (in == NULL || !band_ok(in)) return MRTM_ERR_ARG;

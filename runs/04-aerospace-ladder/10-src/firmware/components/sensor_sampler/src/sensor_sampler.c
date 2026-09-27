@@ -13,7 +13,7 @@ static struct {
     bool out_of_range;
 } s;
 
-/* @implements MRTM-IFC-001 */
+/* @implements MRTM-LLR-001 */
 mrtm_err_t sensor_sampler_init(const mrtm_config_t *cfg)
 {
     if (cfg == NULL) return MRTM_ERR_ARG;
@@ -26,7 +26,7 @@ mrtm_err_t sensor_sampler_init(const mrtm_config_t *cfg)
 
 /* raw = 12-bit two's complement in 1/16 degC; result rounded half away from zero to 0.1 degC.
    REVIEW: accuracy itself is the probe's (+-0.5 degC); firmware adds only the calibrated offset. */
-/* @implements MRTM-PRF-001 MRTM-SYS-011 */
+/* @implements MRTM-LLR-002 */
 int16_t sensor_sampler_to_tenths(int16_t raw, int16_t offset_tenths)
 {
     int32_t x = (int32_t)raw * 10;
@@ -34,7 +34,7 @@ int16_t sensor_sampler_to_tenths(int16_t raw, int16_t offset_tenths)
     return (int16_t)(t + offset_tenths);
 }
 
-/* @implements MRTM-SYS-001 MRTM-IFC-001 MRTM-SAF-003 MRTM-SYS-012 MRTM-SNI-001 */
+/* @implements MRTM-LLR-003 */
 mrtm_err_t sensor_sampler_read(uint32_t now_s, mrtm_sample_t *out)
 {
     if (out == NULL) return MRTM_ERR_ARG;
@@ -59,7 +59,7 @@ mrtm_err_t sensor_sampler_read(uint32_t now_s, mrtm_sample_t *out)
     return MRTM_OK;
 }
 
-/* @implements MRTM-SYS-012 MRTM-SAF-003 MRTM-SNI-002 */
+/* @implements MRTM-LLR-004 */
 bool sensor_sampler_probe_fault(uint32_t now_s)
 {
     if (!s.started) return false;

@@ -7,8 +7,8 @@ author: "Masood (drafted by Claude, DOGFOOD-1)"
 created: "2026-09-27"
 modified: "2026-09-27"
 tags: []
-uplinks: ["MRTM-STK-004"]
-safetyClass: "C"
+uplinks: ["MRTM-FUN-001"]
+safetyClass: "A"
 derived: false
 ---
 

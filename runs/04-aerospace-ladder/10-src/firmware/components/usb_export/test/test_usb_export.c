@@ -13,7 +13,7 @@ static void add(uint32_t n)
     event_log_step(0);
 }
 
-/* @verifies MRTM-IFC-003 */
+/* @verifies MRTM-LLR-044 MRTM-HLR-035 */
 void test_boot_sector_is_a_fat12_volume(void)
 {
     TEST_ASSERT_EQUAL_INT32(512, usb_export_read10(0, 0, s, 512));
@@ -24,7 +24,7 @@ void test_boot_sector_is_a_fat12_volume(void)
     TEST_ASSERT_TRUE(host.usb_ready);
 }
 
-/* @verifies MRTM-SYS-014 MRTM-IFC-003 MRTM-USI-001 */
+/* @verifies MRTM-LLR-044 MRTM-HLR-035 */
 void test_history_csv_is_marked_read_only(void)
 {
     add(3);
@@ -34,14 +34,14 @@ void test_history_csv_is_marked_read_only(void)
     TEST_ASSERT_EQUAL_UINT32(4 * USB_LINE, (uint32_t)(s[28] | s[29] << 8 | s[30] << 16 | (uint32_t)s[31] << 24));
 }
 
-/* @verifies MRTM-SYS-014 MRTM-IFC-003 MRTM-STK-006 MRTM-USI-002 */
+/* @verifies MRTM-LLR-045 MRTM-HLR-036 */
 void test_every_write_is_refused(void)
 {
     uint8_t junk[512] = { 0 };
     for (uint32_t lba = 0; lba < USB_TOTAL_SECTORS; lba += 97) TEST_ASSERT_EQUAL_INT32(-1, usb_export_write10(lba, 0, junk, 512));
 }
 
-/* @verifies MRTM-IFC-003 MRTM-SYS-008 */
+/* @verifies MRTM-LLR-044 */
 void test_csv_lines_oldest_first_newest_last(void)
 {
     add(3);
@@ -53,7 +53,7 @@ void test_csv_lines_oldest_first_newest_last(void)
 }
 
 /* A record that fails both CRCs becomes a CORRUPT line, and the rest still export. */
-/* @verifies MRTM-SYS-021 */
+/* @verifies MRTM-LLR-044 */
 void test_unreadable_record_is_a_corrupt_line(void)
 {
     add(3);
@@ -65,7 +65,7 @@ void test_unreadable_record_is_a_corrupt_line(void)
 }
 
 /* 10 000 records fit the volume; the FAT chains every data cluster to the end mark. */
-/* @verifies MRTM-SYS-015 MRTM-PRF-003 */
+/* @verifies MRTM-LLR-044 MRTM-HLR-035 */
 void test_full_history_fits_and_fat_chain_ends(void)
 {
     TEST_ASSERT_LESS_OR_EQUAL_UINT32(USB_DATA_SECTORS, ((10000u + 1u) * USB_LINE + 511u) / 512u);

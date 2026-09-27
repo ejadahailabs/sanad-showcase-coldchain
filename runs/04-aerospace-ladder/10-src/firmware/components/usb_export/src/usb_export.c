@@ -74,7 +74,7 @@ static void sector(uint32_t lba, uint8_t s[USB_BLOCK])
     }
 }
 
-/* @implements MRTM-IFC-003 MRTM-SYS-014 MRTM-USI-001 */
+/* @implements MRTM-LLR-043 */
 mrtm_err_t usb_export_init(const history_ring_t *r)
 {
     if (r == NULL) return MRTM_ERR_ARG;
@@ -83,7 +83,7 @@ mrtm_err_t usb_export_init(const history_ring_t *r)
 }
 
 /* REVIEW: timing — 30 s for the whole file is a USB full-speed estimate, measured only on target. */
-/* @implements MRTM-IFC-003 MRTM-PRF-003 */
+/* @implements MRTM-LLR-044 */
 int32_t usb_export_read10(uint32_t lba, uint32_t offset, void *buf, uint32_t size)
 {
     if (ring == NULL || buf == NULL || lba >= USB_TOTAL_SECTORS || offset + size > USB_BLOCK) return -1;
@@ -93,7 +93,7 @@ int32_t usb_export_read10(uint32_t lba, uint32_t offset, void *buf, uint32_t siz
     return (int32_t)size;
 }
 
-/* @implements MRTM-SYS-014 MRTM-IFC-003 MRTM-USI-002 */
+/* @implements MRTM-LLR-045 */
 int32_t usb_export_write10(uint32_t lba, uint32_t offset, const void *buf, uint32_t size)
 {
     (void)lba; (void)offset; (void)buf; (void)size;

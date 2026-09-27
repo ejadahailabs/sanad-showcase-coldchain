@@ -8,7 +8,7 @@ void setUp(void) {}
 void tearDown(void) {}
 
 /* Check values from the CRC catalogue for "123456789". */
-/* @verifies MRTM-SYS-012 MRTM-SYS-021 */
+/* @verifies MRTM-LLR-005 MRTM-LLR-022 */
 void test_crc_check_values(void)
 {
     TEST_ASSERT_EQUAL_HEX8(0xA1, mrtm_crc8_maxim((const uint8_t *)"123456789", 9));
@@ -16,7 +16,7 @@ void test_crc_check_values(void)
 }
 
 /* A DS18B20 scratchpad is valid when the CRC of bytes 0..7 equals byte 8. */
-/* @verifies MRTM-SYS-012 */
+/* @verifies MRTM-LLR-005 MRTM-HLR-002 */
 void test_crc8_over_a_scratchpad(void)
 {
     uint8_t sp[9] = { 0x50, 0x05, 0x4B, 0x46, 0x7F, 0xFF, 0x0C, 0x10, 0 };

@@ -7,7 +7,7 @@ static mrtm_config_t cfg = { .band_low_tenths = 20, .band_high_tenths = 80 };
 void setUp(void) { ts_fresh(); cfg.probe_offset_tenths = 0; TEST_ASSERT_EQUAL(MRTM_OK, sensor_sampler_init(&cfg)); }
 void tearDown(void) {}
 
-/* @verifies MRTM-SYS-001 MRTM-IFC-001 MRTM-SNI-001 */
+/* @verifies MRTM-LLR-003 MRTM-HLR-001 */
 void test_good_scratchpad_gives_a_valid_sample(void)
 {
     mrtm_sample_t s;
@@ -17,7 +17,7 @@ void test_good_scratchpad_gives_a_valid_sample(void)
     TEST_ASSERT_EQUAL_INT16(45, s.tenths);
 }
 
-/* @verifies MRTM-SYS-012 MRTM-SNI-002 */
+/* @verifies MRTM-LLR-003 MRTM-HLR-002 */
 void test_bad_crc_is_invalid_but_not_out_of_range(void)
 {
     mrtm_sample_t s;
@@ -27,7 +27,7 @@ void test_bad_crc_is_invalid_but_not_out_of_range(void)
     TEST_ASSERT_FALSE(sensor_sampler_probe_fault(10));
 }
 
-/* @verifies MRTM-SAF-003 MRTM-SNI-002 */
+/* @verifies MRTM-LLR-003 MRTM-LLR-004 MRTM-HLR-002 MRTM-HLR-003 */
 void test_reading_outside_minus30_to_50_declares_the_fault_at_once(void)
 {
     mrtm_sample_t s;
@@ -39,7 +39,7 @@ void test_reading_outside_minus30_to_50_declares_the_fault_at_once(void)
     TEST_ASSERT_TRUE(sensor_sampler_probe_fault(20));
 }
 
-/* @verifies MRTM-SYS-012 */
+/* @verifies MRTM-LLR-004 MRTM-HLR-003 */
 void test_fault_after_30_s_without_a_correct_crc(void)
 {
     mrtm_sample_t s;
@@ -50,7 +50,7 @@ void test_fault_after_30_s_without_a_correct_crc(void)
     TEST_ASSERT_TRUE(sensor_sampler_probe_fault(130));
 }
 
-/* @verifies MRTM-SYS-012 */
+/* @verifies MRTM-LLR-004 MRTM-HLR-003 */
 void test_fault_clears_on_the_next_valid_sample(void)
 {
     mrtm_sample_t s;
@@ -62,7 +62,7 @@ void test_fault_clears_on_the_next_valid_sample(void)
     TEST_ASSERT_FALSE(sensor_sampler_probe_fault(50));
 }
 
-/* @verifies MRTM-SYS-011 MRTM-PRF-001 */
+/* @verifies MRTM-LLR-002 */
 void test_conversion_rounds_to_a_tenth_and_adds_the_offset(void)
 {
     TEST_ASSERT_EQUAL_INT16(0, sensor_sampler_to_tenths(0, 0));
@@ -74,7 +74,7 @@ void test_conversion_rounds_to_a_tenth_and_adds_the_offset(void)
 }
 
 /* Error codes of the contract: NULL config, NULL out, bus failure at init. */
-/* @verifies MRTM-IFC-001 */
+/* @verifies MRTM-LLR-001 MRTM-LLR-003 */
 void test_error_codes_arg_and_bus(void)
 {
     TEST_ASSERT_EQUAL(MRTM_ERR_ARG, sensor_sampler_init(NULL));

@@ -1,117 +1,136 @@
-# Decomposition framework — how this organisation breaks a product down.
-# HAND-WRITTEN (MODEL-LEVELS, 2026-09-27). Sanad does not read this file yet (FINDINGS F-125);
-# tools/levels-build.py and tools/level-check.py read it instead, so every rule below is checked.
-# Org configures, Sanad recommends: this is the MagicGrid default with a medical flavour pinned.
-# DRAFT — needs Masood's review.
+# Decomposition framework — the AEROSPACE LADDER (ARP4754A system shape + DO-178C software shape).
+# HAND-WRITTEN (RUN-04, 2026-09-27). Sanad does not read this file yet (run 2 finding F-125);
+# tools/level-check.py and tools/aero-build.py read it instead, so every rule below is checked.
+# Org configures, Sanad recommends. DRAFT — needs Masood's review.
 #
-# In one line: a product is a tree. Every box that is not a leaf gets two looks —
-# from the OUTSIDE (black box: what it must do, what it touches) and from the INSIDE
-# (white box: which smaller boxes do it). Each smaller box then gets the same two looks,
-# until a box is simple enough to buy or to code. Like a Russian doll you open one layer at a time.
+# In one line: a fixed ladder with three rungs — the whole product, the system, the items — and
+# inside every software item a second, fixed ladder: HLR → software architecture → LLR → source →
+# object. Like a building code: the floors are always the same; what changes per room is how
+# strict the inspection is (the DAL).
+#
+# The fridge monitor plays the "aircraft": ARP4754A's aircraft level is the top product. Its
+# functions and the failure conditions of those functions (FHA) sit at the top; the system
+# requirements and the PSSA below them; the items (hardware and software) at the bottom.
 
-framework: magicgrid
+framework: aerospace-ladder
 version: 1
-flavour: medical-iec62304        # the organisation's own flavour of the default
-standards:                        # editions ASSUMED — to be confirmed against the customer's editions (A-39)
-  - "IEC 62304:2006+A1:2015 (software life cycle)"
-  - "IEC 60601-1:2005+A2:2020 cl. 14 (programmable electrical medical system, PEMS)"
-  - "IEC 60601-1-8:2006+A2:2020 (alarm systems)"
-  - "ISO 14971:2019 (risk management)"
+flavour: arp4754a-do178c
+standards:                        # editions ASSUMED (A-4-01); used as a SHAPE only, no certification claim
+  - "SAE ARP4754A / EUROCAE ED-79A (development of aircraft and systems) — levels, FDAL/IDAL"
+  - "SAE ARP4761 (safety assessment: FHA, PSSA, SSA) — the safety process beside the ladder"
+  - "RTCA DO-178C / EUROCAE ED-12C (software) — HLR, software architecture, LLR, source, object; Annex A"
+  - "RTCA DO-254 / EUROCAE ED-80 (hardware) — hardware item requirements → design (shape only)"
 
-# ---- The pattern --------------------------------------------------------------------------
-top:                              # the problem, seen by the people who have it
-  node_kind: context
-  aspects: [requirements, behaviour, structure]
-  requirement_kinds: [stakeholder]
-  views: [use case, internal block]        # use cases; the product as one box among its neighbours
+# ---- The pattern: a FIXED ladder, depth pinned (contrast run 2: a repeating step) -------------
+# run 2's `step` (black box → white box, repeated per branch) is used here with depth pinned:
+# the product is opened exactly once (into the system), the system exactly once (into items),
+# and only a software item opens once more (into its software design). No branch goes deeper.
+step:
+  depth: pinned
+  rungs:
+    - level: aircraft             # ARP4754A §5.1 aircraft function development
+      node_kind: aircraft
+      aspects: [requirements, behaviour, structure]
+      requirement_kinds: [stakeholder, function, safety-objective]
+      safety: FHA                  # functional hazard assessment: failure condition → severity → objective
+      views: [activity, internal block]   # aircraft functions; the product among its neighbours
+    - level: system               # ARP4754A §5.2 allocation to systems, §5.3 system requirements
+      node_kind: system
+      aspects: [requirements, behaviour, structure]
+      requirement_kinds: [system, safety, performance, environmental, maintainability, interface]
+      safety: PSSA                 # preliminary system safety assessment: DAL per item
+      views: [activity, internal block, state machine, sequence]
+    - level: item                 # ARP4754A §5.3 allocation to items; DO-254 / DO-178C take over
+      node_kind: [hardware-item, software-item]
+      aspects: [requirements, structure, behaviour]
+      requirement_kinds: {hardware-item: hardware-item, software-item: hlr}
+      views: [internal block]
+    - level: software-design      # DO-178C §5.2: software architecture + low-level requirements
+      node_kind: software-design
+      only_under: software-item
+      aspects: [requirements, structure, behaviour]
+      requirement_kinds: [llr]
+      views: [block, activity, state machine, sequence]
+  children_become: next-rung      # a child is always one rung down; never the same rung again
 
-step:                             # applied to every node that is not a leaf; repeats per branch
-  black_box:                      # the node from outside: its needs and its boundary
-    aspects: [requirements, structure, behaviour]
-    views: [internal block]       # <node>_blackbox_interfaces: the node + its neighbours + wires
-  white_box:                      # the node from inside: its children and their wires
-    aspects: [structure, behaviour, parameters]
-    views: [internal block, state machine, sequence]   # <node>_whitebox_interconnection (+ states/scenarios where it has them)
-  children_become: black_box      # each child starts its own step; depth differs per branch
-
-leaf:                             # a node the organisation declares simple enough to choose or build
-  aspects: [requirements, structure, parameters]
-  solution: [hardware-part, software-item]
-bottom:                           # implementation: below the leaf, no new requirements
-  artefacts: [software-unit, code, unit-test, bench-procedure]
-  links: ["@implements <leaf id>", "@verifies <leaf id>"]
+bottom:                           # DO-178C §5.3 coding, §5.4 integration: no new requirements
+  artefacts: [source-code, executable-object-code, unit-test, bench-procedure]
+  links: ["@implements <LLR id>", "@verifies <HLR or LLR id>", "SP rows verify <system id>"]
 
 aspects: [requirements, behaviour, structure, parameters]
 
-# ---- Node kinds and their requirement id prefixes -------------------------------------------
-# Medical flavour: names per IEC 62304 §5.3 (software system → software items → software units)
-# and IEC 60601-1 cl. 14 (the device is a PEMS; its hardware parts are PEMS parts).
+# ---- Node kinds, their standards and requirement id prefixes --------------------------------
+# One template per KIND (Sanad maps one role to one template, F-4-004): the item a requirement
+# belongs to is the FOLDER it lives in, not its prefix. `MRTM-HLR-007` is an HLR; its folder says
+# which software item owns it.
 node_kinds:
-  context:        { standard: "ISO 14971 cl. 5.2 intended use", requirement_kinds: {stakeholder: MRTM-STK} }
-  system:         { standard: "IEC 60601-1 cl. 14 PEMS; IEC 62304 software system",
-                    requirement_kinds: {system: MRTM-SYS, safety: MRTM-SAF, performance: MRTM-PRF,
-                                        environmental: MRTM-ENV, maintainability: MRTM-MNT, interface: MRTM-IFC} }
-  subsystem:      { standard: "IEC 60601-1 cl. 14.8 PEMS architecture", requirement_kinds: {node: "MRTM-<NODE>"} }
-  assembly:       { standard: "IEC 60601-1 cl. 14.8 (a subsystem that repeats the step)", requirement_kinds: {node: "MRTM-<NODE>"} }
-  hardware-part:  { standard: "IEC 60601-1 cl. 4.8 components", requirement_kinds: {node: "MRTM-<NODE>"} }
-  software-item:  { standard: "IEC 62304 §5.3.1 software item, §4.3 its own class", requirement_kinds: {node: "MRTM-<NODE>"},
-                    units: "IEC 62304 §5.4 software units (bottom)" }
+  aircraft:        { standard: "ARP4754A §5.1 aircraft-level functions; ARP4761 FHA",
+                     requirement_kinds: {stakeholder: MRTM-STK, function: MRTM-FUN, safety-objective: MRTM-SOB} }
+  system:          { standard: "ARP4754A §5.2–5.3 system requirements; ARP4761 PSSA",
+                     requirement_kinds: {system: MRTM-SYS, safety: MRTM-SAF, performance: MRTM-PRF,
+                                         environmental: MRTM-ENV, maintainability: MRTM-MNT, interface: MRTM-IFC} }
+  hardware-item:   { standard: "ARP4754A §5.3 item; DO-254 §5.1 hardware requirements capture", requirement_kinds: {hardware-item: MRTM-HWR} }
+  software-item:   { standard: "ARP4754A §5.3 item; DO-178C §5.1 high-level requirements (HLR)", requirement_kinds: {hlr: MRTM-HLR} }
+  software-design: { standard: "DO-178C §5.2 software architecture + low-level requirements (LLR)", requirement_kinds: {llr: MRTM-LLR} }
+
+# ---- DAL: the severity axis (ARP4754A Table 2 / DO-178C §2.3), assigned by the PSSA ---------
+# Stored in each requirement's `safetyClass` field (Sanad role `dal`, scale `do178c` — native).
+dal:
+  scale: [A, B, C, D, E]
+  failure_condition: {A: catastrophic, B: hazardous, C: major, D: minor, E: no safety effect}
+  assigned_by: 08-safety/02-pssa.md
+  inherit: item-to-its-requirements   # an HLR / LLR carries its item's DAL
+  independence: not-required          # owner scope for this run: one engineer, no independent verifier (A-4-03)
 
 # ---- Rules (each one is a check in tools/level-check.py) ------------------------------------
 rules:
   satisfy: own-node-only          # a node's model file satisfies that node's requirements, nothing else
-  derive: follows-parent          # a requirement's `derive` (Sanad: `uplinks`) names requirements of its PARENT node only
-  derive_field: uplinks           # the Sanad field that carries it (Sanad's `derived:` flag means "no parent", DO-178C sense — not used)
-  derive_chain: complete-to-top   # every leaf requirement reaches a stakeholder requirement
-  leaf: declared-by-organisation  # only the `leaves:` list below makes a node a leaf
+  node_of_requirement: folder     # the requirement's folder names its node (not its prefix)
+  derive: rung-above              # an uplink names a requirement of the PARENT node (or of its own node, same rung)
+  derive_field: uplinks
+  derived_requirements: allowed-with-safety-feedback   # DO-178C §5.1.2 / §5.2.2: `derived: true`, no uplink,
+                                                        # must be named in 08-safety/02-pssa.md §derived
+  derive_chain: complete-to-top   # every non-derived requirement reaches a stakeholder requirement
+  depth: pinned                   # no node deeper than its rung; every item is a leaf of the system
+  code_traces_to: llr             # DO-178C §6.3.4e / §11.21: source ↔ LLR only
   max_boxes_per_view: 12
-  view_name: "<node>_<blackbox|whitebox|leaf>_<kind>"   # Sanad view names cannot hold '-' (F-128)
+  view_name: "<node>_<kind>"      # Sanad view names cannot hold '-' (F-128)
   index_per_node: required        # 06-design/<node-path>/INDEX.md
-  segregation_below_parent_class: required   # IEC 62304 §5.3.5: an item below its parent's class names its segregation
+  dal_below_parent: requires-partitioning-argument   # DO-178C §2.4.1: a lower level item beside a higher one needs partitioning
 
-# ---- Workflow per node ----------------------------------------------------------------------
-workflow:                          # a child's black box opens only when its parent's white box exists
-  - black_box.requirements         # write the node's requirements, each derived from the parent node
-  - black_box.interfaces           # draw the node with its neighbours
-  - classify                       # IEC 62304 §4.3 class of the node, with a reason
-  - white_box.structure            # choose the children and wire them
-  - white_box.behaviour            # states / scenarios where the node has them
-  - allocate                       # each requirement of the node to a child requirement (derive)
-  - review                         # the node's INDEX.md is the review packet
+# ---- Workflow (ARP4754A figure 4 order, one pass) ---------------------------------------------
+workflow:
+  - aircraft.functions            # what the product does for the clinic
+  - aircraft.fha                  # how each function can fail, how bad, which objective
+  - system.requirements           # derived from functions and objectives
+  - system.architecture           # items and their wires
+  - system.pssa                   # DAL per item, derived requirements named
+  - item.requirements             # HW item requirements, SW HLR
+  - software.architecture         # per software item, with Sanad's software profile
+  - software.llr                  # per software item
+  - code.and.tests                # @implements LLR, @verifies HLR/LLR
 
-# ---- This project's tree ---------------------------------------------------------------------
-# path = folder under 06-design/ and 03-requirements/; prefix = requirement id prefix; class = IEC 62304 class.
+# ---- This project's tree (17 nodes, fixed depth) ----------------------------------------------
+# path = folder under 06-design/ and 03-requirements/; dal = PSSA result (08-safety/02-pssa.md).
 nodes:
-  - {name: context,         path: context,                                    kind: context,       prefix: MRTM-STK, class: C}
-  - {name: system,          path: mrtm,                                       kind: system,        prefix: [MRTM-SYS, MRTM-SAF, MRTM-PRF, MRTM-ENV, MRTM-MNT, MRTM-IFC], class: C, parent: context}
-  - {name: sensing,         path: mrtm/sensing,                               kind: subsystem,     prefix: MRTM-SEN, class: C, parent: system}
-  - {name: alarm,           path: mrtm/alarm,                                 kind: subsystem,     prefix: MRTM-ALM, class: C, parent: system, title: alarm-and-indication}
-  - {name: display,         path: mrtm/display,                               kind: subsystem,     prefix: MRTM-DSP, class: C, parent: system}
-  - {name: logging,         path: mrtm/logging,                               kind: subsystem,     prefix: MRTM-LOG, class: C, parent: system, title: logging-and-history}
-  - {name: power,           path: mrtm/power,                                 kind: subsystem,     prefix: MRTM-PWR, class: C, parent: system}
-  - {name: supervision,     path: mrtm/supervision,                           kind: subsystem,     prefix: MRTM-SUP, class: C, parent: system}
-  - {name: probe,           path: mrtm/sensing/probe,                         kind: hardware-part, prefix: MRTM-PRB, class: C, parent: sensing}
-  - {name: sensor-item,     path: mrtm/sensing/sensor-item,                   kind: software-item, prefix: MRTM-SNI, class: C, parent: sensing,  units: [sensorSampler]}
-  - {name: excursion-item,  path: mrtm/alarm/excursion-item,                  kind: software-item, prefix: MRTM-EXI, class: C, parent: alarm,    units: [limitEvaluator]}
-  - {name: alarm-item,      path: mrtm/alarm/alarm-item,                      kind: software-item, prefix: MRTM-ALI, class: C, parent: alarm,    units: [alarmMgr]}
-  - {name: buzzer,          path: mrtm/alarm/buzzer,                          kind: hardware-part, prefix: MRTM-BZR, class: C, parent: alarm}
-  - {name: indicators,      path: mrtm/alarm/indicators,                      kind: hardware-part, prefix: MRTM-IND, class: C, parent: alarm}
-  - {name: backup-alarm,    path: mrtm/alarm/backup-alarm,                    kind: assembly,      prefix: MRTM-BKA, class: C, parent: alarm}
-  - {name: backup-timer,    path: mrtm/alarm/backup-alarm/backup-timer,       kind: hardware-part, prefix: MRTM-BKT, class: C, parent: backup-alarm}
-  - {name: backup-driver,   path: mrtm/alarm/backup-alarm/backup-driver,      kind: hardware-part, prefix: MRTM-BKD, class: C, parent: backup-alarm}
-  - {name: hold-up,         path: mrtm/alarm/backup-alarm/hold-up,            kind: hardware-part, prefix: MRTM-BKH, class: C, parent: backup-alarm}
-  - {name: oled,            path: mrtm/display/oled,                          kind: hardware-part, prefix: MRTM-OLD, class: C, parent: display}
-  - {name: display-item,    path: mrtm/display/display-item,                  kind: software-item, prefix: MRTM-DSI, class: C, parent: display,  units: [displayMgr]}
-  - {name: rtc,             path: mrtm/logging/rtc,                           kind: hardware-part, prefix: MRTM-RTC, class: C, parent: logging}
-  - {name: log-item,        path: mrtm/logging/log-item,                      kind: software-item, prefix: MRTM-LGI, class: C, parent: logging,  units: [eventLog, historyRing, rtcClock]}
-  - {name: usb-item,        path: mrtm/logging/usb-item,                      kind: software-item, prefix: MRTM-USI, class: B, parent: logging,  units: [usbExport]}
-  - {name: battery,         path: mrtm/power/battery,                         kind: hardware-part, prefix: MRTM-BAT, class: C, parent: power}
-  - {name: power-path,      path: mrtm/power/power-path,                      kind: hardware-part, prefix: MRTM-PPT, class: C, parent: power}
-  - {name: power-item,      path: mrtm/power/power-item,                      kind: software-item, prefix: MRTM-PWI, class: C, parent: power,    units: [powerMon]}
-  - {name: mcu,             path: mrtm/supervision/mcu,                       kind: hardware-part, prefix: MRTM-MCU, class: C, parent: supervision}
-  - {name: supervisor-item, path: mrtm/supervision/supervisor-item,           kind: software-item, prefix: MRTM-SVI, class: C, parent: supervision, units: [wdtKicker, diagnostics, configMgr]}
+  - {name: aircraft,        path: aircraft,               kind: aircraft,        level: aircraft, dal: A}
+  - {name: system,          path: system,                 kind: system,          level: system,   dal: A, parent: aircraft}
+  - {name: sensor-hw,       path: items/sensor-hw,        kind: hardware-item,   level: item,     dal: A, parent: system}
+  - {name: alarm-hw,        path: items/alarm-hw,         kind: hardware-item,   level: item,     dal: A, parent: system}
+  - {name: controller-hw,   path: items/controller-hw,    kind: hardware-item,   level: item,     dal: A, parent: system}
+  - {name: power-hw,        path: items/power-hw,         kind: hardware-item,   level: item,     dal: B, parent: system}
+  - {name: display-hw,      path: items/display-hw,       kind: hardware-item,   level: item,     dal: C, parent: system}
+  - {name: alarm-sw,        path: items/alarm-sw,         kind: software-item,   level: item,     dal: A, parent: system}
+  - {name: platform-sw,     path: items/platform-sw,      kind: software-item,   level: item,     dal: A, parent: system}
+  - {name: display-sw,      path: items/display-sw,       kind: software-item,   level: item,     dal: C, parent: system}
+  - {name: record-sw,       path: items/record-sw,        kind: software-item,   level: item,     dal: C, parent: system}
+  - {name: export-sw,       path: items/export-sw,        kind: software-item,   level: item,     dal: D, parent: system}
+  - {name: alarm-sw-design,    path: items/alarm-sw/design,    kind: software-design, level: software-design, dal: A, parent: alarm-sw,    components: [sensorSampler, limitEvaluator, alarmMgr]}
+  - {name: platform-sw-design, path: items/platform-sw/design, kind: software-design, level: software-design, dal: A, parent: platform-sw, components: [wdtKicker, diagnostics, configMgr, powerMon]}
+  - {name: display-sw-design,  path: items/display-sw/design,  kind: software-design, level: software-design, dal: C, parent: display-sw,  components: [displayMgr]}
+  - {name: record-sw-design,   path: items/record-sw/design,   kind: software-design, level: software-design, dal: C, parent: record-sw,   components: [eventLog, historyRing, rtcClock]}
+  - {name: export-sw-design,   path: items/export-sw/design,   kind: software-design, level: software-design, dal: D, parent: export-sw,   components: [usbExport]}
 
-# Declared by the organisation (rule `leaf`). The alarm branch goes one step deeper than the others:
-# backup-alarm is NOT a leaf, so it gets its own black box and white box, and its three parts are the leaves.
-leaves: [probe, sensor-item, excursion-item, alarm-item, buzzer, indicators, backup-timer, backup-driver, hold-up,
-         oled, display-item, rtc, log-item, usb-item, battery, power-path, power-item, mcu, supervisor-item]
+# With depth pinned, the leaves follow from the rungs: hardware items and software designs.
+leaves: [sensor-hw, alarm-hw, controller-hw, power-hw, display-hw,
+         alarm-sw-design, platform-sw-design, display-sw-design, record-sw-design, export-sw-design]

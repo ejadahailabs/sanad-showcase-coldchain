@@ -9,7 +9,7 @@ EXT=${SANAD_EXT:-$HOME/.cache/tmp-dogfood1/vsix/extension}
 OUT="$ROOT/$1"; mkdir -p "$OUT"
 cap() { systemd-run --user --scope -q -p MemoryMax=6G -p MemorySwapMax=1G "$@"; }
 erew() { cap node "$EXT/dist/cli-entry.js" "$ROOT" "$@"; }
-IDX=$(mktemp -p "$HOME/.cache/tmp-dogfood1"); cp "$(git -C "$ROOT" rev-parse --absolute-git-dir)/index" "$IDX"
+IDX=$(mktemp -p "$HOME/.cache/tmp-run4"); cp "$(git -C "$ROOT" rev-parse --absolute-git-dir)/index" "$IDX"
 SNAP=$(cd "$ROOT" && GIT_INDEX_FILE=$IDX git add -A && T=$(GIT_INDEX_FILE=$IDX git write-tree) \
   && git -c user.name=Masood -c user.email=mohd.masood26@gmail.com commit-tree "$T" -p HEAD -m snapshot)
 rm -f "$IDX"

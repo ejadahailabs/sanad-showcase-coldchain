@@ -8,7 +8,7 @@ void setUp(void) { ts_fresh(); bool osc; host.rtc_utc = 1790001234u; rtc_clock_i
 void tearDown(void) {}
 
 /* The stamp is taken when the event is posted, not when logTask writes it. */
-/* @verifies MRTM-SYS-008 MRTM-SYS-010 MRTM-SYS-023 */
+/* @verifies MRTM-LLR-035 MRTM-HLR-032 */
 void test_time_stamp_is_the_utc_second_of_the_post(void)
 {
     event_log_post(MRTM_EV_EXCURSION_START, 85, 0);
@@ -18,7 +18,7 @@ void test_time_stamp_is_the_utc_second_of_the_post(void)
     TEST_ASSERT_EQUAL_UINT32(1790001234u, e.utc_s);
 }
 
-/* @verifies MRTM-SYS-009 */
+/* @verifies MRTM-LLR-035 */
 void test_end_record_carries_the_peak_in_tenths(void)
 {
     event_log_post(MRTM_EV_EXCURSION_END, 79, 123);
@@ -27,7 +27,7 @@ void test_end_record_carries_the_peak_in_tenths(void)
     TEST_ASSERT_EQUAL_INT16(123, e.peak_tenths);
 }
 
-/* @verifies MRTM-SAF-018 */
+/* @verifies MRTM-LLR-036 MRTM-HLR-030 */
 void test_step_numbers_checksums_and_stores_every_queued_record(void)
 {
     for (int i = 0; i < 5; i++) event_log_post(MRTM_EV_ACK, (int16_t)i, 0);
@@ -41,7 +41,7 @@ void test_step_numbers_checksums_and_stores_every_queued_record(void)
 }
 
 /* Error code of the contract: queue depth 32, then MRTM_ERR_FULL. */
-/* @verifies MRTM-SAF-018 */
+/* @verifies MRTM-LLR-035 */
 void test_error_code_full_after_32(void)
 {
     for (int i = 0; i < 32; i++) TEST_ASSERT_EQUAL(MRTM_OK, event_log_post(MRTM_EV_ACK, 0, 0));
@@ -49,7 +49,7 @@ void test_error_code_full_after_32(void)
 }
 
 /* A flash failure is retried once and does not loop on its own report. */
-/* @verifies MRTM-SAF-018 */
+/* @verifies MRTM-LLR-036 */
 void test_flash_failure_does_not_loop(void)
 {
     host.flash_fail = true;

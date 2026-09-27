@@ -33,7 +33,7 @@ mrtm_mode_t app_mode(void) { return app.mode; }
 history_ring_t *app_history(void) { return &app.ring; }
 
 /* SystemModes::selfTest -> monitoring | failSafe. */
-/* @implements MRTM-SAF-017 MRTM-SAF-006 MRTM-SAF-022 MRTM-SAF-016 MRTM-MNT-003 */
+/* @implements MRTM-LLR-025 */
 mrtm_mode_t app_power_up(uint32_t now_ms)
 {
     memset(&app, 0, sizeof app);
@@ -68,7 +68,7 @@ mrtm_mode_t app_power_up(uint32_t now_ms)
     return app.mode;
 }
 
-/* @implements MRTM-SYS-024 MRTM-SYS-001 MRTM-SYS-002 MRTM-SYS-008 MRTM-SYS-009 MRTM-SYS-012 MRTM-SAF-002 */
+/* @implements MRTM-LLR-006 */
 void app_sensor_step(uint32_t now_ms)
 {
     if (app.mode != MODE_MONITORING) return;
@@ -116,7 +116,7 @@ static uint8_t battery_pct(uint32_t mv)
     return (uint8_t)((mv - MRTM_BATTERY_LOW_MV) * 100u / (4200u - MRTM_BATTERY_LOW_MV));
 }
 
-/* @implements MRTM-SAF-010 MRTM-SAF-012 MRTM-SYS-022 MRTM-MNT-002 MRTM-SYS-008 MRTM-SYS-020 MRTM-DSI-002 */
+/* @implements MRTM-LLR-026 */
 void app_supervisor_step(uint32_t now_ms)
 {
     rtc_clock_tick();                                   /* DEF-003: nothing refreshed the UTC copy */
@@ -135,7 +135,7 @@ void app_log_step(void)
     event_log_step(0);
 }
 
-/* @implements MRTM-SYS-005 MRTM-SYS-013 MRTM-DSI-001 */
+/* @implements MRTM-LLR-027 */
 void app_display_step(void)
 {
     app.view.alarm = alarm_mgr_state();

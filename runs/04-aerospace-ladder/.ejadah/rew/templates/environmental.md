@@ -20,7 +20,7 @@ rew:
   label: "Environmental Requirement"
   idPrefix: "MRTM-ENV"
   order: 1
-  folder: "03-requirements/environmental"
+  folder: "03-requirements/system/environmental"
 
   # Conventional names are inferred: status, priority, author, tags, uplinks,
   # derived, and the "## Description" / "## Rationale" / "## Verification" /

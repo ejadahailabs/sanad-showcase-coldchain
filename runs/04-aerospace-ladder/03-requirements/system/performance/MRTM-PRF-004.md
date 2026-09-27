@@ -8,7 +8,7 @@ created: "2026-09-27"
 modified: ""
 tags: []
 uplinks: ["MRTM-SYS-011"]
-safetyClass: "C"
+safetyClass: "A"
 derived: false
 ---
 

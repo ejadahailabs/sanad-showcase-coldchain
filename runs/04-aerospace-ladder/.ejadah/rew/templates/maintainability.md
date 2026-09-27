@@ -20,7 +20,7 @@ rew:
   label: "Maintainability Requirement"
   idPrefix: "MRTM-MNT"
   order: 1
-  folder: "03-requirements/maintainability"
+  folder: "03-requirements/system/maintainability"
 
   # Conventional names are inferred: status, priority, author, tags, uplinks,
   # derived, and the "## Description" / "## Rationale" / "## Verification" /

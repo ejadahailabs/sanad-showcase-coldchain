@@ -7,7 +7,7 @@ author: "Masood (drafted by Claude, DOGFOOD-1)"
 created: "2026-09-27"
 modified: ""
 tags: []
-uplinks: ["MRTM-STK-005"]
+uplinks: ["MRTM-FUN-004"]
 safetyClass: "C"
 derived: false
 ---

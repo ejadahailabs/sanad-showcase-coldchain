@@ -27,7 +27,7 @@ static void persist(void)
     (void)hal_nvs_set("alarm", &v, 1);    /* restored at restart (MRTM-SAF-006) */
 }
 
-/* @implements MRTM-SAF-006 */
+/* @implements MRTM-LLR-010 */
 mrtm_err_t alarm_mgr_init(void)
 {
     uint8_t saved = ALARM_QUIET;
@@ -38,7 +38,7 @@ mrtm_err_t alarm_mgr_init(void)
     return e == MRTM_OK ? MRTM_OK : MRTM_ERR_NVS;
 }
 
-/* @implements MRTM-SYS-006 */
+/* @implements MRTM-LLR-011 */
 mrtm_err_t alarm_mgr_post(alarm_signal_t sig)
 {
     mrtm_err_t e = MRTM_OK;
@@ -74,7 +74,7 @@ static bool pop(alarm_signal_t *out)
 }
 
 /* One row per transition of MrtmSwStates::AlarmStates. */
-/* @implements MRTM-SYS-003 MRTM-SYS-006 MRTM-SAF-002 MRTM-SYS-024 MRTM-ALI-001 */
+/* @implements MRTM-LLR-012 */
 static void take(alarm_signal_t sig, uint32_t now_ms)
 {
     switch (sig) {
@@ -110,7 +110,7 @@ static void take(alarm_signal_t sig, uint32_t now_ms)
     }
 }
 
-/* @implements MRTM-SYS-024 MRTM-SYS-003 MRTM-SYS-004 MRTM-SYS-019 MRTM-PRF-002 MRTM-SAF-002 MRTM-SAF-008 MRTM-SAF-011 MRTM-SAF-014 MRTM-SAF-015 MRTM-SAF-017 MRTM-SAF-019 MRTM-ALI-002 */
+/* @implements MRTM-LLR-013 */
 void alarm_mgr_step(uint32_t now_ms)
 {
     alarm_signal_t sig;
@@ -152,7 +152,7 @@ void alarm_mgr_step(uint32_t now_ms)
 }
 
 /* Edge on the button line: (re)arm the 50 ms debounce one-shot. */
-/* @implements MRTM-IFC-002 */
+/* @implements MRTM-LLR-014 */
 void alarm_mgr_button_isr(void *arg)
 {
     (void)arg;
@@ -160,7 +160,7 @@ void alarm_mgr_button_isr(void *arg)
 }
 
 /* REVIEW: the 60 s stuck check runs in alarm_mgr_step (<= 1 s late) instead of a second one-shot. */
-/* @implements MRTM-IFC-002 MRTM-SAF-019 MRTM-SYS-006 MRTM-ALI-003 */
+/* @implements MRTM-LLR-015 */
 void alarm_mgr_button_debounced(void)
 {
     bool pressed = hal_button_pressed();
@@ -171,7 +171,7 @@ void alarm_mgr_button_debounced(void)
     if (!a.btn_stuck) (void)alarm_mgr_post(SIG_ACK_PRESSED);
 }
 
-/* @implements MRTM-SAF-010 MRTM-ALI-004 */
+/* @implements MRTM-LLR-016 */
 uint32_t alarm_mgr_heartbeat(void)
 {
     return a.beat;

@@ -13,8 +13,15 @@
 schema: 2
 
 validation:
+  # RUN-04: the aerospace ladder. One parent TYPE per type (Sanad's rule, run 2 F-134): the
+  # function level sits between the needs and the system requirements.
   uplinkOrder:
-    system: "stakeholder"
+    function: "stakeholder"
+    safety-objective: "function"
+    hardware-item: "system"
+    hlr: "system"
+    llr: "hlr"
+    system: "function"
     safety: "system"
     performance: "system"
     environmental: "system"
@@ -37,6 +44,8 @@ setup:
     - "data-dictionary"
     - high-level-architecture
     - software-design
+    - hlr        # RUN-04: DO-178C high-level requirements, Sanad's own role
+    - llr        # RUN-04: DO-178C low-level requirements, Sanad's own role
 
   # Where each artifact kind lives, repository-relative (FEAT-064). The
   # inventory above says which artifacts this programme holds; these say where
@@ -51,6 +60,12 @@ setup:
     data-dictionary: "01-data-dictionary"
     high-level-architecture: 06-design/software
     software-design: 10-src/firmware
+    hlr: "03-requirements/hlr"
+    llr: "03-requirements/llr"
+  # RUN-04: which template is each Sanad role (one template per role, F-4-004).
+  artefactTemplates:
+    hlr: "hlr"
+    llr: "llr"
   # Absent from the inventory, so these analyses stay OFF — silence with a
   # stated reason, never reported as clean (rule 4). Add the role above when
   # the artifact exists:
@@ -84,16 +99,19 @@ ids: "provided"
 # ADR-0001: every folder carries a README that says what lives there; it is not a requirement.
 ignore:
   - "README.md"
-# MANUAL (F-04): per-requirement IEC 62304 class, carried by the safetyClass field (dal role).
+# RUN-04: per-requirement DAL (DO-178C §2.3 / ARP4754A), carried by the safetyClass field (dal role).
+# Sanad ships the do178c scale natively (src/analysis/criticality.ts RIGOUR_SCALES).
 criticality:
   role: "dal"
-  scale: "iec62304"
-  default: "C"
+  scale: "do178c"
+  default: "A"
   inherit: "down"
   map:
-    A: 0
-    B: 2
-    C: 4
+    A: 4
+    B: 3
+    C: 2
+    D: 1
+    E: 0
 
 # Where each artifact type's files come from (ADR-0057). Most live here, in this
 # repository, and need no entry. Add one only when a type's source is NOT in this
@@ -202,14 +220,16 @@ producers:
 # edit `map` to match it, and the same commit then checks at the same rigour for
 # everyone.
 assurance:
-  domain: "medical-device"
-  scheme: "IEC 62304 software safety class"
-  level: "C"
+  domain: "airborne-shape (synthetic, no certification claim)"
+  scheme: "DO-178C software level"
+  level: "A"
   # level -> internal rigour 0..4. Add every level your programme uses.
   map:
-    "A": 0
-    "B": 2
-    "C": 4
+    "A": 4
+    "B": 3
+    "C": 2
+    "D": 1
+    "E": 0
 
 # The requirements-writing rule pack this repository adopted (FEAT-041). It names a
 # file under .ejadah/rew/rules/ (without the folder or the .yaml). Sanad runs its
@@ -265,238 +285,238 @@ repository:
 # DOGFOOD-1 Phase 2: accepted findings, each with its reason (register: 03-requirements/accepted-findings.md).
 suppressions:
   - rule: "testability"
-    path: "03-requirements/stakeholder/**"
+    path: "03-requirements/aircraft/stakeholder/**"
     reason: "Stakeholder level states the need in the user's words; the measurable
       number is carried by its system children (ISO/IEC/IEEE 29148 practice).
       Accepted DOGFOOD-1."
   - rule: "testability"
-    path: "03-requirements/environmental/MRTM-ENV-003.md"
+    path: "03-requirements/system/environmental/MRTM-ENV-003.md"
     reason: "States 15 % to 85 % relative humidity; the testability check does not
       read % as a unit (FINDINGS F-17). Accepted."
   - rule: "testability"
-    path: "03-requirements/maintainability/MRTM-MNT-002.md"
+    path: "03-requirements/system/maintainability/MRTM-MNT-002.md"
     reason: "States steps of 10 %; the testability check does not read % as a unit
       (F-17). Accepted."
   - rule: "testability"
-    path: "03-requirements/system/MRTM-SYS-015.md"
+    path: "03-requirements/system/system/MRTM-SYS-015.md"
     reason: "10000 events is a count; the count is the measure (F-17). Accepted."
   - rule: "testability"
-    path: "03-requirements/system/MRTM-SYS-014.md"
+    path: "03-requirements/system/system/MRTM-SYS-014.md"
     reason: "Read-only is a yes/no property verified by a write-attempt test.
       Accepted."
   - rule: "testability"
-    path: "03-requirements/interface/MRTM-IFC-001.md"
+    path: "03-requirements/system/interface/MRTM-IFC-001.md"
     reason: "The bus type is verified by inspection of a bus capture. Accepted."
   - rule: "testability"
-    path: "03-requirements/interface/MRTM-IFC-003.md"
+    path: "03-requirements/system/interface/MRTM-IFC-003.md"
     reason: "Read-only mass storage is verified by a write-attempt test. Accepted."
   - rule: "testability"
-    path: "03-requirements/system/MRTM-SYS-007.md"
+    path: "03-requirements/system/system/MRTM-SYS-007.md"
     reason: "Bound by the excursion's own start and end, which SYS-002 and SYS-009
       time. Accepted."
   - rule: "duplicate-requirement"
-    path: "03-requirements/system/MRTM-SYS-008.md"
+    path: "03-requirements/system/system/MRTM-SYS-008.md"
     reason: "Start event and acknowledgement event are different events; same
       sentence shape on purpose. Accepted."
   - rule: "missing-decomposition"
-    path: "03-requirements/system/**"
+    path: "03-requirements/system/system/**"
     reason: "Re-checked Phase 4 (DOGFOOD-2): all 14 leaf system requirements carry
       SysML satisfy links in 06-design/system (95 satisfy links, 54 of 54
       requirements), but the structure engine counts only child requirements,
       not satisfy links (FINDINGS F-39). Accepted until that is fixed."
     expires: "2026-10-31"
   - rule: "parent-child-inconsistency"
-    path: "03-requirements/system/**"
+    path: "03-requirements/system/system/**"
     reason: "Safety, performance, environmental, maintainability and interface are
       sibling categories at one level under system; Sanad reads each type as its
       own level (F-18). Accepted."
   # DOGFOOD-2 Phase 3 (review round 1): accepted with reason.
   - rule: "duplicate-requirement"
-    path: "03-requirements/system/MRTM-SYS-010.md"
+    path: "03-requirements/system/system/MRTM-SYS-010.md"
     reason: "Acknowledgement event (SYS-010) and power restore event (SYS-023) are
       different events; same sentence shape on purpose, as SYS-008. Accepted
       review round 1."
   # DOGFOOD-2 Phase 4 (system architecture): accepted with reason.
   - rule: "sysml-unresolved-id"
-    path: "06-design/system/MrtmPartitions.sysml"
+    path: "06-design/library/MrtmPartitions.sysml"
     reason: "Part-to-part `allocate` (logical function -> software item -> hardware)
       is read as a requirement allocation, so each end is looked up as a
       requirement id (FINDINGS F-35). The allocations are the IEC 62304 5.3
       architecture and the OMG Pilot reads them clean. Accepted DOGFOOD-2."
   - rule: "sysml-not-read"
-    path: "06-design/system/MrtmLogical.sysml"
+    path: "06-design/library/MrtmLogical.sysml"
     reason: "The two successions (acquire -> check -> detect) are model truth; Sanad
       reads them but the action-flow picture does not draw them (F-36). Accepted
       DOGFOOD-2."
   - rule: sysml-unresolved-id
-    path: 06-design/software/MrtmSoftware.sysml
+    path: 06-design/library/MrtmSoftware.sysml
     reason: Part-to-part `allocate` (component -> FreeRTOS task, software item ->
       ESP32-S3) is read as a requirement allocation, so each end is looked up as
       a requirement id (F-35). IEC 62304 5.3 architecture; OMG Pilot reads it
       clean. Accepted DOGFOOD-4.
   - rule: sysml-not-read
-    path: 06-design/software/MrtmSwStates.sysml
+    path: 06-design/library/MrtmSwStates.sysml
     reason: Transitions and successions are read and DRAWN by Sanad's state
       transition and sequence views
       (06-design/views/rendered/mrtmAlarmStates.svg, mrtmSeq*.svg), but the
       graph does not take them, so the gate calls them 'read but not drawn'
       (FINDINGS F-68). Accepted DOGFOOD-4.
   - rule: sysml-not-read
-    path: 06-design/software/MrtmSeq*.sysml
+    path: 06-design/library/MrtmSeq*.sysml
     reason: Transitions and successions are read and DRAWN by Sanad's state
       transition and sequence views
       (06-design/views/rendered/mrtmAlarmStates.svg, mrtmSeq*.svg), but the
       graph does not take them, so the gate calls them 'read but not drawn'
       (FINDINGS F-68). Accepted DOGFOOD-4.
   - rule: allocation-target-undeclared
-    path: 06-design/system/**
+    path: 06-design/library/**
     reason: "Only software components are declared in .ejadah/rew/architecture/;
       system functions, hardware parts, FreeRTOS tasks and the ESP32-S3 are
       allocation targets but not software components. The rule cannot tell them
       apart because the #Component marker is not read (FINDINGS F-70). Accepted
       DOGFOOD-4."
   - rule: allocation-target-undeclared
-    path: 06-design/hardware/**
+    path: 06-design/library/**
     reason: "Only software components are declared in .ejadah/rew/architecture/;
       system functions, hardware parts, FreeRTOS tasks and the ESP32-S3 are
       allocation targets but not software components. The rule cannot tell them
       apart because the #Component marker is not read (FINDINGS F-70). Accepted
       DOGFOOD-4."
   - rule: allocation-target-undeclared
-    path: 06-design/software/MrtmSoftware.sysml
+    path: 06-design/library/MrtmSoftware.sysml
     reason: "Only software components are declared in .ejadah/rew/architecture/;
       system functions, hardware parts, FreeRTOS tasks and the ESP32-S3 are
       allocation targets but not software components. The rule cannot tell them
       apart because the #Component marker is not read (FINDINGS F-70). Accepted
       DOGFOOD-4."
   - rule: duplicate-functionality
-    path: 03-requirements/interface/MRTM-IFC-002.md
+    path: 03-requirements/system/interface/MRTM-IFC-002.md
     reason: "The requirement is compared with ITSELF: it is satisfied by a Phase 4
       part and by the Phase 6 hardware part that redefines it under the same
       name, and the rule counts the two links as two requirements (FINDINGS
       F-69). Accepted DOGFOOD-4."
   - rule: duplicate-functionality
-    path: 03-requirements/interface/MRTM-IFC-004.md
+    path: 03-requirements/system/interface/MRTM-IFC-004.md
     reason: "The requirement is compared with ITSELF: it is satisfied by a Phase 4
       part and by the Phase 6 hardware part that redefines it under the same
       name, and the rule counts the two links as two requirements (FINDINGS
       F-69). Accepted DOGFOOD-4."
   - rule: duplicate-functionality
-    path: 03-requirements/performance/MRTM-PRF-001.md
+    path: 03-requirements/system/performance/MRTM-PRF-001.md
     reason: "The requirement is compared with ITSELF: it is satisfied by a Phase 4
       part and by the Phase 6 hardware part that redefines it under the same
       name, and the rule counts the two links as two requirements (FINDINGS
       F-69). Accepted DOGFOOD-4."
   - rule: duplicate-functionality
-    path: 03-requirements/safety/MRTM-SAF-001.md
+    path: 03-requirements/system/safety/MRTM-SAF-001.md
     reason: "The requirement is compared with ITSELF: it is satisfied by a Phase 4
       part and by the Phase 6 hardware part that redefines it under the same
       name, and the rule counts the two links as two requirements (FINDINGS
       F-69). Accepted DOGFOOD-4."
   - rule: duplicate-functionality
-    path: 03-requirements/safety/MRTM-SAF-008.md
+    path: 03-requirements/system/safety/MRTM-SAF-008.md
     reason: "The requirement is compared with ITSELF: it is satisfied by a Phase 4
       part and by the Phase 6 hardware part that redefines it under the same
       name, and the rule counts the two links as two requirements (FINDINGS
       F-69). Accepted DOGFOOD-4."
   - rule: duplicate-functionality
-    path: 03-requirements/system/MRTM-SYS-016.md
+    path: 03-requirements/system/system/MRTM-SYS-016.md
     reason: "The requirement is compared with ITSELF: it is satisfied by a Phase 4
       part and by the Phase 6 hardware part that redefines it under the same
       name, and the rule counts the two links as two requirements (FINDINGS
       F-69). Accepted DOGFOOD-4."
   - rule: duplicate-functionality
-    path: 03-requirements/system/MRTM-SYS-020.md
+    path: 03-requirements/system/system/MRTM-SYS-020.md
     reason: "The requirement is compared with ITSELF: it is satisfied by a Phase 4
       part and by the Phase 6 hardware part that redefines it under the same
       name, and the rule counts the two links as two requirements (FINDINGS
       F-69). Accepted DOGFOOD-4."
   - rule: unallocated-requirement
-    path: 03-requirements/safety/MRTM-SAF-020.md
+    path: 03-requirements/system/safety/MRTM-SAF-020.md
     reason: An instructions-for-use statement (probe position); no hardware or
       software element implements it; verified by inspection of the IFU (Phase
       10). Accepted DOGFOOD-4.
   - rule: allocation-target-undeclared
-    path: 06-design/software/MrtmSwDetail.sysml
+    path: 06-design/library/MrtmSwDetail.sysml
     reason: "Satisfy links land on the unit-contract usages (sensorSamplerApi …),
       design elements of IEC 62304 5.4 rather than declared components; the
       #Interface marker is not read (FINDINGS F-70). Accepted DOGFOOD-4."
   - rule: not-implemented
-    path: 03-requirements/environmental/MRTM-ENV-001.md
+    path: 03-requirements/system/environmental/MRTM-ENV-001.md
     reason: "No software does this by design: battery capacity and power path
       (hardware, 09-hardware/power-budget.md). Verified by hardware test or
       inspection (11-verification). Sanad's not-implemented list IS the Phase 9
       'not reached by code' list. Accepted DOGFOOD-5."
   - rule: not-implemented
-    path: 03-requirements/environmental/MRTM-ENV-002.md
+    path: 03-requirements/system/environmental/MRTM-ENV-002.md
     reason: "No software does this by design: ambient operating range of the parts
       (hardware qualification). Verified by hardware test or inspection
       (11-verification). Sanad's not-implemented list IS the Phase 9 'not
       reached by code' list. Accepted DOGFOOD-5."
   - rule: not-implemented
-    path: 03-requirements/environmental/MRTM-ENV-003.md
+    path: 03-requirements/system/environmental/MRTM-ENV-003.md
     reason: "No software does this by design: humidity range of the parts and
       enclosure (hardware qualification). Verified by hardware test or
       inspection (11-verification). Sanad's not-implemented list IS the Phase 9
       'not reached by code' list. Accepted DOGFOOD-5."
   - rule: not-implemented
-    path: 03-requirements/environmental/MRTM-ENV-004.md
+    path: 03-requirements/system/environmental/MRTM-ENV-004.md
     reason: "No software does this by design: the DS18B20 probe's own range;
       firmware only checks the reading (MRTM-SAF-003). Verified by hardware test
       or inspection (11-verification). Sanad's not-implemented list IS the Phase
       9 'not reached by code' list. Accepted DOGFOOD-5."
   - rule: not-implemented
-    path: 03-requirements/maintainability/MRTM-MNT-001.md
+    path: 03-requirements/system/maintainability/MRTM-MNT-001.md
     reason: "No software does this by design: probe interchangeability is the
       DS18B20's factory accuracy (hardware). Verified by hardware test or
       inspection (11-verification). Sanad's not-implemented list IS the Phase 9
       'not reached by code' list. Accepted DOGFOOD-5."
   - rule: not-implemented
-    path: 03-requirements/safety/MRTM-SAF-001.md
+    path: 03-requirements/system/safety/MRTM-SAF-001.md
     reason: "No software does this by design: sound pressure is the buzzer part and
       enclosure (hardware); firmware only drives it. Verified by hardware test
       or inspection (11-verification). Sanad's not-implemented list IS the Phase
       9 'not reached by code' list. Accepted DOGFOOD-5."
   - rule: not-implemented
-    path: 03-requirements/safety/MRTM-SAF-013.md
+    path: 03-requirements/system/safety/MRTM-SAF-013.md
     reason: "No software does this by design: the backup alarm's own supply
       (hardware, ADR-0013). Verified by hardware test or inspection
       (11-verification). Sanad's not-implemented list IS the Phase 9 'not
       reached by code' list. Accepted DOGFOOD-5."
   - rule: not-implemented
-    path: 03-requirements/safety/MRTM-SAF-020.md
+    path: 03-requirements/system/safety/MRTM-SAF-020.md
     reason: "No software does this by design: instructions for use (labelling).
       Verified by hardware test or inspection (11-verification). Sanad's
       not-implemented list IS the Phase 9 'not reached by code' list. Accepted
       DOGFOOD-5."
   - rule: not-implemented
-    path: 03-requirements/system/MRTM-SYS-016.md
+    path: 03-requirements/system/system/MRTM-SYS-016.md
     reason: "No software does this by design: the power path switches in hardware;
       firmware only observes mains (power_mon). Verified by hardware test or
       inspection (11-verification). Sanad's not-implemented list IS the Phase 9
       'not reached by code' list. Accepted DOGFOOD-5."
   - rule: partially-implemented
-    path: 03-requirements/stakeholder/MRTM-STK-008.md
+    path: 03-requirements/aircraft/stakeholder/MRTM-STK-008.md
     reason: Its children without code are hardware or labelling requirements
       accepted as not-implemented by design (suppressions above). Accepted
       DOGFOOD-5.
   - rule: partially-implemented
-    path: 03-requirements/system/MRTM-SYS-001.md
+    path: 03-requirements/system/system/MRTM-SYS-001.md
     reason: Its children without code are hardware or labelling requirements
       accepted as not-implemented by design (suppressions above). Accepted
       DOGFOOD-5.
   - rule: partially-implemented
-    path: 03-requirements/system/MRTM-SYS-003.md
+    path: 03-requirements/system/system/MRTM-SYS-003.md
     reason: Its children without code are hardware or labelling requirements
       accepted as not-implemented by design (suppressions above). Accepted
       DOGFOOD-5.
   - rule: partially-implemented
-    path: 03-requirements/system/MRTM-SYS-012.md
+    path: 03-requirements/system/system/MRTM-SYS-012.md
     reason: Its children without code are hardware or labelling requirements
       accepted as not-implemented by design (suppressions above). Accepted
       DOGFOOD-5.
   - rule: partially-implemented
-    path: 03-requirements/system/MRTM-SYS-016.md
+    path: 03-requirements/system/system/MRTM-SYS-016.md
     reason: Its children without code are hardware or labelling requirements
       accepted as not-implemented by design (suppressions above). Accepted
       DOGFOOD-5.

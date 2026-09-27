@@ -22,7 +22,7 @@ rew:
   label: "Safety Requirement"
   idPrefix: "MRTM-SAF"
   order: 1
-  folder: "03-requirements/safety"
+  folder: "03-requirements/system/safety"
 
   # Conventional names are inferred: status, priority, author, tags, uplinks,
   # derived, and the "## Description" / "## Rationale" / "## Verification" /

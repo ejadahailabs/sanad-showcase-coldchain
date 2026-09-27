@@ -11,7 +11,7 @@ void tearDown(void) {}
 static void go(alarm_signal_t s) { alarm_mgr_post(s); alarm_mgr_step(now); }
 static void wait_s(uint32_t s) { for (uint32_t i = 0; i < s; i++) { now += 1000; host.now_ms = now; alarm_mgr_step(now); } }
 
-/* @verifies MRTM-SYS-003 MRTM-SYS-004 MRTM-ALI-002 */
+/* @verifies MRTM-LLR-012 MRTM-LLR-013 MRTM-HLR-008 */
 void test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz(void)
 {
     TEST_ASSERT_TRUE(host.green);
@@ -23,7 +23,7 @@ void test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz(void)
 }
 
 /* Posting wakes the task at once (notification), so the buzzer stops in the same step. */
-/* @verifies MRTM-SYS-006 MRTM-SYS-010 MRTM-ALM-004 MRTM-ALI-003 */
+/* @verifies MRTM-LLR-012 MRTM-HLR-009 */
 void test_ack_stops_the_buzzer_in_the_same_step_and_logs(void)
 {
     go(SIG_EXCURSION_CONFIRMED);
@@ -37,7 +37,7 @@ void test_ack_stops_the_buzzer_in_the_same_step_and_logs(void)
     TEST_ASSERT_TRUE(ts_find(MRTM_EV_ACK, &e));
 }
 
-/* @verifies MRTM-SYS-019 */
+/* @verifies MRTM-LLR-013 MRTM-HLR-011 */
 void test_re_sounds_15_minutes_after_the_ack(void)
 {
     go(SIG_EXCURSION_CONFIRMED);
@@ -51,7 +51,7 @@ void test_re_sounds_15_minutes_after_the_ack(void)
     TEST_ASSERT_TRUE(ts_find(MRTM_EV_REALARM, &e));
 }
 
-/* @verifies MRTM-SYS-018 */
+/* @verifies MRTM-LLR-012 MRTM-HLR-006 */
 void test_end_returns_to_quiet_from_sounding_and_silenced(void)
 {
     go(SIG_EXCURSION_CONFIRMED); go(SIG_EXCURSION_ENDED);
@@ -62,7 +62,7 @@ void test_end_returns_to_quiet_from_sounding_and_silenced(void)
     TEST_ASSERT_TRUE(host.green);
 }
 
-/* @verifies MRTM-SAF-002 MRTM-SAF-011 */
+/* @verifies MRTM-LLR-013 MRTM-HLR-012 */
 void test_probe_fault_sounds_1_s_on_1_s_off(void)
 {
     go(SIG_PROBE_FAULT);
@@ -74,7 +74,7 @@ void test_probe_fault_sounds_1_s_on_1_s_off(void)
     TEST_ASSERT_EQUAL(ALARM_QUIET, alarm_mgr_state());
 }
 
-/* @verifies MRTM-SAF-014 MRTM-SAF-015 */
+/* @verifies MRTM-LLR-013 MRTM-HLR-013 */
 void test_no_buzzer_current_for_5_steps_declares_buzzer_fault_red_4_hz(void)
 {
     host.buzzer_broken = true;
@@ -90,7 +90,7 @@ void test_no_buzzer_current_for_5_steps_declares_buzzer_fault_red_4_hz(void)
 }
 
 /* A change shorter than 50 ms is ignored; a press held past 50 ms is taken once. */
-/* @verifies MRTM-IFC-002 MRTM-ALI-003 */
+/* @verifies MRTM-LLR-014 MRTM-LLR-015 MRTM-HLR-009 */
 void test_button_debounce_50_ms(void)
 {
     go(SIG_EXCURSION_CONFIRMED);
@@ -107,7 +107,7 @@ void test_button_debounce_50_ms(void)
     TEST_ASSERT_EQUAL(ALARM_SILENCED, alarm_mgr_state());
 }
 
-/* @verifies MRTM-SAF-019 */
+/* @verifies MRTM-LLR-015 MRTM-HLR-015 */
 void test_button_held_60_s_is_a_button_fault_and_ignored(void)
 {
     host.button = true; alarm_mgr_button_isr(NULL); host_advance(50);
@@ -122,7 +122,7 @@ void test_button_held_60_s_is_a_button_fault_and_ignored(void)
     TEST_ASSERT_EQUAL(ALARM_SOUNDING, alarm_mgr_state());   /* a stuck button acknowledges nothing */
 }
 
-/* @verifies MRTM-SAF-006 */
+/* @verifies MRTM-LLR-010 MRTM-HLR-014 */
 void test_unacknowledged_alarm_is_restored_after_a_restart(void)
 {
     go(SIG_EXCURSION_CONFIRMED);
@@ -134,7 +134,7 @@ void test_unacknowledged_alarm_is_restored_after_a_restart(void)
     TEST_ASSERT_TRUE(host.buzzer_on);
 }
 
-/* @verifies MRTM-SAF-006 */
+/* @verifies MRTM-LLR-010 MRTM-HLR-014 */
 void test_acknowledged_alarm_is_not_restored_as_sounding(void)
 {
     go(SIG_EXCURSION_CONFIRMED); go(SIG_ACK_PRESSED);
@@ -142,7 +142,7 @@ void test_acknowledged_alarm_is_not_restored_as_sounding(void)
     TEST_ASSERT_EQUAL(ALARM_QUIET, alarm_mgr_state());
 }
 
-/* @verifies MRTM-SAF-008 MRTM-SAF-017 */
+/* @verifies MRTM-LLR-013 MRTM-HLR-015 */
 void test_battery_low_or_fail_safe_forces_the_buzzer(void)
 {
     go(SIG_BATTERY_LOW);
@@ -151,7 +151,7 @@ void test_battery_low_or_fail_safe_forces_the_buzzer(void)
     TEST_ASSERT_EQUAL(ALARM_QUIET, alarm_mgr_state());
 }
 
-/* @verifies MRTM-SAF-010 MRTM-ALI-004 */
+/* @verifies MRTM-LLR-016 MRTM-HLR-010 */
 void test_heartbeat_moves_on_every_step(void)
 {
     uint32_t b = alarm_mgr_heartbeat();
@@ -160,7 +160,7 @@ void test_heartbeat_moves_on_every_step(void)
 }
 
 /* Error codes of the contract: queue depth 8, then MRTM_ERR_FULL; NVS missing at init. */
-/* @verifies MRTM-SAF-006 */
+/* @verifies MRTM-LLR-010 MRTM-LLR-011 */
 void test_error_codes_full_and_nvs(void)
 {
     for (int i = 0; i < 8; i++) TEST_ASSERT_EQUAL(MRTM_OK, alarm_mgr_post(SIG_PROBE_RECOVERED));
@@ -171,7 +171,7 @@ void test_error_codes_full_and_nvs(void)
 }
 
 /* CR-001 / ADR-0030: the early tier is light only (red 1 Hz, no buzzer); confirmation escalates to sounding. */
-/* @verifies MRTM-SYS-024 MRTM-STK-002 MRTM-ALM-001 MRTM-ALI-001 */
+/* @verifies MRTM-LLR-012 MRTM-LLR-013 MRTM-HLR-007 */
 void test_early_alarm_is_red_1_hz_without_buzzer_then_escalates(void)
 {
     go(SIG_EXCURSION_EARLY);
@@ -184,7 +184,7 @@ void test_early_alarm_is_red_1_hz_without_buzzer_then_escalates(void)
     TEST_ASSERT_TRUE(host.buzzer_on);
 }
 
-/* @verifies MRTM-SYS-024 */
+/* @verifies MRTM-LLR-012 MRTM-HLR-007 */
 void test_early_alarm_clears_back_to_quiet(void)
 {
     go(SIG_EXCURSION_EARLY);

@@ -12,7 +12,7 @@ void tearDown(void) {}
 
 static limit_event_t feed(int16_t tenths, bool valid) { mrtm_sample_t s = { tenths, 0, valid }; return limit_evaluator_step(&st, &s); }
 
-/* @verifies MRTM-SYS-002 MRTM-EXI-002 */
+/* @verifies MRTM-LLR-008 MRTM-HLR-005 */
 void test_nth_consecutive_out_sample_confirms(void)
 {
     TEST_ASSERT_EQUAL(LIMIT_EARLY, feed(81, true));
@@ -21,7 +21,7 @@ void test_nth_consecutive_out_sample_confirms(void)
     TEST_ASSERT_TRUE(st.excursion);
 }
 
-/* @verifies MRTM-SYS-002 MRTM-STK-002 */
+/* @verifies MRTM-LLR-008 MRTM-HLR-005 */
 void test_n_minus_one_out_then_one_in_does_not_confirm(void)
 {
     for (int i = 0; i < N - 1; i++) feed(19, true);
@@ -31,7 +31,7 @@ void test_n_minus_one_out_then_one_in_does_not_confirm(void)
 }
 
 /* CR-001 / ADR-0030: the first valid out-of-band sample raises the early (low-priority) alarm. */
-/* @verifies MRTM-SYS-024 MRTM-EXI-001 */
+/* @verifies MRTM-LLR-008 MRTM-HLR-004 */
 void test_first_out_sample_raises_the_early_alarm(void)
 {
     TEST_ASSERT_EQUAL(LIMIT_NONE, feed(0, false));          /* an invalid sample raises nothing */
@@ -41,7 +41,7 @@ void test_first_out_sample_raises_the_early_alarm(void)
 }
 
 /* A door opening shorter than the confirmation: early alarm raised, then cleared, never confirmed. */
-/* @verifies MRTM-SYS-024 MRTM-STK-002 */
+/* @verifies MRTM-LLR-008 MRTM-HLR-004 */
 void test_back_in_band_clears_the_early_alarm(void)
 {
     TEST_ASSERT_EQUAL(LIMIT_EARLY, feed(85, true));
@@ -51,7 +51,7 @@ void test_back_in_band_clears_the_early_alarm(void)
 }
 
 /* The budget the compile-time check enforces, restated as a test so a result row exists. */
-/* @verifies MRTM-SYS-024 MRTM-SEN-002 MRTM-ALM-001 MRTM-ALM-002 MRTM-EXI-001 MRTM-EXI-002 */
+/* @verifies MRTM-LLR-008 MRTM-HLR-004 MRTM-HLR-005 */
 void test_early_alarm_budget_fits_5_s(void)
 {
     TEST_ASSERT_LESS_OR_EQUAL_UINT32(MRTM_EARLY_ALARM_MS, MRTM_SAMPLE_PERIOD_MS + MRTM_PROBE_CONVERSION_MS + MRTM_ALARM_PERIOD_MS);
@@ -59,7 +59,7 @@ void test_early_alarm_budget_fits_5_s(void)
 }
 
 /* A-29: a bad-CRC sample neither counts toward the run nor resets it. */
-/* @verifies MRTM-SYS-002 */
+/* @verifies MRTM-LLR-008 MRTM-HLR-005 */
 void test_invalid_sample_neither_counts_nor_resets(void)
 {
     for (int i = 0; i < N - 1; i++) feed(90, true);
@@ -68,14 +68,14 @@ void test_invalid_sample_neither_counts_nor_resets(void)
     TEST_ASSERT_EQUAL(LIMIT_CONFIRMED, feed(90, true));
 }
 
-/* @verifies MRTM-SYS-017 */
+/* @verifies MRTM-LLR-007 MRTM-LLR-008 */
 void test_band_edges_two_and_eight_degrees_are_inside(void)
 {
     for (int i = 0; i < 20; i++) { TEST_ASSERT_EQUAL(LIMIT_NONE, feed(20, true)); TEST_ASSERT_EQUAL(LIMIT_NONE, feed(80, true)); }
     TEST_ASSERT_EQUAL(0, st.out_run);
 }
 
-/* @verifies MRTM-SYS-018 MRTM-ALM-007 MRTM-EXI-003 */
+/* @verifies MRTM-LLR-008 MRTM-HLR-006 */
 void test_nth_consecutive_in_sample_ends_excursion(void)
 {
     for (int i = 0; i < N; i++) feed(85, true);
@@ -85,7 +85,7 @@ void test_nth_consecutive_in_sample_ends_excursion(void)
 }
 
 /* Hysteresis in time: one out sample during the return restarts the in-run. */
-/* @verifies MRTM-SYS-018 */
+/* @verifies MRTM-LLR-008 MRTM-HLR-006 */
 void test_out_sample_restarts_the_in_run(void)
 {
     for (int i = 0; i < N; i++) feed(85, true);
@@ -96,7 +96,7 @@ void test_out_sample_restarts_the_in_run(void)
 }
 
 /* A-26: the dead band knob is 0, so 7.9 degC ends an excursion that 8.1 degC started. */
-/* @verifies MRTM-SYS-018 */
+/* @verifies MRTM-LLR-007 */
 void test_hysteresis_knob_is_zero(void)
 {
     TEST_ASSERT_EQUAL(0, st.hyst);
@@ -105,7 +105,7 @@ void test_hysteresis_knob_is_zero(void)
     TEST_ASSERT_EQUAL(LIMIT_ENDED, feed(79, true));
 }
 
-/* @verifies MRTM-SYS-009 */
+/* @verifies MRTM-LLR-009 MRTM-HLR-006 */
 void test_peak_is_the_most_extreme_sample(void)
 {
     int16_t seq[] = { 85, 97, 92, 88, 86, 84, 83, 99, 90 };
@@ -113,7 +113,7 @@ void test_peak_is_the_most_extreme_sample(void)
     TEST_ASSERT_EQUAL_INT16(99, limit_evaluator_peak(&st));
 }
 
-/* @verifies MRTM-SYS-009 */
+/* @verifies MRTM-LLR-009 */
 void test_peak_below_band_counts_distance_downwards(void)
 {
     int16_t seq[] = { 15, 5, 12, 18, 19, 17, 16 };

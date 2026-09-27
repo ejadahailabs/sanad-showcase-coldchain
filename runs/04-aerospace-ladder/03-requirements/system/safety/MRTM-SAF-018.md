@@ -7,7 +7,7 @@ author: "Masood (drafted by Claude, DOGFOOD-3)"
 created: "2026-09-27"
 modified: ""
 tags: []
-uplinks: ["MRTM-SYS-015"]
+uplinks: ["MRTM-SYS-015", "MRTM-SOB-005"]
 safetyClass: "C"
 hazard: ["HAZ-008"]
 derived: false

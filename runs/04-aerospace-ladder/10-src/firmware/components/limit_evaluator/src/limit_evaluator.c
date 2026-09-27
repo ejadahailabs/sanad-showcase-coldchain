@@ -9,7 +9,7 @@ _Static_assert(MRTM_SAMPLE_PERIOD_MS + MRTM_PROBE_CONVERSION_MS + 1000u <= MRTM_
                "early alarm budget exceeded: the sample period is too long for MRTM-SYS-024");
 _Static_assert(MRTM_CONFIRM_SAMPLES <= 255u, "out_run / in_run are uint8_t");
 
-/* @implements MRTM-SYS-017 */
+/* @implements MRTM-LLR-007 */
 void limit_evaluator_init(limit_eval_t *st, int16_t low_tenths, int16_t high_tenths)
 {
     assert(st != NULL && low_tenths < high_tenths);
@@ -21,7 +21,7 @@ static int distance_outside(const limit_eval_t *st, int16_t t)
     return t < st->low ? st->low - t : (t > st->high ? t - st->high : 0);
 }
 
-/* @implements MRTM-SYS-002 MRTM-SYS-018 MRTM-SYS-017 MRTM-SYS-024 MRTM-EXI-001 MRTM-EXI-002 MRTM-EXI-003 */
+/* @implements MRTM-LLR-008 */
 limit_event_t limit_evaluator_step(limit_eval_t *st, const mrtm_sample_t *s)
 {
     if (!s->valid) return LIMIT_NONE;                       /* A-29: neither counts nor resets */
@@ -52,7 +52,7 @@ limit_event_t limit_evaluator_step(limit_eval_t *st, const mrtm_sample_t *s)
     return LIMIT_ENDED;
 }
 
-/* @implements MRTM-SYS-009 */
+/* @implements MRTM-LLR-009 */
 int16_t limit_evaluator_peak(const limit_eval_t *st)
 {
     return st->peak;

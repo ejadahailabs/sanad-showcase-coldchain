@@ -19,7 +19,7 @@ rew:
   label: "Stakeholder Requirement"
   idPrefix: "MRTM-STK"
   order: 1
-  folder: "03-requirements/stakeholder"
+  folder: "03-requirements/aircraft/stakeholder"
 
   # Conventional names are inferred: status, priority, author, tags, uplinks,
   # derived, and the "## Description" / "## Rationale" / "## Verification" /

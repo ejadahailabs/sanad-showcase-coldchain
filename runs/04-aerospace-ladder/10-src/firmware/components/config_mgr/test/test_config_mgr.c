@@ -5,7 +5,7 @@
 void setUp(void) { ts_fresh(); }
 void tearDown(void) {}
 
-/* @verifies MRTM-SYS-017 */
+/* @verifies MRTM-LLR-020 MRTM-HLR-019 */
 void test_valid_record_loads_the_2_to_8_degree_band(void)
 {
     mrtm_config_t c;
@@ -14,7 +14,7 @@ void test_valid_record_loads_the_2_to_8_degree_band(void)
     TEST_ASSERT_EQUAL_INT16(80, c.band_high_tenths);
 }
 
-/* @verifies MRTM-SAF-017 MRTM-SVI-003 */
+/* @verifies MRTM-LLR-020 MRTM-HLR-019 */
 void test_bad_crc_is_refused_with_err_crc(void)
 {
     host.nvs_cfg[3] ^= 0x01;
@@ -23,7 +23,7 @@ void test_bad_crc_is_refused_with_err_crc(void)
 }
 
 /* No default band in firmware: a missing record is an error, never 2..8 made up. */
-/* @verifies MRTM-SAF-017 */
+/* @verifies MRTM-LLR-020 */
 void test_missing_record_is_err_nvs(void)
 {
     host.nvs_cfg_present = false;
@@ -31,7 +31,7 @@ void test_missing_record_is_err_nvs(void)
     TEST_ASSERT_EQUAL(MRTM_ERR_NVS, config_mgr_load(&c));
 }
 
-/* @verifies MRTM-SYS-017 */
+/* @verifies MRTM-LLR-020 MRTM-LLR-021 */
 void test_band_outside_2_to_8_is_refused(void)
 {
     mrtm_config_t c = { .version = 1, .band_low_tenths = 10, .band_high_tenths = 80 };
@@ -43,7 +43,7 @@ void test_band_outside_2_to_8_is_refused(void)
     TEST_ASSERT_EQUAL(MRTM_ERR_ARG, config_mgr_load(NULL));
 }
 
-/* @verifies MRTM-SAF-017 */
+/* @verifies MRTM-LLR-021 */
 void test_store_writes_a_fresh_crc_and_logs_config_changed(void)
 {
     mrtm_config_t c = { .version = 2, .band_low_tenths = 30, .band_high_tenths = 70, .probe_offset_tenths = -2 };

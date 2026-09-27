@@ -6,13 +6,13 @@
 void setUp(void) { ts_fresh(); wdt_kicker_init(); }
 void tearDown(void) {}
 
-/* @verifies MRTM-SAF-004 */
+/* @verifies MRTM-LLR-017 MRTM-HLR-017 */
 void test_task_watchdog_armed_at_5_s(void)
 {
     TEST_ASSERT_EQUAL_UINT32(5, host.task_wdt_s);
 }
 
-/* @verifies MRTM-SAF-010 */
+/* @verifies MRTM-LLR-018 MRTM-HLR-016 */
 void test_pulses_while_the_heartbeat_moves(void)
 {
     uint32_t beat = 0;
@@ -21,7 +21,7 @@ void test_pulses_while_the_heartbeat_moves(void)
 }
 
 /* The alarm task misses its 1 s cycle at t = 1000; pulses must stop by t = 3000. */
-/* @verifies MRTM-SAF-010 MRTM-SVI-001 */
+/* @verifies MRTM-LLR-018 MRTM-HLR-016 */
 void test_pulses_stop_within_2_s_of_a_missed_alarm_cycle(void)
 {
     wdt_kicker_step(0, 1);
@@ -30,7 +30,7 @@ void test_pulses_stop_within_2_s_of_a_missed_alarm_cycle(void)
     TEST_ASSERT_LESS_OR_EQUAL_UINT32(3000, last);
 }
 
-/* @verifies MRTM-SAF-023 */
+/* @verifies MRTM-LLR-018 MRTM-HLR-018 */
 void test_hold_stops_pulses_and_release_resumes(void)
 {
     wdt_kicker_hold(true);

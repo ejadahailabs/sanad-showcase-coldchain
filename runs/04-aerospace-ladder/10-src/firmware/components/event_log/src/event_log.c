@@ -19,7 +19,7 @@ void event_log_init(struct history_ring *r)
     q_head = q_len = 0;
 }
 
-/* @implements MRTM-SYS-008 MRTM-SYS-009 MRTM-SYS-010 MRTM-SYS-023 */
+/* @implements MRTM-LLR-035 */
 mrtm_err_t event_log_post(mrtm_event_kind_t kind, int16_t tenths, int16_t peak_tenths)
 {
     event_record_t r;
@@ -42,7 +42,7 @@ mrtm_err_t event_log_post_from_isr(mrtm_event_kind_t kind, int16_t tenths, int16
 }
 
 /* REVIEW: timing — logTask must run within 1 s of any post (priority 16, ADR-0019). */
-/* @implements MRTM-SAF-018 MRTM-LGI-001 */
+/* @implements MRTM-LLR-036 */
 void event_log_step(uint32_t timeout_ms)
 {
     (void)timeout_ms;                       /* target: the queue wait; host: returns at once */

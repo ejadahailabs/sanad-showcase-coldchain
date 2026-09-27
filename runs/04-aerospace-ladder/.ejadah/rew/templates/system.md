@@ -21,7 +21,7 @@ rew:
   label: "System Requirement"
   idPrefix: "MRTM-SYS"
   order: 1
-  folder: "03-requirements/system"
+  folder: "03-requirements/system/system"
 
   # Conventional names are inferred: status, priority, author, tags, uplinks,
   # derived, and the "## Description" / "## Rationale" / "## Verification" /

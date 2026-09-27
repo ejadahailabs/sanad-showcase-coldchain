@@ -8,7 +8,7 @@ created: "2026-09-27"
 modified: "2026-09-27"
 tags: []
 uplinks: []
-safetyClass: "C"
+safetyClass: "A"
 derived: false
 ---
 
