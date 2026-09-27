@@ -40,7 +40,7 @@ Each run's `FINDINGS.md` and `13-assessment/SUMMARY.md` sort every step into thr
 
 ## Where the findings live
 
-Every gap Sanad found in itself — 118 in run 01 alone, more in every later run — is one row in that run's `FINDINGS.md`, each with an id like `F-047` or `F-3-012`. **All of them, across all five runs, are collected with a status column in [`FINDINGS-ALL.md`](./FINDINGS-ALL.md)** — open, fixed, or won't-fix, and why. Findings are published with a status column; see `FINDINGS-ALL.md` (Masood may change this policy later).
+Every gap Sanad found in itself — 118 in run 01 alone, more in every later run — is one row in that run's `FINDINGS.md`, each with an id like `F-047` or `F-3-012`. **All of them, across all five runs, are collected with a status column in [`FINDINGS-ALL.md`](./FINDINGS-ALL.md)** — open, fixed, or won't-fix, and why. Findings are published raw, each with a status; nothing is curated out.
 
 ## How to read one run in about 10 minutes
 
@@ -91,3 +91,8 @@ Sanad is a build in progress, not a finished, complete, qualified, or production
 ## Who made this
 
 Sanad and this dogfood repository are made by **Ejadah AI Labs**. Sanad is the Engineering Intelligence Platform that generates, validates and governs the digital thread; this repository is Sanad testing itself, in public, on a small honest example.
+
+## Links
+
+- This repository: https://github.com/ejadahailabs/sanad-showcase-coldchain
+- Companion knowledge base: https://github.com/ejadahailabs/sanad-knowledge (private, on request)

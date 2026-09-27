@@ -1,5 +1,7 @@
 # Alarm behaviour against IEC 60601-1-8 (alarm systems)
 
+> **Q-20 answered 2026-09-27:** assumptions stand (A-41, A-42, A-45, A-46) until a customer names the standard edition.
+
 > **Standard:** IEC 60601-1-8:2006+A1:2012+A2:2020 — edition ASSUMED (A-39). **Every figure below is from memory of that edition and is to be confirmed against the customer's edition.** No copy of the standard was read in this run. DRAFT — needs Masood's review. MODEL-LEVELS, 2026-09-27.
 > **Frame question first (Q-20):** 60601-1-8 applies to alarm systems of ME equipment. A fridge monitor touches no patient; it may instead fall under IEC 61010-1 with 60601-1-8 used as good practice. This check treats 60601-1-8 as the design target either way (A-41).
 
