@@ -31,3 +31,13 @@ Sanad neither asks for levels nor checks them: templates carry no level, `satisf
 ## Work order
 
 MODEL-LEVELS worker (next slot): restructure the model and requirements into this plan with Sanad's own create/derive paths, re-render every picture per level, rerun Pilot + gate + package, write `tools/level-check.py`, update STRUCTURE.md, and ONLY THEN SYSML-EVAL judges the pictures level by level.
+
+## Owner ruling 2026-09-27 (after the L0–L4 plan): the pattern must be configurable
+
+**His words:** "the Levels L0-L4 is good, But what I see is that should be customizable by the customer, as the decomposition pattern we follow lets say its Magic Grid and other organizations have their own pattern, So we should have a default called Magic Grid and let organizations configure their own flavour of layers and work flow."
+
+**Design answer (coordinator):** a **decomposition framework file** (`.ejadah/rew/framework.yaml`, chosen in Setup, org configures / we recommend) that declares layers (rows), aspects (columns: requirements · behaviour · structure · parameters), the requirement kinds + id prefixes per layer, the allowed `derive` direction, the SysML/view kinds per cell, the rules (own-layer-only satisfy, derive chain complete, max boxes per view) and the workflow order. Sanad ships **MagicGrid** as the default (black box → white box → solution → implementation) and validates any org flavour (parents, templates, no cycles); every check, the per-layer requirement package, the Decomposition view (the grid with filled/empty cells) and the traceability chain read the active file. Switching frameworks = a migration report, never silent. Nothing hard-codes MagicGrid names; the file maps cells to standard SysML kinds.
+
+**Mapping of this run:** L0 = black box · L1/L2 = white box · L3 = solution · L4 = implementation. MODEL-LEVELS is re-scoped to rebuild under a MagicGrid framework file (hand-written until Sanad reads it — finding F-125), so the dogfood exercises the default flavour.
+
+**Sanad findings:** F-125 no framework file / no Decomposition view; F-124 stands (checks). Stage 1 sentences to draft: framework file + validation (configuration), own-layer-only + derive-chain checks (system-design), Decomposition view (system-design), package per layer (system-design), migration report (configuration).
