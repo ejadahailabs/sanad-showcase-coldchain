@@ -51,11 +51,31 @@ Sanad is a build in progress. "Could not do" below means "not yet", with the fin
 - The IEC 62304 clause index as the Class-C yardstick, so runs compare.
 - `shared/` as the one source of needs and numbers.
 
-## Run 03 — Arcadia
+## Run 03 — Arcadia (five fixed layers)
+
 ### What the pattern made easy
+- One question per layer: why (clinic, no device) → what (one box, 9 functions) → how in ideas (6 logical parts) → with which parts → what we ship. A reader always knows where to start.
+- The operational layer found the needs' real shape: 4 capabilities and 6 activities, before any device existed.
+- The fixed stack made the tooling simple: one satisfy file per layer, one transition table per layer pair, 6 checks, 0 violations.
+- EPBS gave release and configuration a home: the firmware image got its own requirement and inspection case (IEC 62304 §5.8 moved from "no" to "partly").
+
 ### What it made hard
+- No place for a deeper branch: the backup alarm board's own parts sit beside it in PA; their parents had to be lifted (F-3-002).
+- Two kinds of requirement in one layer (hardware and software in PA) look like two levels to Sanad (F-3-003).
+- Budgets live on functional chains, not on one function: 3 logical requirements derive across the transition (the 5 s alarm is split between sensing and alarm, F-3-014).
+- Configuration items are records, not behaviours; writing them as requirements trips the quality rules (F-3-008).
+
 ### What Sanad could not do
+- Read the framework, know layers, check "satisfy own layer", "derive from the layer above" or "transitions complete" (F-3-001, F-3-010).
+- Show a transition: the allocation matrix is two-sided logical × physical; Arcadia has four transitions (F-3-006); part-to-part allocates read as requirement ids (F-3-005).
+- Run the OMG Pilot on files in any order: names resolve only backwards and one error hides a whole file (F-3-004).
+- Notice that the model's safety class and the requirement's class disagreed (USB item, inherited from run 2, F-3-007).
+
 ### What we would keep
+- The five-layer INDEX pages and `06-design/DECOMPOSITION.md` as the reading order.
+- Transition tables per layer pair (generated) — the reviewer's "where did it go" answer.
+- `tools/level-check.py` rule 6 (transitions complete) and the "derive crosses the transition" report: both belong in Sanad's framework checks.
+- The EPBS layer, even in other frameworks: it gives configuration management and release a place in the model.
 
 ## Run 04 — aerospace ladder
 ### What the pattern made easy
