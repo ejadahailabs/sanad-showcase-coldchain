@@ -1,0 +1,9 @@
+firmware/components/config_mgr/test/test_config_mgr.c:61:test_valid_record_loads_the_2_to_8_degree_band:PASS
+firmware/components/config_mgr/test/test_config_mgr.c:62:test_bad_crc_is_refused_with_err_crc:PASS
+firmware/components/config_mgr/test/test_config_mgr.c:63:test_missing_record_is_err_nvs:PASS
+firmware/components/config_mgr/test/test_config_mgr.c:64:test_band_outside_2_to_8_is_refused:PASS
+firmware/components/config_mgr/test/test_config_mgr.c:65:test_store_writes_a_fresh_crc_and_logs_config_changed:PASS
+
+-----------------------
+5 Tests 0 Failures 0 Ignored 
+OK

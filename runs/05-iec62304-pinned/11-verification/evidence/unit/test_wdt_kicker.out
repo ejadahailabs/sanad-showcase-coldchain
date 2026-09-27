@@ -1,0 +1,8 @@
+firmware/components/wdt_kicker/test/test_wdt_kicker.c:47:test_task_watchdog_armed_at_5_s:PASS
+firmware/components/wdt_kicker/test/test_wdt_kicker.c:48:test_pulses_while_the_heartbeat_moves:PASS
+firmware/components/wdt_kicker/test/test_wdt_kicker.c:49:test_pulses_stop_within_2_s_of_a_missed_alarm_cycle:PASS
+firmware/components/wdt_kicker/test/test_wdt_kicker.c:50:test_hold_stops_pulses_and_release_resumes:PASS
+
+-----------------------
+4 Tests 0 Failures 0 Ignored 
+OK

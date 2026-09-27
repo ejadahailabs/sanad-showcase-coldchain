@@ -1,0 +1,27 @@
+# Current focus: a single repository with Software capabilities.
+# Next: Systems capabilities.
+# Later: multi-repository product integration.
+#
+# The product this repository is a member of (docs/REQUIREMENTS_WORKBENCH_V1.md §1).
+# A Product is the top-level engineering entity; a repository is one member of it.
+# A second member is one more entry under members: — nothing else changes.
+product:
+  id: "medical-refrigerator-temperature-monitor"
+  name: "Medical Refrigerator Temperature Monitor"
+  domain: "medical-device"          # a label; drives nothing by itself
+
+# Work in progress: the engineering method (§0) is recorded here when the form asks for it.
+engineering_method: {}
+
+# On/off only. OFF = that capability's analyses do not run, with the reason stated (rule 4).
+capabilities:
+  requirements: true
+  software: true
+  verification: true
+  review: false
+  systems: false
+
+members:
+  - id: software
+    repo: self                      # this repository
+    holds: [software]

@@ -1,0 +1,523 @@
+# Sanad repository configuration.
+#
+# Shared with everyone who clones this repository, which is exactly why it holds
+# only what must produce the SAME findings for everyone. Never an API key. Never
+# a personal preference — those belong in VS Code settings, where they cannot
+# change what an analysis reports (CLAUDE.md rule 9).
+
+# The shape this file is written in (SAN-CFG-005). Sanad reads this number
+# before anything else: a file from a newer schema is refused by name rather
+# than half-read, and a file from an older one is read as its own schema says
+# and told that a migration is available. A file with no schema key is read as
+# schema 1.
+schema: 2
+
+validation:
+  uplinkOrder:
+    system: "stakeholder"
+    safety: "system"
+    performance: "system"
+    environmental: "system"
+    maintainability: "system"
+    interface: "system"
+
+# How this programme is laid out, and which artifact types it holds (GH-162).
+# Facts about the repository, shared with everyone who clones it — never a
+# personal preference (rule 9). Analysis reads these roles, never field
+# names (rule 3).
+setup:
+  topology: "monorepo"
+
+  inventory:
+    - "systems-requirements"
+    - "systems-design"
+    - "hazard"
+    - "systems-tests"
+    - "systems-verification-results"
+    - "data-dictionary"
+    - high-level-architecture
+    - software-design
+
+  # Where each artifact kind lives, repository-relative (FEAT-064). The
+  # inventory above says which artifacts this programme holds; these say where
+  # each one is, so the graph is organised by them. Declared, never guessed
+  # (rule 3).
+  paths:
+    systems-design: "06-design/system"
+    systems-requirements: "03-requirements"
+    systems-tests: "11-verification/cases"
+    hazard: "08-safety"
+    systems-verification-results: "11-verification/results"
+    data-dictionary: "01-data-dictionary"
+    high-level-architecture: 06-design/software
+    software-design: 10-src/firmware
+  # Absent from the inventory, so these analyses stay OFF — silence with a
+  # stated reason, never reported as clean (rule 4). Add the role above when
+  # the artifact exists:
+  #   - icd: no icds (interface control documents)
+  #   - hlr: no high-level requirements
+  #   - component-interface-requirements: no component interface requirements
+  #   - component-requirements: no component-level requirements
+  #   - llr: no low-level requirements
+  #   - high-level-architecture: no high-level architecture
+  #   - software-design: no design
+  #   - implementation: no implementation / code
+  #   - verification-hl: no verification at high level
+  #   - verification-component: no verification at component level
+  #   - verification-ll: no verification at low level
+  #   - results-data: no results data (every level, system → llt)
+
+
+  # Who issues a requirement ID (ADR-0046).
+  #
+  #   generated  Sanad allocates the next free number for the type's prefix.
+  #   provided   You supply it, because the authority that numbers requirements
+  #              is outside this repository — a customer baseline, a programme
+  #              scheme, a migration from DOORS. New Requirement then asks for
+  #              the ID FIRST, and an ID already in use is refused rather than
+  #              renumbered.
+  #
+  # Either way the filename IS the ID, which is what makes Git's own merge
+  # conflict the duplicate check. To change what an ID may LOOK like, set
+  # idPattern in that type's template instead.
+ids: "provided"
+# ADR-0001: every folder carries a README that says what lives there; it is not a requirement.
+ignore:
+  - "README.md"
+# MANUAL (F-04): per-requirement IEC 62304 class, carried by the safetyClass field (dal role).
+criticality:
+  role: "dal"
+  scale: "iec62304"
+  default: "C"
+  inherit: "down"
+  map:
+    A: 0
+    B: 2
+    C: 4
+
+# Where each artifact type's files come from (ADR-0057). Most live here, in this
+# repository, and need no entry. Add one only when a type's source is NOT in this
+# repository — the systems team's requirements, a supplier's ICDs, a separate
+# hazard programme. Every external option pins a commit SHA, or the analyses that
+# source feeds are switched OFF with a stated reason (CLAUDE.md rule 4) — an
+# unpinned source is not reproducible at a commit, and this product's reports are.
+#
+#   sources:
+#     hazard:
+#       kind: submodule           # recommended: the pin is the pointer committed here
+#       path: "vendor/hazards"
+#     interfaces:
+#       kind: snapshot            # copied in, with where and when it was captured
+#       path: "vendor/icds"
+#       repo: "git@example.com:supplier/icds.git"
+#       sha: "0000000000000000000000000000000000000000"
+#       captured: "2026-08-15"
+#     system-req:
+#       kind: checkout            # checked out under .ejadah/ — a CACHE, never truth
+#       repo: "git@example.com:systems/reqs.git"
+#       sha: "0000000000000000000000000000000000000000"
+#     safety-case:
+#       kind: declined            # honest: its analyses do not run until it arrives
+#       reason: "supplier deliverable, expected Q4"
+sources: {}
+
+# Where this repository's SysML v2 design files live (ADR-0118). Sanad reads every
+# .sysml file under a root declared here as ONE project: the files, the packages
+# they declare, the imports between them, and every part, port and `satisfy` they
+# state, all of it joining the same Engineering Graph the requirements and the code
+# feed. A .sysml file anywhere else in the repository is NOT read — a vendored
+# library, a supplier's exported model and a test fixture are not your design, and
+# a declared root is the difference between reading the project and reading the
+# disk.
+#
+# The recommended shape, and nothing is created until you uncomment it:
+#
+#   design:
+#     roots:
+#       - "design"        # design/packages/*.sysml, design/views/*.sysml
+#     requirementsPackage: "ProjectRequirements"   # the package Sanad generates from your
+#                                                  # requirements; your files import it by name
+#
+# The OMG SysML v2 Pilot Implementation, as an optional second opinion on those
+# files (ADR-VAL-001). It needs Java, so it runs only when you ask — "Sanad:
+# Validate SysML with the OMG Pilot" — and what it says appears as its own, under
+# "OMG Pilot" in the Problems panel, never as a Sanad finding. The folder differs
+# on every machine, so name an environment variable rather than a path:
+#
+#   sysml:
+#     validator:
+#       pilot_home: env:SYSML_PILOT_HOME
+#       pilot_version: "0.61.0"   # the release Sanad is tested with; name another to run it
+design:
+  roots:
+    - "06-design"
+  requirementsPackage: "ProjectRequirements"
+
+# The customer's own fact sources (FEAT-055). Sanad reads the parameters each data
+# dictionary declares and checks the terms requirements use against them. The
+# format is inferred from the file's extension (.md, .csv, .yaml, .json); add a
+# 'format:' to a source only to override it. Map a source's columns to roles with
+# 'fields:' when they are not already named name/type/units/range/aliases, and map
+# the terms your requirements use onto a parameter with 'terms:' so "execution
+# rate" resolves to the dictionary's "Execution Rate" without a guess.
+# 'results:' lists verification-results folders, one per verification level;
+# the format is probed from the files. Engines read them in the Verification wave.
+producers:
+  # MANUAL (F-02): Setup has no glossary step.
+  glossary:
+    - path: "01-data-dictionary/glossary.md"
+  dataDictionary:
+    - path: "01-data-dictionary/data-dictionary.md"
+  results:
+    - level: verification-ll
+      path: 11-verification/results/unit
+      naming: "*.xml"
+    - level: verification-component
+      path: 11-verification/results/integration
+      naming: "*.xml"
+    - level: systems-verification-results
+      path: 11-verification/results/system
+      naming: "*.xml"
+  verification:
+    - path: 11-verification/cases/verification-cases.csv
+      fields:
+        case: Case
+        verifies: Verifies
+        procedure: Procedure
+        expected: Expected
+        level: Level
+        category: Category
+        author: Author
+        state: At commit
+        description: Title
+        setup: Setup
+        criterion: Pass criterion
+  coverage:
+    - path: 11-verification/evidence/coverage/host-unit-integration.info
+
+# Repository-wide assurance target (ADR-0062, under ADR-0056). Sanad maps the level
+# below to its own internal rigour 0–4 (4 = most rigorous) and every analysis
+# consumes ONLY rigour — a third-party scheme name never reaches a finding, report
+# or dashboard (rule 11). `scheme` and `level` are YOUR programme's vocabulary;
+# edit `map` to match it, and the same commit then checks at the same rigour for
+# everyone.
+assurance:
+  domain: "medical-device"
+  scheme: "IEC 62304 software safety class"
+  level: "C"
+  # level -> internal rigour 0..4. Add every level your programme uses.
+  map:
+    "A": 0
+    "B": 2
+    "C": 4
+
+# The requirements-writing rule pack this repository adopted (FEAT-041). It names a
+# file under .ejadah/rew/rules/ (without the folder or the .yaml). Sanad runs its
+# checks and the Rules form tunes them; the pack is YAML in Git, so a review diff
+# shows what changed and a report regenerates identically (rule 9). Remove this line
+# to run no requirements-writing checks.
+profile: "requirements-writing"
+repository:
+  id: medical-refrigerator-temperature-monitor-software
+  product: medical-refrigerator-temperature-monitor
+  member: software
+  topology: monorepo
+
+# The Review capability — the pull or merge request, reviewed in the editor
+# (ADR-0127, ADR-0128). Declared here like every other capability: one gate, and
+# it is yours. Nothing about review appears until this block names a platform and
+# a project.
+#
+# NO TOKEN BELONGS IN THIS FILE. Sanad reads and writes the request through YOUR
+# OWN platform login, held by the editor, with exactly your permissions — Sanad
+# stores no credential and nothing ever appears under a machine identity.
+#
+# The recommended shape, and nothing is read until you uncomment it:
+#
+#   review:
+#     platform: github          # or gitlab — Sanad offers what your remote says
+#     project: "owner/repo"     # GitLab: "group/project", or the numeric id
+#     pollSeconds: 60           # RECOMMENDED, not a default: while a review view
+#                               # is open Sanad re-reads the request this often, so
+#                               # a comment written in a browser arrives without
+#                               # anyone touching the panel. Leave it out and
+#                               # nothing polls — the manual refresh does the job.
+#     checklists: "checklists"  # YOUR OWN checklist files, if you have any.
+#                               # Sanad ships none and never will.
+
+# The AI provider, declared here so the whole team shares one answer (ADR-0101).
+# NO CREDENTIAL OF ANY KIND BELONGS IN THIS FILE - it travels through Git to
+# every clone. Run "Sanad: Set Credential" and the editor stores it encrypted on
+# this machine alone. Add "baseUrl" for a self-hosted or proxied endpoint.
+#
+# For an endpoint behind a login, add an auth block naming the scheme:
+#   auth: { mode: bearer }                                 # the default
+#   auth: { mode: basic, username: svc-sanad }
+#   auth: { mode: oauth2, tokenUrl: ..., clientId: ... }
+# adr/ADR-0101 lists every mode. Each names only the PUBLIC half of the
+# credential here; the secret half is always the machine store.
+# The recommended shape, and nothing is read until you uncomment it:
+#
+#   llm:
+#     provider: anthropic       # RECOMMENDED, not a default: leave this block out
+#     model: claude-sonnet-5    # and no AI action runs at all, which is the honest
+#                               # state for a repository that has chosen no provider.
+# DOGFOOD-1 Phase 2: accepted findings, each with its reason (register: 03-requirements/accepted-findings.md).
+suppressions:
+  - rule: "testability"
+    path: "03-requirements/stakeholder/**"
+    reason: "Stakeholder level states the need in the user's words; the measurable
+      number is carried by its system children (ISO/IEC/IEEE 29148 practice).
+      Accepted DOGFOOD-1."
+  - rule: "testability"
+    path: "03-requirements/environmental/MRTM-ENV-003.md"
+    reason: "States 15 % to 85 % relative humidity; the testability check does not
+      read % as a unit (FINDINGS F-17). Accepted."
+  - rule: "testability"
+    path: "03-requirements/maintainability/MRTM-MNT-002.md"
+    reason: "States steps of 10 %; the testability check does not read % as a unit
+      (F-17). Accepted."
+  - rule: "testability"
+    path: "03-requirements/system/MRTM-SYS-015.md"
+    reason: "10000 events is a count; the count is the measure (F-17). Accepted."
+  - rule: "testability"
+    path: "03-requirements/system/MRTM-SYS-014.md"
+    reason: "Read-only is a yes/no property verified by a write-attempt test.
+      Accepted."
+  - rule: "testability"
+    path: "03-requirements/interface/MRTM-IFC-001.md"
+    reason: "The bus type is verified by inspection of a bus capture. Accepted."
+  - rule: "testability"
+    path: "03-requirements/interface/MRTM-IFC-003.md"
+    reason: "Read-only mass storage is verified by a write-attempt test. Accepted."
+  - rule: "testability"
+    path: "03-requirements/system/MRTM-SYS-007.md"
+    reason: "Bound by the excursion's own start and end, which SYS-002 and SYS-009
+      time. Accepted."
+  - rule: "duplicate-requirement"
+    path: "03-requirements/system/MRTM-SYS-008.md"
+    reason: "Start event and acknowledgement event are different events; same
+      sentence shape on purpose. Accepted."
+  - rule: "missing-decomposition"
+    path: "03-requirements/system/**"
+    reason: "Re-checked Phase 4 (DOGFOOD-2): all 14 leaf system requirements carry
+      SysML satisfy links in 06-design/system (95 satisfy links, 54 of 54
+      requirements), but the structure engine counts only child requirements,
+      not satisfy links (FINDINGS F-39). Accepted until that is fixed."
+    expires: "2026-10-31"
+  - rule: "parent-child-inconsistency"
+    path: "03-requirements/system/**"
+    reason: "Safety, performance, environmental, maintainability and interface are
+      sibling categories at one level under system; Sanad reads each type as its
+      own level (F-18). Accepted."
+  # DOGFOOD-2 Phase 3 (review round 1): accepted with reason.
+  - rule: "duplicate-requirement"
+    path: "03-requirements/system/MRTM-SYS-010.md"
+    reason: "Acknowledgement event (SYS-010) and power restore event (SYS-023) are
+      different events; same sentence shape on purpose, as SYS-008. Accepted
+      review round 1."
+  # DOGFOOD-2 Phase 4 (system architecture): accepted with reason.
+  - rule: "sysml-unresolved-id"
+    path: "06-design/system/MrtmPartitions.sysml"
+    reason: "Part-to-part `allocate` (logical function -> software item -> hardware)
+      is read as a requirement allocation, so each end is looked up as a
+      requirement id (FINDINGS F-35). The allocations are the IEC 62304 5.3
+      architecture and the OMG Pilot reads them clean. Accepted DOGFOOD-2."
+  - rule: "sysml-not-read"
+    path: "06-design/system/MrtmLogical.sysml"
+    reason: "The two successions (acquire -> check -> detect) are model truth; Sanad
+      reads them but the action-flow picture does not draw them (F-36). Accepted
+      DOGFOOD-2."
+  - rule: sysml-unresolved-id
+    path: 06-design/software/MrtmSoftware.sysml
+    reason: Part-to-part `allocate` (component -> FreeRTOS task, software item ->
+      ESP32-S3) is read as a requirement allocation, so each end is looked up as
+      a requirement id (F-35). IEC 62304 5.3 architecture; OMG Pilot reads it
+      clean. Accepted DOGFOOD-4.
+  - rule: sysml-not-read
+    path: 06-design/software/MrtmSwStates.sysml
+    reason: Transitions and successions are read and DRAWN by Sanad's state
+      transition and sequence views
+      (06-design/views/rendered/mrtmAlarmStates.svg, mrtmSeq*.svg), but the
+      graph does not take them, so the gate calls them 'read but not drawn'
+      (FINDINGS F-68). Accepted DOGFOOD-4.
+  - rule: sysml-not-read
+    path: 06-design/software/MrtmSeq*.sysml
+    reason: Transitions and successions are read and DRAWN by Sanad's state
+      transition and sequence views
+      (06-design/views/rendered/mrtmAlarmStates.svg, mrtmSeq*.svg), but the
+      graph does not take them, so the gate calls them 'read but not drawn'
+      (FINDINGS F-68). Accepted DOGFOOD-4.
+  - rule: allocation-target-undeclared
+    path: 06-design/system/**
+    reason: "Only software components are declared in .ejadah/rew/architecture/;
+      system functions, hardware parts, FreeRTOS tasks and the ESP32-S3 are
+      allocation targets but not software components. The rule cannot tell them
+      apart because the #Component marker is not read (FINDINGS F-70). Accepted
+      DOGFOOD-4."
+  - rule: allocation-target-undeclared
+    path: 06-design/hardware/**
+    reason: "Only software components are declared in .ejadah/rew/architecture/;
+      system functions, hardware parts, FreeRTOS tasks and the ESP32-S3 are
+      allocation targets but not software components. The rule cannot tell them
+      apart because the #Component marker is not read (FINDINGS F-70). Accepted
+      DOGFOOD-4."
+  - rule: allocation-target-undeclared
+    path: 06-design/software/MrtmSoftware.sysml
+    reason: "Only software components are declared in .ejadah/rew/architecture/;
+      system functions, hardware parts, FreeRTOS tasks and the ESP32-S3 are
+      allocation targets but not software components. The rule cannot tell them
+      apart because the #Component marker is not read (FINDINGS F-70). Accepted
+      DOGFOOD-4."
+  - rule: duplicate-functionality
+    path: 03-requirements/interface/MRTM-IFC-002.md
+    reason: "The requirement is compared with ITSELF: it is satisfied by a Phase 4
+      part and by the Phase 6 hardware part that redefines it under the same
+      name, and the rule counts the two links as two requirements (FINDINGS
+      F-69). Accepted DOGFOOD-4."
+  - rule: duplicate-functionality
+    path: 03-requirements/interface/MRTM-IFC-004.md
+    reason: "The requirement is compared with ITSELF: it is satisfied by a Phase 4
+      part and by the Phase 6 hardware part that redefines it under the same
+      name, and the rule counts the two links as two requirements (FINDINGS
+      F-69). Accepted DOGFOOD-4."
+  - rule: duplicate-functionality
+    path: 03-requirements/performance/MRTM-PRF-001.md
+    reason: "The requirement is compared with ITSELF: it is satisfied by a Phase 4
+      part and by the Phase 6 hardware part that redefines it under the same
+      name, and the rule counts the two links as two requirements (FINDINGS
+      F-69). Accepted DOGFOOD-4."
+  - rule: duplicate-functionality
+    path: 03-requirements/safety/MRTM-SAF-001.md
+    reason: "The requirement is compared with ITSELF: it is satisfied by a Phase 4
+      part and by the Phase 6 hardware part that redefines it under the same
+      name, and the rule counts the two links as two requirements (FINDINGS
+      F-69). Accepted DOGFOOD-4."
+  - rule: duplicate-functionality
+    path: 03-requirements/safety/MRTM-SAF-008.md
+    reason: "The requirement is compared with ITSELF: it is satisfied by a Phase 4
+      part and by the Phase 6 hardware part that redefines it under the same
+      name, and the rule counts the two links as two requirements (FINDINGS
+      F-69). Accepted DOGFOOD-4."
+  - rule: duplicate-functionality
+    path: 03-requirements/system/MRTM-SYS-016.md
+    reason: "The requirement is compared with ITSELF: it is satisfied by a Phase 4
+      part and by the Phase 6 hardware part that redefines it under the same
+      name, and the rule counts the two links as two requirements (FINDINGS
+      F-69). Accepted DOGFOOD-4."
+  - rule: duplicate-functionality
+    path: 03-requirements/system/MRTM-SYS-020.md
+    reason: "The requirement is compared with ITSELF: it is satisfied by a Phase 4
+      part and by the Phase 6 hardware part that redefines it under the same
+      name, and the rule counts the two links as two requirements (FINDINGS
+      F-69). Accepted DOGFOOD-4."
+  - rule: unallocated-requirement
+    path: 03-requirements/safety/MRTM-SAF-020.md
+    reason: An instructions-for-use statement (probe position); no hardware or
+      software element implements it; verified by inspection of the IFU (Phase
+      10). Accepted DOGFOOD-4.
+  - rule: allocation-target-undeclared
+    path: 06-design/software/MrtmSwDetail.sysml
+    reason: "Satisfy links land on the unit-contract usages (sensorSamplerApi …),
+      design elements of IEC 62304 5.4 rather than declared components; the
+      #Interface marker is not read (FINDINGS F-70). Accepted DOGFOOD-4."
+  - rule: not-implemented
+    path: 03-requirements/environmental/MRTM-ENV-001.md
+    reason: "No software does this by design: battery capacity and power path
+      (hardware, 09-hardware/power-budget.md). Verified by hardware test or
+      inspection (11-verification). Sanad's not-implemented list IS the Phase 9
+      'not reached by code' list. Accepted DOGFOOD-5."
+  - rule: not-implemented
+    path: 03-requirements/environmental/MRTM-ENV-002.md
+    reason: "No software does this by design: ambient operating range of the parts
+      (hardware qualification). Verified by hardware test or inspection
+      (11-verification). Sanad's not-implemented list IS the Phase 9 'not
+      reached by code' list. Accepted DOGFOOD-5."
+  - rule: not-implemented
+    path: 03-requirements/environmental/MRTM-ENV-003.md
+    reason: "No software does this by design: humidity range of the parts and
+      enclosure (hardware qualification). Verified by hardware test or
+      inspection (11-verification). Sanad's not-implemented list IS the Phase 9
+      'not reached by code' list. Accepted DOGFOOD-5."
+  - rule: not-implemented
+    path: 03-requirements/environmental/MRTM-ENV-004.md
+    reason: "No software does this by design: the DS18B20 probe's own range;
+      firmware only checks the reading (MRTM-SAF-003). Verified by hardware test
+      or inspection (11-verification). Sanad's not-implemented list IS the Phase
+      9 'not reached by code' list. Accepted DOGFOOD-5."
+  - rule: not-implemented
+    path: 03-requirements/maintainability/MRTM-MNT-001.md
+    reason: "No software does this by design: probe interchangeability is the
+      DS18B20's factory accuracy (hardware). Verified by hardware test or
+      inspection (11-verification). Sanad's not-implemented list IS the Phase 9
+      'not reached by code' list. Accepted DOGFOOD-5."
+  - rule: not-implemented
+    path: 03-requirements/safety/MRTM-SAF-001.md
+    reason: "No software does this by design: sound pressure is the buzzer part and
+      enclosure (hardware); firmware only drives it. Verified by hardware test
+      or inspection (11-verification). Sanad's not-implemented list IS the Phase
+      9 'not reached by code' list. Accepted DOGFOOD-5."
+  - rule: not-implemented
+    path: 03-requirements/safety/MRTM-SAF-013.md
+    reason: "No software does this by design: the backup alarm's own supply
+      (hardware, ADR-0013). Verified by hardware test or inspection
+      (11-verification). Sanad's not-implemented list IS the Phase 9 'not
+      reached by code' list. Accepted DOGFOOD-5."
+  - rule: not-implemented
+    path: 03-requirements/safety/MRTM-SAF-020.md
+    reason: "No software does this by design: instructions for use (labelling).
+      Verified by hardware test or inspection (11-verification). Sanad's
+      not-implemented list IS the Phase 9 'not reached by code' list. Accepted
+      DOGFOOD-5."
+  - rule: not-implemented
+    path: 03-requirements/system/MRTM-SYS-016.md
+    reason: "No software does this by design: the power path switches in hardware;
+      firmware only observes mains (power_mon). Verified by hardware test or
+      inspection (11-verification). Sanad's not-implemented list IS the Phase 9
+      'not reached by code' list. Accepted DOGFOOD-5."
+  - rule: partially-implemented
+    path: 03-requirements/stakeholder/MRTM-STK-008.md
+    reason: Its children without code are hardware or labelling requirements
+      accepted as not-implemented by design (suppressions above). Accepted
+      DOGFOOD-5.
+  - rule: partially-implemented
+    path: 03-requirements/system/MRTM-SYS-001.md
+    reason: Its children without code are hardware or labelling requirements
+      accepted as not-implemented by design (suppressions above). Accepted
+      DOGFOOD-5.
+  - rule: partially-implemented
+    path: 03-requirements/system/MRTM-SYS-003.md
+    reason: Its children without code are hardware or labelling requirements
+      accepted as not-implemented by design (suppressions above). Accepted
+      DOGFOOD-5.
+  - rule: partially-implemented
+    path: 03-requirements/system/MRTM-SYS-012.md
+    reason: Its children without code are hardware or labelling requirements
+      accepted as not-implemented by design (suppressions above). Accepted
+      DOGFOOD-5.
+  - rule: partially-implemented
+    path: 03-requirements/system/MRTM-SYS-016.md
+    reason: Its children without code are hardware or labelling requirements
+      accepted as not-implemented by design (suppressions above). Accepted
+      DOGFOOD-5.
+  - rule: rigour-inconsistency
+    path: 03-requirements/mrtm/logging/usb-item/**
+    reason: USB item stays class B under the class C logging node because it is
+      segregated from the class C items (ADR-0034, IEC 62304 §5.3.5; A-48).
+      Segregation allowed is an owner decision still to confirm (F-133).
+review:
+  platform: github
+  project: local/dogfood-fridge
+  checklists: 05-reviews/checklists
+  records: 05-reviews/records
+sysml:
+  validator:
+    pilot_home: env:SYSML_PILOT_HOME
+verification:
+  confirmed: true
+  boundary:
+    "*": three-value
+  realValued: refuse
+  compositeIsConjunction: true
+  logicDepth:
+    "*": each-outcome

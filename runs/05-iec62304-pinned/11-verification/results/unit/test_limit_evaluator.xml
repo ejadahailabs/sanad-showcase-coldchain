@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test_limit_evaluator" tests="12" failures="0" errors="0" skipped="0" timestamp="2026-09-27T00:00:00">
+  <properties>
+    <property name="tester" value="DOGFOOD-6 (agent, no independence)"/>
+    <property name="date" value="2026-09-27"/>
+    <property name="build" value="c32f4f1"/>
+    <property name="environment" value="host: gcc 15.2 + Unity v2.6.1 + hal_host stubs"/>
+    <property name="evidence" value="11-verification/evidence/unit/test_limit_evaluator.out"/>
+  </properties>
+  <testcase classname="test_limit_evaluator" name="test_nth_consecutive_out_sample_confirms" time="0"/>
+  <testcase classname="test_limit_evaluator" name="test_n_minus_one_out_then_one_in_does_not_confirm" time="0"/>
+  <testcase classname="test_limit_evaluator" name="test_first_out_sample_raises_the_early_alarm" time="0"/>
+  <testcase classname="test_limit_evaluator" name="test_back_in_band_clears_the_early_alarm" time="0"/>
+  <testcase classname="test_limit_evaluator" name="test_early_alarm_budget_fits_5_s" time="0"/>
+  <testcase classname="test_limit_evaluator" name="test_invalid_sample_neither_counts_nor_resets" time="0"/>
+  <testcase classname="test_limit_evaluator" name="test_band_edges_two_and_eight_degrees_are_inside" time="0"/>
+  <testcase classname="test_limit_evaluator" name="test_nth_consecutive_in_sample_ends_excursion" time="0"/>
+  <testcase classname="test_limit_evaluator" name="test_out_sample_restarts_the_in_run" time="0"/>
+  <testcase classname="test_limit_evaluator" name="test_hysteresis_knob_is_zero" time="0"/>
+  <testcase classname="test_limit_evaluator" name="test_peak_is_the_most_extreme_sample" time="0"/>
+  <testcase classname="test_limit_evaluator" name="test_peak_below_band_counts_distance_downwards" time="0"/>
+</testsuite>
