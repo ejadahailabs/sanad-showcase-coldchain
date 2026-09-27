@@ -1,0 +1,117 @@
+# Decomposition framework — how this organisation breaks a product down.
+# HAND-WRITTEN (MODEL-LEVELS, 2026-09-27). Sanad does not read this file yet (FINDINGS F-125);
+# tools/levels-build.py and tools/level-check.py read it instead, so every rule below is checked.
+# Org configures, Sanad recommends: this is the MagicGrid default with a medical flavour pinned.
+# DRAFT — needs Masood's review.
+#
+# In one line: a product is a tree. Every box that is not a leaf gets two looks —
+# from the OUTSIDE (black box: what it must do, what it touches) and from the INSIDE
+# (white box: which smaller boxes do it). Each smaller box then gets the same two looks,
+# until a box is simple enough to buy or to code. Like a Russian doll you open one layer at a time.
+
+framework: magicgrid
+version: 1
+flavour: medical-iec62304        # the organisation's own flavour of the default
+standards:                        # editions ASSUMED — to be confirmed against the customer's editions (A-39)
+  - "IEC 62304:2006+A1:2015 (software life cycle)"
+  - "IEC 60601-1:2005+A2:2020 cl. 14 (programmable electrical medical system, PEMS)"
+  - "IEC 60601-1-8:2006+A2:2020 (alarm systems)"
+  - "ISO 14971:2019 (risk management)"
+
+# ---- The pattern --------------------------------------------------------------------------
+top:                              # the problem, seen by the people who have it
+  node_kind: context
+  aspects: [requirements, behaviour, structure]
+  requirement_kinds: [stakeholder]
+  views: [use case, internal block]        # use cases; the product as one box among its neighbours
+
+step:                             # applied to every node that is not a leaf; repeats per branch
+  black_box:                      # the node from outside: its needs and its boundary
+    aspects: [requirements, structure, behaviour]
+    views: [internal block]       # <node>_blackbox_interfaces: the node + its neighbours + wires
+  white_box:                      # the node from inside: its children and their wires
+    aspects: [structure, behaviour, parameters]
+    views: [internal block, state machine, sequence]   # <node>_whitebox_interconnection (+ states/scenarios where it has them)
+  children_become: black_box      # each child starts its own step; depth differs per branch
+
+leaf:                             # a node the organisation declares simple enough to choose or build
+  aspects: [requirements, structure, parameters]
+  solution: [hardware-part, software-item]
+bottom:                           # implementation: below the leaf, no new requirements
+  artefacts: [software-unit, code, unit-test, bench-procedure]
+  links: ["@implements <leaf id>", "@verifies <leaf id>"]
+
+aspects: [requirements, behaviour, structure, parameters]
+
+# ---- Node kinds and their requirement id prefixes -------------------------------------------
+# Medical flavour: names per IEC 62304 §5.3 (software system → software items → software units)
+# and IEC 60601-1 cl. 14 (the device is a PEMS; its hardware parts are PEMS parts).
+node_kinds:
+  context:        { standard: "ISO 14971 cl. 5.2 intended use", requirement_kinds: {stakeholder: MRTM-STK} }
+  system:         { standard: "IEC 60601-1 cl. 14 PEMS; IEC 62304 software system",
+                    requirement_kinds: {system: MRTM-SYS, safety: MRTM-SAF, performance: MRTM-PRF,
+                                        environmental: MRTM-ENV, maintainability: MRTM-MNT, interface: MRTM-IFC} }
+  subsystem:      { standard: "IEC 60601-1 cl. 14.8 PEMS architecture", requirement_kinds: {node: "MRTM-<NODE>"} }
+  assembly:       { standard: "IEC 60601-1 cl. 14.8 (a subsystem that repeats the step)", requirement_kinds: {node: "MRTM-<NODE>"} }
+  hardware-part:  { standard: "IEC 60601-1 cl. 4.8 components", requirement_kinds: {node: "MRTM-<NODE>"} }
+  software-item:  { standard: "IEC 62304 §5.3.1 software item, §4.3 its own class", requirement_kinds: {node: "MRTM-<NODE>"},
+                    units: "IEC 62304 §5.4 software units (bottom)" }
+
+# ---- Rules (each one is a check in tools/level-check.py) ------------------------------------
+rules:
+  satisfy: own-node-only          # a node's model file satisfies that node's requirements, nothing else
+  derive: follows-parent          # a requirement's `derive` (Sanad: `uplinks`) names requirements of its PARENT node only
+  derive_field: uplinks           # the Sanad field that carries it (Sanad's `derived:` flag means "no parent", DO-178C sense — not used)
+  derive_chain: complete-to-top   # every leaf requirement reaches a stakeholder requirement
+  leaf: declared-by-organisation  # only the `leaves:` list below makes a node a leaf
+  max_boxes_per_view: 12
+  view_name: "<node>_<blackbox|whitebox|leaf>_<kind>"   # Sanad view names cannot hold '-' (F-128)
+  index_per_node: required        # 06-design/<node-path>/INDEX.md
+  segregation_below_parent_class: required   # IEC 62304 §5.3.5: an item below its parent's class names its segregation
+
+# ---- Workflow per node ----------------------------------------------------------------------
+workflow:                          # a child's black box opens only when its parent's white box exists
+  - black_box.requirements         # write the node's requirements, each derived from the parent node
+  - black_box.interfaces           # draw the node with its neighbours
+  - classify                       # IEC 62304 §4.3 class of the node, with a reason
+  - white_box.structure            # choose the children and wire them
+  - white_box.behaviour            # states / scenarios where the node has them
+  - allocate                       # each requirement of the node to a child requirement (derive)
+  - review                         # the node's INDEX.md is the review packet
+
+# ---- This project's tree ---------------------------------------------------------------------
+# path = folder under 06-design/ and 03-requirements/; prefix = requirement id prefix; class = IEC 62304 class.
+nodes:
+  - {name: context,         path: context,                                    kind: context,       prefix: MRTM-STK, class: C}
+  - {name: system,          path: mrtm,                                       kind: system,        prefix: [MRTM-SYS, MRTM-SAF, MRTM-PRF, MRTM-ENV, MRTM-MNT, MRTM-IFC], class: C, parent: context}
+  - {name: sensing,         path: mrtm/sensing,                               kind: subsystem,     prefix: MRTM-SEN, class: C, parent: system}
+  - {name: alarm,           path: mrtm/alarm,                                 kind: subsystem,     prefix: MRTM-ALM, class: C, parent: system, title: alarm-and-indication}
+  - {name: display,         path: mrtm/display,                               kind: subsystem,     prefix: MRTM-DSP, class: C, parent: system}
+  - {name: logging,         path: mrtm/logging,                               kind: subsystem,     prefix: MRTM-LOG, class: C, parent: system, title: logging-and-history}
+  - {name: power,           path: mrtm/power,                                 kind: subsystem,     prefix: MRTM-PWR, class: C, parent: system}
+  - {name: supervision,     path: mrtm/supervision,                           kind: subsystem,     prefix: MRTM-SUP, class: C, parent: system}
+  - {name: probe,           path: mrtm/sensing/probe,                         kind: hardware-part, prefix: MRTM-PRB, class: C, parent: sensing}
+  - {name: sensor-item,     path: mrtm/sensing/sensor-item,                   kind: software-item, prefix: MRTM-SNI, class: C, parent: sensing,  units: [sensorSampler]}
+  - {name: excursion-item,  path: mrtm/alarm/excursion-item,                  kind: software-item, prefix: MRTM-EXI, class: C, parent: alarm,    units: [limitEvaluator]}
+  - {name: alarm-item,      path: mrtm/alarm/alarm-item,                      kind: software-item, prefix: MRTM-ALI, class: C, parent: alarm,    units: [alarmMgr]}
+  - {name: buzzer,          path: mrtm/alarm/buzzer,                          kind: hardware-part, prefix: MRTM-BZR, class: C, parent: alarm}
+  - {name: indicators,      path: mrtm/alarm/indicators,                      kind: hardware-part, prefix: MRTM-IND, class: C, parent: alarm}
+  - {name: backup-alarm,    path: mrtm/alarm/backup-alarm,                    kind: assembly,      prefix: MRTM-BKA, class: C, parent: alarm}
+  - {name: backup-timer,    path: mrtm/alarm/backup-alarm/backup-timer,       kind: hardware-part, prefix: MRTM-BKT, class: C, parent: backup-alarm}
+  - {name: backup-driver,   path: mrtm/alarm/backup-alarm/backup-driver,      kind: hardware-part, prefix: MRTM-BKD, class: C, parent: backup-alarm}
+  - {name: hold-up,         path: mrtm/alarm/backup-alarm/hold-up,            kind: hardware-part, prefix: MRTM-BKH, class: C, parent: backup-alarm}
+  - {name: oled,            path: mrtm/display/oled,                          kind: hardware-part, prefix: MRTM-OLD, class: C, parent: display}
+  - {name: display-item,    path: mrtm/display/display-item,                  kind: software-item, prefix: MRTM-DSI, class: C, parent: display,  units: [displayMgr]}
+  - {name: rtc,             path: mrtm/logging/rtc,                           kind: hardware-part, prefix: MRTM-RTC, class: C, parent: logging}
+  - {name: log-item,        path: mrtm/logging/log-item,                      kind: software-item, prefix: MRTM-LGI, class: C, parent: logging,  units: [eventLog, historyRing, rtcClock]}
+  - {name: usb-item,        path: mrtm/logging/usb-item,                      kind: software-item, prefix: MRTM-USI, class: B, parent: logging,  units: [usbExport]}
+  - {name: battery,         path: mrtm/power/battery,                         kind: hardware-part, prefix: MRTM-BAT, class: C, parent: power}
+  - {name: power-path,      path: mrtm/power/power-path,                      kind: hardware-part, prefix: MRTM-PPT, class: C, parent: power}
+  - {name: power-item,      path: mrtm/power/power-item,                      kind: software-item, prefix: MRTM-PWI, class: C, parent: power,    units: [powerMon]}
+  - {name: mcu,             path: mrtm/supervision/mcu,                       kind: hardware-part, prefix: MRTM-MCU, class: C, parent: supervision}
+  - {name: supervisor-item, path: mrtm/supervision/supervisor-item,           kind: software-item, prefix: MRTM-SVI, class: C, parent: supervision, units: [wdtKicker, diagnostics, configMgr]}
+
+# Declared by the organisation (rule `leaf`). The alarm branch goes one step deeper than the others:
+# backup-alarm is NOT a leaf, so it gets its own black box and white box, and its three parts are the leaves.
+leaves: [probe, sensor-item, excursion-item, alarm-item, buzzer, indicators, backup-timer, backup-driver, hold-up,
+         oled, display-item, rtc, log-item, usb-item, battery, power-path, power-item, mcu, supervisor-item]

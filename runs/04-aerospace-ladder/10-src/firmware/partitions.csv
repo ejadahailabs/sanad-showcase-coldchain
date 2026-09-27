@@ -1,0 +1,6 @@
+# Name,   Type, SubType, Offset,   Size,     Flags   — MRTM (ADR-0021; DEF-001: log rings are 80 x 4 KiB)
+nvs,      data, nvs,     0x9000,   0x6000,
+phy_init, data, phy,     0xf000,   0x1000,
+factory,  app,  factory, 0x10000,  0x200000,
+logA,     data, 0x40,    0x210000, 0x50000,
+logB,     data, 0x40,    0x260000, 0x50000,

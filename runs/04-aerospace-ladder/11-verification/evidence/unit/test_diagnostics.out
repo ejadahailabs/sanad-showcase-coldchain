@@ -1,0 +1,7 @@
+firmware/components/diagnostics/test/test_diagnostics.c:48:test_power_up_tests_pass_inside_their_windows:PASS
+firmware/components/diagnostics/test/test_diagnostics.c:49:test_silent_buzzer_fails_the_power_up_test:PASS
+firmware/components/diagnostics/test/test_diagnostics.c:50:test_backup_alarm_not_heard_fails_and_pulses_resume:PASS
+
+-----------------------
+3 Tests 0 Failures 0 Ignored 
+OK

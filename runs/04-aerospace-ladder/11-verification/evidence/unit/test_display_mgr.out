@@ -1,0 +1,11 @@
+firmware/components/display_mgr/test/test_display_mgr.c:86:test_band_and_version_shown_in_the_first_3_s:PASS
+firmware/components/display_mgr/test/test_display_mgr.c:87:test_excursion_warning_for_the_whole_excursion:PASS
+firmware/components/display_mgr/test/test_display_mgr.c:88:test_probe_fault_message:PASS
+firmware/components/display_mgr/test/test_display_mgr.c:89:test_calibration_due_and_log_capacity_messages:PASS
+firmware/components/display_mgr/test/test_display_mgr.c:90:test_temperature_refreshes_every_10_s_in_tenths:PASS
+firmware/components/display_mgr/test/test_display_mgr.c:91:test_battery_shown_in_steps_of_10_percent:PASS
+firmware/components/display_mgr/test/test_display_mgr.c:92:test_i2c_timeout_resets_the_bus_within_1_s:PASS
+
+-----------------------
+7 Tests 0 Failures 0 Ignored 
+OK

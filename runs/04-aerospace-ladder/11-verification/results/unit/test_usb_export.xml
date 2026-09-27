@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test_usb_export" tests="6" failures="0" errors="0" skipped="0" timestamp="2026-09-27T00:00:00">
+  <properties>
+    <property name="tester" value="DOGFOOD-6 (agent, no independence)"/>
+    <property name="date" value="2026-09-27"/>
+    <property name="build" value="c32f4f1"/>
+    <property name="environment" value="host: gcc 15.2 + Unity v2.6.1 + hal_host stubs"/>
+    <property name="evidence" value="11-verification/evidence/unit/test_usb_export.out"/>
+  </properties>
+  <testcase classname="test_usb_export" name="test_boot_sector_is_a_fat12_volume" time="0"/>
+  <testcase classname="test_usb_export" name="test_history_csv_is_marked_read_only" time="0"/>
+  <testcase classname="test_usb_export" name="test_every_write_is_refused" time="0"/>
+  <testcase classname="test_usb_export" name="test_csv_lines_oldest_first_newest_last" time="0"/>
+  <testcase classname="test_usb_export" name="test_unreadable_record_is_a_corrupt_line" time="0"/>
+  <testcase classname="test_usb_export" name="test_full_history_fits_and_fat_chain_ends" time="0"/>
+</testsuite>

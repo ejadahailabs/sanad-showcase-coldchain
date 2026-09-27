@@ -1,0 +1,157 @@
+# Requirements-writing rule pack — our deterministic prose rules, as data.
+#
+# Configures REW's Quality engine to the deterministically-checkable subset of
+# our requirements-writing discipline: the prose faults a machine can find from
+# statement text alone — vague terms, escape and open-ended clauses, unachievable
+# absolutes, non-atomic sentences, passive voice, a missing modal. Each rule id
+# below is one the Quality engine already declares; the pack supplies the term
+# lists and severities that tune them, nothing more.
+#
+# A repository adopts this pack by copying it into its own `.ejadah/rew/rules/`
+# directory and naming it in .ejadah/rew/config.yaml (`profile: "requirements-writing"`). Term lists
+# REPLACE the built-in defaults, so each list here is the full intended set.
+#
+# The rules that need parsing, a glossary or set-level analysis — and so are not
+# deterministically checkable from statement text alone yet — are deliberately
+# NOT configured here. They are catalogued, each with the reason it stands down,
+# in the attributed internal reference under docs/references/ (not shipped).
+# Rule 4 of CLAUDE.md: silence with a stated reason beats a confidently wrong
+# number.
+#
+# Provenance: the crosswalk from each rule id below to its source lives only in
+# that attributed internal reference under docs/references/ — never in this pack.
+
+version: 1
+id: "requirements-writing"
+title: "Requirements writing — deterministic prose rules"
+extends: "default"
+
+severities:
+  escape-clause: "error"    # escape clauses + open-ended clauses void the obligation
+  optionality: "error"      # an optional obligation is not a requirement
+  # Updated 2026-09-17 (SAN-REQ-007): atomicity counts modal verbs per sentence AND
+  # reads two verb phrases coordinated under one modal — "log the fault and raise
+  # the alarm" — which is the shape the 2026-09-02 note said was not flagged.
+  atomicity: "error"        # one statement, one thought
+  weak-term: "warning"      # vague quantifiers/adjectives, and unachievable absolutes
+  passive-voice: "warning"  # active voice, with the responsible entity as subject
+  # Corrected 2026-09-02 — this comment claimed three checks that do not exist.
+  ambiguity: "warning"      # a sentence opening with a pronoun that refers to nothing
+  testability: "warning"    # a specific, measurable, verifiable obligation
+  completeness: "warning"   # a stated modal obligation
+  # Corrected 2026-09-02 — neither named check exists; this is a word count.
+  readability: "info"       # sentence length, against maxSentenceWords
+  # the published lexical writing rules (2026-09-17). Recommended ON here — at "info",
+  # because a repository that has not yet rewritten its corpus should read them as
+  # advice — and silent for a repository that adopts no pack at all. Set any of them
+  # to "off" to decline one; the organisation configures, we recommend.
+  negation: "info"            # writing rule R16 — state what the system shall do
+  oblique-symbol: "info"      # writing rule R17 — "/" is read three different ways
+  logical-expression: "info"  # writing rule R15 — bracket the expression, e.g. [X AND Y]
+  indefinite-article: "info"  # writing rule R5 — "the", not "a"
+  combinator: "info"          # writing rule R19 — "unless", "however", "but": a second clause
+  purpose-phrase: "info"      # writing rule R20 — the reason belongs in Rationale
+  parenthetical: "info"       # writing rule R21 — an aside is skimmed, not built
+  superfluous-infinitive: "info"  # writing rule R10 — "shall record", not "shall be able to record"
+  absolute: "info"            # writing rule R26 — a 100 % claim no test can demonstrate
+  universal-quantifier: "info"  # writing rule R32 — "all"/"any"/"both" over an unbounded set
+  temporal-keyword: "info"    # writing rule R35 — "until", "after": an order, not a time
+  decimal-format: "info"      # writing rule R40 — write 0.5, and put the unit on a range
+  acronym-consistency: "info"  # writing rule R37 — an acronym the glossary never expands
+  abbreviation: "info"        # writing rule R38 — "e.g.", "etc.", "w/o": write the words
+  range-of-values: "info"     # writing rule R33 — two ends, one unit
+  separate-clause: "info"     # writing rule R11 — a comma between the condition and the verb
+
+quality:
+  # Vague quantifiers and adjectives that carry no measurable meaning — REW
+  # defaults extended with the full research set — with the unachievable
+  # absolutes ("always", "never", "every") folded in.
+  weakTerms:
+    - adequate
+    - allowable
+    - almost
+    - almost always
+    - always            # unachievable absolute
+    - ancillary
+    - any
+    - appropriate
+    - approximate
+    - approximately
+    - as needed
+    - as necessary
+    - before long
+    - close to
+    - common
+    - convenient
+    - customary
+    - easy
+    - effective
+    - efficient
+    - every             # unachievable absolute
+    - expandable
+    - fast
+    - a few
+    - flexible
+    - generally
+    - generic
+    - improved
+    - in a timely manner
+    - insofar as
+    - a lot of
+    - many
+    - maximize
+    - minimal
+    - minimize
+    - nearly
+    - never             # unachievable absolute
+    - normal
+    - proficient
+    - quickly
+    - reasonable
+    - relevant
+    - robust
+    - routine
+    - seamless
+    - several
+    - significant
+    - similar
+    - some
+    - state of the art
+    - sufficient
+    - suitable
+    - support
+    - timely
+    - typical
+    - user-friendly
+    - various
+    - very nearly
+  # Escape clauses (vague conditions that void the obligation) and open-ended,
+  # non-specific clauses.
+  escapeClauses:
+    - as applicable
+    - as appropriate
+    - as little as possible
+    - as much as possible
+    - as required
+    - and so on          # open-ended
+    - etc                 # open-ended
+    - if applicable
+    - if feasible
+    - if it should prove necessary
+    - if necessary
+    - if possible
+    - if practical
+    - if practicable
+    - if required
+    - including but not limited to   # open-ended
+    - so far as is possible
+    - to the extent necessary
+    - to the extent practical
+    - where appropriate
+    - where feasible
+    - where necessary
+    - where possible
+  # Optional wording makes the obligation non-binding.
+  optionalTerms: [may, might, could, optionally, if desired, can]
+  # A stated modal keeps the obligation explicit.
+  requireModal: "shall"
