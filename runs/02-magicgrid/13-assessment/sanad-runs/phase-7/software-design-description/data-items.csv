@@ -1,0 +1,8 @@
+# sanad/data-items/1
+Data item,Type,Unit,Range,Interfaces,Produced by,Consumed by,Requirements,Status
+Allowed Band Lower Limit (lower limit),temperature,degC,2..2,none,not declared,not declared,none,unused
+Allowed Band Upper Limit (upper limit),temperature,degC,8..8,none,not declared,not declared,none,unused
+Event Log Capacity (log capacity),count,events,10000..10000,none,not declared,not declared,"MRTM-SYS-015, MRTM-SYS-022",in use
+Excursion Confirmation Time (confirmation time),duration,s,60..60,none,not declared,not declared,"MRTM-STK-002, MRTM-SYS-002",in use
+Measurement Accuracy (accuracy),temperature,degC,0..0.5,none,not declared,not declared,"MRTM-MNT-001, MRTM-PRF-001",in use
+Sampling Period (sample period),duration,s,10..10,none,not declared,not declared,"MRTM-PRF-004, MRTM-SYS-001",in use

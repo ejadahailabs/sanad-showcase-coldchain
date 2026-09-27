@@ -1,0 +1,1765 @@
+{
+  "pack": "requirements-writing",
+  "engines": [
+    "validation",
+    "traceability",
+    "quality",
+    "structure",
+    "verification",
+    "implementation",
+    "safety",
+    "architecture",
+    "consistency",
+    "conformance",
+    "impact"
+  ],
+  "skipped": [
+    {
+      "engine": "security",
+      "missingRoles": [
+        "threat"
+      ]
+    },
+    {
+      "engine": "interface",
+      "missingRoles": [
+        "interface"
+      ]
+    }
+  ],
+  "unlicensed": [],
+  "disabled": [],
+  "noRulePack": [],
+  "cancelled": [],
+  "findings": [
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 11: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/hardware/MrtmHardware.sysml",
+      "line": 11,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 6: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/software/MrtmSeqExcursion.sysml",
+      "line": 6,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 3: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/software/MrtmSeqPowerLoss.sysml",
+      "line": 3,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 4: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/software/MrtmSeqProbeFault.sysml",
+      "line": 4,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 9: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/software/MrtmSoftware.sysml",
+      "line": 9,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 10: `import SoftwareProfile` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `SoftwareProfile`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `SoftwareProfile` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/software/MrtmSoftware.sysml",
+      "line": 10,
+      "entry": "SoftwareProfile"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 4: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/software/MrtmSwCodes.sysml",
+      "line": 4,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 6: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/software/MrtmSwDetail.sysml",
+      "line": 6,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 7: `import SoftwareProfile` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `SoftwareProfile`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `SoftwareProfile` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/software/MrtmSwDetail.sysml",
+      "line": 7,
+      "entry": "SoftwareProfile"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 5: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/software/MrtmSwStates.sysml",
+      "line": 5,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 4: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/system/MrtmInterfaces.sysml",
+      "line": 4,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 4: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/system/MrtmLogical.sysml",
+      "line": 4,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 5: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/system/MrtmPartitions.sysml",
+      "line": 5,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 6: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/system/MrtmPhysical.sysml",
+      "line": 6,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 8: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/system/MrtmSafety.sysml",
+      "line": 8,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 4: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/system/MrtmUseCases.sysml",
+      "line": 4,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 24: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/views/MrtmBlocksView.sysml",
+      "line": 24,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 22: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/views/MrtmContextView.sysml",
+      "line": 22,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 22: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/views/MrtmDataFlowView.sysml",
+      "line": 22,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 22: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/views/MrtmExternalInterfacesView.sysml",
+      "line": 22,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 22: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/views/MrtmInterfacesView.sysml",
+      "line": 22,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 22: `import ScalarValues` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `ScalarValues`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `ScalarValues` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/views/MrtmUseCasesView.sysml",
+      "line": 22,
+      "entry": "ScalarValues"
+    },
+    {
+      "severity": "info",
+      "engine": "sysml-project",
+      "rule": "sysml-unresolved-import",
+      "message": "line 8: `import Views` names nothing this project declares",
+      "detail": "An import resolves against what the `.sysml` files under this repository's design roots declare, and no file declares `Views`. Check the spelling against the element's own file, or add the file that declares it to a design root. Sometimes correct: `Views` is the published standard library or a supplier's model, which lives outside the design roots on purpose — vendor it under a root to have Sanad resolve it.",
+      "path": "06-design/views/SanadRenderings.sysml",
+      "line": 8,
+      "entry": "Views"
+    },
+    {
+      "severity": "warning",
+      "engine": "graph",
+      "rule": "undeclared-id-prefix",
+      "message": "1 reference(s) use the prefix \"CR\", which no type declares",
+      "reqId": "MRTM-SYS-024",
+      "section": "Rationale",
+      "span": [
+        16,
+        22
+      ],
+      "detail": "A reference edge is drawn only for an id this repository declares — a loaded artifact, or a token starting with a template's `idPrefix` — so these 1 mention(s) across 1 file(s) drew nothing, and impact analysis under-reports by exactly that much with a number that looks fine. For example: CR-001. Declare a type whose `idPrefix` is \"CR\" and these become traced references; if they are safety or security identifiers, declare the role that binds them instead — those sections are read only when the role is declared. Sometimes correct: the prefix may belong to another tool's identifiers — a change request, a drawing number, a supplier's part — in which case nothing is missing, and this line is the confirmation that Sanad is not silently treating them as something they are not. Severity becomes a customer-set option at the read-ledger config stage (#658)."
+    },
+    {
+      "engine": "validation",
+      "severity": "info",
+      "rule": "link-role-unreadable",
+      "message": "allocation counts as 0: no Interface Requirement carries it — point it at your field",
+      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/.ejadah/rew/templates/interface.md",
+      "detail": "The template declares the `allocated_to:` field for the allocation link and none of its 4 files fills it. allocation of this type to components is therefore reported as 0 — a number a reader cannot tell apart from \"fully covered, nothing left to link\". If these files do record the link somewhere else, point the template's allocation role at the field or heading that holds it."
+    },
+    {
+      "engine": "validation",
+      "severity": "info",
+      "rule": "link-role-unreadable",
+      "message": "allocation counts as 0: no Performance Requirement carries it — point it at your field",
+      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/.ejadah/rew/templates/performance.md",
+      "detail": "The template declares the `allocated_to:` field for the allocation link and none of its 4 files fills it. allocation of this type to components is therefore reported as 0 — a number a reader cannot tell apart from \"fully covered, nothing left to link\". If these files do record the link somewhere else, point the template's allocation role at the field or heading that holds it."
+    },
+    {
+      "engine": "validation",
+      "severity": "info",
+      "rule": "link-role-unreadable",
+      "message": "allocation counts as 0: no Safety Requirement carries it — point it at your field",
+      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/.ejadah/rew/templates/safety.md",
+      "detail": "The template declares the `allocated_to:` field for the allocation link and none of its 23 files fills it. allocation of this type to components is therefore reported as 0 — a number a reader cannot tell apart from \"fully covered, nothing left to link\". If these files do record the link somewhere else, point the template's allocation role at the field or heading that holds it."
+    },
+    {
+      "engine": "validation",
+      "severity": "info",
+      "rule": "link-role-unreadable",
+      "message": "allocation counts as 0: no System Requirement carries it — point it at your field",
+      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/.ejadah/rew/templates/system.md",
+      "detail": "The template declares the `allocated_to:` field for the allocation link and none of its 24 files fills it. allocation of this type to components is therefore reported as 0 — a number a reader cannot tell apart from \"fully covered, nothing left to link\". If these files do record the link somewhere else, point the template's allocation role at the field or heading that holds it."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-ENV-002",
+      "section": "Description",
+      "span": [
+        30,
+        32
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-ENV-003",
+      "section": "Description",
+      "span": [
+        30,
+        31
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-ENV-004",
+      "section": "Description",
+      "span": [
+        40,
+        41
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-IFC-003",
+      "section": "Description",
+      "span": [
+        60,
+        61
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-IFC-004",
+      "section": "Description",
+      "span": [
+        50,
+        51
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-MNT-001",
+      "section": "Description",
+      "span": [
+        54,
+        55
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-PRF-001",
+      "section": "Description",
+      "span": [
+        59,
+        61
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-PRF-004",
+      "section": "Description",
+      "span": [
+        56,
+        57
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-SAF-001",
+      "section": "Description",
+      "span": [
+        39,
+        40
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-SAF-003",
+      "section": "Description",
+      "span": [
+        48,
+        49
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-SAF-004",
+      "section": "Description",
+      "span": [
+        65,
+        66
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-SAF-011",
+      "section": "Description",
+      "span": [
+        50,
+        51
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "logical-expression",
+      "message": "2 unbracketed and/or words - state the grouping, e.g. [X AND Y]",
+      "reqId": "MRTM-SAF-013",
+      "section": "Description",
+      "span": [
+        95,
+        98
+      ],
+      "detail": "\"A and B or C\" has two readings and the sentence does not say which. Write the grouping down — \"[X AND Y]\", \"NOT [X OR Y]\" — so precedence is stated rather than inferred. Bracketing the expression clears this finding; so does splitting the sentence into one requirement per thought. Sometimes correct: two connectives joining plain noun phrases, not conditions, carry no precedence to get wrong."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "requirement-pattern",
+      "message": "Sets a deadline but gives no time — add one (e.g. 50 ms)",
+      "reqId": "MRTM-SAF-015",
+      "section": "Description",
+      "span": [
+        1,
+        94
+      ],
+      "detail": "This reads as a Sanad Timing requirement — the response names the obligation but the sentence carries no quantity with a time unit. A Sanad Timing requirement may resolve that slot from a value declared in the data dictionary instead of stating it inline, which is the better engineering of the two. Sometimes correct: the value may live in a linked verification requirement or an interface document this check does not read.",
+      "heuristic": true
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-SAF-021",
+      "section": "Description",
+      "span": [
+        51,
+        53
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-SAF-022",
+      "section": "Description",
+      "span": [
+        101,
+        103
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-STK-008",
+      "section": "Description",
+      "span": [
+        42,
+        43
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "requirement-pattern",
+      "message": "Sets a deadline but gives no time — add one (e.g. 50 ms)",
+      "reqId": "MRTM-SYS-004",
+      "section": "Description",
+      "span": [
+        1,
+        88
+      ],
+      "detail": "This reads as a Sanad Timing requirement — the response names the obligation but the sentence carries no quantity with a time unit. A Sanad Timing requirement may resolve that slot from a value declared in the data dictionary instead of stating it inline, which is the better engineering of the two. Sometimes correct: the value may live in a linked verification requirement or an interface document this check does not read.",
+      "heuristic": true
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-SYS-012",
+      "section": "Description",
+      "span": [
+        63,
+        64
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-SYS-020",
+      "section": "Description",
+      "span": [
+        42,
+        43
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-SYS-021",
+      "section": "Description",
+      "span": [
+        26,
+        27
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "quality",
+      "severity": "info",
+      "rule": "indefinite-article",
+      "message": "an indefinite article leaves which one open - use \"the\" and name the item",
+      "reqId": "MRTM-SYS-024",
+      "section": "Description",
+      "span": [
+        24,
+        26
+      ],
+      "detail": "\"The system shall write a log entry to a file\" does not say which file, so two implementations both satisfy it and only one is wanted. The definite article names one thing, and a defined term is better still: the dictionary then says what the thing is. Sometimes correct: \"a\" quantifying a genuinely arbitrary member of a declared set (\"any one of the four channels\") — say the set, and the article stops mattering."
+    },
+    {
+      "engine": "structure",
+      "severity": "info",
+      "rule": "under-decomposition",
+      "message": "MRTM-SYS-004 has one child, which restates it — merge the two, or add the sibling",
+      "reqId": "MRTM-SYS-004",
+      "detail": "A decomposition into one is a restatement, not a decomposition: either the two belong together, or the sibling that completes the picture is missing."
+    },
+    {
+      "engine": "structure",
+      "severity": "info",
+      "rule": "under-decomposition",
+      "message": "MRTM-SYS-011 has one child, which restates it — merge the two, or add the sibling",
+      "reqId": "MRTM-SYS-011",
+      "detail": "A decomposition into one is a restatement, not a decomposition: either the two belong together, or the sibling that completes the picture is missing."
+    },
+    {
+      "engine": "structure",
+      "severity": "info",
+      "rule": "under-decomposition",
+      "message": "MRTM-SYS-014 has one child, which restates it — merge the two, or add the sibling",
+      "reqId": "MRTM-SYS-014",
+      "detail": "A decomposition into one is a restatement, not a decomposition: either the two belong together, or the sibling that completes the picture is missing."
+    },
+    {
+      "engine": "structure",
+      "severity": "info",
+      "rule": "under-decomposition",
+      "message": "MRTM-SYS-020 has one child, which restates it — merge the two, or add the sibling",
+      "reqId": "MRTM-SYS-020",
+      "detail": "A decomposition into one is a restatement, not a decomposition: either the two belong together, or the sibling that completes the picture is missing."
+    },
+    {
+      "engine": "verification",
+      "severity": "warning",
+      "rule": "missing-result",
+      "message": "Nothing in the declared test reports says what happened when MRTM-ENV-001's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.",
+      "reqId": "MRTM-ENV-001"
+    },
+    {
+      "engine": "verification",
+      "severity": "warning",
+      "rule": "missing-result",
+      "message": "Nothing in the declared test reports says what happened when MRTM-ENV-002's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.",
+      "reqId": "MRTM-ENV-002"
+    },
+    {
+      "engine": "verification",
+      "severity": "warning",
+      "rule": "missing-result",
+      "message": "Nothing in the declared test reports says what happened when MRTM-ENV-003's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.",
+      "reqId": "MRTM-ENV-003"
+    },
+    {
+      "engine": "verification",
+      "severity": "warning",
+      "rule": "missing-result",
+      "message": "Nothing in the declared test reports says what happened when MRTM-ENV-004's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.",
+      "reqId": "MRTM-ENV-004"
+    },
+    {
+      "engine": "verification",
+      "severity": "warning",
+      "rule": "missing-result",
+      "message": "Nothing in the declared test reports says what happened when MRTM-IFC-004's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.",
+      "reqId": "MRTM-IFC-004"
+    },
+    {
+      "engine": "verification",
+      "severity": "warning",
+      "rule": "missing-result",
+      "message": "Nothing in the declared test reports says what happened when MRTM-MNT-001's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.",
+      "reqId": "MRTM-MNT-001"
+    },
+    {
+      "engine": "verification",
+      "severity": "warning",
+      "rule": "missing-result",
+      "message": "Nothing in the declared test reports says what happened when MRTM-SAF-001's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.",
+      "reqId": "MRTM-SAF-001"
+    },
+    {
+      "engine": "verification",
+      "severity": "warning",
+      "rule": "missing-result",
+      "message": "Nothing in the declared test reports says what happened when MRTM-SAF-013's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.",
+      "reqId": "MRTM-SAF-013"
+    },
+    {
+      "engine": "verification",
+      "severity": "warning",
+      "rule": "missing-result",
+      "message": "Nothing in the declared test reports says what happened when MRTM-SAF-020's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.",
+      "reqId": "MRTM-SAF-020"
+    },
+    {
+      "engine": "verification",
+      "severity": "warning",
+      "rule": "missing-result",
+      "message": "Nothing in the declared test reports says what happened when MRTM-STK-001's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.",
+      "reqId": "MRTM-STK-001"
+    },
+    {
+      "engine": "verification",
+      "severity": "warning",
+      "rule": "missing-result",
+      "message": "Nothing in the declared test reports says what happened when MRTM-STK-003's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.",
+      "reqId": "MRTM-STK-003"
+    },
+    {
+      "engine": "verification",
+      "severity": "warning",
+      "rule": "missing-result",
+      "message": "Nothing in the declared test reports says what happened when MRTM-STK-004's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.",
+      "reqId": "MRTM-STK-004"
+    },
+    {
+      "engine": "verification",
+      "severity": "warning",
+      "rule": "missing-result",
+      "message": "Nothing in the declared test reports says what happened when MRTM-STK-005's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.",
+      "reqId": "MRTM-STK-005"
+    },
+    {
+      "engine": "verification",
+      "severity": "warning",
+      "rule": "missing-result",
+      "message": "Nothing in the declared test reports says what happened when MRTM-STK-007's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.",
+      "reqId": "MRTM-STK-007"
+    },
+    {
+      "engine": "verification",
+      "severity": "warning",
+      "rule": "missing-result",
+      "message": "Nothing in the declared test reports says what happened when MRTM-STK-008's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.",
+      "reqId": "MRTM-STK-008"
+    },
+    {
+      "engine": "verification",
+      "severity": "warning",
+      "rule": "missing-result",
+      "message": "Nothing in the declared test reports says what happened when MRTM-SYS-016's case ran. The chain reaches a procedure and stops: a case that exists and was never run is an obligation whose evidence is a plan, and a plan is not evidence.",
+      "reqId": "MRTM-SYS-016"
+    },
+    {
+      "engine": "safety",
+      "severity": "info",
+      "rule": "single-point-failure",
+      "message": "HAZ-002 is mitigated by MRTM-SAF-011 alone, so that one requirement is everything standing between the hazard and its consequence. If the applicable standard expects independent mitigation at this level, this is where it is missing.",
+      "reqId": "MRTM-SAF-011"
+    },
+    {
+      "engine": "impact",
+      "severity": "info",
+      "rule": "wide-impact",
+      "message": "Changing MRTM-STK-002 reaches 23 other artifacts — 3 already implemented, 5 code symbols traced to them. MRTM-STK-002 rests on nothing above it, so a change here starts at the top and every artifact below has to be revisited. Ask Sanad what a specific change affects to see the trace path to each one. 6 of them were reached through a link inferred from prose rather than a structured field — treat those as candidates.",
+      "reqId": "MRTM-STK-002",
+      "heuristic": true,
+      "related": [
+        {
+          "reqId": "10-src/config/mrtm_config.h#off",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/limit_evaluator/src/limit_evaluator.c#limit_evaluator_step",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "MRTM-SYS-002",
+          "note": "reached in 1 hop"
+        },
+        {
+          "reqId": "MRTM-SYS-018",
+          "note": "reached in 1 hop"
+        },
+        {
+          "reqId": "MRTM-SYS-024",
+          "note": "reached in 1 hop"
+        },
+        {
+          "reqId": "SP-01",
+          "note": "reached in 1 hop"
+        },
+        {
+          "reqId": "SP-01-H",
+          "note": "reached in 2 hops"
+        }
+      ]
+    },
+    {
+      "engine": "impact",
+      "severity": "info",
+      "rule": "wide-impact",
+      "message": "Changing MRTM-STK-003 reaches 18 other artifacts — 5 already implemented, 6 code symbols traced to them. MRTM-STK-003 rests on nothing above it, so a change here starts at the top and every artifact below has to be revisited. Ask Sanad what a specific change affects to see the trace path to each one.",
+      "reqId": "MRTM-STK-003",
+      "related": [
+        {
+          "reqId": "10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_button_debounced",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_button_isr",
+          "note": "reached in 3 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_post",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "MRTM-IFC-002",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "MRTM-SAF-019",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "MRTM-SYS-006",
+          "note": "reached in 1 hop"
+        },
+        {
+          "reqId": "MRTM-SYS-007",
+          "note": "reached in 1 hop"
+        }
+      ]
+    },
+    {
+      "engine": "impact",
+      "severity": "info",
+      "rule": "wide-impact",
+      "message": "Changing MRTM-STK-004 reaches 42 other artifacts — 9 already implemented, 12 code symbols traced to them. MRTM-STK-004 rests on nothing above it, so a change here starts at the top and every artifact below has to be revisited. Ask Sanad what a specific change affects to see the trace path to each one.",
+      "reqId": "MRTM-STK-004",
+      "related": [
+        {
+          "reqId": "10-src/config/mrtm_config.h#off",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/display_mgr/src/display_mgr.cpp#display_mgr_tick",
+          "note": "reached in 3 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame",
+          "note": "reached in 3 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_power_up",
+          "note": "reached in 3 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step",
+          "note": "reached in 3 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_init",
+          "note": "reached in 3 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_probe_fault",
+          "note": "reached in 3 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read",
+          "note": "reached in 2 hops"
+        }
+      ]
+    },
+    {
+      "engine": "impact",
+      "severity": "info",
+      "rule": "wide-impact",
+      "message": "Changing MRTM-STK-006 reaches 26 other artifacts — 4 already implemented, 7 code symbols traced to them. MRTM-STK-006 rests on nothing above it, so a change here starts at the top and every artifact below has to be revisited. Ask Sanad what a specific change affects to see the trace path to each one. 8 of them were reached through a link inferred from prose rather than a structured field — treat those as candidates.",
+      "reqId": "MRTM-STK-006",
+      "heuristic": true,
+      "related": [
+        {
+          "reqId": "10-src/firmware/components/event_log/src/event_log.c#event_log_step",
+          "note": "reached in 3 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/history_ring/src/history_ring.c#history_ring_append",
+          "note": "reached in 3 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/history_ring/src/history_ring.c#history_ring_read",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/mrtm_common/src/mrtm_crc.c#mrtm_crc32",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/usb_export/src/usb_export.c#usb_export_init",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/usb_export/src/usb_export.c#usb_export_read10",
+          "note": "reached in 3 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/usb_export/src/usb_export.c#usb_export_write10",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "MRTM-IFC-003",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "MRTM-SAF-018",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "MRTM-SYS-014",
+          "note": "reached in 1 hop"
+        }
+      ]
+    },
+    {
+      "engine": "impact",
+      "severity": "info",
+      "rule": "wide-impact",
+      "message": "Changing MRTM-STK-007 reaches 23 other artifacts — 4 already implemented, 9 code symbols traced to them. MRTM-STK-007 rests on nothing above it, so a change here starts at the top and every artifact below has to be revisited. Ask Sanad what a specific change affects to see the trace path to each one.",
+      "reqId": "MRTM-STK-007",
+      "related": [
+        {
+          "reqId": "10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step",
+          "note": "reached in 3 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#take",
+          "note": "reached in 3 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/display_mgr/src/display_mgr.cpp#renderFrame",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_display_step",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_sensor_step",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/mrtm_common/src/mrtm_crc.c#mrtm_crc8_maxim",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_probe_fault",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/sensor_sampler/src/sensor_sampler.c#sensor_sampler_read",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "MRTM-MNT-001",
+          "note": "reached in 2 hops"
+        }
+      ]
+    },
+    {
+      "engine": "impact",
+      "severity": "info",
+      "rule": "wide-impact",
+      "message": "Changing MRTM-STK-008 reaches 23 other artifacts — 4 already implemented, 7 code symbols traced to them. MRTM-STK-008 rests on nothing above it, so a change here starts at the top and every artifact below has to be revisited. Ask Sanad what a specific change affects to see the trace path to each one.",
+      "reqId": "MRTM-STK-008",
+      "related": [
+        {
+          "reqId": "10-src/firmware/components/alarm_mgr/src/alarm_mgr.c#alarm_mgr_step",
+          "note": "reached in 3 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/display_mgr/src/display_mgr.cpp#draw",
+          "note": "reached in 3 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/event_log/src/event_log.c#event_log_post",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/mrtm_app/src/mrtm_app.c#app_supervisor_step",
+          "note": "reached in 3 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/power_mon/src/power_mon.c#power_mon_isr",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/power_mon/src/power_mon.c#power_mon_step",
+          "note": "reached in 3 hops"
+        },
+        {
+          "reqId": "10-src/firmware/components/rtc_clock/src/rtc_clock.c#rtc_clock_now",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "MRTM-ENV-001",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "MRTM-MNT-002",
+          "note": "reached in 2 hops"
+        },
+        {
+          "reqId": "MRTM-SAF-005",
+          "note": "reached in 2 hops"
+        }
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "engine": "validation",
+      "key": "validation.requirements",
+      "value": 70,
+      "unit": "count"
+    },
+    {
+      "engine": "validation",
+      "key": "validation.errors",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "validation",
+      "key": "validation.warnings",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "validation",
+      "key": "validation.filesMalformed",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "validation",
+      "key": "validation.filesNotRequirements",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "validation",
+      "key": "validation.filesIgnored",
+      "value": 7,
+      "unit": "count"
+    },
+    {
+      "engine": "validation",
+      "key": "validation.clean",
+      "value": 100,
+      "unit": "percent"
+    },
+    {
+      "engine": "traceability",
+      "key": "traceability.stakeholder.coverage",
+      "value": 100,
+      "unit": "percent"
+    },
+    {
+      "engine": "traceability",
+      "key": "traceability.system.coverage",
+      "value": 50,
+      "unit": "percent"
+    },
+    {
+      "engine": "traceability",
+      "key": "traceability.orphans",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "traceability",
+      "key": "traceability.derivedExemptions",
+      "value": 0,
+      "unit": "count",
+      "evidence": []
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-ENV-001"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-ENV-002"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-ENV-003"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-ENV-004"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-IFC-001"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-IFC-002"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-IFC-003"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-IFC-004"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-MNT-001"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-MNT-002"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-MNT-003"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-PRF-001"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-PRF-002"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-PRF-003"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-PRF-004"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-001"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-002"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-003"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-004"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-005"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-006"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-007"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-008"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-009"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-010"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-011"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-012"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-013"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-014"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-015"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-016"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-017"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-018"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-019"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-020"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-021"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-022"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SAF-023"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-STK-001"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-STK-002"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-STK-003"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-STK-004"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-STK-005"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-STK-006"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-STK-007"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-STK-008"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-001"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-002"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-003"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-004"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-005"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-006"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-SYS-007"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-008"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-009"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-010"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-011"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-012"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-013"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-SYS-014"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-SYS-015"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-016"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-017"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-018"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-019"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-020"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-021"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-022"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-023"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.score",
+      "value": 100,
+      "unit": "score",
+      "reqId": "MRTM-SYS-024"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.scored",
+      "value": 70,
+      "unit": "count"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.repoMean",
+      "value": 99,
+      "unit": "score"
+    },
+    {
+      "engine": "quality",
+      "key": "quality.worst",
+      "value": 92,
+      "unit": "score",
+      "reqId": "MRTM-ENV-003",
+      "evidence": [
+        "MRTM-ENV-003"
+      ]
+    },
+    {
+      "engine": "structure",
+      "key": "structure.depth.max",
+      "value": 3,
+      "unit": "count"
+    },
+    {
+      "engine": "structure",
+      "key": "structure.undecomposed",
+      "value": 12,
+      "unit": "count"
+    },
+    {
+      "engine": "structure",
+      "key": "structure.fanout.mean",
+      "value": 3.1,
+      "unit": "score"
+    },
+    {
+      "engine": "verification",
+      "key": "verification.coverage",
+      "value": 100,
+      "unit": "percent"
+    },
+    {
+      "engine": "implementation",
+      "key": "implementation.coverage",
+      "value": 85,
+      "unit": "percent",
+      "evidence": [
+        "MRTM-ENV-001",
+        "MRTM-ENV-002",
+        "MRTM-ENV-003",
+        "MRTM-ENV-004",
+        "MRTM-MNT-001",
+        "MRTM-SAF-001",
+        "MRTM-SAF-013",
+        "MRTM-SAF-020",
+        "MRTM-SYS-016"
+      ]
+    },
+    {
+      "engine": "implementation",
+      "key": "implementation.untracedSymbols",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "safety",
+      "key": "safety.hazardCoverage",
+      "value": 100,
+      "unit": "percent",
+      "evidence": [
+        "HAZ-001",
+        "HAZ-002",
+        "HAZ-003",
+        "HAZ-004",
+        "HAZ-005",
+        "HAZ-006",
+        "HAZ-007",
+        "HAZ-008"
+      ]
+    },
+    {
+      "engine": "safety",
+      "key": "safety.rigourViolations",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "architecture",
+      "key": "architecture.allocationCoverage",
+      "value": 98,
+      "unit": "percent"
+    },
+    {
+      "engine": "consistency",
+      "key": "consistency.unitViolations",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "consistency",
+      "key": "consistency.comparedPairs",
+      "value": 130,
+      "unit": "count"
+    },
+    {
+      "engine": "consistency",
+      "key": "consistency.uncomparedRequirements",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "conformance",
+      "key": "conformance.assignedSymbols",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "conformance",
+      "key": "conformance.unassignedSymbols",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "conformance",
+      "key": "conformance.dependencies",
+      "value": 16,
+      "unit": "count"
+    },
+    {
+      "engine": "conformance",
+      "key": "conformance.violations",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "impact",
+      "key": "impact.changeOrigins",
+      "value": 6,
+      "unit": "count"
+    },
+    {
+      "engine": "impact",
+      "key": "impact.originsUntraversed",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "impact",
+      "key": "impact.blastRadius.max",
+      "value": 42,
+      "unit": "count",
+      "evidence": [
+        "MRTM-STK-004"
+      ]
+    }
+  ]
+}

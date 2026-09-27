@@ -1,0 +1,4 @@
+erew: Error: --report approvals reads the review ledger at /home/masood/.cache/tmp-dogfood1/vsix/extension/qual, and there is no such directory. An approvals page with no ledger behind it would state that nothing was ever approved; run it from a source checkout.
+    at approvalsRows (/home/masood/.cache/tmp-dogfood1/vsix/extension/dist/analysis/approvals.js:154:15)
+    at reportApprovals (/home/masood/.cache/tmp-dogfood1/vsix/extension/dist/analysis/approvals.js:258:38)
+    at run (/home/masood/.cache/tmp-dogfood1/vsix/extension/dist/cli.js:1552:66)

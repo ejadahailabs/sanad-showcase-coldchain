@@ -1,0 +1,201 @@
+{
+  "pack": "requirements-writing",
+  "engines": [
+    "validation",
+    "traceability",
+    "quality",
+    "structure",
+    "verification",
+    "consistency",
+    "impact"
+  ],
+  "skipped": [
+    {
+      "engine": "implementation",
+      "missingRoles": [
+        "implements"
+      ]
+    },
+    {
+      "engine": "safety",
+      "missingRoles": [
+        "hazard"
+      ]
+    },
+    {
+      "engine": "security",
+      "missingRoles": [
+        "threat"
+      ]
+    },
+    {
+      "engine": "architecture",
+      "missingRoles": [
+        "allocation"
+      ]
+    },
+    {
+      "engine": "interface",
+      "missingRoles": [
+        "interface"
+      ]
+    },
+    {
+      "engine": "conformance",
+      "missingRoles": [
+        "allocation"
+      ]
+    }
+  ],
+  "unlicensed": [],
+  "disabled": [],
+  "noRulePack": [],
+  "cancelled": [],
+  "findings": [
+    {
+      "engine": "validation",
+      "severity": "info",
+      "rule": "not-a-requirement",
+      "message": "README.md: not a \"environmental\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-ENV-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
+      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/03-requirements/environmental/README.md"
+    },
+    {
+      "engine": "validation",
+      "severity": "info",
+      "rule": "not-a-requirement",
+      "message": "README.md: not a \"interface\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-IFC-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
+      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/03-requirements/interface/README.md"
+    },
+    {
+      "engine": "validation",
+      "severity": "info",
+      "rule": "not-a-requirement",
+      "message": "README.md: not a \"maintainability\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-MNT-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
+      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/03-requirements/maintainability/README.md"
+    },
+    {
+      "engine": "validation",
+      "severity": "info",
+      "rule": "not-a-requirement",
+      "message": "README.md: not a \"performance\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-PRF-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
+      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/03-requirements/performance/README.md"
+    },
+    {
+      "engine": "validation",
+      "severity": "info",
+      "rule": "not-a-requirement",
+      "message": "README.md: not a \"safety\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-SAF-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
+      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/03-requirements/safety/README.md"
+    },
+    {
+      "engine": "validation",
+      "severity": "info",
+      "rule": "not-a-requirement",
+      "message": "README.md: not a \"stakeholder\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-STK-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
+      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/03-requirements/stakeholder/README.md"
+    },
+    {
+      "engine": "validation",
+      "severity": "info",
+      "rule": "not-a-requirement",
+      "message": "README.md: not a \"system\" requirement: its name \"README\" does not match this type's naming convention (an ID starting \"MRTM-SYS-\"). If it IS one, rename it to match; if not, add \"README.md\" to `ignore` in .ejadah/rew/config.yaml.",
+      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/03-requirements/system/README.md"
+    },
+    {
+      "engine": "validation",
+      "severity": "warning",
+      "rule": "clean-not-computed",
+      "message": "Clean % not computed — no requirement was checked, so it has no denominator",
+      "path": "/home/masood/Masood/Office_Projects/dogfood-fridge/.ejadah/rew/config.yaml",
+      "detail": "Validation ran and checked 0 requirements: 0 file(s) failed to load, 7 are present but are not requirements, and 0 are ignored. A percentage over nothing is not 100 % and is not 0 % — it does not exist, so no clean figure is published for this run and the Health Score leaves it out rather than scoring an absence. Fix the malformed files (each is reported on its own file), or the folders in `setup.paths`. Sometimes correct: a repository part-way through setup legitimately has no requirements yet — this says the number is missing, not that anything is broken."
+    },
+    {
+      "engine": "impact",
+      "severity": "info",
+      "rule": "impact-incomplete",
+      "message": "Impact is bounded here by 1 limit — these numbers are not a clean result",
+      "detail": "Impact analysis is bounded here: no symbol index took part in this run, so no blast radius above counts the code a change would reach — that number is absent, not zero."
+    }
+  ],
+  "metrics": [
+    {
+      "engine": "validation",
+      "key": "validation.requirements",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "validation",
+      "key": "validation.errors",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "validation",
+      "key": "validation.warnings",
+      "value": 1,
+      "unit": "count"
+    },
+    {
+      "engine": "validation",
+      "key": "validation.filesMalformed",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "validation",
+      "key": "validation.filesNotRequirements",
+      "value": 7,
+      "unit": "count"
+    },
+    {
+      "engine": "validation",
+      "key": "validation.filesIgnored",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "traceability",
+      "key": "traceability.orphans",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "traceability",
+      "key": "traceability.derivedExemptions",
+      "value": 0,
+      "unit": "count",
+      "evidence": []
+    },
+    {
+      "engine": "quality",
+      "key": "quality.scored",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "structure",
+      "key": "structure.depth.max",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "structure",
+      "key": "structure.undecomposed",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "impact",
+      "key": "impact.changeOrigins",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "engine": "impact",
+      "key": "impact.originsUntraversed",
+      "value": 0,
+      "unit": "count"
+    }
+  ]
+}

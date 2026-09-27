@@ -1,0 +1,20 @@
+# Component Inventory
+
+**Export schema:** `sanad/component-inventory/1`
+
+12 declared component(s).
+
+| Component | Title | Owns | May use | Outside uses | Allocated requirements | Low-level | Allocated from model |
+|---|---|---|---|---|---|---|---|
+| `alarmMgr` | Alarm manager | `10-src/firmware/components/alarm_mgr/src/**`, `10-src/firmware/components/alarm_mgr/include/**` — not measured | `eventLog`, `configMgr` | none | `MRTM-IFC-002`, `MRTM-PRF-002`, `MRTM-SAF-001`, `MRTM-SAF-002`, `MRTM-SAF-006`, `MRTM-SAF-008`, `MRTM-SAF-010`, `MRTM-SAF-011`, `MRTM-SAF-014`, `MRTM-SAF-015`, `MRTM-SAF-017`, `MRTM-SAF-019`, `MRTM-SYS-003`, `MRTM-SYS-004`, `MRTM-SYS-006`, `MRTM-SYS-019` | 12 | none |
+| `configMgr` | Configuration manager | `10-src/firmware/components/config_mgr/src/**`, `10-src/firmware/components/config_mgr/include/**` — not measured | `eventLog` | none | `MRTM-SAF-017` | 1 | none |
+| `diagnostics` | Diagnostics | `10-src/firmware/components/diagnostics/src/**`, `10-src/firmware/components/diagnostics/include/**` — not measured | `alarmMgr`, `eventLog`, `configMgr`, `rtcClock`, `wdtKicker` | none | `MRTM-SAF-007`, `MRTM-SAF-023` | 2 | none |
+| `displayMgr` | Display manager | `10-src/firmware/components/display_mgr/src/**`, `10-src/firmware/components/display_mgr/include/**` — not measured | `alarmMgr`, `configMgr`, `historyRing`, `eventLog` | none | `MRTM-IFC-004`, `MRTM-MNT-002`, `MRTM-MNT-003`, `MRTM-PRF-004`, `MRTM-SAF-012`, `MRTM-SAF-016`, `MRTM-SAF-021`, `MRTM-SYS-005`, `MRTM-SYS-007`, `MRTM-SYS-011`, `MRTM-SYS-013`, `MRTM-SYS-022` | 7 | none |
+| `eventLog` | Event logger | `10-src/firmware/components/event_log/src/**`, `10-src/firmware/components/event_log/include/**` — not measured | `historyRing`, `rtcClock` | none | `MRTM-SAF-018`, `MRTM-SYS-008`, `MRTM-SYS-009`, `MRTM-SYS-010`, `MRTM-SYS-023` | 1 | none |
+| `historyRing` | History ring buffer | `10-src/firmware/components/history_ring/src/**`, `10-src/firmware/components/history_ring/include/**` — not measured | `eventLog` | none | `MRTM-SAF-018`, `MRTM-SYS-015`, `MRTM-SYS-021`, `MRTM-SYS-022` | 1 | none |
+| `limitEvaluator` | Limit evaluator | `10-src/firmware/components/limit_evaluator/src/**`, `10-src/firmware/components/limit_evaluator/include/**` — not measured | `configMgr`, `sensorSampler` | none | `MRTM-SYS-002`, `MRTM-SYS-017`, `MRTM-SYS-018` | 0 | none |
+| `powerMon` | Power monitor | `10-src/firmware/components/power_mon/src/**`, `10-src/firmware/components/power_mon/include/**` — not measured | `eventLog`, `alarmMgr` | none | `MRTM-SAF-005`, `MRTM-SAF-008`, `MRTM-SYS-016` | 2 | none |
+| `rtcClock` | Real-time clock | `10-src/firmware/components/rtc_clock/src/**`, `10-src/firmware/components/rtc_clock/include/**` — not measured | `eventLog` | none | `MRTM-SAF-022`, `MRTM-SYS-020` | 1 | none |
+| `sensorSampler` | Sensor sampler | `10-src/firmware/components/sensor_sampler/src/**`, `10-src/firmware/components/sensor_sampler/include/**` — not measured | `configMgr`, `eventLog` | none | `MRTM-IFC-001`, `MRTM-PRF-001`, `MRTM-SAF-003`, `MRTM-SYS-001`, `MRTM-SYS-012` | 3 | none |
+| `usbExport` | USB exporter | `10-src/firmware/components/usb_export/src/**`, `10-src/firmware/components/usb_export/include/**` — not measured | `historyRing` | none | `MRTM-IFC-003`, `MRTM-PRF-003`, `MRTM-SYS-014` | 2 | none |
+| `wdtKicker` | Watchdog kicker | `10-src/firmware/components/wdt_kicker/src/**`, `10-src/firmware/components/wdt_kicker/include/**` — not measured | **nothing** | none | `MRTM-SAF-004`, `MRTM-SAF-009`, `MRTM-SAF-010` | 3 | none |

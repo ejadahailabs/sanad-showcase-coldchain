@@ -1,0 +1,3 @@
+# sanad/verification-matrix/1
+# This repository declares no verification vocabulary — no `verifies`, `method` or `disposition` role — and no producer asserted a verification case, so there is nothing to report coverage over. That is not 0 % covered: it is a question this repository has not yet given Sanad the words to ask.
+Requirement,Coverage item,Case,Method,Disposition,Outcome,Retry,Reason,Report,Structural coverage,Commit,Level,Problem report

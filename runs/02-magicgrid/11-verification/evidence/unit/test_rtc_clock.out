@@ -1,0 +1,7 @@
+firmware/components/rtc_clock/test/test_rtc_clock.c:51:test_oscillator_stop_at_power_up_logs_clock_fault:PASS
+firmware/components/rtc_clock/test/test_rtc_clock.c:52:test_now_is_the_rtc_copy_refreshed_each_second:PASS
+firmware/components/rtc_clock/test/test_rtc_clock.c:53:test_error_codes_bus_and_arg:PASS
+
+-----------------------
+3 Tests 0 Failures 0 Ignored 
+OK

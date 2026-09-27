@@ -1,0 +1,18 @@
+# sanad/trace-matrices-csv/1
+
+# Requirements → Allocated items (requirement to allocated item)
+ID,Title,Criticality,Linked,Verifying cases,Verification,Implemented by
+
+# Allocated items → Requirements (item to requirements)
+ID,Title,Criticality,Linked,Verifying cases,Verification,Implemented by
+ClinicManager,,not classified,,,n/a — allocated item,
+Fridge,,not classified,,,n/a — allocated item,
+Monitor,,not classified,,,n/a — allocated item,
+MrtmContext,,not classified,,,n/a — allocated item,
+Nurse,,not classified,,,n/a — allocated item,
+QualityOfficer,,not classified,,,n/a — allocated item,
+Technician,,not classified,,,n/a — allocated item,
+fridge,,not classified,,,n/a — allocated item,
+monitor,,not classified,,,n/a — allocated item,
+nurse,,not classified,,,n/a — allocated item,
+technician,,not classified,,,n/a — allocated item,

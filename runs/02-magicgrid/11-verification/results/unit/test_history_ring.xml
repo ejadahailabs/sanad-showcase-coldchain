@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test_history_ring" tests="8" failures="0" errors="0" skipped="0" timestamp="2026-09-27T00:00:00">
+  <properties>
+    <property name="tester" value="DOGFOOD-6 (agent, no independence)"/>
+    <property name="date" value="2026-09-27"/>
+    <property name="build" value="c32f4f1"/>
+    <property name="environment" value="host: gcc 15.2 + Unity v2.6.1 + hal_host stubs"/>
+    <property name="evidence" value="11-verification/evidence/unit/test_history_ring.out"/>
+  </properties>
+  <testcase classname="test_history_ring" name="test_append_writes_copy_a_and_copy_b" time="0"/>
+  <testcase classname="test_history_ring" name="test_retains_10000_records_after_wrapping" time="0"/>
+  <testcase classname="test_history_ring" name="test_retains_10000_straight_after_an_erase_ahead" time="0"/>
+  <testcase classname="test_history_ring" name="test_corrupt_copy_a_is_read_from_copy_b" time="0"/>
+  <testcase classname="test_history_ring" name="test_both_copies_corrupt_reports_err_crc_and_logs_it" time="0"/>
+  <testcase classname="test_history_ring" name="test_capacity_warning_once_at_9000" time="0"/>
+  <testcase classname="test_history_ring" name="test_init_finds_the_head_again_after_a_restart" time="0"/>
+  <testcase classname="test_history_ring" name="test_error_codes_flash_arg" time="0"/>
+</testsuite>

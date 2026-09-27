@@ -1,0 +1,24 @@
+info    impact/impact-incomplete  (repository)  Impact is bounded here by 1 limit — these numbers are not a clean result
+info    quality/indefinite-article  MRTM-ENV-002  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-ENV-003  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-ENV-004  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-IFC-003  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-IFC-004  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-MNT-001  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-PRF-001  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-PRF-004  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SAF-001  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SAF-003  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-SAF-004  an indefinite article leaves which one open - use "the" and name the item
+info    quality/indefinite-article  MRTM-STK-008  an indefinite article leaves which one open - use "the" and name the item
+info    sysml-project/sysml-unresolved-import  06-design/system/MrtmUseCases.sysml  line 4: `import ScalarValues` names nothing this project declares
+info    sysml-project/sysml-unresolved-import  06-design/views/SanadRenderings.sysml  line 8: `import Views` names nothing this project declares
+info    structure/under-decomposition  MRTM-STK-002  MRTM-STK-002 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-STK-006  MRTM-STK-006 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-STK-008  MRTM-STK-008 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SYS-005  MRTM-SYS-005 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SYS-006  MRTM-SYS-006 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SYS-011  MRTM-SYS-011 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SYS-014  MRTM-SYS-014 has one child, which restates it — merge the two, or add the sibling
+info    structure/under-decomposition  MRTM-SYS-015  MRTM-SYS-015 has one child, which restates it — merge the two, or add the sibling
+info    impact/wide-impact  MRTM-STK-004  Changing MRTM-STK-004 reaches 11 other artifacts. MRTM-STK-004 rests on nothing above it, so a change here starts at the top and every artifact below has to be revisited. Ask Sanad what a specific change affects to see the trace path to each one.

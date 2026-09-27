@@ -1,0 +1,5 @@
+erew: Error: --report catalogue needs this build's own source tree to read src/analysis/reports.ts, and none was found above /home/masood/.cache/tmp-dogfood1/vsix/extension/dist/analysis. A packaged extension does not ship src/; run the catalogue from a source checkout.
+    at findSourceRoot (/home/masood/.cache/tmp-dogfood1/vsix/extension/dist/analysis/catalogue.js:72:11)
+    at catalogueRows (/home/masood/.cache/tmp-dogfood1/vsix/extension/dist/analysis/catalogue.js:151:37)
+    at reportCatalogue (/home/masood/.cache/tmp-dogfood1/vsix/extension/dist/analysis/catalogue.js:243:18)
+    at run (/home/masood/.cache/tmp-dogfood1/vsix/extension/dist/cli.js:1537:60)

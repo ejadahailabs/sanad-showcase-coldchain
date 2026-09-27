@@ -1,0 +1,4 @@
+node_modules/
+.cache/
+*.log
+!11-verification/evidence/**/*.log

@@ -1,0 +1,4 @@
+# Planted-defect check for DEF-001 (DOGFOOD-5, 2026-09-27)
+MRTM_LOG_SECTORS set back to 79 in a scratch copy of mrtm_config.h; history_ring.c compiled against it:
+firmware/components/history_ring/src/history_ring.c:10:1: error: static assertion failed: "ring too small: erase-ahead must still leave MRTM_LOG_CAPACITY records"
+rc=1 (non-zero = refused, as intended)

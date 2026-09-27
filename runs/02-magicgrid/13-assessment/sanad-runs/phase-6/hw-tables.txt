@@ -1,0 +1,2 @@
+pins 15, parts 12, normal 42.48 mA, alarm 80.48 mA, battery 49.0/25.8 h, hold-up 133 s, matrix 29x28
+rc=0

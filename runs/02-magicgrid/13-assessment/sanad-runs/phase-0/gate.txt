@@ -1,0 +1,2 @@
+warning validation/clean-not-computed  /home/masood/Masood/Office_Projects/dogfood-fridge/.ejadah/rew/config.yaml  Clean % not computed — no requirement was checked, so it has no denominator
+info    impact/impact-incomplete  (repository)  Impact is bounded here by 1 limit — these numbers are not a clean result

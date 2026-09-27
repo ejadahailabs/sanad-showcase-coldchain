@@ -1,0 +1,14 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Verification plan — MRTM-SYS-017</title><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'nonce-dogfood'; script-src 'nonce-dogfood';"><style nonce="dogfood">
+body{font:13px/1.5 var(--vscode-font-family,sans-serif);padding:1rem;max-width:64rem}
+h1{font-size:1.2rem;margin:0 0 .2rem}
+.subject{margin:0 0 1rem;opacity:.8}
+section{margin:0 0 1.25rem}
+h2{font-size:1rem;margin:0 0 .35rem}
+table{border-collapse:collapse;width:100%}
+th,td{text-align:left;padding:.2rem .5rem;border-bottom:1px solid var(--vscode-panel-border,#8884);vertical-align:top}
+.locked,.standdown{opacity:.85}
+button{padding:.35rem .8rem}
+</style></head><body><h1>Verification plan — <code>MRTM-SYS-017</code></h1><p class="subject">Allowed band</p><section id="band"><h2>Rigour band</h2><p><strong>4</strong></p></section><section id="depth"><h2>Confirmed depth</h2><p><strong>none confirmed for this band</strong> — no condition-combination item is derived, and one derived under a depth nobody chose would be an obligation nobody asked for.</p></section><section id="categories"><h2>Categories (0)</h2><p>No rule pack states which categories a band owes, so none is named here. That is not a statement that this requirement owes no cases.</p></section><section id="items"><h2>Coverage items (0)</h2><table><thead><tr><th>Item</th><th>Category</th><th>Lane</th><th>Value</th><th>Drawn from</th></tr></thead><tbody></tbody></table></section><section id="standdowns"><h2>What this plan could not derive</h2><ul><li>MRTM-SYS-017 names no parameter this repository's dictionary declares, so no boundary, partition or value item is derivable from it. Declare the parameters it drives, or add the spelling its prose uses as an alias — this is not a statement that it has none.</li></ul></section><section id="gate"><h2>Approval</h2><p class="locked">Drafting is locked until you approve this plan. Approving says the band, the categories, the coverage items and the depth below are the right set to draft against — not that any case is correct.</p><button id="approve" type="button">Approve plan</button></section><script nonce="dogfood">
+const vscode = acquireVsCodeApi();
+document.getElementById("approve")?.addEventListener("click", () => vscode.postMessage({ type: "approve" }));
+</script></body></html>

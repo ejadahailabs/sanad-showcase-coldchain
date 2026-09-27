@@ -1,0 +1,4 @@
+# gcc 15.2 -fanalyzer + strict warnings (-Wall -Wextra -Wpedantic -Wconversion -Wshadow -Wcast-qual -Wstrict-prototypes -Wmissing-prototypes -Wswitch-enum -Wundef; C++: -Wold-style-cast) over 13 C files + 1 C++ file of 10-src/firmware (hal_esp32.c excluded: needs ESP-IDF headers). DOGFOOD-5, 2026-09-27.
+First pass: 3 findings (1 analyzer uninitialised-value on alarm_mgr's queue pop, 2 -Wswitch-enum) — fixed (pop() helper; explicit ALARM_QUIET / LIMIT_NONE cases).
+Second pass output below (empty = 0 findings):
+cppcheck: not installed on this box (ADR-0029)

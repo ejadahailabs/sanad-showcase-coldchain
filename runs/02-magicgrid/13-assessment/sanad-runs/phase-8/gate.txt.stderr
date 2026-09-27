@@ -1,0 +1,148 @@
+erew: data dictionary — 01-data-dictionary/data-dictionary.md: 14 parameter(s), 13 mapped to software names
+erew: verification cases — No template declares one of the verification types (verification, verification-hl, verification-component, verification-ll), so there is no folder to read. Declare one in .ejadah/rew/templates — its `type:` names the kind and its `rew.folder:` is where Sanad looks — or list the files under `producers.verification` in the repository config.
+erew: test results — 11-verification/results (systems-verification-results): 0 case result(s) from 0 report(s)
+erew: sysml project — 133 file(s), 228 element(s), 285 relation(s), 2 check(s)
+erew: sysml project — 06-design/hardware/MrtmHardware.sysml declares `MrtmHardware`
+erew: sysml project — 06-design/packages/requirements.sysml declares `ProjectRequirements` (generated — edit the Markdown requirement)
+erew: sysml project — 06-design/software/MrtmSeqExcursion.sysml declares `MrtmSeqExcursion`
+erew: sysml project — 06-design/software/MrtmSeqPowerLoss.sysml declares `MrtmSeqPowerLoss`
+erew: sysml project — 06-design/software/MrtmSeqProbeFault.sysml declares `MrtmSeqProbeFault`
+erew: sysml project — 06-design/software/MrtmSoftware.sysml declares `MrtmSoftware`
+erew: sysml project — 06-design/software/MrtmSwCodes.sysml declares `MrtmSwCodes`
+erew: sysml project — 06-design/software/MrtmSwDetail.sysml declares `MrtmSwDetail`
+erew: sysml project — 06-design/software/MrtmSwStates.sysml declares `MrtmSwStates`
+erew: sysml project — 06-design/system/MrtmInterfaces.sysml declares `MrtmInterfaces`
+erew: sysml project — 06-design/system/MrtmLogical.sysml declares `MrtmLogical`
+erew: sysml project — 06-design/system/MrtmPartitions.sysml declares `MrtmPartitions`
+erew: sysml project — 06-design/system/MrtmPhysical.sysml declares `MrtmPhysical`
+erew: sysml project — 06-design/system/MrtmSafety.sysml declares `MrtmSafety`
+erew: sysml project — 06-design/system/MrtmSystemContext.sysml declares `MrtmSystemContext`
+erew: sysml project — 06-design/system/MrtmUseCases.sysml declares `MrtmUseCases`
+erew: sysml project — 06-design/views/MrtmAlarmStatesView.sysml declares `MrtmAlarmStatesView`
+erew: sysml project — 06-design/views/MrtmAllocationView.sysml declares `MrtmAllocationView`
+erew: sysml project — 06-design/views/MrtmBlocksView.sysml declares `MrtmBlocksView`
+erew: sysml project — 06-design/views/MrtmContainmentView.sysml declares `MrtmContainmentView`
+erew: sysml project — 06-design/views/MrtmContextView.sysml declares `MrtmContextView`
+erew: sysml project — 06-design/views/MrtmDataFlowView.sysml declares `MrtmDataFlowView`
+erew: sysml project — 06-design/views/MrtmDisplayClassesView.sysml declares `MrtmDisplayClassesView`
+erew: sysml project — 06-design/views/MrtmExternalInterfacesView.sysml declares `MrtmExternalInterfacesView`
+erew: sysml project — 06-design/views/MrtmHwBlocksView.sysml declares `MrtmHwBlocksView`
+erew: sysml project — 06-design/views/MrtmHwInterfacesView.sysml declares `MrtmHwInterfacesView`
+erew: sysml project — 06-design/views/MrtmInterfacesView.sysml declares `MrtmInterfacesView`
+erew: sysml project — 06-design/views/MrtmSafetyBlocksView.sysml declares `MrtmSafetyBlocksView`
+erew: sysml project — 06-design/views/MrtmSafetyReqsView.sysml declares `MrtmSafetyReqsView`
+erew: sysml project — 06-design/views/MrtmSeqExcursionView.sysml declares `MrtmSeqExcursionView`
+erew: sysml project — 06-design/views/MrtmSeqPowerLossView.sysml declares `MrtmSeqPowerLossView`
+erew: sysml project — 06-design/views/MrtmSeqProbeFaultView.sysml declares `MrtmSeqProbeFaultView`
+erew: sysml project — 06-design/views/MrtmSwCodesView.sysml declares `MrtmSwCodesView`
+erew: sysml project — 06-design/views/MrtmSwComponentsView.sysml declares `MrtmSwComponentsView`
+erew: sysml project — 06-design/views/MrtmSwContractsView.sysml declares `MrtmSwContractsView`
+erew: sysml project — 06-design/views/MrtmSwWiringView.sysml declares `MrtmSwWiringView`
+erew: sysml project — 06-design/views/MrtmSystemModesView.sysml declares `MrtmSystemModesView`
+erew: sysml project — 06-design/views/MrtmUseCasesView.sysml declares `MrtmUseCasesView`
+erew: sysml project — 06-design/views/SanadRenderings.sysml declares `SanadRenderings`
+erew: sysml project — Domain Libraries/Analysis/AnalysisTooling.sysml declares `AnalysisTooling`
+erew: sysml project — Domain Libraries/Analysis/SampledFunctions.sysml declares `SampledFunctions`
+erew: sysml project — Domain Libraries/Analysis/StateSpaceRepresentation.sysml declares `StateSpaceRepresentation`
+erew: sysml project — Domain Libraries/Analysis/TradeStudies.sysml declares `TradeStudies`
+erew: sysml project — Domain Libraries/Cause and Effect/CausationConnections.sysml declares `CausationConnections`
+erew: sysml project — Domain Libraries/Cause and Effect/CauseAndEffect.sysml declares `CauseAndEffect`
+erew: sysml project — Domain Libraries/Geometry/ShapeItems.sysml declares `ShapeItems`
+erew: sysml project — Domain Libraries/Geometry/SpatialItems.sysml declares `SpatialItems`
+erew: sysml project — Domain Libraries/Metadata/ImageMetadata.sysml declares `ImageMetadata`
+erew: sysml project — Domain Libraries/Metadata/ModelingMetadata.sysml declares `ModelingMetadata`
+erew: sysml project — Domain Libraries/Metadata/ParametersOfInterestMetadata.sysml declares `ParametersOfInterestMetadata`
+erew: sysml project — Domain Libraries/Metadata/RiskMetadata.sysml declares `RiskMetadata`
+erew: sysml project — Domain Libraries/Quantities and Units/ISQ.sysml declares `ISQ`
+erew: sysml project — Domain Libraries/Quantities and Units/ISQAcoustics.sysml declares `ISQAcoustics`
+erew: sysml project — Domain Libraries/Quantities and Units/ISQAtomicNuclear.sysml declares `ISQAtomicNuclear`
+erew: sysml project — Domain Libraries/Quantities and Units/ISQBase.sysml declares `ISQBase`
+erew: sysml project — Domain Libraries/Quantities and Units/ISQCharacteristicNumbers.sysml declares `ISQCharacteristicNumbers`
+erew: sysml project — Domain Libraries/Quantities and Units/ISQChemistryMolecular.sysml declares `ISQChemistryMolecular`
+erew: sysml project — Domain Libraries/Quantities and Units/ISQCondensedMatter.sysml declares `ISQCondensedMatter`
+erew: sysml project — Domain Libraries/Quantities and Units/ISQElectromagnetism.sysml declares `ISQElectromagnetism`
+erew: sysml project — Domain Libraries/Quantities and Units/ISQInformation.sysml declares `ISQInformation`
+erew: sysml project — Domain Libraries/Quantities and Units/ISQLight.sysml declares `ISQLight`
+erew: sysml project — Domain Libraries/Quantities and Units/ISQMechanics.sysml declares `ISQMechanics`
+erew: sysml project — Domain Libraries/Quantities and Units/ISQSpaceTime.sysml declares `ISQSpaceTime`
+erew: sysml project — Domain Libraries/Quantities and Units/ISQThermodynamics.sysml declares `ISQThermodynamics`
+erew: sysml project — Domain Libraries/Quantities and Units/MeasurementRefCalculations.sysml declares `MeasurementRefCalculations`
+erew: sysml project — Domain Libraries/Quantities and Units/MeasurementReferences.sysml declares `MeasurementReferences`
+erew: sysml project — Domain Libraries/Quantities and Units/Quantities.sysml declares `Quantities`
+erew: sysml project — Domain Libraries/Quantities and Units/QuantityCalculations.sysml declares `QuantityCalculations`
+erew: sysml project — Domain Libraries/Quantities and Units/SI.sysml declares `SI`
+erew: sysml project — Domain Libraries/Quantities and Units/SIPrefixes.sysml declares `SIPrefixes`
+erew: sysml project — Domain Libraries/Quantities and Units/TensorCalculations.sysml declares `TensorCalculations`
+erew: sysml project — Domain Libraries/Quantities and Units/Time.sysml declares `Time`
+erew: sysml project — Domain Libraries/Quantities and Units/USCustomaryUnits.sysml declares `USCustomaryUnits`
+erew: sysml project — Domain Libraries/Quantities and Units/VectorCalculations.sysml declares `VectorCalculations`
+erew: sysml project — Domain Libraries/Requirement Derivation/DerivationConnections.sysml declares `DerivationConnections`
+erew: sysml project — Domain Libraries/Requirement Derivation/RequirementDerivation.sysml declares `RequirementDerivation`
+erew: sysml project — Kernel Libraries/Kernel Data Type Library/Collections.kerml declares `Collections`
+erew: sysml project — Kernel Libraries/Kernel Data Type Library/ScalarValues.kerml declares `ScalarValues`
+erew: sysml project — Kernel Libraries/Kernel Data Type Library/VectorValues.kerml declares `VectorValues`
+erew: sysml project — Kernel Libraries/Kernel Function Library/BaseFunctions.kerml declares `BaseFunctions`
+erew: sysml project — Kernel Libraries/Kernel Function Library/BooleanFunctions.kerml declares `BooleanFunctions`
+erew: sysml project — Kernel Libraries/Kernel Function Library/CollectionFunctions.kerml declares `CollectionFunctions`
+erew: sysml project — Kernel Libraries/Kernel Function Library/ComplexFunctions.kerml declares `ComplexFunctions`
+erew: sysml project — Kernel Libraries/Kernel Function Library/ControlFunctions.kerml declares `ControlFunctions`
+erew: sysml project — Kernel Libraries/Kernel Function Library/DataFunctions.kerml declares `DataFunctions`
+erew: sysml project — Kernel Libraries/Kernel Function Library/IntegerFunctions.kerml declares `IntegerFunctions`
+erew: sysml project — Kernel Libraries/Kernel Function Library/NaturalFunctions.kerml declares `NaturalFunctions`
+erew: sysml project — Kernel Libraries/Kernel Function Library/NumericalFunctions.kerml declares `NumericalFunctions`
+erew: sysml project — Kernel Libraries/Kernel Function Library/OccurrenceFunctions.kerml declares `OccurrenceFunctions`
+erew: sysml project — Kernel Libraries/Kernel Function Library/RationalFunctions.kerml declares `RationalFunctions`
+erew: sysml project — Kernel Libraries/Kernel Function Library/RealFunctions.kerml declares `RealFunctions`
+erew: sysml project — Kernel Libraries/Kernel Function Library/ScalarFunctions.kerml declares `ScalarFunctions`
+erew: sysml project — Kernel Libraries/Kernel Function Library/SequenceFunctions.kerml declares `SequenceFunctions`
+erew: sysml project — Kernel Libraries/Kernel Function Library/StringFunctions.kerml declares `StringFunctions`
+erew: sysml project — Kernel Libraries/Kernel Function Library/TrigFunctions.kerml declares `TrigFunctions`
+erew: sysml project — Kernel Libraries/Kernel Function Library/VectorFunctions.kerml declares `VectorFunctions`
+erew: sysml project — Kernel Libraries/Kernel Semantic Library/Base.kerml declares `Base`
+erew: sysml project — Kernel Libraries/Kernel Semantic Library/Clocks.kerml declares `Clocks`
+erew: sysml project — Kernel Libraries/Kernel Semantic Library/ControlPerformances.kerml declares `ControlPerformances`
+erew: sysml project — Kernel Libraries/Kernel Semantic Library/FeatureReferencingPerformances.kerml declares `FeatureReferencingPerformances`
+erew: sysml project — Kernel Libraries/Kernel Semantic Library/KerML.kerml declares `KerML`
+erew: sysml project — Kernel Libraries/Kernel Semantic Library/Links.kerml declares `Links`
+erew: sysml project — Kernel Libraries/Kernel Semantic Library/Metaobjects.kerml declares `Metaobjects`
+erew: sysml project — Kernel Libraries/Kernel Semantic Library/Objects.kerml declares `Objects`
+erew: sysml project — Kernel Libraries/Kernel Semantic Library/Observation.kerml declares `Observation`
+erew: sysml project — Kernel Libraries/Kernel Semantic Library/Occurrences.kerml declares `Occurrences`
+erew: sysml project — Kernel Libraries/Kernel Semantic Library/Performances.kerml declares `Performances`
+erew: sysml project — Kernel Libraries/Kernel Semantic Library/SpatialFrames.kerml declares `SpatialFrames`
+erew: sysml project — Kernel Libraries/Kernel Semantic Library/StatePerformances.kerml declares `StatePerformances`
+erew: sysml project — Kernel Libraries/Kernel Semantic Library/Transfers.kerml declares `Transfers`
+erew: sysml project — Kernel Libraries/Kernel Semantic Library/TransitionPerformances.kerml declares `TransitionPerformances`
+erew: sysml project — Kernel Libraries/Kernel Semantic Library/Triggers.kerml declares `Triggers`
+erew: sysml project — Systems Library/Actions.sysml declares `Actions`
+erew: sysml project — Systems Library/Allocations.sysml declares `Allocations`
+erew: sysml project — Systems Library/AnalysisCases.sysml declares `AnalysisCases`
+erew: sysml project — Systems Library/Attributes.sysml declares `Attributes`
+erew: sysml project — Systems Library/Calculations.sysml declares `Calculations`
+erew: sysml project — Systems Library/Cases.sysml declares `Cases`
+erew: sysml project — Systems Library/Connections.sysml declares `Connections`
+erew: sysml project — Systems Library/Constraints.sysml declares `Constraints`
+erew: sysml project — Systems Library/Flows.sysml declares `Flows`
+erew: sysml project — Systems Library/Interfaces.sysml declares `Interfaces`
+erew: sysml project — Systems Library/Items.sysml declares `Items`
+erew: sysml project — Systems Library/Metadata.sysml declares `Metadata`
+erew: sysml project — Systems Library/Parts.sysml declares `Parts`
+erew: sysml project — Systems Library/Ports.sysml declares `Ports`
+erew: sysml project — Systems Library/Requirements.sysml declares `Requirements`
+erew: sysml project — Systems Library/StandardViewDefinitions.sysml declares `StandardViewDefinitions`
+erew: sysml project — Systems Library/States.sysml declares `States`
+erew: sysml project — Systems Library/SysML.sysml declares `SysML`
+erew: sysml project — Systems Library/UseCases.sysml declares `UseCases`
+erew: sysml project — Systems Library/VerificationCases.sysml declares `VerificationCases`
+erew: sysml project — Systems Library/Views.sysml declares `Views`
+erew: context layer: 386 file(s), 5000 node(s), 112 skipped (22 ignored, 0 binary, 40 empty, 0 over the size ceiling, 50 unread at the total ceiling) · cut short: 06-design/hardware/MrtmHardware.sysml, 06-design/system/MrtmSafety.sysml, 06-design/views/rendered/mrtmAlarmStates.svg, 06-design/views/rendered/mrtmBlocks.svg, 06-design/views/rendered/mrtmContainment.svg, 06-design/views/rendered/mrtmContext.svg, 06-design/views/rendered/mrtmDataFlow.svg, 06-design/views/rendered/mrtmDisplayClasses.svg, 06-design/views/rendered/mrtmExternalInterfaces.svg, 06-design/views/rendered/mrtmHwBlocks.svg, 06-design/views/rendered/mrtmHwInterfaces.svg, 06-design/views/rendered/mrtmInterfaces.svg, 06-design/views/rendered/mrtmSafetyBlocks.svg, 06-design/views/rendered/mrtmSafetyReqs.svg, 06-design/views/rendered/mrtmSeqExcursion.svg, 06-design/views/rendered/mrtmSeqPowerLoss.svg, 06-design/views/rendered/mrtmSeqProbeFault.svg, 06-design/views/rendered/mrtmSwCodes.svg, 06-design/views/rendered/mrtmSwComponents.svg, 06-design/views/rendered/mrtmSwContracts.svg, 06-design/views/rendered/mrtmSwWiring.svg, 06-design/views/rendered/mrtmSystemModes.svg, 06-design/views/rendered/mrtmUseCases.svg, 08-safety/fmea.md, 09-hardware/component-selection.md, 09-hardware/hardware-trace-matrix.md, 13-assessment/sanad-runs/phase-2/report-requirements-trace.md, 13-assessment/sanad-runs/phase-2/report-requirements.md, 13-assessment/sanad-runs/phase-2/report-traceability-audit.csv, 13-assessment/sanad-runs/phase-2b/report-requirements-trace.md, 13-assessment/sanad-runs/phase-2b/report-requirements.md, 13-assessment/sanad-runs/phase-2b/report-traceability-audit.csv, 13-assessment/sanad-runs/phase-3/diff-config-since-REQ-BL-1.txt, 13-assessment/sanad-runs/phase-3/report-requirements-trace.md, 13-assessment/sanad-runs/phase-3/report-requirements.md, 13-assessment/sanad-runs/phase-3/report-traceability-audit-since-REQ-BL-1.md, 13-assessment/sanad-runs/phase-3/report-traceability-audit.csv, 13-assessment/sanad-runs/phase-3/report-traceability-audit.md, 13-assessment/sanad-runs/phase-4/diff-config-since-REQ-BL-1.txt, 13-assessment/sanad-runs/phase-4/gate.txt, 13-assessment/sanad-runs/phase-4/gate.txt.stderr, 13-assessment/sanad-runs/phase-4/report-requirements-trace.md, 13-assessment/sanad-runs/phase-4/report-requirements.md, 13-assessment/sanad-runs/phase-4/report-traceability-audit-since-REQ-BL-1.md, 13-assessment/sanad-runs/phase-4/report-traceability-audit.csv, 13-assessment/sanad-runs/phase-4/report-traceability-audit.md, 13-assessment/sanad-runs/phase-5/diff-config-since-REQ-BL-1.txt, 13-assessment/sanad-runs/phase-5/gate.txt, 13-assessment/sanad-runs/phase-5/gate.txt.stderr, 13-assessment/sanad-runs/phase-5/report-requirements-trace.md, 13-assessment/sanad-runs/phase-5/report-requirements.md, 13-assessment/sanad-runs/phase-5/report-traceability-audit-since-REQ-BL-1.md, 13-assessment/sanad-runs/phase-5/report-traceability-audit.csv, 13-assessment/sanad-runs/phase-5/report-traceability-audit.md, 13-assessment/sanad-runs/phase-5/report-validation.md, 13-assessment/sanad-runs/phase-6/diff-config-since-REQ-BL-1.txt, 13-assessment/sanad-runs/phase-6/gate.txt, 13-assessment/sanad-runs/phase-6/gate.txt.stderr, 13-assessment/sanad-runs/phase-6/report-requirements-trace.md, 13-assessment/sanad-runs/phase-6/report-requirements.md, 13-assessment/sanad-runs/phase-6/report-traceability-audit-since-REQ-BL-1.md, 13-assessment/sanad-runs/phase-6/report-traceability-audit.csv, 13-assessment/sanad-runs/phase-6/report-traceability-audit.md, 13-assessment/sanad-runs/phase-6/report-validation.md, 13-assessment/sanad-runs/phase-7/diff-config-since-REQ-BL-1.txt, 13-assessment/sanad-runs/phase-7/gate.txt, 13-assessment/sanad-runs/phase-7/gate.txt.stderr, 13-assessment/sanad-runs/phase-7/pilot-sanad-command-files-only.txt, 13-assessment/sanad-runs/phase-7/report-requirements-trace.md, 13-assessment/sanad-runs/phase-7/report-requirements.md, 13-assessment/sanad-runs/phase-7/report-traceability-audit-since-REQ-BL-1.md, 13-assessment/sanad-runs/phase-7/report-traceability-audit.csv, 13-assessment/sanad-runs/phase-7/report-traceability-audit.md, 13-assessment/sanad-runs/phase-7/software-design-description/design-description.md, 13-assessment/sanad-runs/phase-7/software-design-description/interface-surface.csv
+erew: rule pack: requirements-writing (Requirements writing — deterministic prose rules)
+erew: read ledger — 1 item(s) this repository states that Sanad did not read
+erew:   Sources not read: 1
+erew:     (repository) — Impact is bounded here by 1 limit — these numbers are not a clean result
+erew: analyses that ran: validation, traceability, quality, structure, verification, safety, architecture, consistency, conformance, impact.
+erew: implementation: DID NOT RUN — this repository declares no implements role. It produced no findings, and that silence is not a clean result.
+erew: security: DID NOT RUN — this repository declares no threat role. It produced no findings, and that silence is not a clean result.
+erew: interface: DID NOT RUN — this repository declares no interface role. It produced no findings, and that silence is not a clean result.
+erew: 34 finding(s) (0 error, 0 warning, 34 info) across 10 analysis(es), 3 did not run in 23ms.
+erew: gate passed — nothing at or above "warning".

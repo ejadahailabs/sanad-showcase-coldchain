@@ -1,0 +1,22 @@
+# Review explorer (close) — request github-1 @ a00038b
+files: 54  status counts: {"changed-since-accepted":40,"accepted":14}
+changed-since-accepted 03-requirements/environmental/MRTM-ENV-001.md
+changed-since-accepted 03-requirements/performance/MRTM-PRF-001.md
+accepted               03-requirements/performance/MRTM-PRF-003.md
+accepted               03-requirements/safety/MRTM-SAF-001.md
+accepted               03-requirements/safety/MRTM-SAF-003.md
+changed-since-accepted 03-requirements/safety/MRTM-SAF-004.md
+changed-since-accepted 03-requirements/safety/MRTM-SAF-005.md
+changed-since-accepted 03-requirements/stakeholder/MRTM-STK-001.md
+accepted               03-requirements/system/MRTM-SYS-002.md
+accepted               03-requirements/system/MRTM-SYS-004.md
+changed-since-accepted 03-requirements/system/MRTM-SYS-006.md
+changed-since-accepted 03-requirements/system/MRTM-SYS-007.md
+changed-since-accepted 03-requirements/system/MRTM-SYS-008.md
+accepted               03-requirements/system/MRTM-SYS-012.md
+changed-since-accepted 03-requirements/system/MRTM-SYS-014.md
+changed-since-accepted 03-requirements/system/MRTM-SYS-015.md
+changed-since-accepted 03-requirements/system/MRTM-SYS-016.md
+approval record: 05-reviews/records/github-1/a00038b1c7120e11b31901a00106d1f877f56a8a.approval.yaml — anomalies 17, open {"major":0,"minor":0,"note":0,"unstated":0}, verdict approved
+merge record: 05-reviews/records/github-1/a00038b1c7120e11b31901a00106d1f877f56a8a.merge.yaml — anomalies 17, open {"major":0,"minor":0,"note":0,"unstated":0}, verdict approved
+recordOccasion(snapshot) = merge

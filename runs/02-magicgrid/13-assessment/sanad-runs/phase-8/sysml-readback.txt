@@ -1,0 +1,44 @@
+read   06-design/hardware/MrtmHardware.sysml: 54 named elements
+read   06-design/packages/requirements.sysml: 70 named elements
+read   06-design/software/MrtmSeqExcursion.sysml: 14 named elements
+read   06-design/software/MrtmSeqPowerLoss.sysml: 12 named elements
+read   06-design/software/MrtmSeqProbeFault.sysml: 12 named elements
+read   06-design/software/MrtmSoftware.sysml: 132 named elements
+read   06-design/software/MrtmSwCodes.sysml: 34 named elements
+read   06-design/software/MrtmSwDetail.sysml: 181 named elements
+read   06-design/software/MrtmSwStates.sysml: 50 named elements
+read   06-design/system/MrtmInterfaces.sysml: 57 named elements
+read   06-design/system/MrtmLogical.sysml: 41 named elements
+read   06-design/system/MrtmPartitions.sysml: 18 named elements
+read   06-design/system/MrtmPhysical.sysml: 71 named elements
+read   06-design/system/MrtmSafety.sysml: 23 named elements
+read   06-design/system/MrtmSystemContext.sysml: 15 named elements
+read   06-design/system/MrtmUseCases.sysml: 37 named elements
+read   06-design/views/MrtmAlarmStatesView.sysml: 2 named elements
+read   06-design/views/MrtmAllocationView.sysml: 2 named elements
+read   06-design/views/MrtmBlocksView.sysml: 197 named elements
+read   06-design/views/MrtmContainmentView.sysml: 2 named elements
+read   06-design/views/MrtmContextView.sysml: 17 named elements
+read   06-design/views/MrtmDataFlowView.sysml: 17 named elements
+read   06-design/views/MrtmDisplayClassesView.sysml: 2 named elements
+read   06-design/views/MrtmExternalInterfacesView.sysml: 17 named elements
+read   06-design/views/MrtmHwBlocksView.sysml: 2 named elements
+read   06-design/views/MrtmHwInterfacesView.sysml: 2 named elements
+read   06-design/views/MrtmInterfacesView.sysml: 17 named elements
+read   06-design/views/MrtmSafetyBlocksView.sysml: 2 named elements
+read   06-design/views/MrtmSafetyReqsView.sysml: 2 named elements
+read   06-design/views/MrtmSeqExcursionView.sysml: 2 named elements
+read   06-design/views/MrtmSeqPowerLossView.sysml: 2 named elements
+read   06-design/views/MrtmSeqProbeFaultView.sysml: 2 named elements
+read   06-design/views/MrtmSwCodesView.sysml: 2 named elements
+read   06-design/views/MrtmSwComponentsView.sysml: 2 named elements
+read   06-design/views/MrtmSwContractsView.sysml: 2 named elements
+read   06-design/views/MrtmSwWiringView.sysml: 2 named elements
+read   06-design/views/MrtmSystemModesView.sysml: 2 named elements
+read   06-design/views/MrtmUseCasesView.sysml: 65 named elements
+read   06-design/views/SanadRenderings.sysml: 16 named elements
+strict parse: 1199 named elements
+project: 39 files; graph elements 228 ({"part":183,"interface":45})
+satisfy links to requirement ids: 251, distinct requirements 68; part-to-part allocations 34
+findings: {"info/sysml-unresolved-import":23}
+stand-downs (read, not in graph): 31 — succession, transition

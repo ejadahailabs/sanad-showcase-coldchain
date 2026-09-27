@@ -1,0 +1,7 @@
+firmware/components/mrtm_common/test/test_mrtm_common.c:39:test_crc_check_values:PASS
+firmware/components/mrtm_common/test/test_mrtm_common.c:40:test_crc8_over_a_scratchpad:PASS
+firmware/components/mrtm_common/test/test_mrtm_common.c:41:test_generated_codes_match_the_model:PASS
+
+-----------------------
+3 Tests 0 Failures 0 Ignored 
+OK

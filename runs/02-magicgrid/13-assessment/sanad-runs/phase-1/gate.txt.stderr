@@ -1,0 +1,22 @@
+erew: data dictionary — 01-data-dictionary/data-dictionary.md: 6 parameter(s)
+erew: verification cases — No template declares one of the verification types (verification, verification-hl, verification-component, verification-ll), so there is no folder to read. Declare one in .ejadah/rew/templates — its `type:` names the kind and its `rew.folder:` is where Sanad looks — or list the files under `producers.verification` in the repository config.
+erew: test results — 11-verification/results (systems-verification-results): 0 case result(s) from 0 report(s)
+erew: sysml project — 4 file(s), 11 element(s), 0 relation(s), 2 check(s)
+erew: sysml project — 06-design/system/MrtmUseCases.sysml declares `MrtmUseCases`
+erew: sysml project — 06-design/views/MrtmContextView.sysml declares `MrtmContextView`
+erew: sysml project — 06-design/views/MrtmUseCasesView.sysml declares `MrtmUseCasesView`
+erew: sysml project — 06-design/views/SanadRenderings.sysml declares `SanadRenderings`
+erew: context layer: 91 file(s), 320 node(s), 31 skipped (21 ignored, 0 binary, 10 empty, 0 over the size ceiling, 0 unread at the total ceiling) · cut short: 06-design/views/rendered/mrtmContext.svg, 06-design/views/rendered/mrtmUseCases.svg, FINDINGS.md
+erew: rule pack: requirements-writing (Requirements writing — deterministic prose rules)
+erew: read ledger — 1 item(s) this repository states that Sanad did not read
+erew:   Sources not read: 1
+erew:     (repository) — Impact is bounded here by 1 limit — these numbers are not a clean result
+erew: analyses that ran: validation, traceability, quality, structure, verification, consistency, impact.
+erew: implementation: DID NOT RUN — this repository declares no implements role. It produced no findings, and that silence is not a clean result.
+erew: safety: DID NOT RUN — this repository declares no hazard role. It produced no findings, and that silence is not a clean result.
+erew: security: DID NOT RUN — this repository declares no threat role. It produced no findings, and that silence is not a clean result.
+erew: architecture: DID NOT RUN — this repository declares no allocation role. It produced no findings, and that silence is not a clean result.
+erew: interface: DID NOT RUN — this repository declares no interface role. It produced no findings, and that silence is not a clean result.
+erew: conformance: DID NOT RUN — this repository declares no allocation role. It produced no findings, and that silence is not a clean result.
+erew: 4 finding(s) (0 error, 1 warning, 3 info) across 7 analysis(es), 6 did not run in 4ms.
+erew: GATE FAILED — 1 finding(s) at or above "warning".

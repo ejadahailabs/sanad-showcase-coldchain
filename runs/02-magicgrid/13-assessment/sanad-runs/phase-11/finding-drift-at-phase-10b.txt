@@ -1,0 +1,3 @@
+baseline REQ-BL-1 at 1f9fd908dcd34a2894f43de40728858d50240b88: 24 finding keys then; 75 findings now
+new since baseline: 58 {"sysml-project/sysml-unresolved-import":21,"validation/link-role-unreadable":4,"quality/indefinite-article":6,"quality/logical-expression":1,"quality/requirement-pattern":2,"structure/under-decomposition":2,"verification/missing-result":16,"safety/single-point-failure":1,"impact/wide-impact":5}
+gone since baseline: 7 {"impact/impact-incomplete":1,"structure/under-decomposition":6}

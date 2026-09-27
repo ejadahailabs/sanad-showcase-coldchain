@@ -1,0 +1,54 @@
+erew: symbol index — rew-builtin 0.6.3: 46 symbol(s), no kinds (schema 1) · 46 tracing to 53 requirement(s)
+erew: data dictionary — 01-data-dictionary/data-dictionary.md: 14 parameter(s), 13 mapped to software names
+erew: verification cases — No template declares one of the verification types (verification, verification-hl, verification-component, verification-ll), so there is no folder to read. Declare one in .ejadah/rew/templates — its `type:` names the kind and its `rew.folder:` is where Sanad looks — or list the files under `producers.verification` in the repository config.
+erew: test results — 11-verification/results (systems-verification-results): 0 case result(s) from 0 report(s)
+erew: code source text — 0 of 78 covered file(s) swept, 0 symbol(s) with attached text
+erew: architecture conformance — 12 component(s) declaring code · 24 of 78 indexed file(s) assigned · 16 dependency(ies) · 35 directive(s) naming nothing indexed
+erew: sysml project — 39 file(s), 228 element(s), 285 relation(s), 23 check(s)
+erew: sysml project — 06-design/hardware/MrtmHardware.sysml declares `MrtmHardware`
+erew: sysml project — 06-design/packages/requirements.sysml declares `ProjectRequirements` (generated — edit the Markdown requirement)
+erew: sysml project — 06-design/software/MrtmSeqExcursion.sysml declares `MrtmSeqExcursion`
+erew: sysml project — 06-design/software/MrtmSeqPowerLoss.sysml declares `MrtmSeqPowerLoss`
+erew: sysml project — 06-design/software/MrtmSeqProbeFault.sysml declares `MrtmSeqProbeFault`
+erew: sysml project — 06-design/software/MrtmSoftware.sysml declares `MrtmSoftware`
+erew: sysml project — 06-design/software/MrtmSwCodes.sysml declares `MrtmSwCodes`
+erew: sysml project — 06-design/software/MrtmSwDetail.sysml declares `MrtmSwDetail`
+erew: sysml project — 06-design/software/MrtmSwStates.sysml declares `MrtmSwStates`
+erew: sysml project — 06-design/system/MrtmInterfaces.sysml declares `MrtmInterfaces`
+erew: sysml project — 06-design/system/MrtmLogical.sysml declares `MrtmLogical`
+erew: sysml project — 06-design/system/MrtmPartitions.sysml declares `MrtmPartitions`
+erew: sysml project — 06-design/system/MrtmPhysical.sysml declares `MrtmPhysical`
+erew: sysml project — 06-design/system/MrtmSafety.sysml declares `MrtmSafety`
+erew: sysml project — 06-design/system/MrtmSystemContext.sysml declares `MrtmSystemContext`
+erew: sysml project — 06-design/system/MrtmUseCases.sysml declares `MrtmUseCases`
+erew: sysml project — 06-design/views/MrtmAlarmStatesView.sysml declares `MrtmAlarmStatesView`
+erew: sysml project — 06-design/views/MrtmAllocationView.sysml declares `MrtmAllocationView`
+erew: sysml project — 06-design/views/MrtmBlocksView.sysml declares `MrtmBlocksView`
+erew: sysml project — 06-design/views/MrtmContainmentView.sysml declares `MrtmContainmentView`
+erew: sysml project — 06-design/views/MrtmContextView.sysml declares `MrtmContextView`
+erew: sysml project — 06-design/views/MrtmDataFlowView.sysml declares `MrtmDataFlowView`
+erew: sysml project — 06-design/views/MrtmDisplayClassesView.sysml declares `MrtmDisplayClassesView`
+erew: sysml project — 06-design/views/MrtmExternalInterfacesView.sysml declares `MrtmExternalInterfacesView`
+erew: sysml project — 06-design/views/MrtmHwBlocksView.sysml declares `MrtmHwBlocksView`
+erew: sysml project — 06-design/views/MrtmHwInterfacesView.sysml declares `MrtmHwInterfacesView`
+erew: sysml project — 06-design/views/MrtmInterfacesView.sysml declares `MrtmInterfacesView`
+erew: sysml project — 06-design/views/MrtmSafetyBlocksView.sysml declares `MrtmSafetyBlocksView`
+erew: sysml project — 06-design/views/MrtmSafetyReqsView.sysml declares `MrtmSafetyReqsView`
+erew: sysml project — 06-design/views/MrtmSeqExcursionView.sysml declares `MrtmSeqExcursionView`
+erew: sysml project — 06-design/views/MrtmSeqPowerLossView.sysml declares `MrtmSeqPowerLossView`
+erew: sysml project — 06-design/views/MrtmSeqProbeFaultView.sysml declares `MrtmSeqProbeFaultView`
+erew: sysml project — 06-design/views/MrtmSwCodesView.sysml declares `MrtmSwCodesView`
+erew: sysml project — 06-design/views/MrtmSwComponentsView.sysml declares `MrtmSwComponentsView`
+erew: sysml project — 06-design/views/MrtmSwContractsView.sysml declares `MrtmSwContractsView`
+erew: sysml project — 06-design/views/MrtmSwWiringView.sysml declares `MrtmSwWiringView`
+erew: sysml project — 06-design/views/MrtmSystemModesView.sysml declares `MrtmSystemModesView`
+erew: sysml project — 06-design/views/MrtmUseCasesView.sysml declares `MrtmUseCasesView`
+erew: sysml project — 06-design/views/SanadRenderings.sysml declares `SanadRenderings`
+erew: context layer: 449 file(s), 5000 node(s), 239 skipped (22 ignored, 97 binary, 40 empty, 14 over the size ceiling, 66 unread at the total ceiling) · over ceiling: 10-src/build/bin/test_alarm_mgr, 10-src/build/bin/test_config_mgr, 10-src/build/bin/test_diagnostics, 10-src/build/bin/test_display_mgr, 10-src/build/bin/test_event_log, 10-src/build/bin/test_history_ring, 10-src/build/bin/test_int_chains, 10-src/build/bin/test_limit_evaluator, 10-src/build/bin/test_mrtm_common, 10-src/build/bin/test_power_mon, 10-src/build/bin/test_rtc_clock, 10-src/build/bin/test_sensor_sampler, 10-src/build/bin/test_usb_export, 10-src/build/bin/test_wdt_kicker · cut short: 06-design/hardware/MrtmHardware.sysml, 06-design/system/MrtmSafety.sysml, 06-design/views/rendered/mrtmAlarmStates.svg, 06-design/views/rendered/mrtmBlocks.svg, 06-design/views/rendered/mrtmContainment.svg, 06-design/views/rendered/mrtmContext.svg, 06-design/views/rendered/mrtmDataFlow.svg, 06-design/views/rendered/mrtmDisplayClasses.svg, 06-design/views/rendered/mrtmExternalInterfaces.svg, 06-design/views/rendered/mrtmHwBlocks.svg, 06-design/views/rendered/mrtmHwInterfaces.svg, 06-design/views/rendered/mrtmInterfaces.svg, 06-design/views/rendered/mrtmSafetyBlocks.svg, 06-design/views/rendered/mrtmSafetyReqs.svg, 06-design/views/rendered/mrtmSeqExcursion.svg, 06-design/views/rendered/mrtmSeqPowerLoss.svg, 06-design/views/rendered/mrtmSeqProbeFault.svg, 06-design/views/rendered/mrtmSwCodes.svg, 06-design/views/rendered/mrtmSwComponents.svg, 06-design/views/rendered/mrtmSwContracts.svg, 06-design/views/rendered/mrtmSwWiring.svg, 06-design/views/rendered/mrtmSystemModes.svg, 06-design/views/rendered/mrtmUseCases.svg, 08-safety/fmea.md, 09-hardware/component-selection.md, 09-hardware/hardware-trace-matrix.md, 13-assessment/sanad-runs/phase-2/report-requirements-trace.md, 13-assessment/sanad-runs/phase-2/report-requirements.md, 13-assessment/sanad-runs/phase-2/report-traceability-audit.csv, 13-assessment/sanad-runs/phase-2b/report-requirements-trace.md, 13-assessment/sanad-runs/phase-2b/report-requirements.md, 13-assessment/sanad-runs/phase-2b/report-traceability-audit.csv, 13-assessment/sanad-runs/phase-3/diff-config-since-REQ-BL-1.txt, 13-assessment/sanad-runs/phase-3/report-requirements-trace.md, 13-assessment/sanad-runs/phase-3/report-requirements.md, 13-assessment/sanad-runs/phase-3/report-traceability-audit-since-REQ-BL-1.md, 13-assessment/sanad-runs/phase-3/report-traceability-audit.csv, 13-assessment/sanad-runs/phase-3/report-traceability-audit.md, 13-assessment/sanad-runs/phase-4/diff-config-since-REQ-BL-1.txt, 13-assessment/sanad-runs/phase-4/gate.txt, 13-assessment/sanad-runs/phase-4/gate.txt.stderr, 13-assessment/sanad-runs/phase-4/report-requirements-trace.md, 13-assessment/sanad-runs/phase-4/report-requirements.md, 13-assessment/sanad-runs/phase-4/report-traceability-audit-since-REQ-BL-1.md, 13-assessment/sanad-runs/phase-4/report-traceability-audit.csv, 13-assessment/sanad-runs/phase-4/report-traceability-audit.md, 13-assessment/sanad-runs/phase-5/diff-config-since-REQ-BL-1.txt, 13-assessment/sanad-runs/phase-5/gate.txt, 13-assessment/sanad-runs/phase-5/gate.txt.stderr, 13-assessment/sanad-runs/phase-5/report-requirements-trace.md, 13-assessment/sanad-runs/phase-5/report-requirements.md, 13-assessment/sanad-runs/phase-5/report-traceability-audit-since-REQ-BL-1.md, 13-assessment/sanad-runs/phase-5/report-traceability-audit.csv, 13-assessment/sanad-runs/phase-5/report-traceability-audit.md, 13-assessment/sanad-runs/phase-5/report-validation.md, 13-assessment/sanad-runs/phase-6/diff-config-since-REQ-BL-1.txt, 13-assessment/sanad-runs/phase-6/gate.txt, 13-assessment/sanad-runs/phase-6/gate.txt.stderr, 13-assessment/sanad-runs/phase-6/report-requirements-trace.md, 13-assessment/sanad-runs/phase-6/report-requirements.md, 13-assessment/sanad-runs/phase-6/report-traceability-audit-since-REQ-BL-1.md, 13-assessment/sanad-runs/phase-6/report-traceability-audit.csv, 13-assessment/sanad-runs/phase-6/report-traceability-audit.md, 13-assessment/sanad-runs/phase-6/report-validation.md, 13-assessment/sanad-runs/phase-7/diff-config-since-REQ-BL-1.txt, 13-assessment/sanad-runs/phase-7/gate.txt, 13-assessment/sanad-runs/phase-7/gate.txt.stderr, 13-assessment/sanad-runs/phase-7/pilot-sanad-command-files-only.txt, 13-assessment/sanad-runs/phase-7/report-requirements-trace.md, 13-assessment/sanad-runs/phase-7/report-requirements.md, 13-assessment/sanad-runs/phase-7/report-traceability-audit-since-REQ-BL-1.md, 13-assessment/sanad-runs/phase-7/report-traceability-audit.csv, 13-assessment/sanad-runs/phase-7/report-traceability-audit.md, 13-assessment/sanad-runs/phase-7/software-design-description/component-inventory.csv
+erew: rule pack: requirements-writing (Requirements writing — deterministic prose rules)
+erew: code trace — 110 asserted implements edge(s) (110 codeIndex) · 0 candidate DD-term link(s) · 0 symbol↔verification pair(s) through the trace
+erew: analyses that ran: validation, traceability, quality, structure, verification, implementation, safety, architecture, consistency, conformance, impact.
+erew: security: DID NOT RUN — this repository declares no threat role. It produced no findings, and that silence is not a clean result.
+erew: interface: DID NOT RUN — this repository declares no interface role. It produced no findings, and that silence is not a clean result.
+erew: 71 finding(s) (6 error, 7 warning, 58 info) across 11 analysis(es), 2 did not run in 26ms.
+erew: GATE FAILED — 6 finding(s) at or above "error".

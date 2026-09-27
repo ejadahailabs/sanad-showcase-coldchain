@@ -1,0 +1,7 @@
+# host build, build=6d35bae date=2026-09-27 tester=DOGFOOD-5 (agent, no independence)
+gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+GNU Make 4.4.1
+rm -f -r build
+python3 ../tools/gen-codes.py --check
+codes: headers match the model
+build rc=0
