@@ -1,0 +1,140 @@
+erew: symbol index — rew-builtin 0.6.3: 47 symbol(s), no kinds (schema 1) · 47 tracing to 74 requirement(s)
+erew: data dictionary — 01-data-dictionary/data-dictionary.md: 14 parameter(s), 13 mapped to software names
+erew: verification cases — 11-verification/cases/verification-cases.csv: 99 case(s) · carrying level, category, author, state
+erew: test results — 11-verification/results/unit (verification-ll): 79 case result(s) from 13 report(s), 1 naming no declared case
+erew: test results — 11-verification/results/integration (verification-component): 5 case result(s) from 1 report(s)
+erew: test results — 11-verification/results/system (systems-verification-results): 15 case result(s) from 1 report(s)
+erew: coverage — 11-verification/evidence/coverage/host-unit-integration.info: 40 symbol(s) in 14 indexed file(s), 47 matching no single indexed symbol
+erew: code source text — 0 of 99 covered file(s) swept, 0 symbol(s) with attached text
+erew: architecture conformance — 12 component(s) declaring code · 24 of 99 indexed file(s) assigned · 16 dependency(ies) · 35 directive(s) naming nothing indexed
+erew: sysml project — 115 file(s), 444 element(s), 166 relation(s), 63 check(s)
+erew: sysml project — 06-design/context/NodeContext.sysml declares `NodeContext`
+erew: sysml project — 06-design/hardware/MrtmHardware.sysml declares `MrtmHardware`
+erew: sysml project — 06-design/mrtm/NodeMrtm.sysml declares `NodeMrtm`
+erew: sysml project — 06-design/mrtm/NodeMrtmWhiteBox.sysml declares `NodeMrtmWhiteBox`
+erew: sysml project — 06-design/mrtm/NodePorts.sysml declares `NodePorts`
+erew: sysml project — 06-design/mrtm/SystemExcursion.sysml declares `SystemExcursion`
+erew: sysml project — 06-design/mrtm/SystemPowerLoss.sysml declares `SystemPowerLoss`
+erew: sysml project — 06-design/mrtm/SystemProbeFault.sysml declares `SystemProbeFault`
+erew: sysml project — 06-design/mrtm/alarm/NodeAlarm.sysml declares `NodeAlarm`
+erew: sysml project — 06-design/mrtm/alarm/NodeAlarmContext.sysml declares `NodeAlarmContext`
+erew: sysml project — 06-design/mrtm/alarm/NodeAlarmWhiteBox.sysml declares `NodeAlarmWhiteBox`
+erew: sysml project — 06-design/mrtm/alarm/alarm-item/NodeAlarmItem.sysml declares `NodeAlarmItem`
+erew: sysml project — 06-design/mrtm/alarm/backup-alarm/NodeBackupAlarm.sysml declares `NodeBackupAlarm`
+erew: sysml project — 06-design/mrtm/alarm/backup-alarm/NodeBackupAlarmContext.sysml declares `NodeBackupAlarmContext`
+erew: sysml project — 06-design/mrtm/alarm/backup-alarm/NodeBackupAlarmWhiteBox.sysml declares `NodeBackupAlarmWhiteBox`
+erew: sysml project — 06-design/mrtm/alarm/backup-alarm/backup-driver/NodeBackupDriver.sysml declares `NodeBackupDriver`
+erew: sysml project — 06-design/mrtm/alarm/backup-alarm/backup-timer/NodeBackupTimer.sysml declares `NodeBackupTimer`
+erew: sysml project — 06-design/mrtm/alarm/backup-alarm/hold-up/NodeHoldUp.sysml declares `NodeHoldUp`
+erew: sysml project — 06-design/mrtm/alarm/buzzer/NodeBuzzer.sysml declares `NodeBuzzer`
+erew: sysml project — 06-design/mrtm/alarm/excursion-item/NodeExcursionItem.sysml declares `NodeExcursionItem`
+erew: sysml project — 06-design/mrtm/alarm/indicators/NodeIndicators.sysml declares `NodeIndicators`
+erew: sysml project — 06-design/mrtm/display/NodeDisplay.sysml declares `NodeDisplay`
+erew: sysml project — 06-design/mrtm/display/NodeDisplayContext.sysml declares `NodeDisplayContext`
+erew: sysml project — 06-design/mrtm/display/NodeDisplayWhiteBox.sysml declares `NodeDisplayWhiteBox`
+erew: sysml project — 06-design/mrtm/display/display-item/NodeDisplayItem.sysml declares `NodeDisplayItem`
+erew: sysml project — 06-design/mrtm/display/oled/NodeOled.sysml declares `NodeOled`
+erew: sysml project — 06-design/mrtm/logging/NodeLogging.sysml declares `NodeLogging`
+erew: sysml project — 06-design/mrtm/logging/NodeLoggingContext.sysml declares `NodeLoggingContext`
+erew: sysml project — 06-design/mrtm/logging/NodeLoggingWhiteBox.sysml declares `NodeLoggingWhiteBox`
+erew: sysml project — 06-design/mrtm/logging/log-item/NodeLogItem.sysml declares `NodeLogItem`
+erew: sysml project — 06-design/mrtm/logging/rtc/NodeRtc.sysml declares `NodeRtc`
+erew: sysml project — 06-design/mrtm/logging/usb-item/NodeUsbItem.sysml declares `NodeUsbItem`
+erew: sysml project — 06-design/mrtm/power/NodePower.sysml declares `NodePower`
+erew: sysml project — 06-design/mrtm/power/NodePowerContext.sysml declares `NodePowerContext`
+erew: sysml project — 06-design/mrtm/power/NodePowerWhiteBox.sysml declares `NodePowerWhiteBox`
+erew: sysml project — 06-design/mrtm/power/battery/NodeBattery.sysml declares `NodeBattery`
+erew: sysml project — 06-design/mrtm/power/power-item/NodePowerItem.sysml declares `NodePowerItem`
+erew: sysml project — 06-design/mrtm/power/power-path/NodePowerPath.sysml declares `NodePowerPath`
+erew: sysml project — 06-design/mrtm/sensing/NodeSensing.sysml declares `NodeSensing`
+erew: sysml project — 06-design/mrtm/sensing/NodeSensingContext.sysml declares `NodeSensingContext`
+erew: sysml project — 06-design/mrtm/sensing/NodeSensingWhiteBox.sysml declares `NodeSensingWhiteBox`
+erew: sysml project — 06-design/mrtm/sensing/probe/NodeProbe.sysml declares `NodeProbe`
+erew: sysml project — 06-design/mrtm/sensing/sensor-item/NodeSensorItem.sysml declares `NodeSensorItem`
+erew: sysml project — 06-design/mrtm/supervision/NodeSupervision.sysml declares `NodeSupervision`
+erew: sysml project — 06-design/mrtm/supervision/NodeSupervisionContext.sysml declares `NodeSupervisionContext`
+erew: sysml project — 06-design/mrtm/supervision/NodeSupervisionWhiteBox.sysml declares `NodeSupervisionWhiteBox`
+erew: sysml project — 06-design/mrtm/supervision/mcu/NodeMcu.sysml declares `NodeMcu`
+erew: sysml project — 06-design/mrtm/supervision/supervisor-item/NodeSupervisorItem.sysml declares `NodeSupervisorItem`
+erew: sysml project — 06-design/packages/per-node/ReqAlarm.sysml declares `ReqAlarm`
+erew: sysml project — 06-design/packages/per-node/ReqAlarmItem.sysml declares `ReqAlarmItem`
+erew: sysml project — 06-design/packages/per-node/ReqBackupAlarm.sysml declares `ReqBackupAlarm`
+erew: sysml project — 06-design/packages/per-node/ReqBackupDriver.sysml declares `ReqBackupDriver`
+erew: sysml project — 06-design/packages/per-node/ReqBackupTimer.sysml declares `ReqBackupTimer`
+erew: sysml project — 06-design/packages/per-node/ReqBattery.sysml declares `ReqBattery`
+erew: sysml project — 06-design/packages/per-node/ReqBuzzer.sysml declares `ReqBuzzer`
+erew: sysml project — 06-design/packages/per-node/ReqContext.sysml declares `ReqContext`
+erew: sysml project — 06-design/packages/per-node/ReqDisplay.sysml declares `ReqDisplay`
+erew: sysml project — 06-design/packages/per-node/ReqDisplayItem.sysml declares `ReqDisplayItem`
+erew: sysml project — 06-design/packages/per-node/ReqExcursionItem.sysml declares `ReqExcursionItem`
+erew: sysml project — 06-design/packages/per-node/ReqHoldUp.sysml declares `ReqHoldUp`
+erew: sysml project — 06-design/packages/per-node/ReqIndicators.sysml declares `ReqIndicators`
+erew: sysml project — 06-design/packages/per-node/ReqLogItem.sysml declares `ReqLogItem`
+erew: sysml project — 06-design/packages/per-node/ReqLogging.sysml declares `ReqLogging`
+erew: sysml project — 06-design/packages/per-node/ReqMcu.sysml declares `ReqMcu`
+erew: sysml project — 06-design/packages/per-node/ReqOled.sysml declares `ReqOled`
+erew: sysml project — 06-design/packages/per-node/ReqPower.sysml declares `ReqPower`
+erew: sysml project — 06-design/packages/per-node/ReqPowerItem.sysml declares `ReqPowerItem`
+erew: sysml project — 06-design/packages/per-node/ReqPowerPath.sysml declares `ReqPowerPath`
+erew: sysml project — 06-design/packages/per-node/ReqProbe.sysml declares `ReqProbe`
+erew: sysml project — 06-design/packages/per-node/ReqRtc.sysml declares `ReqRtc`
+erew: sysml project — 06-design/packages/per-node/ReqSensing.sysml declares `ReqSensing`
+erew: sysml project — 06-design/packages/per-node/ReqSensorItem.sysml declares `ReqSensorItem`
+erew: sysml project — 06-design/packages/per-node/ReqSupervision.sysml declares `ReqSupervision`
+erew: sysml project — 06-design/packages/per-node/ReqSupervisorItem.sysml declares `ReqSupervisorItem`
+erew: sysml project — 06-design/packages/per-node/ReqSystem.sysml declares `ReqSystem`
+erew: sysml project — 06-design/packages/per-node/ReqUsbItem.sysml declares `ReqUsbItem`
+erew: sysml project — 06-design/packages/requirements.sysml declares `ProjectRequirements` (generated — edit the Markdown requirement)
+erew: sysml project — 06-design/software/MrtmSeqExcursion.sysml declares `MrtmSeqExcursion`
+erew: sysml project — 06-design/software/MrtmSeqPowerLoss.sysml declares `MrtmSeqPowerLoss`
+erew: sysml project — 06-design/software/MrtmSeqProbeFault.sysml declares `MrtmSeqProbeFault`
+erew: sysml project — 06-design/software/MrtmSoftware.sysml declares `MrtmSoftware`
+erew: sysml project — 06-design/software/MrtmSwCodes.sysml declares `MrtmSwCodes`
+erew: sysml project — 06-design/software/MrtmSwDetail.sysml declares `MrtmSwDetail`
+erew: sysml project — 06-design/software/MrtmSwStates.sysml declares `MrtmSwStates`
+erew: sysml project — 06-design/system/MrtmInterfaces.sysml declares `MrtmInterfaces`
+erew: sysml project — 06-design/system/MrtmLogical.sysml declares `MrtmLogical`
+erew: sysml project — 06-design/system/MrtmPartitions.sysml declares `MrtmPartitions`
+erew: sysml project — 06-design/system/MrtmPhysical.sysml declares `MrtmPhysical`
+erew: sysml project — 06-design/system/MrtmSafety.sysml declares `MrtmSafety`
+erew: sysml project — 06-design/system/MrtmSystemContext.sysml declares `MrtmSystemContext`
+erew: sysml project — 06-design/system/MrtmUseCases.sysml declares `MrtmUseCases`
+erew: sysml project — 06-design/views/Alarm_blackbox_interfacesView.sysml declares `Alarm_blackbox_interfacesView`
+erew: sysml project — 06-design/views/Alarm_item_leaf_statesView.sysml declares `Alarm_item_leaf_statesView`
+erew: sysml project — 06-design/views/Alarm_whitebox_interconnectionView.sysml declares `Alarm_whitebox_interconnectionView`
+erew: sysml project — 06-design/views/Backup_alarm_blackbox_interfacesView.sysml declares `Backup_alarm_blackbox_interfacesView`
+erew: sysml project — 06-design/views/Backup_alarm_whitebox_interconnectionView.sysml declares `Backup_alarm_whitebox_interconnectionView`
+erew: sysml project — 06-design/views/Context_top_usecasesView.sysml declares `Context_top_usecasesView`
+erew: sysml project — 06-design/views/Display_blackbox_interfacesView.sysml declares `Display_blackbox_interfacesView`
+erew: sysml project — 06-design/views/Display_item_leaf_classesView.sysml declares `Display_item_leaf_classesView`
+erew: sysml project — 06-design/views/Display_whitebox_interconnectionView.sysml declares `Display_whitebox_interconnectionView`
+erew: sysml project — 06-design/views/Logging_blackbox_interfacesView.sysml declares `Logging_blackbox_interfacesView`
+erew: sysml project — 06-design/views/Logging_whitebox_interconnectionView.sysml declares `Logging_whitebox_interconnectionView`
+erew: sysml project — 06-design/views/Power_blackbox_interfacesView.sysml declares `Power_blackbox_interfacesView`
+erew: sysml project — 06-design/views/Power_whitebox_interconnectionView.sysml declares `Power_whitebox_interconnectionView`
+erew: sysml project — 06-design/views/SanadRenderings.sysml declares `SanadRenderings`
+erew: sysml project — 06-design/views/Sensing_blackbox_interfacesView.sysml declares `Sensing_blackbox_interfacesView`
+erew: sysml project — 06-design/views/Sensing_whitebox_interconnectionView.sysml declares `Sensing_whitebox_interconnectionView`
+erew: sysml project — 06-design/views/Supervision_blackbox_interfacesView.sysml declares `Supervision_blackbox_interfacesView`
+erew: sysml project — 06-design/views/Supervision_whitebox_interconnectionView.sysml declares `Supervision_whitebox_interconnectionView`
+erew: sysml project — 06-design/views/System_blackbox_interfacesView.sysml declares `System_blackbox_interfacesView`
+erew: sysml project — 06-design/views/System_whitebox_excursionView.sysml declares `System_whitebox_excursionView`
+erew: sysml project — 06-design/views/System_whitebox_interconnectionView.sysml declares `System_whitebox_interconnectionView`
+erew: sysml project — 06-design/views/System_whitebox_modesView.sysml declares `System_whitebox_modesView`
+erew: sysml project — 06-design/views/System_whitebox_powerlossView.sysml declares `System_whitebox_powerlossView`
+erew: sysml project — 06-design/views/System_whitebox_probefaultView.sysml declares `System_whitebox_probefaultView`
+erew: context layer: 518 file(s), 5000 node(s), 435 skipped (29 ignored, 23 binary, 25 empty, 0 over the size ceiling, 358 unread at the total ceiling) · cut short: 05-reviews/defect-log.md, 06-design/DECOMPOSITION.md, 06-design/hardware/MrtmHardware.sysml, 06-design/mrtm/INDEX.md, 06-design/packages/requirements.sysml, 06-design/system/MrtmSafety.sysml, 06-design/views/rendered/alarm_blackbox_interfaces.svg, 06-design/views/rendered/alarm_item_leaf_states.svg, 06-design/views/rendered/alarm_whitebox_interconnection.svg, 06-design/views/rendered/backup_alarm_blackbox_interfaces.svg, 06-design/views/rendered/backup_alarm_whitebox_interconnection.svg, 06-design/views/rendered/context_top_usecases.svg, 06-design/views/rendered/display_blackbox_interfaces.svg, 06-design/views/rendered/display_item_leaf_classes.svg, 06-design/views/rendered/display_whitebox_interconnection.svg, 06-design/views/rendered/logging_blackbox_interfaces.svg, 06-design/views/rendered/logging_whitebox_interconnection.svg, 06-design/views/rendered/power_blackbox_interfaces.svg, 06-design/views/rendered/power_whitebox_interconnection.svg, 06-design/views/rendered/sensing_blackbox_interfaces.svg, 06-design/views/rendered/sensing_whitebox_interconnection.svg, 06-design/views/rendered/supervision_blackbox_interfaces.svg, 06-design/views/rendered/supervision_whitebox_interconnection.svg, 06-design/views/rendered/system_blackbox_interfaces.svg, 06-design/views/rendered/system_whitebox_excursion.svg, 06-design/views/rendered/system_whitebox_interconnection.svg, 06-design/views/rendered/system_whitebox_modes.svg, 06-design/views/rendered/system_whitebox_powerloss.svg, 06-design/views/rendered/system_whitebox_probefault.svg, 08-safety/01a-risk-analysis-fmea.md, 09-hardware/component-selection.md, 09-hardware/hardware-trace-matrix.md, 11-verification/procedures/system-procedures.md, 12-impact/impact-report.md, 12-impact/sanad-impact/impact-of-MRTM-STK-001.md, 12-impact/sanad-impact/impact-of-MRTM-SYS-001.md, 12-impact/sanad-impact/impact-of-MRTM-SYS-003.md, 13-assessment/archive/run-1-views/rendered/mrtmAlarmStates.svg, 13-assessment/archive/run-1-views/rendered/mrtmBlocks.svg, 13-assessment/archive/run-1-views/rendered/mrtmContainment.svg, 13-assessment/archive/run-1-views/rendered/mrtmContext.svg, 13-assessment/archive/run-1-views/rendered/mrtmDataFlow.svg, 13-assessment/archive/run-1-views/rendered/mrtmDisplayClasses.svg, 13-assessment/archive/run-1-views/rendered/mrtmExternalInterfaces.svg, 13-assessment/archive/run-1-views/rendered/mrtmHwBlocks.svg, 13-assessment/archive/run-1-views/rendered/mrtmHwInterfaces.svg, 13-assessment/archive/run-1-views/rendered/mrtmInterfaces.svg, 13-assessment/archive/run-1-views/rendered/mrtmSafetyBlocks.svg, 13-assessment/archive/run-1-views/rendered/mrtmSafetyReqs.svg, 13-assessment/archive/run-1-views/rendered/mrtmSeqExcursion.svg, 13-assessment/archive/run-1-views/rendered/mrtmSeqPowerLoss.svg, 13-assessment/archive/run-1-views/rendered/mrtmSeqProbeFault.svg, 13-assessment/archive/run-1-views/rendered/mrtmSwCodes.svg, 13-assessment/archive/run-1-views/rendered/mrtmSwComponents.svg, 13-assessment/archive/run-1-views/rendered/mrtmSwContracts.svg, 13-assessment/archive/run-1-views/rendered/mrtmSwWiring.svg, 13-assessment/archive/run-1-views/rendered/mrtmSystemModes.svg, 13-assessment/archive/run-1-views/rendered/mrtmUseCases.svg, 13-assessment/class-c-checklist.md, 13-assessment/iec62304-compliance-index.md, 13-assessment/sanad-runs/phase-10/diff-config-since-REQ-BL-1.txt, 13-assessment/sanad-runs/phase-10/gate.txt, 13-assessment/sanad-runs/phase-10/gate.txt.stderr, 13-assessment/sanad-runs/phase-10/report-requirements-trace.md, 13-assessment/sanad-runs/phase-10/report-requirements.md, 13-assessment/sanad-runs/phase-10/report-test-coverage.md, 13-assessment/sanad-runs/phase-10/report-traceability-audit-since-REQ-BL-1.md, 13-assessment/sanad-runs/phase-10/report-traceability-audit.csv, 13-assessment/sanad-runs/phase-10/report-traceability-audit.md, 13-assessment/sanad-runs/phase-10/report-validation.md, 13-assessment/sanad-runs/phase-10b/diff-config-since-REQ-BL-1.txt, 13-assessment/sanad-runs/phase-10b/gate.txt, 13-assessment/sanad-runs/phase-10b/gate.txt.stderr, 13-assessment/sanad-runs/phase-10b/report-requirements-trace.md, 13-assessment/sanad-runs/phase-10b/report-requirements.md, 13-assessment/sanad-runs/phase-10b/report-test-coverage.md, 13-assessment/sanad-runs/phase-10b/report-traceability-audit-since-REQ-BL-1.md, 13-assessment/sanad-runs/phase-10b/report-traceability-audit.csv, 13-assessment/sanad-runs/phase-10b/report-traceability-audit.md, 13-assessment/sanad-runs/phase-10b/report-validation.md, 13-assessment/sanad-runs/phase-11/diff-config-since-REQ-BL-1.txt, 13-assessment/sanad-runs/phase-11/gate.txt, 13-assessment/sanad-runs/phase-11/gate.txt.stderr, 13-assessment/sanad-runs/phase-11/report-requirements-trace.md, 13-assessment/sanad-runs/phase-11/report-requirements.md, 13-assessment/sanad-runs/phase-11/report-test-coverage.md, 13-assessment/sanad-runs/phase-11/report-traceability-audit-since-REQ-BL-1.md, 13-assessment/sanad-runs/phase-11/report-traceability-audit.csv
+erew: rule pack: requirements-writing (Requirements writing — deterministic prose rules)
+erew: code trace — 137 asserted implements edge(s) (137 codeIndex) · 0 candidate DD-term link(s) · 342 symbol↔verification pair(s) through the trace
+erew: test outcome — 99 case(s) with a declared result (85 pass, 14 skipped) · 40 symbol(s) with measured coverage, 0 traced and never exercised
+erew: read ledger — 12 item(s) this repository states that Sanad did not read
+erew:   Links and claims not made: 12
+erew:     MRTM-ALI-001 — 31 reference(s) use the prefix "ADR", which no type declares
+erew:     MRTM-IND-002 — 1 reference(s) use the prefix "ALI", which no type declares
+erew:     MRTM-ALI-002 — 3 reference(s) use the prefix "ALM", which no type declares
+erew:     …and 9 more
+erew: analyses that ran: validation, traceability, quality, structure, verification, implementation, safety, architecture, consistency, conformance, impact.
+erew: security: DID NOT RUN — this repository declares no threat role. It produced no findings, and that silence is not a clean result.
+erew: interface: DID NOT RUN — this repository declares no interface role. It produced no findings, and that silence is not a clean result.
+erew: 420 finding(s) (3 error, 194 warning, 223 info) across 11 analysis(es), 2 did not run in 40ms.
+erew: GATE FAILED — 3 finding(s) at or above "error".
