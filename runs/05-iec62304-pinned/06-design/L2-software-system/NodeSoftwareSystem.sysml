@@ -20,16 +20,7 @@ package NodeSoftwareSystem {
     part def SoftwareSystem {
         doc /* IEC 62304 software system, class C: the firmware on the hardware item's processor. Its ports are the signals it drives and reads. */
         attribute safetyClass : MrtmSoftware::SafetyClass = MrtmSoftware::SafetyClass::C;
-        port probeBus : OneWirePort;
-        port buzzerDrive : GpioOutPort;
-        port lightDrive : GpioOutPort;
-        port button : GpioInPort;
-        port displayBus : I2cPort;
-        port clockBus : I2cPort;
-        port usbData : UsbPort;
-        port mainsSense : GpioInPort;
-        port batterySense : ~PowerPort;
-        port kick : GpioOutPort;
+        port hal : HalPort;
     }
     part def SoftwareSystemWhiteBox :> SoftwareSystem {
         doc /* IEC 62304 §5.3.1: the eight software items. Wires: packages NodeSoftwareSystemArchitecture and NodeSoftwareSystemHardwareInterface. */

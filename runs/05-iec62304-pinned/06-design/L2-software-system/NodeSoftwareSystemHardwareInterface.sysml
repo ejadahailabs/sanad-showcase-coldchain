@@ -24,7 +24,7 @@ package NodeSoftwareSystemHardwareInterface {
     part usbItem : UsbSwItem;
     part powerItem : PowerSwItem;
     part supervisorItem : SupervisorSwItem;
-    part hardwareItem : HardwareItem;
+    part hardwareItem { port probeBus : ~OneWirePort; port buzzerDrive : ~GpioOutPort; port lightDrive : ~GpioOutPort; port button : ~GpioInPort; port displayBus : ~I2cPort; port clockBus : ~I2cPort; port usbData : ~UsbPort; port mainsSense : ~GpioInPort; port batterySense : PowerPort; port kick : ~GpioOutPort; }  // the hardware item, shown by the signals inside its hal port
     connect sensorItem.bus to hardwareItem.probeBus;
     connect alarmItem.buzzerDrive to hardwareItem.buzzerDrive;
     connect alarmItem.lightDrive to hardwareItem.lightDrive;

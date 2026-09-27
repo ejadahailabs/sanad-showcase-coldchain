@@ -16,16 +16,7 @@ package NodeHardwareItem {
         port usb : UsbPort;
         port alarmSignals : AlarmHmiPort;
         port screen : ScreenPort;
-        port probeBus : ~OneWirePort;
-        port buzzerDrive : ~GpioOutPort;
-        port lightDrive : ~GpioOutPort;
-        port button : ~GpioInPort;
-        port displayBus : ~I2cPort;
-        port clockBus : ~I2cPort;
-        port usbData : ~UsbPort;
-        port mainsSense : ~GpioInPort;
-        port batterySense : PowerPort;
-        port kick : ~GpioOutPort;
+        port hal : ~HalPort;
     }
     part def HardwareItemWhiteBox :> HardwareItem {
         doc /* The chosen parts (09-hardware/). Wires: package NodeHardwareItemParts. */

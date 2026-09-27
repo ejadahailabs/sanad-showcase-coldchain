@@ -88,6 +88,11 @@
     "tools/node-packages.cjs",
     "tools/p8data.py",
     "tools/pilot-headless.cjs",
+    "tools/pinned-build.py",
+    "tools/pinned-index.py",
+    "tools/pinned-layouts.py",
+    "tools/pinned_data.py",
+    "tools/pinned_model.py",
     "tools/profile-write-headless.cjs",
     "tools/render-view-headless.cjs",
     "tools/requirements-package.cjs",
@@ -133,7 +138,8 @@
         "MRTM-SYS-006",
         "MRTM-SAF-002",
         "MRTM-SYS-024",
-        "MRTM-ALI-001"
+        "MRTM-ALI-001",
+        "MRTM-AMG-001"
       ]
     },
     {
@@ -152,7 +158,8 @@
         "MRTM-SAF-015",
         "MRTM-SAF-017",
         "MRTM-SAF-019",
-        "MRTM-ALI-002"
+        "MRTM-ALI-002",
+        "MRTM-AMG-002"
       ]
     },
     {
@@ -169,7 +176,8 @@
         "MRTM-IFC-002",
         "MRTM-SAF-019",
         "MRTM-SYS-006",
-        "MRTM-ALI-003"
+        "MRTM-ALI-003",
+        "MRTM-AMG-003"
       ]
     },
     {
@@ -177,7 +185,8 @@
       "file": "10-src/firmware/components/alarm_mgr/src/alarm_mgr.c",
       "implements": [
         "MRTM-SAF-010",
-        "MRTM-ALI-004"
+        "MRTM-ALI-004",
+        "MRTM-AMG-004"
       ]
     },
     {
@@ -186,7 +195,8 @@
       "implements": [
         "MRTM-SAF-017",
         "MRTM-SYS-017",
-        "MRTM-SVI-003"
+        "MRTM-SVI-003",
+        "MRTM-CFG-001"
       ]
     },
     {
@@ -202,7 +212,8 @@
       "implements": [
         "MRTM-SAF-007",
         "MRTM-SAF-023",
-        "MRTM-SVI-002"
+        "MRTM-SVI-002",
+        "MRTM-DGN-001"
       ]
     },
     {
@@ -223,7 +234,8 @@
         "MRTM-SYS-022",
         "MRTM-SAF-012",
         "MRTM-SAF-016",
-        "MRTM-MNT-003"
+        "MRTM-MNT-003",
+        "MRTM-DMG-001"
       ]
     },
     {
@@ -248,7 +260,8 @@
         "MRTM-SYS-005",
         "MRTM-SYS-013",
         "MRTM-SAF-016",
-        "MRTM-MNT-003"
+        "MRTM-MNT-003",
+        "MRTM-DMG-002"
       ]
     },
     {
@@ -272,7 +285,8 @@
         "MRTM-SYS-008",
         "MRTM-SYS-009",
         "MRTM-SYS-010",
-        "MRTM-SYS-023"
+        "MRTM-SYS-023",
+        "MRTM-EVL-002"
       ]
     },
     {
@@ -280,7 +294,8 @@
       "file": "10-src/firmware/components/event_log/src/event_log.c",
       "implements": [
         "MRTM-SAF-018",
-        "MRTM-LGI-001"
+        "MRTM-LGI-001",
+        "MRTM-EVL-001"
       ]
     },
     {
@@ -288,7 +303,8 @@
       "file": "10-src/firmware/components/history_ring/src/history_ring.c",
       "implements": [
         "MRTM-SYS-015",
-        "MRTM-LGI-002"
+        "MRTM-LGI-002",
+        "MRTM-HRG-002"
       ]
     },
     {
@@ -297,7 +313,8 @@
       "implements": [
         "MRTM-SAF-018",
         "MRTM-SYS-015",
-        "MRTM-SYS-022"
+        "MRTM-SYS-022",
+        "MRTM-HRG-001"
       ]
     },
     {
@@ -325,7 +342,10 @@
         "MRTM-SYS-024",
         "MRTM-EXI-001",
         "MRTM-EXI-002",
-        "MRTM-EXI-003"
+        "MRTM-EXI-003",
+        "MRTM-LEV-001",
+        "MRTM-LEV-002",
+        "MRTM-LEV-003"
       ]
     },
     {
@@ -402,7 +422,8 @@
       "implements": [
         "MRTM-SAF-005",
         "MRTM-SYS-023",
-        "MRTM-PWI-001"
+        "MRTM-PWI-001",
+        "MRTM-PMN-001"
       ]
     },
     {
@@ -410,7 +431,8 @@
       "file": "10-src/firmware/components/power_mon/src/power_mon.c",
       "implements": [
         "MRTM-SAF-008",
-        "MRTM-PWI-002"
+        "MRTM-PWI-002",
+        "MRTM-PMN-002"
       ]
     },
     {
@@ -427,7 +449,8 @@
         "MRTM-SYS-020",
         "MRTM-SYS-008",
         "MRTM-SYS-010",
-        "MRTM-SYS-023"
+        "MRTM-SYS-023",
+        "MRTM-RTK-001"
       ]
     },
     {
@@ -460,7 +483,8 @@
         "MRTM-IFC-001",
         "MRTM-SAF-003",
         "MRTM-SYS-012",
-        "MRTM-SNI-001"
+        "MRTM-SNI-001",
+        "MRTM-SMP-001"
       ]
     },
     {
@@ -469,7 +493,8 @@
       "implements": [
         "MRTM-SYS-012",
         "MRTM-SAF-003",
-        "MRTM-SNI-002"
+        "MRTM-SNI-002",
+        "MRTM-SMP-002"
       ]
     },
     {
@@ -478,7 +503,8 @@
       "implements": [
         "MRTM-IFC-003",
         "MRTM-SYS-014",
-        "MRTM-USI-001"
+        "MRTM-USI-001",
+        "MRTM-UXP-001"
       ]
     },
     {
@@ -495,7 +521,8 @@
       "implements": [
         "MRTM-SYS-014",
         "MRTM-IFC-003",
-        "MRTM-USI-002"
+        "MRTM-USI-002",
+        "MRTM-UXP-002"
       ]
     },
     {
@@ -511,7 +538,15 @@
       "implements": [
         "MRTM-SAF-010",
         "MRTM-SAF-009",
-        "MRTM-SVI-001"
+        "MRTM-SVI-001",
+        "MRTM-WDK-001"
+      ]
+    },
+    {
+      "symbol": "compile",
+      "file": "tools/pinned-build.py",
+      "implements": [
+        "A-Z"
       ]
     }
   ]

@@ -48,6 +48,9 @@ VOCAB = """
     // What people meet at the device: the alarm signals (sound, light, button) and the screen.
     port def AlarmHmiPort { out item signal : AlarmCommand; in item press : ButtonPress; }
     port def ScreenPort { out item screenFrame : DisplayFrame; }
+    // Everything the software drives or reads on the hardware, bundled as one port (the hardware abstraction layer, HAL).
+    port def HalPort { port probeBus : OneWirePort; port buzzerDrive : GpioOutPort; port lightDrive : GpioOutPort; port button : GpioInPort;
+        port displayBus : I2cPort; port clockBus : I2cPort; port usbData : UsbPort; port mainsSense : GpioInPort; port batterySense : ~PowerPort; port kick : GpioOutPort; }
     // The people at the device (nurse, pharmacist, manager, technician).
     part def Staff { port alarmSignals : ~AlarmHmiPort; port screen : ~ScreenPort; }
 """
@@ -153,11 +156,11 @@ def main():
             "    part hardwareItem : HardwareItem;\n    part softwareSystem : SoftwareSystem;\n    part fridge : Fridge;\n    part mains : MainsSupply;\n    part usbHost : UsbHost;\n    part staff : Staff;\n"
             + conns([("fridge.air", "hardwareItem.air"), ("mains.output", "hardwareItem.mains"), ("hardwareItem.usb", "usbHost.usb"),
                      ("hardwareItem.alarmSignals", "staff.alarmSignals"), ("hardwareItem.screen", "staff.screen")]
-                    + [(f"softwareSystem.{p}", f"hardwareItem.{p}") for p, _ in HAL]),
+                    + [("softwareSystem.hal", "hardwareItem.hal")]),
             "white box of the device in its context (view package, no satisfy).")
     # ---- L2 hardware item ----
     body = "\n    part def HardwareItem {\n        doc /* The hardware side as ONE item under the device (IEC 60601-1 cl. 4.8 components, cl. 14.8). Outside ports + the signals the software uses. */\n" \
-        + "".join(f"        port {p} : {t};\n" for p, t in OUTSIDE) + "".join(f"        port {p} : {conj(t)};\n" for p, t in HAL) + "    }\n" \
+        + "".join(f"        port {p} : {t};\n" for p, t in OUTSIDE) + "        port hal : ~HalPort;\n    }\n" \
         + "    part def HardwareItemWhiteBox :> HardwareItem {\n        doc /* The chosen parts (09-hardware/). Wires: package NodeHardwareItemParts. */\n" \
         + "".join(f"        part {n} : MrtmHardware::{t};\n" for n, t in HW_PARTS) + "    }\n    part hardwareItem : HardwareItem;\n"
     sat += node_file("hardware-item", VI + ["MrtmHardware"], "LEVEL 2 — HARDWARE ITEM (class C risk controls in hardware: backup alarm, buzzer, probe).", body, "hardwareItem")
@@ -167,7 +170,7 @@ def main():
     # ---- L2 software system ----
     body = "\n    part def SoftwareSystem {\n        doc /* IEC 62304 software system, class C: the firmware on the hardware item's processor. Its ports are the signals it drives and reads. */\n" \
         + "        attribute safetyClass : MrtmSoftware::SafetyClass = MrtmSoftware::SafetyClass::C;\n" \
-        + "".join(f"        port {p} : {t};\n" for p, t in HAL) + "    }\n" \
+        + "        port hal : HalPort;\n    }\n" \
         + "    part def SoftwareSystemWhiteBox :> SoftwareSystem {\n        doc /* IEC 62304 §5.3.1: the eight software items. Wires: packages NodeSoftwareSystemArchitecture and NodeSoftwareSystemHardwareInterface. */\n" \
         + "".join(f"        part {camel(i)} : {d};\n" for i, (d, *_) in ITEMS.items()) + "    }\n    part softwareSystem : SoftwareSystem;\n"
     sat += node_file("software-system", VI + ["MrtmSoftware"] + item_pkgs, "LEVEL 2 — SOFTWARE SYSTEM (IEC 62304 §5.2 SRS, §5.3 architecture). Satisfies the SRS only.", body, "softwareSystem")
@@ -177,7 +180,7 @@ def main():
             items_parts + conns(ARCH_WIRES), "items and their flows (view package, no satisfy).")
     package("L2-software-system/NodeSoftwareSystemHardwareInterface.sysml", "NodeSoftwareSystemHardwareInterface", VI + ["MrtmSoftware", "NodeHardwareItem"] + item_pkgs,
             "Software to hardware (IEC 62304 §5.3.3/§5.3.4 hardware the software needs): which item drives or reads which hardware signal.",
-            items_parts + "    part hardwareItem : HardwareItem;\n" + conns(HAL_WIRES), "items and the hardware item (view package, no satisfy).")
+            items_parts + stub("hardwareItem", [(p, conj(t)) for p, t in HAL], "the hardware item, shown by the signals inside its hal port") + conns(HAL_WIRES), "items and the hardware item (view package, no satisfy).")
     seq = [("hardwareItem", "HardwareItem"), ("sensorItem", "SensorSwItem"), ("excursionItem", "ExcursionSwItem"), ("alarmItem", "AlarmSwItem"),
            ("displayItem", "DisplaySwItem"), ("logItem", "LogSwItem")]
     msgs = [("sample", "TemperatureSample", "hardwareItem", "sensorItem"), ("validSample", "TemperatureSample", "sensorItem", "excursionItem"),

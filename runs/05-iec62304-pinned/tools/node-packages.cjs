@@ -12,10 +12,13 @@ const YAML = require(join(ext, "node_modules", "yaml"));
   const fw = YAML.parse(fs.readFileSync(join(root, ".ejadah/rew/framework.yaml"), "utf8"));
   const model = await loadRepository(root);
   fs.mkdirSync(join(root, out), { recursive: true });
-  for (const n of fw.nodes) {
-    const pre = [n.prefix].flat();
+  // RUN-05: one package per LEVEL of the pinned stack (hardware item beside the software system on level 2)
+  const groups = {};
+  for (const n of fw.nodes) { const k = n.kind === "hardware-item" ? "2-hardware-item" : `${n.level}-${fw.step.levels[n.level - 1].name}`; (groups[k] ??= { name: k, prefix: [] }).prefix.push(...[n.prefix].flat()); }
+  for (const n of Object.values(groups)) {
+    const pre = n.prefix;
     const reqs = new Map([...model.requirements].filter(([id]) => pre.includes(id.replace(/-\d+$/, ""))));
-    const name = "Req" + n.name.split("-").map((w) => w[0].toUpperCase() + w.slice(1)).join("");
+    const name = "ReqL" + n.name.split("-").map((w) => w[0].toUpperCase() + w.slice(1)).join("");
     const pkg = requirementsPackage({ ...model, requirements: reqs, config: { ...model.config, generatedPackage: name } }, ["x"]);
     fs.writeFileSync(join(root, out, `${name}.sysml`), pkg.text);
     console.log(`${name}: ${reqs.size}`);

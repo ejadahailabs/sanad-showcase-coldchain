@@ -17,6 +17,9 @@ package LevelPorts {
     // What people meet at the device: the alarm signals (sound, light, button) and the screen.
     port def AlarmHmiPort { out item signal : AlarmCommand; in item press : ButtonPress; }
     port def ScreenPort { out item screenFrame : DisplayFrame; }
+    // Everything the software drives or reads on the hardware, bundled as one port (the hardware abstraction layer, HAL).
+    port def HalPort { port probeBus : OneWirePort; port buzzerDrive : GpioOutPort; port lightDrive : GpioOutPort; port button : GpioInPort;
+        port displayBus : I2cPort; port clockBus : I2cPort; port usbData : UsbPort; port mainsSense : GpioInPort; port batterySense : ~PowerPort; port kick : GpioOutPort; }
     // The people at the device (nurse, pharmacist, manager, technician).
     part def Staff { port alarmSignals : ~AlarmHmiPort; port screen : ~ScreenPort; }
 }

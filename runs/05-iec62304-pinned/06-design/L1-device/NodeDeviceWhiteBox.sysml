@@ -20,14 +20,5 @@ package NodeDeviceWhiteBox {
     connect hardwareItem.usb to usbHost.usb;
     connect hardwareItem.alarmSignals to staff.alarmSignals;
     connect hardwareItem.screen to staff.screen;
-    connect softwareSystem.probeBus to hardwareItem.probeBus;
-    connect softwareSystem.buzzerDrive to hardwareItem.buzzerDrive;
-    connect softwareSystem.lightDrive to hardwareItem.lightDrive;
-    connect softwareSystem.button to hardwareItem.button;
-    connect softwareSystem.displayBus to hardwareItem.displayBus;
-    connect softwareSystem.clockBus to hardwareItem.clockBus;
-    connect softwareSystem.usbData to hardwareItem.usbData;
-    connect softwareSystem.mainsSense to hardwareItem.mainsSense;
-    connect softwareSystem.batterySense to hardwareItem.batterySense;
-    connect softwareSystem.kick to hardwareItem.kick;
+    connect softwareSystem.hal to hardwareItem.hal;
 }
