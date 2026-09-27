@@ -7,7 +7,7 @@ static mrtm_config_t cfg = { .band_low_tenths = 20, .band_high_tenths = 80 };
 void setUp(void) { ts_fresh(); cfg.probe_offset_tenths = 0; TEST_ASSERT_EQUAL(MRTM_OK, sensor_sampler_init(&cfg)); }
 void tearDown(void) {}
 
-/* @verifies MRTM-SYS-001 MRTM-IFC-001 */
+/* @verifies MRTM-SYS-001 MRTM-IFC-001 MRTM-SNI-001 */
 void test_good_scratchpad_gives_a_valid_sample(void)
 {
     mrtm_sample_t s;
@@ -17,7 +17,7 @@ void test_good_scratchpad_gives_a_valid_sample(void)
     TEST_ASSERT_EQUAL_INT16(45, s.tenths);
 }
 
-/* @verifies MRTM-SYS-012 */
+/* @verifies MRTM-SYS-012 MRTM-SNI-002 */
 void test_bad_crc_is_invalid_but_not_out_of_range(void)
 {
     mrtm_sample_t s;
@@ -27,7 +27,7 @@ void test_bad_crc_is_invalid_but_not_out_of_range(void)
     TEST_ASSERT_FALSE(sensor_sampler_probe_fault(10));
 }
 
-/* @verifies MRTM-SAF-003 */
+/* @verifies MRTM-SAF-003 MRTM-SNI-002 */
 void test_reading_outside_minus30_to_50_declares_the_fault_at_once(void)
 {
     mrtm_sample_t s;

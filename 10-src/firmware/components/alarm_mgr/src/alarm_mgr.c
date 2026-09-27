@@ -74,7 +74,7 @@ static bool pop(alarm_signal_t *out)
 }
 
 /* One row per transition of MrtmSwStates::AlarmStates. */
-/* @implements MRTM-SYS-003 MRTM-SYS-006 MRTM-SAF-002 MRTM-SYS-024 */
+/* @implements MRTM-SYS-003 MRTM-SYS-006 MRTM-SAF-002 MRTM-SYS-024 MRTM-ALI-001 */
 static void take(alarm_signal_t sig, uint32_t now_ms)
 {
     switch (sig) {
@@ -110,7 +110,7 @@ static void take(alarm_signal_t sig, uint32_t now_ms)
     }
 }
 
-/* @implements MRTM-SYS-024 MRTM-SYS-003 MRTM-SYS-004 MRTM-SYS-019 MRTM-PRF-002 MRTM-SAF-002 MRTM-SAF-008 MRTM-SAF-011 MRTM-SAF-014 MRTM-SAF-015 MRTM-SAF-017 MRTM-SAF-019 */
+/* @implements MRTM-SYS-024 MRTM-SYS-003 MRTM-SYS-004 MRTM-SYS-019 MRTM-PRF-002 MRTM-SAF-002 MRTM-SAF-008 MRTM-SAF-011 MRTM-SAF-014 MRTM-SAF-015 MRTM-SAF-017 MRTM-SAF-019 MRTM-ALI-002 */
 void alarm_mgr_step(uint32_t now_ms)
 {
     alarm_signal_t sig;
@@ -160,7 +160,7 @@ void alarm_mgr_button_isr(void *arg)
 }
 
 /* REVIEW: the 60 s stuck check runs in alarm_mgr_step (<= 1 s late) instead of a second one-shot. */
-/* @implements MRTM-IFC-002 MRTM-SAF-019 MRTM-SYS-006 */
+/* @implements MRTM-IFC-002 MRTM-SAF-019 MRTM-SYS-006 MRTM-ALI-003 */
 void alarm_mgr_button_debounced(void)
 {
     bool pressed = hal_button_pressed();
@@ -171,7 +171,7 @@ void alarm_mgr_button_debounced(void)
     if (!a.btn_stuck) (void)alarm_mgr_post(SIG_ACK_PRESSED);
 }
 
-/* @implements MRTM-SAF-010 */
+/* @implements MRTM-SAF-010 MRTM-ALI-004 */
 uint32_t alarm_mgr_heartbeat(void)
 {
     return a.beat;

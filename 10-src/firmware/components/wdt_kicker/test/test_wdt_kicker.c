@@ -21,7 +21,7 @@ void test_pulses_while_the_heartbeat_moves(void)
 }
 
 /* The alarm task misses its 1 s cycle at t = 1000; pulses must stop by t = 3000. */
-/* @verifies MRTM-SAF-010 */
+/* @verifies MRTM-SAF-010 MRTM-SVI-001 */
 void test_pulses_stop_within_2_s_of_a_missed_alarm_cycle(void)
 {
     wdt_kicker_step(0, 1);

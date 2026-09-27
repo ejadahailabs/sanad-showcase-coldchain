@@ -116,7 +116,7 @@ static uint8_t battery_pct(uint32_t mv)
     return (uint8_t)((mv - MRTM_BATTERY_LOW_MV) * 100u / (4200u - MRTM_BATTERY_LOW_MV));
 }
 
-/* @implements MRTM-SAF-010 MRTM-SAF-012 MRTM-SYS-022 MRTM-MNT-002 MRTM-SYS-008 MRTM-SYS-020 */
+/* @implements MRTM-SAF-010 MRTM-SAF-012 MRTM-SYS-022 MRTM-MNT-002 MRTM-SYS-008 MRTM-SYS-020 MRTM-DSI-002 */
 void app_supervisor_step(uint32_t now_ms)
 {
     rtc_clock_tick();                                   /* DEF-003: nothing refreshed the UTC copy */
@@ -135,7 +135,7 @@ void app_log_step(void)
     event_log_step(0);
 }
 
-/* @implements MRTM-SYS-005 MRTM-SYS-013 */
+/* @implements MRTM-SYS-005 MRTM-SYS-013 MRTM-DSI-001 */
 void app_display_step(void)
 {
     app.view.alarm = alarm_mgr_state();

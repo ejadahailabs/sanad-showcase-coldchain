@@ -20,7 +20,7 @@ static bool slot_read(int part, uint32_t slot, event_record_t *out)
     return hal_flash_read(part, slot * sizeof *out, out, sizeof *out);
 }
 
-/* @implements MRTM-SYS-015 */
+/* @implements MRTM-SYS-015 MRTM-LGI-002 */
 mrtm_err_t history_ring_init(history_ring_t *r)
 {
     if (r == NULL) return MRTM_ERR_ARG;

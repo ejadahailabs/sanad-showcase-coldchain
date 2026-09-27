@@ -12,7 +12,7 @@ void tearDown(void) {}
 
 static limit_event_t feed(int16_t tenths, bool valid) { mrtm_sample_t s = { tenths, 0, valid }; return limit_evaluator_step(&st, &s); }
 
-/* @verifies MRTM-SYS-002 */
+/* @verifies MRTM-SYS-002 MRTM-EXI-002 */
 void test_nth_consecutive_out_sample_confirms(void)
 {
     TEST_ASSERT_EQUAL(LIMIT_EARLY, feed(81, true));
@@ -31,7 +31,7 @@ void test_n_minus_one_out_then_one_in_does_not_confirm(void)
 }
 
 /* CR-001 / ADR-0030: the first valid out-of-band sample raises the early (low-priority) alarm. */
-/* @verifies MRTM-SYS-024 */
+/* @verifies MRTM-SYS-024 MRTM-EXI-001 */
 void test_first_out_sample_raises_the_early_alarm(void)
 {
     TEST_ASSERT_EQUAL(LIMIT_NONE, feed(0, false));          /* an invalid sample raises nothing */
@@ -51,7 +51,7 @@ void test_back_in_band_clears_the_early_alarm(void)
 }
 
 /* The budget the compile-time check enforces, restated as a test so a result row exists. */
-/* @verifies MRTM-SYS-024 */
+/* @verifies MRTM-SYS-024 MRTM-SEN-002 MRTM-ALM-001 MRTM-ALM-002 MRTM-EXI-001 MRTM-EXI-002 */
 void test_early_alarm_budget_fits_5_s(void)
 {
     TEST_ASSERT_LESS_OR_EQUAL_UINT32(MRTM_EARLY_ALARM_MS, MRTM_SAMPLE_PERIOD_MS + MRTM_PROBE_CONVERSION_MS + MRTM_ALARM_PERIOD_MS);
@@ -75,7 +75,7 @@ void test_band_edges_two_and_eight_degrees_are_inside(void)
     TEST_ASSERT_EQUAL(0, st.out_run);
 }
 
-/* @verifies MRTM-SYS-018 */
+/* @verifies MRTM-SYS-018 MRTM-ALM-007 MRTM-EXI-003 */
 void test_nth_consecutive_in_sample_ends_excursion(void)
 {
     for (int i = 0; i < N; i++) feed(85, true);

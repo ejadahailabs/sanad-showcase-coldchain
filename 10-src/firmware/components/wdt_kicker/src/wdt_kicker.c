@@ -15,7 +15,7 @@ void wdt_kicker_init(void)
     held = false;
 }
 
-/* @implements MRTM-SAF-010 MRTM-SAF-009 */
+/* @implements MRTM-SAF-010 MRTM-SAF-009 MRTM-SVI-001 */
 void wdt_kicker_step(uint32_t now_ms, uint32_t alarm_beat)
 {
     if (!primed || alarm_beat != last_beat) { primed = true; last_beat = alarm_beat; last_change_ms = now_ms; }

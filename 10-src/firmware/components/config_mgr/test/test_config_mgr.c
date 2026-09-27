@@ -14,7 +14,7 @@ void test_valid_record_loads_the_2_to_8_degree_band(void)
     TEST_ASSERT_EQUAL_INT16(80, c.band_high_tenths);
 }
 
-/* @verifies MRTM-SAF-017 */
+/* @verifies MRTM-SAF-017 MRTM-SVI-003 */
 void test_bad_crc_is_refused_with_err_crc(void)
 {
     host.nvs_cfg[3] ^= 0x01;

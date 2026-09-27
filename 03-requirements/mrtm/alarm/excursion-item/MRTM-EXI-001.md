@@ -1,0 +1,32 @@
+---
+id: "MRTM-EXI-001"
+type: "excursion-item"
+status: "draft"
+priority: "medium"
+author: "Masood (drafted by Claude, MODEL-LEVELS)"
+created: "2026-09-27"
+modified: ""
+tags: []
+uplinks: ["MRTM-ALM-001"]
+safetyClass: "C"
+derived: false
+implemented_by: []
+---
+
+# Excursion item early report
+
+## Description
+
+The excursion item shall report the early excursion at the first valid sample outside the allowed band.
+
+## Rationale
+
+Starts the low-priority signal without waiting for confirmation (ADR-0030). A compile-time check holds sample + conversion + alarm cycle ≤ 5 s.
+
+## Verification
+
+Test: unit tests of limit_evaluator, including the budget test.
+
+## Safety
+
+Class C (IEC 62304 §4.3): a failure of this software item can leave a real excursion unalarmed or unrecorded, and vaccines that lost potency may then be given (hazard chain HAZ-001…HAZ-008, severity serious). Same class as its parent node.

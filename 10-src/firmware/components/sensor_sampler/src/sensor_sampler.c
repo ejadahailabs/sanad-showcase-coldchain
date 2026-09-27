@@ -34,7 +34,7 @@ int16_t sensor_sampler_to_tenths(int16_t raw, int16_t offset_tenths)
     return (int16_t)(t + offset_tenths);
 }
 
-/* @implements MRTM-SYS-001 MRTM-IFC-001 MRTM-SAF-003 MRTM-SYS-012 */
+/* @implements MRTM-SYS-001 MRTM-IFC-001 MRTM-SAF-003 MRTM-SYS-012 MRTM-SNI-001 */
 mrtm_err_t sensor_sampler_read(uint32_t now_s, mrtm_sample_t *out)
 {
     if (out == NULL) return MRTM_ERR_ARG;
@@ -59,7 +59,7 @@ mrtm_err_t sensor_sampler_read(uint32_t now_s, mrtm_sample_t *out)
     return MRTM_OK;
 }
 
-/* @implements MRTM-SYS-012 MRTM-SAF-003 */
+/* @implements MRTM-SYS-012 MRTM-SAF-003 MRTM-SNI-002 */
 bool sensor_sampler_probe_fault(uint32_t now_s)
 {
     if (!s.started) return false;

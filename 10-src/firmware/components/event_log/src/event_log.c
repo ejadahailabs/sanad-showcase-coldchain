@@ -42,7 +42,7 @@ mrtm_err_t event_log_post_from_isr(mrtm_event_kind_t kind, int16_t tenths, int16
 }
 
 /* REVIEW: timing — logTask must run within 1 s of any post (priority 16, ADR-0019). */
-/* @implements MRTM-SAF-018 */
+/* @implements MRTM-SAF-018 MRTM-LGI-001 */
 void event_log_step(uint32_t timeout_ms)
 {
     (void)timeout_ms;                       /* target: the queue wait; host: returns at once */
