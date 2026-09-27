@@ -11,12 +11,12 @@
 
 ## Where to get the real, current licence text
 
-At the moment this repository actually goes public, whoever does the flip should fetch each licence's current full text directly from its own source, rather than trusting a copy pasted in here months earlier:
+**Fetch-at-flip note: this is now due (2026-09-27, the repository is going public).** The names, licences and URLs below were confirmed reachable on 2026-09-27 — their licence names, not their full legal text, which is never copied in here:
 
-- Unity — the licence file in Unity's own GitHub repository (ThrowTheSwitch/Unity)
-- GoogleTest — the licence file in Google's own GitHub repository (google/googletest)
-- ESP-IDF — the licence file in Espressif's own GitHub repository (espressif/esp-idf)
-- OMG SysML v2 — the licence terms published on the Object Management Group's own site for the SysML v2 specification and Pilot Implementation
+- **Unity** — MIT License — https://github.com/ThrowTheSwitch/Unity/blob/master/LICENSE.txt
+- **GoogleTest (gtest)** — BSD 3-Clause License — https://github.com/google/googletest/blob/main/LICENSE
+- **ESP-IDF** — Apache License 2.0 — https://github.com/espressif/esp-idf/blob/master/LICENSE
+- **OMG SysML v2** — the licence terms published on the Object Management Group's own site for the SysML v2 specification and Pilot Implementation (not re-checked in this pass — same owner-decision note as before applies)
 
 ## What this page is not
 

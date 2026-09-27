@@ -1,5 +1,7 @@
 # Licensing options — Masood decides, this page does not
 
+**Decided 2026-09-27: option A.** See `LICENSING.md` and the `LICENSE` / `LICENSE-DOCS` files now in the repository root. The two options below are kept as the record of the choice, not as a live decision.
+
 **In one line:** before this repository can go public, someone has to pick a licence — the rules that say what other people are allowed to do with it. That is Masood's call. This page lays out two plain choices so he can pick one; it does not pick for him, and no `LICENSE` file has been added yet.
 
 A "licence" is just a signed permission slip: it tells a stranger who finds this repository what they may and may not do with what's inside — copy it, change it, use it in their own product, or none of the above.
