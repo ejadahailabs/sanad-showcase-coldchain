@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="system-procedures" tests="15" failures="0" errors="0" skipped="14" timestamp="2026-09-27T00:00:00">
+<testsuite name="system-procedures" tests="21" failures="0" errors="0" skipped="20" timestamp="2026-09-27T00:00:00">
   <properties>
-    <property name="tester" value="DOGFOOD-6 (agent, no independence)"/>
+    <property name="tester" value="RUN-03-ARCADIA (agent, no independence)"/>
     <property name="date" value="2026-09-27"/>
-    <property name="build" value="c32f4f1"/>
+    <property name="build" value="ad1e955"/>
     <property name="environment" value="host dry run (SP-01-H); bench cases blocked"/>
     <property name="evidence" value="11-verification/evidence/system/SP-01-H-sim_main-excursion.log"/>
   </properties>
@@ -49,5 +49,23 @@
   </testcase>
   <testcase name="SP-14" time="0">
     <skipped message="IFU not written yet"/>
+  </testcase>
+  <testcase name="INS-CI-001" time="0">
+    <skipped message="needs the target bench (ESP32-S3 board + instruments); not available in this run (A-30, A-36)"/>
+  </testcase>
+  <testcase name="INS-CI-002" time="0">
+    <skipped message="needs the target bench (ESP32-S3 board + instruments); not available in this run (A-30, A-36)"/>
+  </testcase>
+  <testcase name="INS-CI-003" time="0">
+    <skipped message="needs the target bench (ESP32-S3 board + instruments); not available in this run (A-30, A-36)"/>
+  </testcase>
+  <testcase name="INS-CI-004" time="0">
+    <skipped message="needs the target bench (ESP32-S3 board + instruments); not available in this run (A-30, A-36)"/>
+  </testcase>
+  <testcase name="INS-CI-005" time="0">
+    <skipped message="needs the target bench (ESP32-S3 board + instruments); not available in this run (A-30, A-36)"/>
+  </testcase>
+  <testcase name="INS-CI-006" time="0">
+    <skipped message="needs the target bench (ESP32-S3 board + instruments); not available in this run (A-30, A-36)"/>
   </testcase>
 </testsuite>

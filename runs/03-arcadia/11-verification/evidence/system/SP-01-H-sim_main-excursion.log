@@ -1,4 +1,4 @@
-# SP-01-H host dry run, build=c32f4f1 date=2026-09-27 tester=DOGFOOD-6 (agent, no independence)
+# SP-01-H host dry run, build=ad1e955 date=2026-09-27 tester=RUN-03-ARCADIA (agent, no independence)
 t= 10000 ms power-up -> mode 1
 CHECK SP-01.1 PASS — quiet in band: buzzer off, green on
 t= 80100 ms early alarm, 1100 ms after the change
