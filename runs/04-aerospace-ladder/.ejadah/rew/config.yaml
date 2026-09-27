@@ -44,8 +44,8 @@ setup:
     - "data-dictionary"
     - high-level-architecture
     - software-design
-    - hlr        # RUN-04: DO-178C high-level requirements, Sanad's own role
-    - llr        # RUN-04: DO-178C low-level requirements, Sanad's own role
+    - hlr # RUN-04: DO-178C high-level requirements, Sanad's own role
+    - llr # RUN-04: DO-178C low-level requirements, Sanad's own role
 
   # Where each artifact kind lives, repository-relative (FEAT-064). The
   # inventory above says which artifacts this programme holds; these say where
@@ -338,52 +338,52 @@ suppressions:
       review round 1."
   # DOGFOOD-2 Phase 4 (system architecture): accepted with reason.
   - rule: "sysml-unresolved-id"
-    path: "06-design/library/MrtmPartitions.sysml"
+    path: "06-design/common/MrtmPartitions.sysml"
     reason: "Part-to-part `allocate` (logical function -> software item -> hardware)
       is read as a requirement allocation, so each end is looked up as a
       requirement id (FINDINGS F-35). The allocations are the IEC 62304 5.3
       architecture and the OMG Pilot reads them clean. Accepted DOGFOOD-2."
   - rule: "sysml-not-read"
-    path: "06-design/library/MrtmLogical.sysml"
+    path: "06-design/common/MrtmLogical.sysml"
     reason: "The two successions (acquire -> check -> detect) are model truth; Sanad
       reads them but the action-flow picture does not draw them (F-36). Accepted
       DOGFOOD-2."
   - rule: sysml-unresolved-id
-    path: 06-design/library/MrtmSoftware.sysml
+    path: 06-design/common/MrtmSoftware.sysml
     reason: Part-to-part `allocate` (component -> FreeRTOS task, software item ->
       ESP32-S3) is read as a requirement allocation, so each end is looked up as
       a requirement id (F-35). IEC 62304 5.3 architecture; OMG Pilot reads it
       clean. Accepted DOGFOOD-4.
   - rule: sysml-not-read
-    path: 06-design/library/MrtmSwStates.sysml
+    path: 06-design/common/MrtmSwStates.sysml
     reason: Transitions and successions are read and DRAWN by Sanad's state
       transition and sequence views
       (06-design/views/rendered/mrtmAlarmStates.svg, mrtmSeq*.svg), but the
       graph does not take them, so the gate calls them 'read but not drawn'
       (FINDINGS F-68). Accepted DOGFOOD-4.
   - rule: sysml-not-read
-    path: 06-design/library/MrtmSeq*.sysml
+    path: 06-design/common/MrtmSeq*.sysml
     reason: Transitions and successions are read and DRAWN by Sanad's state
       transition and sequence views
       (06-design/views/rendered/mrtmAlarmStates.svg, mrtmSeq*.svg), but the
       graph does not take them, so the gate calls them 'read but not drawn'
       (FINDINGS F-68). Accepted DOGFOOD-4.
   - rule: allocation-target-undeclared
-    path: 06-design/library/**
+    path: 06-design/common/**
     reason: "Only software components are declared in .ejadah/rew/architecture/;
       system functions, hardware parts, FreeRTOS tasks and the ESP32-S3 are
       allocation targets but not software components. The rule cannot tell them
       apart because the #Component marker is not read (FINDINGS F-70). Accepted
       DOGFOOD-4."
   - rule: allocation-target-undeclared
-    path: 06-design/library/**
+    path: 06-design/common/**
     reason: "Only software components are declared in .ejadah/rew/architecture/;
       system functions, hardware parts, FreeRTOS tasks and the ESP32-S3 are
       allocation targets but not software components. The rule cannot tell them
       apart because the #Component marker is not read (FINDINGS F-70). Accepted
       DOGFOOD-4."
   - rule: allocation-target-undeclared
-    path: 06-design/library/MrtmSoftware.sysml
+    path: 06-design/common/MrtmSoftware.sysml
     reason: "Only software components are declared in .ejadah/rew/architecture/;
       system functions, hardware parts, FreeRTOS tasks and the ESP32-S3 are
       allocation targets but not software components. The rule cannot tell them
@@ -437,7 +437,7 @@ suppressions:
       software element implements it; verified by inspection of the IFU (Phase
       10). Accepted DOGFOOD-4.
   - rule: allocation-target-undeclared
-    path: 06-design/library/MrtmSwDetail.sysml
+    path: 06-design/common/MrtmSwDetail.sysml
     reason: "Satisfy links land on the unit-contract usages (sensorSamplerApi …),
       design elements of IEC 62304 5.4 rather than declared components; the
       #Interface marker is not read (FINDINGS F-70). Accepted DOGFOOD-4."

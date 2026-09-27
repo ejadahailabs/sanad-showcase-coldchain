@@ -1,3 +1,5 @@
+// RUN-04: the software levels are DO-178C §2.3 levels from the PSSA (08-safety/02-pssa.md); the software
+// items are the five items of the aerospace ladder (.ejadah/rew/framework.yaml). Everything else is run 2's.
 // MRTM software architecture — IEC 62304 §5.3 (Class C). Written with Sanad's
 // software profile (V4b, .ejadah/rew/SoftwareProfile.sysml): #Component for the
 // components, #Service for the IEC 62304 software items, #Thread for the
@@ -17,12 +19,14 @@ package MrtmSoftware {
 
     doc /* The monitoring firmware as software items, components, tasks and records, and where each runs. */
 
-    // ---- Classification (IEC 62304 §4.3, §5.3.3) ----------------------------
+    // ---- Classification: DO-178C §2.3 software level, assigned by the PSSA (RUN-04) ----
     // Written `enum A;` — the bare `A;` short form is legal SysML v2 but Sanad does not read it (F-65).
-    enum def SafetyClass {
+    enum def SoftwareLevel {
         enum A;
         enum B;
         enum C;
+        enum D;
+        enum E;
     }
 
     // ---- Data models (IEC 62304 §5.3.1: data the items exchange and keep) ----
@@ -63,18 +67,18 @@ package MrtmSoftware {
     // ---- Components (software units' homes; IEC 62304 §5.3.1, §5.4.1) -------
     #Component part def SensorSampler {
         doc /* Reads the DS18B20 every 10 s over 1-Wire, checks CRC and range, declares probe fault. Language C. */
-        attribute safetyClass : SafetyClass = SafetyClass::C;
+        attribute softwareLevel : SoftwareLevel = SoftwareLevel::A;
         port samples : SampleOut;
     }
     #Component part def LimitEvaluator {
         doc /* Counts consecutive out-of-band / in-band samples (7 in 60 s) and tracks the peak. Language C. */
-        attribute safetyClass : SafetyClass = SafetyClass::C;
+        attribute softwareLevel : SoftwareLevel = SoftwareLevel::A;
         port samples : ~SampleOut;
         port excursion : ExcursionOut;
     }
     #Component part def AlarmMgr {
         doc /* Runs the alarm state machine (MrtmSwStates::AlarmStates); drives buzzer and red LED; checks buzzer current. Language C. */
-        attribute safetyClass : SafetyClass = SafetyClass::C;
+        attribute softwareLevel : SoftwareLevel = SoftwareLevel::A;
         port excursion : ~ExcursionOut;
         port alarm : AlarmOut;
         port log : ~LogIn;
@@ -83,46 +87,46 @@ package MrtmSoftware {
     }
     #Component part def DisplayMgr {
         doc /* Draws the temperature, warnings and messages on the OLED; recovers the I2C bus. Language C++ (class design, ADR-0022). */
-        attribute safetyClass : SafetyClass = SafetyClass::C;
+        attribute softwareLevel : SoftwareLevel = SoftwareLevel::B;
         port alarm : ~AlarmOut;
     }
     #Component part def EventLog {
         doc /* Builds EventRecords, stamps them, writes them to both sectors within 1 s. Language C. */
-        attribute safetyClass : SafetyClass = SafetyClass::C;
+        attribute softwareLevel : SoftwareLevel = SoftwareLevel::C;
         port records : LogIn;
     }
     #Component part def HistoryRingStore {
         doc /* The ring buffer over two flash sectors; CRC check on read; capacity warning. Language C. */
-        attribute safetyClass : SafetyClass = SafetyClass::C;
+        attribute softwareLevel : SoftwareLevel = SoftwareLevel::C;
         attribute ring : HistoryRing;
     }
     #Component part def RtcClock {
         doc /* Reads the battery-backed RTC, reports oscillator stop, gives UTC seconds. Language C. */
-        attribute safetyClass : SafetyClass = SafetyClass::C;
+        attribute softwareLevel : SoftwareLevel = SoftwareLevel::C;
     }
     #Component part def ConfigMgr {
         doc /* Loads MonitorConfig from NVS, checks its CRC-32, supplies the band. Language C. */
-        attribute safetyClass : SafetyClass = SafetyClass::C;
+        attribute softwareLevel : SoftwareLevel = SoftwareLevel::A;
         attribute config : MonitorConfig;
     }
     #Component part def WdtKicker {
         doc /* Pulses the external watchdog only while the alarm heartbeat is fresh (<= 2 s). Language C. */
-        attribute safetyClass : SafetyClass = SafetyClass::C;
+        attribute softwareLevel : SoftwareLevel = SoftwareLevel::A;
         port heartbeat : ~HeartbeatOut;
     }
     #Component part def Diagnostics {
         doc /* Power-up self-tests (buzzer, backup alarm, band CRC, RTC), button stuck check, fault events. Language C. */
-        attribute safetyClass : SafetyClass = SafetyClass::C;
+        attribute softwareLevel : SoftwareLevel = SoftwareLevel::A;
         port log : ~LogIn;
     }
     #Component part def PowerMon {
         doc /* Mains-sense interrupt and battery voltage; logs power loss / restore; low-battery alarm. Language C. */
-        attribute safetyClass : SafetyClass = SafetyClass::C;
+        attribute softwareLevel : SoftwareLevel = SoftwareLevel::A;
         port log : ~LogIn;
     }
     #Component part def UsbExport {
         doc /* Presents the history as a read-only FAT volume over TinyUSB MSC (SOUP). Language C. */
-        attribute safetyClass : SafetyClass = SafetyClass::C;
+        attribute softwareLevel : SoftwareLevel = SoftwareLevel::D;
     }
 
     // ---- FreeRTOS tasks (ADR-0018, ADR-0019). Priority: higher runs first (0..24). --
@@ -153,58 +157,46 @@ package MrtmSoftware {
         attribute :>> priority = 5; attribute :>> periodMs = 0; attribute :>> deadlineMs = 30000; attribute :>> stackBytes = 8192; attribute :>> core = 0;
     }
 
-    // ---- Software items (IEC 62304 §5.3.1; the eight services of Phase 4) ----
-    #Service part def SensorItem {
-        attribute safetyClass : SafetyClass = SafetyClass::C;
+    // ---- Software items: the five items of the aerospace ladder (RUN-04, ARP4754A §5.3, DO-178C) ----
+    #Service part def AlarmSwItem {
+        attribute softwareLevel : SoftwareLevel = SoftwareLevel::A;
         part sensorSampler : SensorSampler;
-    }
-    #Service part def ExcursionItem {
-        attribute safetyClass : SafetyClass = SafetyClass::C;
         part limitEvaluator : LimitEvaluator;
-    }
-    #Service part def AlarmItem {
-        attribute safetyClass : SafetyClass = SafetyClass::C;
         part alarmMgr : AlarmMgr;
     }
-    #Service part def DisplayItem {
-        attribute safetyClass : SafetyClass = SafetyClass::C;
+    #Service part def PlatformSwItem {
+        attribute softwareLevel : SoftwareLevel = SoftwareLevel::A;
+        part wdtKicker : WdtKicker;
+        part diagnostics : Diagnostics;
+        part configMgr : ConfigMgr;
+        part powerMon : PowerMon;
+    }
+    #Service part def DisplaySwItem {
+        attribute softwareLevel : SoftwareLevel = SoftwareLevel::B;
         part displayMgr : DisplayMgr;
     }
-    #Service part def LogItem {
-        attribute safetyClass : SafetyClass = SafetyClass::C;
+    #Service part def RecordSwItem {
+        attribute softwareLevel : SoftwareLevel = SoftwareLevel::C;
         part eventLog : EventLog;
         part historyRing : HistoryRingStore;
         part rtcClock : RtcClock;
     }
-    #Service part def UsbItem {
-        attribute safetyClass : SafetyClass = SafetyClass::C;
+    #Service part def ExportSwItem {
+        attribute softwareLevel : SoftwareLevel = SoftwareLevel::D;
         part usbExport : UsbExport;
-    }
-    #Service part def PowerItem {
-        attribute safetyClass : SafetyClass = SafetyClass::C;
-        part powerMon : PowerMon;
-    }
-    #Service part def SupervisorItem {
-        attribute safetyClass : SafetyClass = SafetyClass::C;
-        part wdtKicker : WdtKicker;
-        part diagnostics : Diagnostics;
-        part configMgr : ConfigMgr;
     }
 
     // ---- The software system: items, tasks, wiring, requirement links -------
     #Component part def MrtmFirmware {
         doc /* The whole firmware. Refines MrtmPartitions::MonitoringFirmware: one item here per service there. */
-        attribute safetyClass : SafetyClass = SafetyClass::C;
+        attribute softwareLevel : SoftwareLevel = SoftwareLevel::A;
         exhibit state modes : SystemModes;
 
-        part sensorItem : SensorItem;
-        part excursionItem : ExcursionItem;
-        part alarmItem : AlarmItem;
-        part displayItem : DisplayItem;
-        part logItem : LogItem;
-        part usbItem : UsbItem;
-        part powerItem : PowerItem;
-        part supervisorItem : SupervisorItem;
+        part alarmSwItem : AlarmSwItem;
+        part platformSwItem : PlatformSwItem;
+        part displaySwItem : DisplaySwItem;
+        part recordSwItem : RecordSwItem;
+        part exportSwItem : ExportSwItem;
 
         part alarmTask : AlarmTask;
         part supervisorTask : SupervisorTask;
@@ -214,27 +206,27 @@ package MrtmSoftware {
         part usbTask : UsbTask;
 
         // Queues between tasks (FreeRTOS xQueue); the item on each is the message.
-        connect sensorItem.sensorSampler.samples to excursionItem.limitEvaluator.samples;
-        connect excursionItem.limitEvaluator.excursion to alarmItem.alarmMgr.excursion;
-        connect alarmItem.alarmMgr.alarm to displayItem.displayMgr.alarm;
-        connect alarmItem.alarmMgr.log to logItem.eventLog.records;
-        connect alarmItem.alarmMgr.heartbeat to supervisorItem.wdtKicker.heartbeat;
-        connect supervisorItem.diagnostics.log to logItem.eventLog.records;
-        connect powerItem.powerMon.log to logItem.eventLog.records;
+        connect alarmSwItem.sensorSampler.samples to alarmSwItem.limitEvaluator.samples;
+        connect alarmSwItem.limitEvaluator.excursion to alarmSwItem.alarmMgr.excursion;
+        connect alarmSwItem.alarmMgr.alarm to displaySwItem.displayMgr.alarm;
+        connect alarmSwItem.alarmMgr.log to recordSwItem.eventLog.records;
+        connect alarmSwItem.alarmMgr.heartbeat to platformSwItem.wdtKicker.heartbeat;
+        connect platformSwItem.diagnostics.log to recordSwItem.eventLog.records;
+        connect platformSwItem.powerMon.log to recordSwItem.eventLog.records;
 
         // Which task runs which component (ADR-0019).
-        allocate alarmItem.alarmMgr to alarmTask;
-        allocate supervisorItem.wdtKicker to supervisorTask;
-        allocate supervisorItem.diagnostics to supervisorTask;
-        allocate supervisorItem.configMgr to supervisorTask;
-        allocate powerItem.powerMon to supervisorTask;
-        allocate sensorItem.sensorSampler to sensorTask;
-        allocate excursionItem.limitEvaluator to sensorTask;
-        allocate logItem.eventLog to logTask;
-        allocate logItem.historyRing to logTask;
-        allocate logItem.rtcClock to logTask;
-        allocate displayItem.displayMgr to displayTask;
-        allocate usbItem.usbExport to usbTask;
+        allocate alarmSwItem.alarmMgr to alarmTask;
+        allocate platformSwItem.wdtKicker to supervisorTask;
+        allocate platformSwItem.diagnostics to supervisorTask;
+        allocate platformSwItem.configMgr to supervisorTask;
+        allocate platformSwItem.powerMon to supervisorTask;
+        allocate alarmSwItem.sensorSampler to sensorTask;
+        allocate alarmSwItem.limitEvaluator to sensorTask;
+        allocate recordSwItem.eventLog to logTask;
+        allocate recordSwItem.historyRing to logTask;
+        allocate recordSwItem.rtcClock to logTask;
+        allocate displaySwItem.displayMgr to displayTask;
+        allocate exportSwItem.usbExport to usbTask;
 
         // Requirements: each software item's def carries its components' satisfy links,
         // so the link names the component itself (the component inventory joins on that name).
@@ -242,17 +234,14 @@ package MrtmSoftware {
 
     // ---- Deployment: every component runs on the ESP32-S3 of Phase 6 --------
     #Deployment part def MrtmSwDeployment {
-        doc /* IEC 62304 §5.3.1 / §5.3.5: all items share one processor; segregation is by task priority and the external watchdog (ADR-0013, ADR-0019). */
+        doc /* All five items share one processor with NO robust partitioning (DO-178C §2.4.1): the PSSA's derived requirements MRTM-HLR-024 / MRTM-HLR-037 and assumption A-4-06 carry the argument (ADR-0013, ADR-0019). */
         part firmware : MrtmFirmware;
         part board : MrtmHardware::MrtmBoard;
         allocate firmware to board.esp32;
-        allocate firmware.sensorItem to board.esp32;
-        allocate firmware.excursionItem to board.esp32;
-        allocate firmware.alarmItem to board.esp32;
-        allocate firmware.displayItem to board.esp32;
-        allocate firmware.logItem to board.esp32;
-        allocate firmware.usbItem to board.esp32;
-        allocate firmware.powerItem to board.esp32;
-        allocate firmware.supervisorItem to board.esp32;
+        allocate firmware.alarmSwItem to board.esp32;
+        allocate firmware.platformSwItem to board.esp32;
+        allocate firmware.displaySwItem to board.esp32;
+        allocate firmware.recordSwItem to board.esp32;
+        allocate firmware.exportSwItem to board.esp32;
     }
 }
