@@ -20,7 +20,7 @@ static bool slot_read(int part, uint32_t slot, event_record_t *out)
     return hal_flash_read(part, slot * sizeof *out, out, sizeof *out);
 }
 
-/* @implements MRTM-SYS-015 MRTM-LGI-002 */
+/* @implements MRTM-SYS-015 MRTM-LGI-002 MRTM-HRG-002 */
 mrtm_err_t history_ring_init(history_ring_t *r)
 {
     if (r == NULL) return MRTM_ERR_ARG;
@@ -44,7 +44,7 @@ uint32_t history_ring_next_seq(const history_ring_t *r)
     return r->head_seq + 1;
 }
 
-/* @implements MRTM-SAF-018 MRTM-SYS-015 MRTM-SYS-022 */
+/* @implements MRTM-SAF-018 MRTM-SYS-015 MRTM-SYS-022 MRTM-HRG-001 */
 mrtm_err_t history_ring_append(history_ring_t *r, const event_record_t *rec)
 {
     if (r == NULL || rec == NULL || rec->seq != r->head_seq + 1) return MRTM_ERR_ARG;

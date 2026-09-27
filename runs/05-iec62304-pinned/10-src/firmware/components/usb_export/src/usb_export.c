@@ -74,7 +74,7 @@ static void sector(uint32_t lba, uint8_t s[USB_BLOCK])
     }
 }
 
-/* @implements MRTM-IFC-003 MRTM-SYS-014 MRTM-USI-001 */
+/* @implements MRTM-IFC-003 MRTM-SYS-014 MRTM-USI-001 MRTM-UXP-001 */
 mrtm_err_t usb_export_init(const history_ring_t *r)
 {
     if (r == NULL) return MRTM_ERR_ARG;
@@ -93,7 +93,7 @@ int32_t usb_export_read10(uint32_t lba, uint32_t offset, void *buf, uint32_t siz
     return (int32_t)size;
 }
 
-/* @implements MRTM-SYS-014 MRTM-IFC-003 MRTM-USI-002 */
+/* @implements MRTM-SYS-014 MRTM-IFC-003 MRTM-USI-002 MRTM-UXP-002 */
 int32_t usb_export_write10(uint32_t lba, uint32_t offset, const void *buf, uint32_t size)
 {
     (void)lba; (void)offset; (void)buf; (void)size;

@@ -20,7 +20,7 @@ mrtm_err_t rtc_clock_init(bool *osc_stopped)
 }
 
 /* REVIEW: drift (<= 2 s/day) is the RTC crystal's; the firmware only never keeps its own clock. */
-/* @implements MRTM-SYS-020 MRTM-SYS-008 MRTM-SYS-010 MRTM-SYS-023 */
+/* @implements MRTM-SYS-020 MRTM-SYS-008 MRTM-SYS-010 MRTM-SYS-023 MRTM-RTK-001 */
 uint32_t rtc_clock_now(void)
 {
     return utc_copy;

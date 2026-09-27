@@ -8,7 +8,7 @@ void setUp(void) { ts_fresh(); bool osc; host.rtc_utc = 1790001234u; rtc_clock_i
 void tearDown(void) {}
 
 /* The stamp is taken when the event is posted, not when logTask writes it. */
-/* @verifies MRTM-SYS-008 MRTM-SYS-010 MRTM-SYS-023 */
+/* @verifies MRTM-SYS-008 MRTM-SYS-010 MRTM-SYS-023 MRTM-LGI-003 MRTM-EVL-002 */
 void test_time_stamp_is_the_utc_second_of_the_post(void)
 {
     event_log_post(MRTM_EV_EXCURSION_START, 85, 0);
@@ -27,7 +27,7 @@ void test_end_record_carries_the_peak_in_tenths(void)
     TEST_ASSERT_EQUAL_INT16(123, e.peak_tenths);
 }
 
-/* @verifies MRTM-SAF-018 */
+/* @verifies MRTM-SAF-018 MRTM-EVL-001 */
 void test_step_numbers_checksums_and_stores_every_queued_record(void)
 {
     for (int i = 0; i < 5; i++) event_log_post(MRTM_EV_ACK, (int16_t)i, 0);

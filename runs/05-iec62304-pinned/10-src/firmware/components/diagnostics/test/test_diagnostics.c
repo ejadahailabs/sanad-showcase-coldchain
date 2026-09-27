@@ -9,7 +9,7 @@ void setUp(void) { ts_fresh(); wdt_kicker_init(); d = (diag_result_t){ .config_o
 void tearDown(void) {}
 
 /* Buzzer tested within 5 s, backup alarm within 15 s, both from t = 0. */
-/* @verifies MRTM-SAF-007 MRTM-SAF-023 MRTM-SVI-002 */
+/* @verifies MRTM-SAF-007 MRTM-SAF-023 MRTM-SVI-002 MRTM-DGN-001 */
 void test_power_up_tests_pass_inside_their_windows(void)
 {
     TEST_ASSERT_EQUAL(MRTM_OK, diagnostics_power_up(&d));
@@ -21,7 +21,7 @@ void test_power_up_tests_pass_inside_their_windows(void)
     TEST_ASSERT_TRUE(ts_find(MRTM_EV_SELF_TEST_PASS, &e));
 }
 
-/* @verifies MRTM-SAF-007 */
+/* @verifies MRTM-SAF-007 MRTM-DGN-001 */
 void test_silent_buzzer_fails_the_power_up_test(void)
 {
     host.buzzer_broken = true;

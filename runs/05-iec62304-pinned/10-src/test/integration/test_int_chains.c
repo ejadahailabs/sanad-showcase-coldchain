@@ -20,7 +20,7 @@ static int find(mrtm_event_kind_t k, event_record_t *e)
 }
 
 /* INT-01: sensor -> limit -> alarm -> log -> display, one excursion. */
-/* @verifies MRTM-SYS-002 MRTM-SYS-003 MRTM-SYS-005 MRTM-SYS-008 MRTM-PRF-002 MRTM-ALM-002 MRTM-ALM-003 MRTM-DSP-001 */
+/* @verifies MRTM-SYS-002 MRTM-SYS-003 MRTM-SYS-005 MRTM-SYS-008 MRTM-PRF-002 MRTM-SRS-003 MRTM-SRS-006 MRTM-SRS-009 */
 void test_int01_excursion_chain(void)
 {
     TEST_ASSERT_EQUAL(MODE_MONITORING, app_power_up(host.now_ms));
@@ -38,7 +38,7 @@ void test_int01_excursion_chain(void)
 }
 
 /* INT-02: alarm task hangs -> pulses stop -> backup alarm sounds within 10 s of the last pulse. */
-/* @verifies MRTM-SAF-010 MRTM-SAF-009 MRTM-ALM-005 MRTM-SUP-004 */
+/* @verifies MRTM-SAF-010 MRTM-SAF-009 MRTM-SRS-017 MRTM-HWI-007 */
 void test_int02_watchdog_chain(void)
 {
     app_power_up(host.now_ms);
@@ -52,7 +52,7 @@ void test_int02_watchdog_chain(void)
 }
 
 /* INT-03: corrupt stored band at power-up -> failSafe, buzzer at once, no monitoring. */
-/* @verifies MRTM-SAF-017 MRTM-SUP-003 */
+/* @verifies MRTM-SAF-017 MRTM-SRS-019 */
 void test_int03_corrupt_config_fail_safe(void)
 {
     host.nvs_cfg[2] ^= 0x40;
@@ -81,7 +81,7 @@ void test_int04_restart_restores_the_alarm(void)
 }
 
 /* INT-05: mains loss logged within 1 s, with the UTC second. */
-/* @verifies MRTM-SAF-005 MRTM-PWR-003 */
+/* @verifies MRTM-SAF-005 MRTM-SRS-016 */
 void test_int05_power_loss_logged_within_1_s(void)
 {
     app_power_up(host.now_ms);

@@ -21,7 +21,7 @@ static int distance_outside(const limit_eval_t *st, int16_t t)
     return t < st->low ? st->low - t : (t > st->high ? t - st->high : 0);
 }
 
-/* @implements MRTM-SYS-002 MRTM-SYS-018 MRTM-SYS-017 MRTM-SYS-024 MRTM-EXI-001 MRTM-EXI-002 MRTM-EXI-003 */
+/* @implements MRTM-SYS-002 MRTM-SYS-018 MRTM-SYS-017 MRTM-SYS-024 MRTM-EXI-001 MRTM-EXI-002 MRTM-EXI-003 MRTM-LEV-001 MRTM-LEV-002 MRTM-LEV-003 */
 limit_event_t limit_evaluator_step(limit_eval_t *st, const mrtm_sample_t *s)
 {
     if (!s->valid) return LIMIT_NONE;                       /* A-29: neither counts nor resets */

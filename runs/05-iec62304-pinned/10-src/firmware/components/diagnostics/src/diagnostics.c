@@ -10,7 +10,7 @@
 #define BUZZER_TEST_MS 200u
 #define BACKUP_HOLD_MS 12000u   /* > the backup alarm's 10 s timeout (MRTM-SAF-009) */
 
-/* @implements MRTM-SAF-007 MRTM-SAF-023 MRTM-SVI-002 */
+/* @implements MRTM-SAF-007 MRTM-SAF-023 MRTM-SVI-002 MRTM-DGN-001 */
 mrtm_err_t diagnostics_power_up(diag_result_t *out)
 {
     if (out == NULL) return MRTM_ERR_ARG;

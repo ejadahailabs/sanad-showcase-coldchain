@@ -24,7 +24,7 @@ void test_band_and_version_shown_in_the_first_3_s(void)
     at(3000); TEST_ASSERT_EQUAL(MSG_NONE, display_mgr_banner());
 }
 
-/* @verifies MRTM-SYS-005 MRTM-SYS-007 MRTM-DSI-001 */
+/* @verifies MRTM-SYS-005 MRTM-SYS-007 MRTM-DSI-001 MRTM-DMG-001 */
 void test_excursion_warning_for_the_whole_excursion(void)
 {
     at(4000);
@@ -33,14 +33,14 @@ void test_excursion_warning_for_the_whole_excursion(void)
     m.alarm = ALARM_QUIET;     at(5500);  TEST_ASSERT_EQUAL(MSG_NONE, display_mgr_banner());
 }
 
-/* @verifies MRTM-SYS-013 MRTM-DSI-001 */
+/* @verifies MRTM-SYS-013 MRTM-DSI-001 MRTM-DMG-001 */
 void test_probe_fault_message(void)
 {
     m.alarm = ALARM_PROBE_FAULT; at(4000);
     TEST_ASSERT_EQUAL(MSG_PROBE_FAULT, display_mgr_banner());
 }
 
-/* @verifies MRTM-SAF-012 MRTM-SYS-022 MRTM-DSI-001 */
+/* @verifies MRTM-SAF-012 MRTM-SYS-022 MRTM-DSI-001 MRTM-DMG-001 */
 void test_calibration_due_and_log_capacity_messages(void)
 {
     m.calib_due = true; at(4000);
@@ -50,7 +50,7 @@ void test_calibration_due_and_log_capacity_messages(void)
 }
 
 /* The number on screen changes at most every 10 s, at 0.1 degC. */
-/* @verifies MRTM-PRF-004 MRTM-SYS-011 MRTM-DSI-002 */
+/* @verifies MRTM-PRF-004 MRTM-SYS-011 MRTM-DSI-002 MRTM-DMG-002 */
 void test_temperature_refreshes_every_10_s_in_tenths(void)
 {
     at(500); TEST_ASSERT_EQUAL_INT16(51, display_mgr_shown_tenths());

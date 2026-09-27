@@ -96,7 +96,7 @@ public:
     using Widget::Widget;
     void setMessage(display_msg_t m) { if (m != msg_) { msg_ = m; dirty_ = true; } }
     display_msg_t message() const { return msg_; }
-    // @implements MRTM-SYS-005 MRTM-SYS-007 MRTM-SYS-013 MRTM-SYS-022 MRTM-SAF-012 MRTM-SAF-016 MRTM-MNT-003
+    // @implements MRTM-SYS-005 MRTM-SYS-007 MRTM-SYS-013 MRTM-SYS-022 MRTM-SAF-012 MRTM-SAF-016 MRTM-MNT-003 MRTM-DMG-001
     void draw(FrameBuffer &fb) override
     {
         fb.fill(x_, y_, FrameBuffer::kW, 16, false);
@@ -166,7 +166,7 @@ public:
 class Screen {
 public:
     void update(const display_model_t &m) { model_ = m; }
-    // @implements MRTM-PRF-004 MRTM-SYS-005 MRTM-SYS-013 MRTM-SAF-016 MRTM-MNT-003
+    // @implements MRTM-PRF-004 MRTM-SYS-005 MRTM-SYS-013 MRTM-SAF-016 MRTM-MNT-003 MRTM-DMG-002
     void renderFrame(uint32_t now_ms)
     {
         if (!haveTemp_ || now_ms - lastTempMs_ >= MRTM_TEMP_REFRESH_MS) {  // temperature every 10 s

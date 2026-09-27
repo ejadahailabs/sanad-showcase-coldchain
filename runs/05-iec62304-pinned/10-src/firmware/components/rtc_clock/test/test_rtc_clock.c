@@ -18,7 +18,7 @@ void test_oscillator_stop_at_power_up_logs_clock_fault(void)
     TEST_ASSERT_TRUE(ts_find(MRTM_EV_CLOCK_FAULT, &e));
 }
 
-/* @verifies MRTM-SYS-020 */
+/* @verifies MRTM-SYS-020 MRTM-RTK-001 */
 void test_now_is_the_rtc_copy_refreshed_each_second(void)
 {
     bool stopped;

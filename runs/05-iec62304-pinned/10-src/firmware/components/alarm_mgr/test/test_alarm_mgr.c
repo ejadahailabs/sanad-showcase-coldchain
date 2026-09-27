@@ -11,7 +11,7 @@ void tearDown(void) {}
 static void go(alarm_signal_t s) { alarm_mgr_post(s); alarm_mgr_step(now); }
 static void wait_s(uint32_t s) { for (uint32_t i = 0; i < s; i++) { now += 1000; host.now_ms = now; alarm_mgr_step(now); } }
 
-/* @verifies MRTM-SYS-003 MRTM-SYS-004 MRTM-ALI-002 */
+/* @verifies MRTM-SYS-003 MRTM-SYS-004 MRTM-ALI-002 MRTM-AMG-002 */
 void test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz(void)
 {
     TEST_ASSERT_TRUE(host.green);
@@ -23,7 +23,7 @@ void test_confirm_sounds_the_buzzer_and_flashes_red_at_2_hz(void)
 }
 
 /* Posting wakes the task at once (notification), so the buzzer stops in the same step. */
-/* @verifies MRTM-SYS-006 MRTM-SYS-010 MRTM-ALM-004 MRTM-ALI-003 */
+/* @verifies MRTM-SYS-006 MRTM-SYS-010 MRTM-SRS-007 MRTM-ALI-003 MRTM-AMG-003 */
 void test_ack_stops_the_buzzer_in_the_same_step_and_logs(void)
 {
     go(SIG_EXCURSION_CONFIRMED);
@@ -90,7 +90,7 @@ void test_no_buzzer_current_for_5_steps_declares_buzzer_fault_red_4_hz(void)
 }
 
 /* A change shorter than 50 ms is ignored; a press held past 50 ms is taken once. */
-/* @verifies MRTM-IFC-002 MRTM-ALI-003 */
+/* @verifies MRTM-IFC-002 MRTM-ALI-003 MRTM-AMG-003 */
 void test_button_debounce_50_ms(void)
 {
     go(SIG_EXCURSION_CONFIRMED);
@@ -151,7 +151,7 @@ void test_battery_low_or_fail_safe_forces_the_buzzer(void)
     TEST_ASSERT_EQUAL(ALARM_QUIET, alarm_mgr_state());
 }
 
-/* @verifies MRTM-SAF-010 MRTM-ALI-004 */
+/* @verifies MRTM-SAF-010 MRTM-ALI-004 MRTM-AMG-004 */
 void test_heartbeat_moves_on_every_step(void)
 {
     uint32_t b = alarm_mgr_heartbeat();
@@ -171,7 +171,7 @@ void test_error_codes_full_and_nvs(void)
 }
 
 /* CR-001 / ADR-0030: the early tier is light only (red 1 Hz, no buzzer); confirmation escalates to sounding. */
-/* @verifies MRTM-SYS-024 MRTM-STK-002 MRTM-ALM-001 MRTM-ALI-001 */
+/* @verifies MRTM-SYS-024 MRTM-STK-002 MRTM-SRS-002 MRTM-ALI-001 MRTM-AMG-001 */
 void test_early_alarm_is_red_1_hz_without_buzzer_then_escalates(void)
 {
     go(SIG_EXCURSION_EARLY);

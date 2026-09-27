@@ -18,7 +18,7 @@ mrtm_err_t power_mon_init(void)
     return MRTM_OK;
 }
 
-/* @implements MRTM-SAF-005 MRTM-SYS-023 MRTM-PWI-001 */
+/* @implements MRTM-SAF-005 MRTM-SYS-023 MRTM-PWI-001 MRTM-PMN-001 */
 void power_mon_isr(void *arg)
 {
     (void)arg;
@@ -28,7 +28,7 @@ void power_mon_isr(void *arg)
     (void)event_log_post_from_isr(now ? MRTM_EV_POWER_RESTORE : MRTM_EV_POWER_LOSS, 0, 0);
 }
 
-/* @implements MRTM-SAF-008 MRTM-PWI-002 */
+/* @implements MRTM-SAF-008 MRTM-PWI-002 MRTM-PMN-002 */
 void power_mon_step(uint32_t now_ms)
 {
     (void)now_ms;

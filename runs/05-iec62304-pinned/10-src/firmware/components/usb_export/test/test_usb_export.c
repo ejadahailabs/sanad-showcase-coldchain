@@ -24,7 +24,7 @@ void test_boot_sector_is_a_fat12_volume(void)
     TEST_ASSERT_TRUE(host.usb_ready);
 }
 
-/* @verifies MRTM-SYS-014 MRTM-IFC-003 MRTM-USI-001 */
+/* @verifies MRTM-SYS-014 MRTM-IFC-003 MRTM-USI-001 MRTM-UXP-001 */
 void test_history_csv_is_marked_read_only(void)
 {
     add(3);
@@ -34,7 +34,7 @@ void test_history_csv_is_marked_read_only(void)
     TEST_ASSERT_EQUAL_UINT32(4 * USB_LINE, (uint32_t)(s[28] | s[29] << 8 | s[30] << 16 | (uint32_t)s[31] << 24));
 }
 
-/* @verifies MRTM-SYS-014 MRTM-IFC-003 MRTM-STK-006 MRTM-USI-002 */
+/* @verifies MRTM-SYS-014 MRTM-IFC-003 MRTM-STK-006 MRTM-USI-002 MRTM-UXP-002 */
 void test_every_write_is_refused(void)
 {
     uint8_t junk[512] = { 0 };

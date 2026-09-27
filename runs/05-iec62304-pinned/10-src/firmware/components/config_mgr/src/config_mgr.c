@@ -16,7 +16,7 @@ static int band_ok(const mrtm_config_t *c)
 }
 
 /* A missing or bad record returns an error; the caller enters failSafe (buzzer on). */
-/* @implements MRTM-SAF-017 MRTM-SYS-017 MRTM-SVI-003 */
+/* @implements MRTM-SAF-017 MRTM-SYS-017 MRTM-SVI-003 MRTM-CFG-001 */
 mrtm_err_t config_mgr_load(mrtm_config_t *out)
 {
     if (out == NULL) return MRTM_ERR_ARG;

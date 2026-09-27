@@ -15,7 +15,7 @@ static void add(uint32_t n)
     }
 }
 
-/* @verifies MRTM-SAF-018 MRTM-LGI-001 */
+/* @verifies MRTM-SAF-018 MRTM-LGI-001 MRTM-HRG-001 */
 void test_append_writes_copy_a_and_copy_b(void)
 {
     add(1);
@@ -27,7 +27,7 @@ void test_append_writes_copy_a_and_copy_b(void)
 }
 
 /* The ring wraps 2.5 times; every one of the newest 10 000 records still reads back. */
-/* @verifies MRTM-SYS-015 MRTM-LGI-002 */
+/* @verifies MRTM-SYS-015 MRTM-LGI-002 MRTM-HRG-002 */
 void test_retains_10000_records_after_wrapping(void)
 {
     add(25000);
