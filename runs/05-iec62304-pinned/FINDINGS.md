@@ -22,3 +22,18 @@
 | F-5-016 | gap (true) | SRS-008 (IEC 60601-1-8 burst pattern) has no item child, no code, no case; Sanad flags `missing-case` but has no "not decomposed" check at SRS level | structure | Q-20, run 2 D-2 |
 
 Counts: 16 findings — 10 MANUAL, 4 canvas, 1 packaging, 1 true gap. UI-ONLY: see CLICK-LIST.md.
+
+## Framework checks (Sanad main 3db89087; checks from proto/fw-3 ffe81482, not yet on main) — 2026-09-28
+
+**In one line:** Sanad now reads this run's own `framework.yaml` and runs three decomposition checks over it — like a building inspector who finally has the floor plan.
+
+Ran headless with `--json`, in a scratch copy with `design.checks` at `warning` for the three checks. Nothing in the model was changed; these stay findings.
+
+| Check | What it looks for | Count |
+|---|---|---|
+| framework file refused | a word the reader cannot check | 0 |
+| `sysml-unallocated-software` | a software element placed on no hardware | 1 |
+| `sysml-unpowered-part` | a supply port (`PowerPort`) with no wire | 5 |
+| `sysml-decomposition-depth` | an element deeper than its branch allows | 0 |
+
+Compare run 2 (8 / 12): the pinned stack wires more supply ports. The checks are a build in progress: they sit on a Sanad branch waiting for review, not on main.

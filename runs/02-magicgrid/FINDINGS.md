@@ -156,3 +156,18 @@ One row per finding. `Kind` is MANUAL (no Sanad feature; done by hand) or UI-ONL
 | F-150 | SYSML-EVAL | MANUAL | One declaration per requirement id | the same 132 ids are declared in `ProjectRequirements` and in the per-node `Req*` packages; no finding raised | Verification engine (duplicate declared id) | requirements |
 | F-151 | SYSML-EVAL | MANUAL | Software items allocated to a processor; every powered part has a supply | display, logging and sensing have no supply port; software items carry I2C / USB / battery-sense ports wired straight to devices; 0 allocate in the node tree | Verification engine (unallocated software item; unpowered part — org rules) | system-design |
 | F-152 | SYSML-EVAL | MANUAL | A gate check that a picture is fit for review | none; a 17,592 px tree and a 14,098 px view passed the run-1 gate | Verification engine (C-6 measures on the rendered SVG) | system-design |
+
+## Framework checks (Sanad main 3db89087; checks from proto/fw-3 ffe81482, not yet on main) — 2026-09-28
+
+**In one line:** Sanad now reads this run's own `framework.yaml` and runs three decomposition checks over it — like a building inspector who finally has the floor plan.
+
+Ran headless with `--json`, in a scratch copy with `design.checks` at `warning` for the three checks. Nothing in the model was changed; these stay findings.
+
+| Check | What it looks for | Count |
+|---|---|---|
+| framework file refused | a word the reader cannot check | 0 |
+| `sysml-unallocated-software` | a software element placed on no hardware | 8 |
+| `sysml-unpowered-part` | a supply port (`PowerPort`) with no wire | 12 |
+| `sysml-decomposition-depth` | an element deeper than its branch allows | 0 |
+
+F-151 asked for these two checks; they now find it. The checks are a build in progress: they sit on a Sanad branch waiting for review, not on main.
