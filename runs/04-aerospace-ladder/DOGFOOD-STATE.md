@@ -30,3 +30,10 @@
 
 ### Step 0 — starting kit (2026-09-27, RUN-04)
 - Copied `shared/` needs and figures, run 2's `tools/`, `10-src/`, `11-verification/`, `.ejadah/rew/`, model library and hazard table. Run 2's baselines REQ-BL-1…3 stay in `baselines.json` as copied history (they name run 2's commits).
+
+### 2026-09-28 — framework file now read by Sanad (SHOWCASE-FW)
+Sanad's framework reader (main 3db89087, build in progress) was run over this file. Word changes so it accepts it — node names, depths, aspects and prefixes unchanged:
+- `requirement_kinds: {hardware-item: hardware-item, software-item: hlr}` → `[hardware-item, hlr]`. The map was keyed by node kind; the reader reads the keys as templates, and `software-item` is none.
+- `children_become: next-rung` → commented out. The schema knows only `black_box` / `white_box`; a fixed ladder writes no `children_become`. The run's word stays in the comment.
+- `supply: power` added: the model types its supply ports by `PowerPort`.
+Reader result after the change: accepted, 0 refusals.

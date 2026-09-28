@@ -1,6 +1,7 @@
 # Decomposition framework — the AEROSPACE LADDER (ARP4754A system shape + DO-178C software shape).
-# HAND-WRITTEN (RUN-04, 2026-09-27). Sanad does not read this file yet (run 2 finding F-125);
-# tools/level-check.py and tools/aero-build.py read it instead, so every rule below is checked.
+# HAND-WRITTEN (RUN-04, 2026-09-27). Written before Sanad read this file (run 2 finding F-125);
+# tools/level-check.py and tools/aero-build.py read it too. 2026-09-28: Sanad's reader (build in
+# progress) accepts it after the word fixes noted in DOGFOOD-STATE.md.
 # Org configures, Sanad recommends. DRAFT — needs Masood's review.
 #
 # In one line: a fixed ladder with three rungs — the whole product, the system, the items — and
@@ -43,7 +44,7 @@ step:
     - level: item                 # ARP4754A §5.3 allocation to items; DO-254 / DO-178C take over
       node_kind: [hardware-item, software-item]
       aspects: [requirements, structure, behaviour]
-      requirement_kinds: {hardware-item: hardware-item, software-item: hlr}
+      requirement_kinds: [hardware-item, hlr]   # hardware items write hardware-item, software items write hlr (was a map keyed by node kind)
       views: [internal block]
     - level: software-design      # DO-178C §5.2: software architecture + low-level requirements
       node_kind: software-design
@@ -51,8 +52,11 @@ step:
       aspects: [requirements, structure, behaviour]
       requirement_kinds: [llr]
       views: [block, activity, state machine, sequence]
-  children_become: next-rung      # a child is always one rung down; never the same rung again
+  # children_become: next-rung  — the run's word. Sanad's schema knows only black_box / white_box;
+  # a fixed ladder writes no children_become (shipped iec62304-pinned sample).
+  # a child is always one rung down; never the same rung again
 
+supply: power                     # supply ports are typed by PowerPort (sysml-unpowered-part reads this)
 bottom:                           # DO-178C §5.3 coding, §5.4 integration: no new requirements
   artefacts: [source-code, executable-object-code, unit-test, bench-procedure]
   links: ["@implements <LLR id>", "@verifies <HLR or LLR id>", "SP rows verify <system id>"]

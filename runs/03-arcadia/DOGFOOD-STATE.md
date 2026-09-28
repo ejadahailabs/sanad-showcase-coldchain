@@ -24,3 +24,9 @@
 
 ## Open with Masood
 - A-3-07 / run 2 F-133: keep the USB item class B with segregation, or make it C.
+
+### 2026-09-28 — framework file now read by Sanad (SHOWCASE-FW)
+Sanad's framework reader (main 3db89087, build in progress) was run over this file. It accepted it as written:
+- Nothing refused. Only the header comment was updated.
+- `supply: power` added: the model types its supply ports by `PowerPort`.
+Reader result after the change: accepted, 0 refusals.

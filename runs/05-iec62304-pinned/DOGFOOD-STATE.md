@@ -7,3 +7,9 @@
 - PROVED BY: Pilot 0 issues / 76 files (profile); `tools/level-check.py` 23 nodes, 146 requirements, 146 satisfy lines, 20 views (max 12 boxes), 0 violations, selftest 9/9; gate 0 errors / 143 warnings (first run: 12 errors from one YAML colon + one regex read as a marker, F-5-007/008); host tests 85 / 0; test coverage 146 · 109 covered · 36 blocked · 1 missing; alarm path unbroken; all in 13-assessment/sanad-runs/.
 - MANUAL: framework.yaml (pinned), tools/pinned_data.py, pinned-build.py, pinned_model.py, pinned-views.sh, pinned-layouts.py, pinned-index.py; level-check.py + node-packages.cjs adapted; 65 marker lines retargeted (run 2 subsystem ids → SRS/HWI; unit ids added); library UsbItem/UsbExport class B; 17 rewords after the first gate; INDEX pages; compliance index; alarm-path trace; F-5-001…016; A-5-01…07.
 - UI-ONLY: C-5-01…C-5-04 (45 min).
+
+### 2026-09-28 — framework file now read by Sanad (SHOWCASE-FW)
+Sanad's framework reader (main 3db89087, build in progress) was run over this file. Word changes so it accepts it — node names, depths, aspects and prefixes unchanged:
+- Level 3 `requirement_kinds: [software-item]` → the eight item templates (`sensor-item`, `excursion-item`, …). Level 4 `[software-unit]` → the twelve unit templates. `software-item` / `software-unit` stay as the level names and node kinds.
+- `supply: power` added: the model types its supply ports by `PowerPort`.
+Reader result after the change: accepted, 0 refusals.

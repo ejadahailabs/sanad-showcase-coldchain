@@ -109,3 +109,9 @@
 
 ## Open questions to Masood
 _(none yet)_
+
+### 2026-09-28 — framework file now read by Sanad (SHOWCASE-FW)
+Sanad's framework reader (main 3db89087, build in progress) was run over this file. Word changes so it accepts it — node names, depths, aspects and prefixes unchanged:
+- `requirement_kinds: {node: "MRTM-<NODE>"}` (4 node kinds) → a list of the real templates, one per node (`[sensing, alarm, …]`). `node` meant "the node's own template"; the reader needs the template names. The prefix stays as `requirement_prefix: "MRTM-<NODE>"`.
+- `supply: power` added: the model types its supply ports by `PowerPort`.
+Reader result after the change: accepted, 0 refusals.

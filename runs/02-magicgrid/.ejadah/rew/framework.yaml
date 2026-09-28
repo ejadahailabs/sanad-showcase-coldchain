@@ -1,6 +1,7 @@
 # Decomposition framework — how this organisation breaks a product down.
-# HAND-WRITTEN (MODEL-LEVELS, 2026-09-27). Sanad does not read this file yet (FINDINGS F-125);
-# tools/levels-build.py and tools/level-check.py read it instead, so every rule below is checked.
+# HAND-WRITTEN (MODEL-LEVELS, 2026-09-27). Written before Sanad read this file (FINDINGS F-125);
+# tools/levels-build.py and tools/level-check.py read it too. 2026-09-28: Sanad's reader (build in
+# progress) accepts it after the word fixes noted in DOGFOOD-STATE.md.
 # Org configures, Sanad recommends: this is the MagicGrid default with a medical flavour pinned.
 # DRAFT — needs Masood's review.
 #
@@ -42,8 +43,11 @@ bottom:                           # implementation: below the leaf, no new requi
   links: ["@implements <leaf id>", "@verifies <leaf id>"]
 
 aspects: [requirements, behaviour, structure, parameters]
+supply: power                     # supply ports are typed by PowerPort (sysml-unpowered-part reads this)
 
 # ---- Node kinds and their requirement id prefixes -------------------------------------------
+# `requirement_kinds` names real templates: one per node, named after the node (was `{node: ...}`,
+# which Sanad's reader refuses — `node` is no template; see DOGFOOD-STATE 2026-09-28).
 # Medical flavour: names per IEC 62304 §5.3 (software system → software items → software units)
 # and IEC 60601-1 cl. 14 (the device is a PEMS; its hardware parts are PEMS parts).
 node_kinds:
@@ -51,10 +55,10 @@ node_kinds:
   system:         { standard: "IEC 60601-1 cl. 14 PEMS; IEC 62304 software system",
                     requirement_kinds: {system: MRTM-SYS, safety: MRTM-SAF, performance: MRTM-PRF,
                                         environmental: MRTM-ENV, maintainability: MRTM-MNT, interface: MRTM-IFC} }
-  subsystem:      { standard: "IEC 60601-1 cl. 14.8 PEMS architecture", requirement_kinds: {node: "MRTM-<NODE>"} }
-  assembly:       { standard: "IEC 60601-1 cl. 14.8 (a subsystem that repeats the step)", requirement_kinds: {node: "MRTM-<NODE>"} }
-  hardware-part:  { standard: "IEC 60601-1 cl. 4.8 components", requirement_kinds: {node: "MRTM-<NODE>"} }
-  software-item:  { standard: "IEC 62304 §5.3.1 software item, §4.3 its own class", requirement_kinds: {node: "MRTM-<NODE>"},
+  subsystem:      { standard: "IEC 60601-1 cl. 14.8 PEMS architecture", requirement_kinds: [sensing, alarm, display, logging, power, supervision], requirement_prefix: "MRTM-<NODE>" }
+  assembly:       { standard: "IEC 60601-1 cl. 14.8 (a subsystem that repeats the step)", requirement_kinds: [backup-alarm], requirement_prefix: "MRTM-<NODE>" }
+  hardware-part:  { standard: "IEC 60601-1 cl. 4.8 components", requirement_kinds: [probe, buzzer, indicators, backup-timer, backup-driver, hold-up, oled, rtc, battery, power-path, mcu], requirement_prefix: "MRTM-<NODE>" }
+  software-item:  { standard: "IEC 62304 §5.3.1 software item, §4.3 its own class", requirement_kinds: [sensor-item, excursion-item, alarm-item, display-item, log-item, usb-item, power-item, supervisor-item], requirement_prefix: "MRTM-<NODE>",
                     units: "IEC 62304 §5.4 software units (bottom)" }
 
 # ---- Rules (each one is a check in tools/level-check.py) ------------------------------------

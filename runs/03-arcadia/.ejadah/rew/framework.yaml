@@ -1,6 +1,7 @@
 # Decomposition framework — ARCADIA (run 03). HAND-WRITTEN (RUN-03-ARCADIA, 2026-09-27).
-# Sanad does not read this file yet (run 2 finding F-125); tools/arcadia.py and tools/level-check.py read it,
-# so every rule below is checked. Org configures, Sanad recommends. DRAFT — needs Masood's review.
+# Written before Sanad read this file (run 2 finding F-125); tools/arcadia.py and tools/level-check.py read it too.
+# 2026-09-28: Sanad's reader (build in progress) accepts it as written; `supply: power` added.
+# Org configures, Sanad recommends. DRAFT — needs Masood's review.
 #
 # SHAPE: `step` with the depth PINNED. Arcadia is a FIXED stack of five layers, not a repeating step:
 # every layer is visited exactly once, top to bottom, and no layer repeats inside a branch. In the terms of
@@ -90,6 +91,7 @@ layers:
     views:
       - {name: epbs_breakdown, arcadia: "EPBS breakdown tree", kind: tree}
 
+supply: power                      # supply ports are typed by PowerPort (sysml-unpowered-part reads this)
 bottom:                            # below EPBS: implementation, no new requirements
   artefacts: [software-unit, code, unit-test, bench-procedure]
   links: ["@implements <PA software id or SA id>", "@verifies <any id>"]

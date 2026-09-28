@@ -1,6 +1,7 @@
 # Decomposition framework — run 05: the medical stack, pinned exactly as IEC 62304 names it.
-# HAND-WRITTEN (RUN-05, 2026-09-27). Sanad does not read this file yet (run 2 finding F-125);
-# tools/pinned-build.py and tools/level-check.py read it instead, so every rule below is checked.
+# HAND-WRITTEN (RUN-05, 2026-09-27). Written before Sanad read this file (run 2 finding F-125);
+# tools/pinned-build.py and tools/level-check.py read it too. 2026-09-28: Sanad's reader (build in
+# progress) accepts it after the word fixes noted in DOGFOOD-STATE.md.
 # Org configures, Sanad recommends. DRAFT — needs Masood's review.
 #
 # In one line: the product is cut into four fixed floors, each named by the standard —
@@ -33,15 +34,16 @@ step:
        owes: "the software requirements specification (SRS) and the architecture: items and their interfaces"}
     - {level: 3, name: software-item,   standard: "IEC 62304 §5.3.1–5.3.5 items, §4.3 class per item, §5.3.5 segregation",
        aspects: [requirements, structure, behaviour], views: [internal block, state machine],
-       requirement_kinds: [software-item],
+       requirement_kinds: [sensor-item, excursion-item, alarm-item, display-item, log-item, usb-item, power-item, supervisor-item],   # one template per item (was [software-item], no template)
        owes: "one item per box of the architecture, its own class, and segregation where it is lower than C"}
     - {level: 4, name: software-unit,   standard: "IEC 62304 §5.4 detailed design, §5.5 unit implementation and verification",
        aspects: [requirements, structure, parameters], views: [block],
-       requirement_kinds: [software-unit],
+       requirement_kinds: [sensor-sampler, limit-evaluator, alarm-mgr, display-mgr, event-log, history-ring, rtc-clock, usb-export, power-mon, wdt-kicker, diagnostics, config-mgr],   # one template per unit (was [software-unit], no template)
        owes: "the unit contracts (detailed design), the code and the unit tests"}
   hardware: {level: 2, name: hardware-item, parent: device,
              standard: "IEC 60601-1 cl. 4.8 components, cl. 14.8 PEMS architecture",
              note: "the hardware side is ONE item under the device; it is not decomposed further here"}
+supply: power                     # supply ports are typed by PowerPort (sysml-unpowered-part reads this)
 bottom:                           # below the unit: code and tests, no new requirements
   artefacts: [code, unit-test, integration-test, system-procedure]
   links: ["@implements <unit id>", "@verifies <unit id>"]
