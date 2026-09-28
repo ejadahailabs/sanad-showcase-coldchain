@@ -42,6 +42,10 @@ Each run's `FINDINGS.md` and `13-assessment/SUMMARY.md` sort every step into thr
 
 Every gap Sanad found in itself — 118 in run 01 alone, more in every later run — is one row in that run's `FINDINGS.md`, each with an id like `F-047` or `F-3-012`. **All of them, across all five runs, are collected with a status column in [`FINDINGS-ALL.md`](./FINDINGS-ALL.md)** — open, fixed, or won't-fix, and why. Findings are published raw, each with a status; nothing is curated out.
 
+## What happened to the findings
+
+Of the 63 findings that got a GitHub issue filed, 19 are already fixed, 30 are still open, and 14 are waiting on a decision only Sanad's owner can make (a look-and-feel choice, a design trade-off — nothing was silently dropped). None were parked. All 19 fixes landed in four pull requests merged the same day, 2026-09-28. The full row-by-row list — which finding, which issue, which pull request, which date — is in [`FINDINGS-ALL.md`](./FINDINGS-ALL.md), under "What happened next".
+
 ## How to read one run in about 10 minutes
 
 1. Open the run's `DOGFOOD-STATE.md` — the top line says exactly where the run stands.
