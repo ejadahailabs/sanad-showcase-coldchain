@@ -4,6 +4,9 @@
 
 **In one line:** the monitor is broken down in Arcadia's five layers, every picture was looked at, every check is green; only clicks and one owner decision are left.
 
+## Note — framework reader cleanup (2026-09-29, follow-up worker, Sanad `proto/fw-samples-2` @ `1f0611dc`)
+Sanad now reads this run's `framework.yaml` (closes F-3-001) and warns `framework-unknown-key` (path + line) for any key it does not read. This run's Arcadia layers use a completely different shape (`name`/`title`/`question`/`elements`/`views` per layer) than Sanad's fixed-layer schema (`node_kind`/`requirement_prefix`/`aspects`/`requirement_kinds`/…), so almost every key was flagged (64 warnings). Fixed: `framework:` renamed to `name:`; each layer's `name: oa/sa/la/pa/epbs` renamed to `node_kind:` (a real schema field, and the truest one-line match for "which layer this is"); every other layer/rules/header key turned into a comment. Reader now: **0 refusals, 0 unknown-key warnings** (was 64). Side effect not fixed here: `tools/arcadia.py` (layer titles/elements/transitions), `tools/level-check.py` and `tools/levels_index.py`/`levels-build.py`/`levels_model.py` read the layer's `title`/`question`/`elements`/`views`/`prefixes` fields straight from the YAML; since those are now comments, those scripts need their own update before their next run.
+
 ## Done (2026-09-27, RUN-03-ARCADIA, headless)
 | Step | Result |
 |---|---|

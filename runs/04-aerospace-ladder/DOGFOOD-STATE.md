@@ -4,6 +4,9 @@
 
 ## Log (newest first; the four lines per step)
 
+### Note — framework reader cleanup (2026-09-29, follow-up worker, Sanad `proto/fw-samples-2` @ `1f0611dc`)
+Sanad's framework reader now warns `framework-unknown-key` (path + line) for any `.ejadah/rew/framework.yaml` key it does not read. This run's fixed ladder (`step.rungs`, `dal:` block, `node_kinds:`) has no Sanad schema place at all, so 62 warnings appeared. Fixed: `framework:` renamed to `name:`; `step:` given one real key (`black_box: {}`, empty — a placeholder so the file still validates, since none of `rungs:` maps to Sanad's black_box/white_box/children_become shape); every other flagged key (the whole `rungs:` ladder, `dal:` block, `node_kinds:`, rule-documentation keys, `level`/`dal`/`components` on tree nodes) turned into a comment. Reader now: **0 refusals, 0 unknown-key warnings** (was 62). Side effect not fixed here: `tools/aero-build.py`, `tools/aero-index.py`, `tools/aero_model.py`, `tools/level-check.py` read `FW["dal"]`, `n["level"]`, `n["dal"]`, `n["components"]` straight from the YAML and will need their own update before their next run against this file.
+
 ### Step 4 — gate, baseline, assessment (2026-09-27, RUN-04)
 - SANAD DID: (headless) gate + every report over the tree (4 rounds, 121 → 0 errors); `createBuiltinIndex` code index (45 LLR sites); `writeRequirementsPackage` + `requirementsPackage` per rung (4 packages in 04-baselines/packages-per-level); `makeBaseline` wrote **REQ-BL-B1**; results + coverage producers read 99 JUnit rows + LCOV; test coverage counted by level itself (HLR 35/38, LLR 39/45).
 - PROVED BY: 13-assessment/sanad-runs/gate-final/ (0 errors, 367 warnings, 321 info); `tools/level-check.py` 0 violations (selftest 8/8); OMG Pilot 0 issues / 59 files; host build + 84 tests + SP-01-H pass.

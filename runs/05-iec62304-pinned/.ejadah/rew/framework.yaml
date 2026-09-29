@@ -11,81 +11,82 @@
 # Difference from run 2 (MagicGrid): run 2 used `step` REPEATED per branch (depth grows where
 # the design needs it). Here the step runs a FIXED number of times: depth is pinned to four.
 
-framework: iec62304-pinned
-version: 1
-flavour: medical-iec62304
-standards:                        # editions ASSUMED — to be confirmed against the customer's editions (A-39)
-  - "IEC 60601-1:2005+A2:2020 cl. 14 (programmable electrical medical system, PEMS)"
-  - "IEC 62304:2006+A1:2015 (software life cycle)"
-  - "ISO 14971:2019 (risk management)"
-  - "IEC 60601-1-8:2006+A2:2020 (alarm systems)"
+name: iec62304-pinned
+# version: 1
+# flavour: medical-iec62304
+# standards:                        # editions ASSUMED — to be confirmed against the customer's editions (A-39)
+  # - "IEC 60601-1:2005+A2:2020 cl. 14 (programmable electrical medical system, PEMS)"
+  # - "IEC 62304:2006+A1:2015 (software life cycle)"
+  # - "ISO 14971:2019 (risk management)"
+  # - "IEC 60601-1-8:2006+A2:2020 (alarm systems)"
 
 # ---- The pattern: one step, depth pinned ----------------------------------------------------
 step:
-  depth: pinned                   # the same step, a fixed number of floors; no per-branch depth
-  levels:                         # top to bottom; each level's parent is the level above it
-    - {level: 1, name: device,          standard: "IEC 60601-1 cl. 14 PEMS; ISO 14971 risk management file",
-       aspects: [requirements, structure, behaviour], views: [internal block, use case],
-       requirement_kinds: [stakeholder, system, safety, performance, environmental, maintainability, interface],
-       owes: "the medical device: intended use, device (system) requirements, risk management file"}
-    - {level: 2, name: software-system, standard: "IEC 62304 §5.2 software requirements, §5.3 architecture",
-       aspects: [requirements, structure, behaviour], views: [internal block, state machine, sequence],
-       requirement_kinds: [software-system], profile: SoftwareProfile,
-       owes: "the software requirements specification (SRS) and the architecture: items and their interfaces"}
-    - {level: 3, name: software-item,   standard: "IEC 62304 §5.3.1–5.3.5 items, §4.3 class per item, §5.3.5 segregation",
-       aspects: [requirements, structure, behaviour], views: [internal block, state machine],
-       requirement_kinds: [sensor-item, excursion-item, alarm-item, display-item, log-item, usb-item, power-item, supervisor-item],   # one template per item (was [software-item], no template)
-       owes: "one item per box of the architecture, its own class, and segregation where it is lower than C"}
-    - {level: 4, name: software-unit,   standard: "IEC 62304 §5.4 detailed design, §5.5 unit implementation and verification",
-       aspects: [requirements, structure, parameters], views: [block],
-       requirement_kinds: [sensor-sampler, limit-evaluator, alarm-mgr, display-mgr, event-log, history-ring, rtc-clock, usb-export, power-mon, wdt-kicker, diagnostics, config-mgr],   # one template per unit (was [software-unit], no template)
-       owes: "the unit contracts (detailed design), the code and the unit tests"}
-  hardware: {level: 2, name: hardware-item, parent: device,
-             standard: "IEC 60601-1 cl. 4.8 components, cl. 14.8 PEMS architecture",
-             note: "the hardware side is ONE item under the device; it is not decomposed further here"}
+  black_box: {}  # Sanad's step needs a real key here; this run's actual stack is `levels:`/`hardware:` below (commented, unread by Sanad)
+  # depth: pinned                   # the same step, a fixed number of floors; no per-branch depth
+  # levels:                         # top to bottom; each level's parent is the level above it
+    # - {level: 1, name: device,          standard: "IEC 60601-1 cl. 14 PEMS; ISO 14971 risk management file",
+       # aspects: [requirements, structure, behaviour], views: [internal block, use case],
+       # requirement_kinds: [stakeholder, system, safety, performance, environmental, maintainability, interface],
+       # owes: "the medical device: intended use, device (system) requirements, risk management file"}
+    # - {level: 2, name: software-system, standard: "IEC 62304 §5.2 software requirements, §5.3 architecture",
+       # aspects: [requirements, structure, behaviour], views: [internal block, state machine, sequence],
+       # requirement_kinds: [software-system], profile: SoftwareProfile,
+       # owes: "the software requirements specification (SRS) and the architecture: items and their interfaces"}
+    # - {level: 3, name: software-item,   standard: "IEC 62304 §5.3.1–5.3.5 items, §4.3 class per item, §5.3.5 segregation",
+       # aspects: [requirements, structure, behaviour], views: [internal block, state machine],
+       # requirement_kinds: [sensor-item, excursion-item, alarm-item, display-item, log-item, usb-item, power-item, supervisor-item],   # one template per item (was [software-item], no template)
+       # owes: "one item per box of the architecture, its own class, and segregation where it is lower than C"}
+    # - {level: 4, name: software-unit,   standard: "IEC 62304 §5.4 detailed design, §5.5 unit implementation and verification",
+       # aspects: [requirements, structure, parameters], views: [block],
+       # requirement_kinds: [sensor-sampler, limit-evaluator, alarm-mgr, display-mgr, event-log, history-ring, rtc-clock, usb-export, power-mon, wdt-kicker, diagnostics, config-mgr],   # one template per unit (was [software-unit], no template)
+       # owes: "the unit contracts (detailed design), the code and the unit tests"}
+  # hardware: {level: 2, name: hardware-item, parent: device,
+             # standard: "IEC 60601-1 cl. 4.8 components, cl. 14.8 PEMS architecture",
+             # note: "the hardware side is ONE item under the device; it is not decomposed further here"}
 supply: power                     # supply ports are typed by PowerPort (sysml-unpowered-part reads this)
 bottom:                           # below the unit: code and tests, no new requirements
-  artefacts: [code, unit-test, integration-test, system-procedure]
-  links: ["@implements <unit id>", "@verifies <unit id>"]
+  # artefacts: [code, unit-test, integration-test, system-procedure]
+  # links: ["@implements <unit id>", "@verifies <unit id>"]
 
 # ---- Rules (each one is a check in tools/level-check.py) ------------------------------------
 rules:
-  depth: pinned-4                 # every node sits on level 1..4; a node's parent sits exactly one level up
-  satisfy: own-node-only          # a node's model file satisfies that node's requirements, nothing else
-  derive: follows-parent          # `uplinks` name requirements of the PARENT node (device: its own STK)
-  derive_field: uplinks
-  derive_chain: complete-to-top   # every unit requirement reaches a stakeholder requirement
-  class: per-item                 # IEC 62304 §4.3: every software item carries its own class and reason
-  class_inherit: unit-from-item   # a unit has its item's class
-  segregation_below_parent_class: required   # §5.3.5: an item below C names its segregation (ruling A-48)
+  # depth: pinned-4                 # every node sits on level 1..4; a node's parent sits exactly one level up
+  # satisfy: own-node-only          # a node's model file satisfies that node's requirements, nothing else
+  # derive: follows-parent          # `uplinks` name requirements of the PARENT node (device: its own STK)
+  # derive_field: uplinks
+  # derive_chain: complete-to-top   # every unit requirement reaches a stakeholder requirement
+  # class: per-item                 # IEC 62304 §4.3: every software item carries its own class and reason
+  # class_inherit: unit-from-item   # a unit has its item's class
+  # segregation_below_parent_class: required   # §5.3.5: an item below C names its segregation (ruling A-48)
   max_boxes_per_view: 12
-  view_name: "<level>_<node>_<kind>"         # Sanad view names cannot hold '-' (F-128)
-  index_per_level: required       # 06-design/L<n>-<level>/INDEX.md; one per node below it too
+  # view_name: "<level>_<node>_<kind>"         # Sanad view names cannot hold '-' (F-128)
+  # index_per_level: required       # 06-design/L<n>-<level>/INDEX.md; one per node below it too
 
 # ---- This project's tree ---------------------------------------------------------------------
 # path = folder under 06-design/ and 03-requirements/; prefix = requirement id prefix; class = IEC 62304 class.
 nodes:
-  - {name: device,          level: 1, path: L1-device,                                 kind: device,          prefix: [MRTM-STK, MRTM-SYS, MRTM-SAF, MRTM-PRF, MRTM-ENV, MRTM-MNT, MRTM-IFC], class: C}
-  - {name: hardware-item,   level: 2, path: L2-hardware-item,                          kind: hardware-item,   prefix: MRTM-HWI, class: C, parent: device}
-  - {name: software-system, level: 2, path: L2-software-system,                        kind: software-system, prefix: MRTM-SRS, class: C, parent: device}
-  - {name: sensor-item,     level: 3, path: L3-software-items/sensor-item,             kind: software-item,   prefix: MRTM-SNI, class: C, parent: software-system}
-  - {name: excursion-item,  level: 3, path: L3-software-items/excursion-item,          kind: software-item,   prefix: MRTM-EXI, class: C, parent: software-system}
-  - {name: alarm-item,      level: 3, path: L3-software-items/alarm-item,              kind: software-item,   prefix: MRTM-ALI, class: C, parent: software-system}
-  - {name: display-item,    level: 3, path: L3-software-items/display-item,            kind: software-item,   prefix: MRTM-DSI, class: C, parent: software-system}
-  - {name: log-item,        level: 3, path: L3-software-items/log-item,                kind: software-item,   prefix: MRTM-LGI, class: C, parent: software-system}
-  - {name: usb-item,        level: 3, path: L3-software-items/usb-item,                kind: software-item,   prefix: MRTM-USI, class: B, parent: software-system,
-     segregation: "ADR-0034 / A-48: own lowest-priority task on core 0, read-only accessor, owns no data another item reads, task watchdog, CRC-32 per record"}
-  - {name: power-item,      level: 3, path: L3-software-items/power-item,              kind: software-item,   prefix: MRTM-PWI, class: C, parent: software-system}
-  - {name: supervisor-item, level: 3, path: L3-software-items/supervisor-item,         kind: software-item,   prefix: MRTM-SVI, class: C, parent: software-system}
-  - {name: sensor-sampler,  level: 4, path: L4-software-units/sensor-sampler,          kind: software-unit,   prefix: MRTM-SMP, class: C, parent: sensor-item,     code: sensor_sampler}
-  - {name: limit-evaluator, level: 4, path: L4-software-units/limit-evaluator,         kind: software-unit,   prefix: MRTM-LEV, class: C, parent: excursion-item,  code: limit_evaluator}
-  - {name: alarm-mgr,       level: 4, path: L4-software-units/alarm-mgr,               kind: software-unit,   prefix: MRTM-AMG, class: C, parent: alarm-item,      code: alarm_mgr}
-  - {name: display-mgr,     level: 4, path: L4-software-units/display-mgr,             kind: software-unit,   prefix: MRTM-DMG, class: C, parent: display-item,    code: display_mgr}
-  - {name: event-log,       level: 4, path: L4-software-units/event-log,               kind: software-unit,   prefix: MRTM-EVL, class: C, parent: log-item,        code: event_log}
-  - {name: history-ring,    level: 4, path: L4-software-units/history-ring,            kind: software-unit,   prefix: MRTM-HRG, class: C, parent: log-item,        code: history_ring}
-  - {name: rtc-clock,       level: 4, path: L4-software-units/rtc-clock,               kind: software-unit,   prefix: MRTM-RTK, class: C, parent: log-item,        code: rtc_clock}
-  - {name: usb-export,      level: 4, path: L4-software-units/usb-export,              kind: software-unit,   prefix: MRTM-UXP, class: B, parent: usb-item,        code: usb_export}
-  - {name: power-mon,       level: 4, path: L4-software-units/power-mon,               kind: software-unit,   prefix: MRTM-PMN, class: C, parent: power-item,      code: power_mon}
-  - {name: wdt-kicker,      level: 4, path: L4-software-units/wdt-kicker,              kind: software-unit,   prefix: MRTM-WDK, class: C, parent: supervisor-item, code: wdt_kicker}
-  - {name: diagnostics,     level: 4, path: L4-software-units/diagnostics,             kind: software-unit,   prefix: MRTM-DGN, class: C, parent: supervisor-item, code: diagnostics}
-  - {name: config-mgr,      level: 4, path: L4-software-units/config-mgr,              kind: software-unit,   prefix: MRTM-CFG, class: C, parent: supervisor-item, code: config_mgr}
+  - {name: device, path: L1-device, kind: device, prefix: [MRTM-STK, MRTM-SYS, MRTM-SAF, MRTM-PRF, MRTM-ENV, MRTM-MNT, MRTM-IFC]}  # level: 1; class: C
+  - {name: hardware-item, path: L2-hardware-item, kind: hardware-item, prefix: MRTM-HWI, parent: device}  # level: 2; class: C
+  - {name: software-system, path: L2-software-system, kind: software-system, prefix: MRTM-SRS, parent: device}  # level: 2; class: C
+  - {name: sensor-item, path: L3-software-items/sensor-item, kind: software-item, prefix: MRTM-SNI, parent: software-system}  # level: 3; class: C
+  - {name: excursion-item, path: L3-software-items/excursion-item, kind: software-item, prefix: MRTM-EXI, parent: software-system}  # level: 3; class: C
+  - {name: alarm-item, path: L3-software-items/alarm-item, kind: software-item, prefix: MRTM-ALI, parent: software-system}  # level: 3; class: C
+  - {name: display-item, path: L3-software-items/display-item, kind: software-item, prefix: MRTM-DSI, parent: software-system}  # level: 3; class: C
+  - {name: log-item, path: L3-software-items/log-item, kind: software-item, prefix: MRTM-LGI, parent: software-system}  # level: 3; class: C
+  - {name: usb-item,        path: L3-software-items/usb-item,                kind: software-item,   prefix: MRTM-USI, parent: software-system}
+  # level: 3; class: B; segregation: "ADR-0034 / A-48: own lowest-priority task on core 0, read-only accessor, owns no data another item reads, task watchdog, CRC-32 per record"
+  - {name: power-item, path: L3-software-items/power-item, kind: software-item, prefix: MRTM-PWI, parent: software-system}  # level: 3; class: C
+  - {name: supervisor-item, path: L3-software-items/supervisor-item, kind: software-item, prefix: MRTM-SVI, parent: software-system}  # level: 3; class: C
+  - {name: sensor-sampler, path: L4-software-units/sensor-sampler, kind: software-unit, prefix: MRTM-SMP, parent: sensor-item}  # level: 4; class: C; code: sensor_sampler
+  - {name: limit-evaluator, path: L4-software-units/limit-evaluator, kind: software-unit, prefix: MRTM-LEV, parent: excursion-item}  # level: 4; class: C; code: limit_evaluator
+  - {name: alarm-mgr, path: L4-software-units/alarm-mgr, kind: software-unit, prefix: MRTM-AMG, parent: alarm-item}  # level: 4; class: C; code: alarm_mgr
+  - {name: display-mgr, path: L4-software-units/display-mgr, kind: software-unit, prefix: MRTM-DMG, parent: display-item}  # level: 4; class: C; code: display_mgr
+  - {name: event-log, path: L4-software-units/event-log, kind: software-unit, prefix: MRTM-EVL, parent: log-item}  # level: 4; class: C; code: event_log
+  - {name: history-ring, path: L4-software-units/history-ring, kind: software-unit, prefix: MRTM-HRG, parent: log-item}  # level: 4; class: C; code: history_ring
+  - {name: rtc-clock, path: L4-software-units/rtc-clock, kind: software-unit, prefix: MRTM-RTK, parent: log-item}  # level: 4; class: C; code: rtc_clock
+  - {name: usb-export, path: L4-software-units/usb-export, kind: software-unit, prefix: MRTM-UXP, parent: usb-item}  # level: 4; class: B; code: usb_export
+  - {name: power-mon, path: L4-software-units/power-mon, kind: software-unit, prefix: MRTM-PMN, parent: power-item}  # level: 4; class: C; code: power_mon
+  - {name: wdt-kicker, path: L4-software-units/wdt-kicker, kind: software-unit, prefix: MRTM-WDK, parent: supervisor-item}  # level: 4; class: C; code: wdt_kicker
+  - {name: diagnostics, path: L4-software-units/diagnostics, kind: software-unit, prefix: MRTM-DGN, parent: supervisor-item}  # level: 4; class: C; code: diagnostics
+  - {name: config-mgr, path: L4-software-units/config-mgr, kind: software-unit, prefix: MRTM-CFG, parent: supervisor-item}  # level: 4; class: C; code: config_mgr

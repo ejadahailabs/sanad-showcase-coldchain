@@ -13,94 +13,95 @@
 # functions and the failure conditions of those functions (FHA) sit at the top; the system
 # requirements and the PSSA below them; the items (hardware and software) at the bottom.
 
-framework: aerospace-ladder
-version: 1
-flavour: arp4754a-do178c
-standards:                        # editions ASSUMED (A-4-01); used as a SHAPE only, no certification claim
-  - "SAE ARP4754A / EUROCAE ED-79A (development of aircraft and systems) — levels, FDAL/IDAL"
-  - "SAE ARP4761 (safety assessment: FHA, PSSA, SSA) — the safety process beside the ladder"
-  - "RTCA DO-178C / EUROCAE ED-12C (software) — HLR, software architecture, LLR, source, object; Annex A"
-  - "RTCA DO-254 / EUROCAE ED-80 (hardware) — hardware item requirements → design (shape only)"
+name: aerospace-ladder
+# version: 1
+# flavour: arp4754a-do178c
+# standards:                        # editions ASSUMED (A-4-01); used as a SHAPE only, no certification claim
+  # - "SAE ARP4754A / EUROCAE ED-79A (development of aircraft and systems) — levels, FDAL/IDAL"
+  # - "SAE ARP4761 (safety assessment: FHA, PSSA, SSA) — the safety process beside the ladder"
+  # - "RTCA DO-178C / EUROCAE ED-12C (software) — HLR, software architecture, LLR, source, object; Annex A"
+  # - "RTCA DO-254 / EUROCAE ED-80 (hardware) — hardware item requirements → design (shape only)"
 
 # ---- The pattern: a FIXED ladder, depth pinned (contrast run 2: a repeating step) -------------
 # run 2's `step` (black box → white box, repeated per branch) is used here with depth pinned:
 # the product is opened exactly once (into the system), the system exactly once (into items),
 # and only a software item opens once more (into its software design). No branch goes deeper.
 step:
-  depth: pinned
-  rungs:
-    - level: aircraft             # ARP4754A §5.1 aircraft function development
-      node_kind: aircraft
-      aspects: [requirements, behaviour, structure]
-      requirement_kinds: [stakeholder, function, safety-objective]
-      safety: FHA                  # functional hazard assessment: failure condition → severity → objective
-      views: [activity, internal block]   # aircraft functions; the product among its neighbours
-    - level: system               # ARP4754A §5.2 allocation to systems, §5.3 system requirements
-      node_kind: system
-      aspects: [requirements, behaviour, structure]
-      requirement_kinds: [system, safety, performance, environmental, maintainability, interface]
-      safety: PSSA                 # preliminary system safety assessment: DAL per item
-      views: [activity, internal block, state machine, sequence]
-    - level: item                 # ARP4754A §5.3 allocation to items; DO-254 / DO-178C take over
-      node_kind: [hardware-item, software-item]
-      aspects: [requirements, structure, behaviour]
-      requirement_kinds: [hardware-item, hlr]   # hardware items write hardware-item, software items write hlr (was a map keyed by node kind)
-      views: [internal block]
-    - level: software-design      # DO-178C §5.2: software architecture + low-level requirements
-      node_kind: software-design
-      only_under: software-item
-      aspects: [requirements, structure, behaviour]
-      requirement_kinds: [llr]
-      views: [block, activity, state machine, sequence]
+  black_box: {}  # Sanad's step needs a real key here; this run's actual ladder is `rungs:` below (commented, unread by Sanad)
+  # depth: pinned
+  # rungs:
+    # - level: aircraft             # ARP4754A §5.1 aircraft function development
+      # node_kind: aircraft
+      # aspects: [requirements, behaviour, structure]
+      # requirement_kinds: [stakeholder, function, safety-objective]
+      # safety: FHA                  # functional hazard assessment: failure condition → severity → objective
+      # views: [activity, internal block]   # aircraft functions; the product among its neighbours
+    # - level: system               # ARP4754A §5.2 allocation to systems, §5.3 system requirements
+      # node_kind: system
+      # aspects: [requirements, behaviour, structure]
+      # requirement_kinds: [system, safety, performance, environmental, maintainability, interface]
+      # safety: PSSA                 # preliminary system safety assessment: DAL per item
+      # views: [activity, internal block, state machine, sequence]
+    # - level: item                 # ARP4754A §5.3 allocation to items; DO-254 / DO-178C take over
+      # node_kind: [hardware-item, software-item]
+      # aspects: [requirements, structure, behaviour]
+      # requirement_kinds: [hardware-item, hlr]   # hardware items write hardware-item, software items write hlr (was a map keyed by node kind)
+      # views: [internal block]
+    # - level: software-design      # DO-178C §5.2: software architecture + low-level requirements
+      # node_kind: software-design
+      # only_under: software-item
+      # aspects: [requirements, structure, behaviour]
+      # requirement_kinds: [llr]
+      # views: [block, activity, state machine, sequence]
   # children_become: next-rung  — the run's word. Sanad's schema knows only black_box / white_box;
   # a fixed ladder writes no children_become (shipped iec62304-pinned sample).
   # a child is always one rung down; never the same rung again
 
 supply: power                     # supply ports are typed by PowerPort (sysml-unpowered-part reads this)
 bottom:                           # DO-178C §5.3 coding, §5.4 integration: no new requirements
-  artefacts: [source-code, executable-object-code, unit-test, bench-procedure]
-  links: ["@implements <LLR id>", "@verifies <HLR or LLR id>", "SP rows verify <system id>"]
+  # artefacts: [source-code, executable-object-code, unit-test, bench-procedure]
+  # links: ["@implements <LLR id>", "@verifies <HLR or LLR id>", "SP rows verify <system id>"]
 
-aspects: [requirements, behaviour, structure, parameters]
+# aspects: [requirements, behaviour, structure, parameters]
 
 # ---- Node kinds, their standards and requirement id prefixes --------------------------------
 # One template per KIND (Sanad maps one role to one template, F-4-004): the item a requirement
 # belongs to is the FOLDER it lives in, not its prefix. `MRTM-HLR-007` is an HLR; its folder says
 # which software item owns it.
-node_kinds:
-  aircraft:        { standard: "ARP4754A §5.1 aircraft-level functions; ARP4761 FHA",
-                     requirement_kinds: {stakeholder: MRTM-STK, function: MRTM-FUN, safety-objective: MRTM-SOB} }
-  system:          { standard: "ARP4754A §5.2–5.3 system requirements; ARP4761 PSSA",
-                     requirement_kinds: {system: MRTM-SYS, safety: MRTM-SAF, performance: MRTM-PRF,
-                                         environmental: MRTM-ENV, maintainability: MRTM-MNT, interface: MRTM-IFC} }
-  hardware-item:   { standard: "ARP4754A §5.3 item; DO-254 §5.1 hardware requirements capture", requirement_kinds: {hardware-item: MRTM-HWR} }
-  software-item:   { standard: "ARP4754A §5.3 item; DO-178C §5.1 high-level requirements (HLR)", requirement_kinds: {hlr: MRTM-HLR} }
-  software-design: { standard: "DO-178C §5.2 software architecture + low-level requirements (LLR)", requirement_kinds: {llr: MRTM-LLR} }
+# node_kinds:
+  # aircraft:        { standard: "ARP4754A §5.1 aircraft-level functions; ARP4761 FHA",
+                     # requirement_kinds: {stakeholder: MRTM-STK, function: MRTM-FUN, safety-objective: MRTM-SOB} }
+  # system:          { standard: "ARP4754A §5.2–5.3 system requirements; ARP4761 PSSA",
+                     # requirement_kinds: {system: MRTM-SYS, safety: MRTM-SAF, performance: MRTM-PRF,
+                                         # environmental: MRTM-ENV, maintainability: MRTM-MNT, interface: MRTM-IFC} }
+  # hardware-item:   { standard: "ARP4754A §5.3 item; DO-254 §5.1 hardware requirements capture", requirement_kinds: {hardware-item: MRTM-HWR} }
+  # software-item:   { standard: "ARP4754A §5.3 item; DO-178C §5.1 high-level requirements (HLR)", requirement_kinds: {hlr: MRTM-HLR} }
+  # software-design: { standard: "DO-178C §5.2 software architecture + low-level requirements (LLR)", requirement_kinds: {llr: MRTM-LLR} }
 
 # ---- DAL: the severity axis (ARP4754A Table 2 / DO-178C §2.3), assigned by the PSSA ---------
 # Stored in each requirement's `safetyClass` field (Sanad role `dal`, scale `do178c` — native).
-dal:
-  scale: [A, B, C, D, E]
-  failure_condition: {A: catastrophic, B: hazardous, C: major, D: minor, E: no safety effect}
-  assigned_by: 08-safety/02-pssa.md
-  inherit: item-to-its-requirements   # an HLR / LLR carries its item's DAL
-  independence: not-required          # owner scope for this run: one engineer, no independent verifier (A-4-03)
+# dal:
+  # scale: [A, B, C, D, E]
+  # failure_condition: {A: catastrophic, B: hazardous, C: major, D: minor, E: no safety effect}
+  # assigned_by: 08-safety/02-pssa.md
+  # inherit: item-to-its-requirements   # an HLR / LLR carries its item's DAL
+  # independence: not-required          # owner scope for this run: one engineer, no independent verifier (A-4-03)
 
 # ---- Rules (each one is a check in tools/level-check.py) ------------------------------------
 rules:
-  satisfy: own-node-only          # a node's model file satisfies that node's requirements, nothing else
-  node_of_requirement: folder     # the requirement's folder names its node (not its prefix)
-  derive: rung-above              # an uplink names a requirement of the PARENT node (or of its own node, same rung)
-  derive_field: uplinks
-  derived_requirements: allowed-with-safety-feedback   # DO-178C §5.1.2 / §5.2.2: `derived: true`, no uplink,
+  # satisfy: own-node-only          # a node's model file satisfies that node's requirements, nothing else
+  # node_of_requirement: folder     # the requirement's folder names its node (not its prefix)
+  # derive: rung-above              # an uplink names a requirement of the PARENT node (or of its own node, same rung)
+  # derive_field: uplinks
+  # derived_requirements: allowed-with-safety-feedback   # DO-178C §5.1.2 / §5.2.2: `derived: true`, no uplink,
                                                         # must be named in 08-safety/02-pssa.md §derived
-  derive_chain: complete-to-top   # every non-derived requirement reaches a stakeholder requirement
-  depth: pinned                   # no node deeper than its rung; every item is a leaf of the system
-  code_traces_to: llr             # DO-178C §6.3.4e / §11.21: source ↔ LLR only
+  # derive_chain: complete-to-top   # every non-derived requirement reaches a stakeholder requirement
+  # depth: pinned                   # no node deeper than its rung; every item is a leaf of the system
+  # code_traces_to: llr             # DO-178C §6.3.4e / §11.21: source ↔ LLR only
   max_boxes_per_view: 12
-  view_name: "<node>_<kind>"      # Sanad view names cannot hold '-' (F-128)
-  index_per_node: required        # 06-design/<node-path>/INDEX.md
-  dal_below_parent: requires-partitioning-argument   # DO-178C §2.4.1: a lower level item beside a higher one needs partitioning
+  # view_name: "<node>_<kind>"      # Sanad view names cannot hold '-' (F-128)
+  # index_per_node: required        # 06-design/<node-path>/INDEX.md
+  # dal_below_parent: requires-partitioning-argument   # DO-178C §2.4.1: a lower level item beside a higher one needs partitioning
 
 # ---- Workflow (ARP4754A figure 4 order, one pass) ---------------------------------------------
 workflow:
@@ -117,24 +118,24 @@ workflow:
 # ---- This project's tree (17 nodes, fixed depth) ----------------------------------------------
 # path = folder under 06-design/ and 03-requirements/; dal = PSSA result (08-safety/02-pssa.md).
 nodes:
-  - {name: aircraft,        path: aircraft,               kind: aircraft,        level: aircraft, dal: A}
-  - {name: system,          path: system,                 kind: system,          level: system,   dal: A, parent: aircraft}
-  - {name: sensor-hw,       path: items/sensor-hw,        kind: hardware-item,   level: item,     dal: A, parent: system}
-  - {name: alarm-hw,        path: items/alarm-hw,         kind: hardware-item,   level: item,     dal: A, parent: system}
-  - {name: controller-hw,   path: items/controller-hw,    kind: hardware-item,   level: item,     dal: A, parent: system}
-  - {name: power-hw,        path: items/power-hw,         kind: hardware-item,   level: item,     dal: B, parent: system}
-  - {name: display-hw,      path: items/display-hw,       kind: hardware-item,   level: item,     dal: B, parent: system}
-  - {name: alarm-sw,        path: items/alarm-sw,         kind: software-item,   level: item,     dal: A, parent: system}
-  - {name: platform-sw,     path: items/platform-sw,      kind: software-item,   level: item,     dal: A, parent: system}
-  - {name: display-sw,      path: items/display-sw,       kind: software-item,   level: item,     dal: B, parent: system}
-  - {name: record-sw,       path: items/record-sw,        kind: software-item,   level: item,     dal: C, parent: system}
-  - {name: export-sw,       path: items/export-sw,        kind: software-item,   level: item,     dal: D, parent: system}
-  - {name: alarm-sw-design,    path: items/alarm-sw/design,    kind: software-design, level: software-design, dal: A, parent: alarm-sw,    components: [sensorSampler, limitEvaluator, alarmMgr]}
-  - {name: platform-sw-design, path: items/platform-sw/design, kind: software-design, level: software-design, dal: A, parent: platform-sw, components: [wdtKicker, diagnostics, configMgr, powerMon]}
-  - {name: display-sw-design,  path: items/display-sw/design,  kind: software-design, level: software-design, dal: B, parent: display-sw,  components: [displayMgr]}
-  - {name: record-sw-design,   path: items/record-sw/design,   kind: software-design, level: software-design, dal: C, parent: record-sw,   components: [eventLog, historyRing, rtcClock]}
-  - {name: export-sw-design,   path: items/export-sw/design,   kind: software-design, level: software-design, dal: D, parent: export-sw,   components: [usbExport]}
+  - {name: aircraft, path: aircraft, kind: aircraft}  # level: aircraft; dal: A
+  - {name: system, path: system, kind: system, parent: aircraft}  # level: system; dal: A
+  - {name: sensor-hw, path: items/sensor-hw, kind: hardware-item, parent: system}  # level: item; dal: A
+  - {name: alarm-hw, path: items/alarm-hw, kind: hardware-item, parent: system}  # level: item; dal: A
+  - {name: controller-hw, path: items/controller-hw, kind: hardware-item, parent: system}  # level: item; dal: A
+  - {name: power-hw, path: items/power-hw, kind: hardware-item, parent: system}  # level: item; dal: B
+  - {name: display-hw, path: items/display-hw, kind: hardware-item, parent: system}  # level: item; dal: B
+  - {name: alarm-sw, path: items/alarm-sw, kind: software-item, parent: system}  # level: item; dal: A
+  - {name: platform-sw, path: items/platform-sw, kind: software-item, parent: system}  # level: item; dal: A
+  - {name: display-sw, path: items/display-sw, kind: software-item, parent: system}  # level: item; dal: B
+  - {name: record-sw, path: items/record-sw, kind: software-item, parent: system}  # level: item; dal: C
+  - {name: export-sw, path: items/export-sw, kind: software-item, parent: system}  # level: item; dal: D
+  - {name: alarm-sw-design, path: items/alarm-sw/design, kind: software-design, parent: alarm-sw}  # level: software-design; dal: A; components: [sensorSampler, limitEvaluator, alarmMgr]
+  - {name: platform-sw-design, path: items/platform-sw/design, kind: software-design, parent: platform-sw}  # level: software-design; dal: A; components: [wdtKicker, diagnostics, configMgr, powerMon]
+  - {name: display-sw-design, path: items/display-sw/design, kind: software-design, parent: display-sw}  # level: software-design; dal: B; components: [displayMgr]
+  - {name: record-sw-design, path: items/record-sw/design, kind: software-design, parent: record-sw}  # level: software-design; dal: C; components: [eventLog, historyRing, rtcClock]
+  - {name: export-sw-design, path: items/export-sw/design, kind: software-design, parent: export-sw}  # level: software-design; dal: D; components: [usbExport]
 
 # With depth pinned, the leaves follow from the rungs: hardware items and software designs.
-leaves: [sensor-hw, alarm-hw, controller-hw, power-hw, display-hw,
-         alarm-sw-design, platform-sw-design, display-sw-design, record-sw-design, export-sw-design]
+# leaves: [sensor-hw, alarm-hw, controller-hw, power-hw, display-hw,
+         # alarm-sw-design, platform-sw-design, display-sw-design, record-sw-design, export-sw-design]

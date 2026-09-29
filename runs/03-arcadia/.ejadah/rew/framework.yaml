@@ -12,18 +12,18 @@
 # as ideas (logical parts); then as real parts (boards, chips, software); then as the list of things you ship.
 # Like planning a trip: why go → where to → which roads → which car → what to pack.
 
-framework: arcadia
-version: 1
-flavour: medical-iec62304
-reference: "sanad-knowledge/methods-and-frameworks/arcadia.md (verified 2026-09-27); Arcadia = AFNOR Z67-140; EPBS layer from the Arcadia method (Capella's fifth perspective)"
-standards:                        # editions ASSUMED — to be confirmed against the customer's editions (A-3-01)
-  - "IEC 62304:2006+A1:2015 (software life cycle)"
-  - "IEC 60601-1:2005+A2:2020 cl. 14 (programmable electrical medical system, PEMS)"
-  - "IEC 60601-1-8:2006+A2:2020 (alarm systems)"
-  - "ISO 14971:2019 (risk management)"
+name: arcadia
+# version: 1
+# flavour: medical-iec62304
+# reference: "sanad-knowledge/methods-and-frameworks/arcadia.md (verified 2026-09-27); Arcadia = AFNOR Z67-140; EPBS layer from the Arcadia method (Capella's fifth perspective)"
+# standards:                        # editions ASSUMED — to be confirmed against the customer's editions (A-3-01)
+  # - "IEC 62304:2006+A1:2015 (software life cycle)"
+  # - "IEC 60601-1:2005+A2:2020 cl. 14 (programmable electrical medical system, PEMS)"
+  # - "IEC 60601-1-8:2006+A2:2020 (alarm systems)"
+  # - "ISO 14971:2019 (risk management)"
 
-shape: step
-repeat: false                     # depth pinned: five layers, each once
+# shape: step
+# repeat: false                     # depth pinned: five layers, each once
 depth: 5
 
 # ---- The five fixed layers (top to bottom) -----------------------------------------------------------
@@ -32,89 +32,89 @@ depth: 5
 # elements = Arcadia element kinds of the layer, mapped to standard SysML v2 kinds
 # views    = Arcadia viewpoints drawn as Sanad views (Sanad view kind in brackets)
 layers:
-  - name: oa
-    title: Operational Analysis
-    question: "What does the clinic need, with NO device in it yet?"
-    path: oa
-    prefixes: [MRTM-STK]
-    requirement_kind: stakeholder need
-    derive: null
-    elements: {operational-actor: "part def", operational-entity: "part def", operational-capability: "use case def", operational-activity: "action def"}
-    views:
-      - {name: oa_capabilities, arcadia: "Operational Capability Blank (OCB)", kind: use case}
-      - {name: oa_architecture, arcadia: "Operational Architecture Blank (OAB)", kind: internal block}
-  - name: sa
-    title: System Analysis
-    question: "What must the device do, seen from outside as ONE box?"
-    path: sa
-    prefixes: [MRTM-SYS, MRTM-SAF, MRTM-PRF, MRTM-ENV, MRTM-MNT, MRTM-IFC]
-    requirement_kind: system requirement
-    derive: oa
-    derive_within_layer: true     # a safety/performance/… requirement may refine a system requirement of the same layer
-    elements: {system: "part def", system-actor: "part def", system-function: "action def", functional-chain: "action def (succession)", external-interface: "port def / interface def"}
-    views:
-      - {name: sa_context, arcadia: "System Architecture Blank (SAB) — context", kind: internal block}
-      - {name: sa_functions, arcadia: "System Data Flow Blank (SDFB)", kind: block}
-      - {name: sa_alarm_chain, arcadia: "Functional chain: excursion alarm", kind: activity}
-  - name: la
-    title: Logical Architecture
-    question: "How does it work, in ideas only — which logical parts share the work?"
-    path: la
-    prefixes: [MRTM-LA]
-    requirement_kind: logical requirement
-    derive: sa
-    elements: {logical-component: "part def", logical-function: "action def", logical-interface: "port def", functional-allocation: "allocate"}
-    views:
-      - {name: la_architecture, arcadia: "Logical Architecture Blank (LAB)", kind: internal block}
-      - {name: la_interfaces, arcadia: "Logical interfaces (exchange items)", kind: block}
-  - name: pa
-    title: Physical Architecture
-    question: "Which real parts build it — boards, chips and software?"
-    path: pa
-    prefixes: [MRTM-PH, MRTM-SW]
-    requirement_kind: physical (hardware) or software requirement
-    derive: la
-    elements: {node-component: "part def (hardware)", behaviour-component: "part def #SoftwareItem / #Component (software profile)", physical-link: "connection / interface", deployment: "allocate software → hardware"}
-    views:
-      - {name: pa_architecture, arcadia: "Physical Architecture Blank (PAB) — node components", kind: block}
-      - {name: pa_interconnection, arcadia: "Physical links (interconnection)", kind: internal block}
-      - {name: pa_backup_alarm, arcadia: "Physical links inside one node component (backup alarm board)", kind: internal block}
-      - {name: pa_software, arcadia: "Behaviour components with the software profile", kind: block, profile: .ejadah/rew/SoftwareProfile.sysml}
-  - name: epbs
-    title: End-Product Breakdown Structure
-    question: "Which things do we build, buy, version and ship?"
-    path: epbs
-    prefixes: [MRTM-CI]
-    requirement_kind: configuration item
-    derive: pa
-    elements: {configuration-item: "part def", breakdown: "part (composition)"}
-    views:
-      - {name: epbs_breakdown, arcadia: "EPBS breakdown tree", kind: tree}
+  - node_kind: oa
+    # title: Operational Analysis
+    # question: "What does the clinic need, with NO device in it yet?"
+    # path: oa
+    # prefixes: [MRTM-STK]
+    # requirement_kind: stakeholder need
+    # derive: null
+    # elements: {operational-actor: "part def", operational-entity: "part def", operational-capability: "use case def", operational-activity: "action def"}
+    # views:
+      # - {name: oa_capabilities, arcadia: "Operational Capability Blank (OCB)", kind: use case}
+      # - {name: oa_architecture, arcadia: "Operational Architecture Blank (OAB)", kind: internal block}
+  - node_kind: sa
+    # title: System Analysis
+    # question: "What must the device do, seen from outside as ONE box?"
+    # path: sa
+    # prefixes: [MRTM-SYS, MRTM-SAF, MRTM-PRF, MRTM-ENV, MRTM-MNT, MRTM-IFC]
+    # requirement_kind: system requirement
+    # derive: oa
+    # derive_within_layer: true     # a safety/performance/… requirement may refine a system requirement of the same layer
+    # elements: {system: "part def", system-actor: "part def", system-function: "action def", functional-chain: "action def (succession)", external-interface: "port def / interface def"}
+    # views:
+      # - {name: sa_context, arcadia: "System Architecture Blank (SAB) — context", kind: internal block}
+      # - {name: sa_functions, arcadia: "System Data Flow Blank (SDFB)", kind: block}
+      # - {name: sa_alarm_chain, arcadia: "Functional chain: excursion alarm", kind: activity}
+  - node_kind: la
+    # title: Logical Architecture
+    # question: "How does it work, in ideas only — which logical parts share the work?"
+    # path: la
+    # prefixes: [MRTM-LA]
+    # requirement_kind: logical requirement
+    # derive: sa
+    # elements: {logical-component: "part def", logical-function: "action def", logical-interface: "port def", functional-allocation: "allocate"}
+    # views:
+      # - {name: la_architecture, arcadia: "Logical Architecture Blank (LAB)", kind: internal block}
+      # - {name: la_interfaces, arcadia: "Logical interfaces (exchange items)", kind: block}
+  - node_kind: pa
+    # title: Physical Architecture
+    # question: "Which real parts build it — boards, chips and software?"
+    # path: pa
+    # prefixes: [MRTM-PH, MRTM-SW]
+    # requirement_kind: physical (hardware) or software requirement
+    # derive: la
+    # elements: {node-component: "part def (hardware)", behaviour-component: "part def #SoftwareItem / #Component (software profile)", physical-link: "connection / interface", deployment: "allocate software → hardware"}
+    # views:
+      # - {name: pa_architecture, arcadia: "Physical Architecture Blank (PAB) — node components", kind: block}
+      # - {name: pa_interconnection, arcadia: "Physical links (interconnection)", kind: internal block}
+      # - {name: pa_backup_alarm, arcadia: "Physical links inside one node component (backup alarm board)", kind: internal block}
+      # - {name: pa_software, arcadia: "Behaviour components with the software profile", kind: block, profile: .ejadah/rew/SoftwareProfile.sysml}
+  - node_kind: epbs
+    # title: End-Product Breakdown Structure
+    # question: "Which things do we build, buy, version and ship?"
+    # path: epbs
+    # prefixes: [MRTM-CI]
+    # requirement_kind: configuration item
+    # derive: pa
+    # elements: {configuration-item: "part def", breakdown: "part (composition)"}
+    # views:
+      # - {name: epbs_breakdown, arcadia: "EPBS breakdown tree", kind: tree}
 
 supply: power                      # supply ports are typed by PowerPort (sysml-unpowered-part reads this)
 bottom:                            # below EPBS: implementation, no new requirements
-  artefacts: [software-unit, code, unit-test, bench-procedure]
-  links: ["@implements <PA software id or SA id>", "@verifies <any id>"]
+  # artefacts: [software-unit, code, unit-test, bench-procedure]
+  # links: ["@implements <PA software id or SA id>", "@verifies <any id>"]
 
 # ---- Transitions (Arcadia's word for moving an element one layer down) ------------------------------
 # One Sanad `allocate` per element, one table per layer pair: 06-design/transitions/<from>-to-<to>.{sysml,md}.
-transitions:
-  - {from: oa, to: sa,   what: "operational activity → system function",        rule: every-source-allocated}
-  - {from: sa, to: la,   what: "system function → logical component",           rule: every-source-allocated}
-  - {from: la, to: pa,   what: "logical component → physical / behaviour component", rule: every-source-allocated}
-  - {from: pa, to: epbs, what: "physical / behaviour component → configuration item", rule: every-source-allocated}
+# transitions:
+  # - {from: oa, to: sa,   what: "operational activity → system function",        rule: every-source-allocated}
+  # - {from: sa, to: la,   what: "system function → logical component",           rule: every-source-allocated}
+  # - {from: la, to: pa,   what: "logical component → physical / behaviour component", rule: every-source-allocated}
+  # - {from: pa, to: epbs, what: "physical / behaviour component → configuration item", rule: every-source-allocated}
 
 # ---- Rules (each one is a check in tools/level-check.py) ----------------------------------------------
 rules:
-  satisfy: own-layer-only          # a layer's model files (06-design/<layer>/) satisfy that layer's requirements only
-  derive: layer-above              # uplinks name requirements of the layer directly above (SA may also refine SA)
-  derive_field: uplinks
-  derive_chain: complete-to-top    # every requirement reaches a stakeholder need
-  transitions: complete            # every source element of a pair appears in that pair's allocation table
+  # satisfy: own-layer-only          # a layer's model files (06-design/<layer>/) satisfy that layer's requirements only
+  # derive: layer-above              # uplinks name requirements of the layer directly above (SA may also refine SA)
+  # derive_field: uplinks
+  # derive_chain: complete-to-top    # every requirement reaches a stakeholder need
+  # transitions: complete            # every source element of a pair appears in that pair's allocation table
   max_boxes_per_view: 12
-  view_name: "<layer>_<subject>"   # Sanad view names cannot hold '-' (run 2 F-128)
-  index_per_layer: required        # 06-design/<layer>/INDEX.md shows every picture of the layer
-  segregation_below_parent_class: required   # IEC 62304 §5.3.5 (usb item class B, ADR-0034)
+  # view_name: "<layer>_<subject>"   # Sanad view names cannot hold '-' (run 2 F-128)
+  # index_per_layer: required        # 06-design/<layer>/INDEX.md shows every picture of the layer
+  # segregation_below_parent_class: required   # IEC 62304 §5.3.5 (usb item class B, ADR-0034)
 
 workflow:                           # Arcadia is a funnel: a layer opens when the layer above is complete
   - oa   # actors, capabilities, activities; needs = STK
