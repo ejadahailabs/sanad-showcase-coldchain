@@ -44,7 +44,7 @@ Every gap Sanad found in itself — 118 in run 01 alone, more in every later run
 
 ## What happened to the findings
 
-Of the 63 findings that got a GitHub issue filed, 19 are already fixed, 30 are still open, and 14 are waiting on a decision only Sanad's owner can make (a look-and-feel choice, a design trade-off — nothing was silently dropped). None were parked. All 19 fixes landed in four pull requests merged the same day, 2026-09-28. The full row-by-row list — which finding, which issue, which pull request, which date — is in [`FINDINGS-ALL.md`](./FINDINGS-ALL.md), under "What happened next".
+Of the 63 findings that got a GitHub issue filed, 25 are already fixed, 25 are still open, and 13 are waiting on a decision only Sanad's owner can make (a look-and-feel choice, a design trade-off — nothing was silently dropped). None were parked. The 25 fixes landed in six pull requests merged 2026-09-28 and 2026-09-29. The full row-by-row list — which finding, which issue, which pull request, which date — is in [`FINDINGS-ALL.md`](./FINDINGS-ALL.md), under "What happened next".
 
 ## How to read one run in about 10 minutes
 

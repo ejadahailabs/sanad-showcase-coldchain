@@ -4,17 +4,17 @@
 
 New ids are `S-nnn`. Original ids (`F-nnn`, `F-3-nnn`, `F-4-nnn`, `F-5-nnn`) are kept in the "source ids" column so anyone can trace a row back to its run.
 
-## What happened next (2026-09-29)
+## What happened next (2026-09-30)
 
-Every finding row below that had a GitHub issue number was checked against the tracker on ejadahailabs/Sanad. New **Issue Status** column added to every table that has an Issue column (existing columns untouched).
+Every finding row below that had a GitHub issue number was checked again against the tracker on ejadahailabs/Sanad (last checked 2026-09-29, commit 539df46). The **Issue Status** column is refreshed; existing columns untouched.
 
 | Found (had an issue filed) | Fixed | Open | Decision pending | Parked |
 |---|---|---|---|---|
-| 63 | 19 | 30 | 14 | 0 |
+| 63 | 25 | 25 | 13 | 0 |
 
-Biggest categories fixed: **system-design** (3 rows), **code-trace** (3 rows), then **configuration, requirements and baselines** tied at 2 rows each. All 19 fixes landed in four PRs merged the same day, 2026-09-28 (#1411, #1417, #1422, #1424).
+6 more rows flipped to fixed since the last check: S-004, S-006, S-007, S-044 and S-045 (design/canvas — Pilot file-order resolution, sequence-view scoping, stale-layout check, views-folder + dash-name limit, SysML stdlib stub warning) and S-061 (system-design — unallocated-item/unpowered-part check). All six closed by PR #1433 or #1438, merged 2026-09-29. Biggest categories fixed overall: **design / canvas** (5 rows), then **system-design** (4 rows) and **code-trace** (3 rows).
 
-**In one everyday sentence:** we built the same cold-chain fridge monitor five different ways, found 63 real gaps worth filing as tickets, and within a week 19 of them — about 3 in 10 — were already fixed, like finding 63 potholes on five different drives through town and having road crews patch 19 of them by the following week.
+**In one everyday sentence:** we built the same cold-chain fridge monitor five different ways, found 63 real gaps worth filing as tickets, and within a couple of days 25 of them — 2 in every 5 — were already fixed, like finding 63 potholes on five different drives through town and having road crews patch 25 of them within the same week.
 
 ## The 7 headline findings (seen across runs, not just once)
 
@@ -35,10 +35,10 @@ Biggest categories fixed: **system-design** (3 rows), **code-trace** (3 rows), t
 | S-001 | Code indexer reads prose comments/strings as trace claims | 1,2,3,4,5 | code-trace | Knowledge graph | **fixed on branch fix/trace-c-lane-and-links** | Strict claim grammar + tooling-file scope for the code index | F-84, F-135, F-3-009, F-4-010, F-5-007 | PR #1342 (umbrella #1350) | open |
 | S-002 | Part-to-part `allocate` misread as a requirement allocation | 1,2,3 | traceability / design | Traceability engine | **fixed on branch fix/trace-c-lane-and-links** | Read part-to-part allocate without guessing a requirement id | F-35, F-70, F-3-005 | PR #1342 (umbrella #1349) | open |
 | S-003 | Reader accepts reserved words / bad grammar the OMG Pilot rejects | 1,2 | design (verification) | Verification engine | **fixed on branch fix/validator-profile-and-reports** | Reader conformance suite matched to the Pilot | F-37 | PR #1342 (umbrella #1345) | open |
-| S-004 | OMG Pilot resolution is file-order and name-collision dependent | 3,4 | design (Pilot) | Verification engine | open | Pilot run independent of file/folder order | F-3-004, F-4-006, F-4-020 | #1377 | open |
+| S-004 | OMG Pilot resolution is file-order and name-collision dependent | 3,4 | design (Pilot) | Verification engine | open | Pilot run independent of file/folder order | F-3-004, F-4-006, F-4-020 | #1377 | fixed (PR #1433, 2026-09-29) |
 | S-005 | Review "accepted" status compares by commit-prefix, not ancestry (40 of 54 files wrongly read "changed since accepted") | 1,2 | review | Verification engine | **fixed on branch fix/trace-c-lane-and-links** | Accepted-status check uses git ancestry | F-28 | PR #1342 (umbrella #1351) | open |
-| S-006 | Sequence/interconnection views join elements by name model-wide instead of scoping to their own package | 2,5 | design (canvas) | Verification engine | open | Scope sequence/interconnection messages to their own package | F-67, F-5-004 | #1378 | open |
-| S-007 | Saved view layout is not re-checked after a rename outside the Design panel; canvas stays silent while the Pilot errors | 2 | design (canvas) | Verification engine | open | Stale-layout check | F-38 | #1379 | open |
+| S-006 | Sequence/interconnection views join elements by name model-wide instead of scoping to their own package | 2,5 | design (canvas) | Verification engine | open | Scope sequence/interconnection messages to their own package | F-67, F-5-004 | #1378 | fixed (PR #1433, 2026-09-29) |
+| S-007 | Saved view layout is not re-checked after a rename outside the Design panel; canvas stays silent while the Pilot errors | 2 | design (canvas) | Verification engine | open | Stale-layout check | F-38 | #1379 | fixed (PR #1433, 2026-09-29) |
 | S-008 | Error message for a relative repository path is wrong ("would escape the repository" on the repo's own path) | 2 | authoring | Verification engine | open | Correct, clear error for a relative repository root | F-114 | #1380 | fixed (PR #1411, 2026-09-28) |
 | S-009 | A stray file under the wrong folder makes the id allocator offer an id that already exists | 4 | requirements | Verification engine | open | Allocator checks the real id set, not the folder-tied guess | F-4-005 | #1381 | fixed (PR #1424, 2026-09-28) |
 | S-010 | One bad character (colon) in a suppression reason silently breaks `config.yaml`, and the gate then reports the resulting cascade as real errors | 5 | configuration | Verification engine | open | Config loader fails loudly, not silently, on a bad YAML value | F-5-008 | #1382 | fixed (PR #1411, 2026-09-28) |
@@ -86,8 +86,8 @@ Biggest categories fixed: **system-design** (3 rows), **code-trace** (3 rows), t
 | S-041 | Review has no action-item object or declared finding-kind field | 2 | review | Workflow / configuration | open | Review actions (owner, due, link) + declared finding categories | F-29, F-31 | #1376 | decision pending |
 | S-042 | No "TBD requirement tied to an open question" state; no capture flow with provenance | 2 | requirements / capture | Workflow | open | TBD-requirement state; capture command with provenance | F-13, F-22 | #1390 | decision pending |
 | S-043 | Config writer re-serialises the whole YAML file for a one-field edit (cosmetic diff noise) | 2 | configuration | Existing feature | open | Minimal-diff config writer | F-34 | #1391 | fixed (PR #1411, 2026-09-28) |
-| S-044 | Views folder is fixed to the first design root; view names can't contain a dash | 1,2 | design | Existing feature | open | Configurable views-per-node folder + relaxed name pattern | F-14, F-128 | #1392 | open |
-| S-045 | SysML standard-library imports always warn as unresolved, even in Sanad's own generated files | 1 | design | Verification engine | open | Ship SysML standard-library stubs to the reader | F-15 | #1393 | decision pending |
+| S-044 | Views folder is fixed to the first design root; view names can't contain a dash | 1,2 | design | Existing feature | open | Configurable views-per-node folder + relaxed name pattern | F-14, F-128 | #1392 | fixed (PR #1433, 2026-09-29) |
+| S-045 | SysML standard-library imports always warn as unresolved, even in Sanad's own generated files | 1 | design | Verification engine | open | Ship SysML standard-library stubs to the reader | F-15 | #1393 | fixed (PR #1433, 2026-09-29) |
 | S-046 | No "decompose this node" action; a decomposed node's black box, white box, children and templates are all hand-written text | 2 | system-design | New capability | open | Decomposition-view action (create black box + white box + children in one step) | F-127 | #1353 | open |
 | S-047 | Canvas ignores saved layout for nested/composed parts; white-box internals must be duplicated as package-level parts to be placeable | 2 | system-design (canvas) | Canvas feature | open | Layout support for nested usages; draw composite internals directly | F-129, F-146 | #1354 | open |
 | S-048 | Sequence view can't show two messages of the same type distinctly, or a timing budget between them | 2,3 | design (canvas) | Canvas feature | **partly designed (C-5 proposed sentence, not built)** | Show name : Type when repeated; duration-constraint bracket with requirement id | F-131, F-143, F-123, F-3-015, F-144 | #1361 | decision pending |
@@ -103,7 +103,7 @@ Biggest categories fixed: **system-design** (3 rows), **code-trace** (3 rows), t
 | S-058 | No untyped-connection-end warning; anonymous neighbour parts and plain connect (vs typed interface) pass silently | 2 | system-design | Verification engine | open | Untyped-end warning (org-configurable) | F-147 | #1400 | fixed (PR #1424, 2026-09-28) |
 | S-059 | Whole view kinds are missing at node level: decomposition tree, activity, requirement, parametric, allocation, hazard | 2 | system-design | Workflow + canvas | open | Framework-cell to required view-kind checklist | F-148 | #1360 | open |
 | S-060 | No #derivation, verify, or constraint SysML elements are ever generated; derive/verify/budgets live in Markdown/comments only | 2 | traceability | Traceability engine | open | Emit derive/verify/constraint elements into the generated packages | F-149 | #1372 | decision pending |
-| S-061 | No check for an unallocated software item or an unpowered part | 2 | system-design | Verification engine | open | Unallocated-item / unpowered-part check (org rule) | F-151 | #1401 | open |
+| S-061 | No check for an unallocated software item or an unpowered part | 2 | system-design | Verification engine | open | Unallocated-item / unpowered-part check (org rule) | F-151 | #1401 | fixed (PR #1438, 2026-09-29) |
 | S-062 | No gate check that a rendered picture is fit for review (overlaps, detached labels, empty area, width, box count, crossings) | 2 | system-design | Verification engine | **designed, not built** (proposed sentence C-6) | "Picture fit for review" gate check | F-152 | #1358 | open |
 | S-063 | No colour theme by element kind on the canvas (owner's own ask, 2026-09-27) | 2 | system-design | Existing feature + configuration | **needs owner decision** (org picks the theme; C-1 design ready) | Colour theme by element kind, WCAG-checked, org-configurable | F-122 | #1363 (owner-gate) | decision pending |
 | S-064 | A scenario is written as package-level parts + messages, not a proper SysML v2 occurrence def; lifeline names need artificial suffixes | 2 | design | Skill + canvas | open | Scenario authoring writes a real occurrence def | F-144 | #1361 | decision pending |
