@@ -4,6 +4,9 @@
 
 ## Log (newest first; the four lines per step)
 
+### Note — tools read `tools/levels.yaml` since 2026-09-29 (SHOWCASE-TOOLS worker)
+The run-local fields the cleanup below turned into comments now live in `tools/levels.yaml` (same values, same order). Every tool that read `.ejadah/rew/framework.yaml` now calls `tools/fwload.py`, which lays `tools/levels.yaml` over the framework file (like a clear sheet with notes laid on a map). `framework.yaml` is unchanged: Sanad's reader still gives **0 refusals, 0 unknown-key warnings**. Proof: every tool was run on a scratch copy with the old framework file and again with the new pair — every file they wrote and every line they printed is byte-identical (tracebacks of tools that already failed before differ only by one line number, from the added import). Self-check: `python3 tools/fwload.py`.
+
 ### Note — framework reader cleanup (2026-09-29, follow-up worker, Sanad `proto/fw-samples-2` @ `1f0611dc`)
 Sanad's framework reader now warns `framework-unknown-key` (path + line) for any `.ejadah/rew/framework.yaml` key it does not read. This run's fixed ladder (`step.rungs`, `dal:` block, `node_kinds:`) has no Sanad schema place at all, so 62 warnings appeared. Fixed: `framework:` renamed to `name:`; `step:` given one real key (`black_box: {}`, empty — a placeholder so the file still validates, since none of `rungs:` maps to Sanad's black_box/white_box/children_become shape); every other flagged key (the whole `rungs:` ladder, `dal:` block, `node_kinds:`, rule-documentation keys, `level`/`dal`/`components` on tree nodes) turned into a comment. Reader now: **0 refusals, 0 unknown-key warnings** (was 62). Side effect not fixed here: `tools/aero-build.py`, `tools/aero-index.py`, `tools/aero_model.py`, `tools/level-check.py` read `FW["dal"]`, `n["level"]`, `n["dal"]`, `n["components"]` straight from the YAML and will need their own update before their next run against this file.
 

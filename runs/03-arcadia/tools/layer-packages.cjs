@@ -9,7 +9,7 @@ const { loadRepository } = d("repo.js");
 const { requirementsPackage } = d("sysmlRequirements.js");
 const YAML = require(join(ext, "node_modules", "yaml"));
 (async () => {
-  const fw = YAML.parse(fs.readFileSync(join(root, ".ejadah/rew/framework.yaml"), "utf8"));
+  const fw = YAML.parse(fs.readFileSync(join(root, "tools/levels.yaml"), "utf8"));  // layer name + prefixes live here since 2026-09-29
   const model = await loadRepository(root);
   fs.mkdirSync(join(root, out), { recursive: true });
   for (const n of fw.layers) {

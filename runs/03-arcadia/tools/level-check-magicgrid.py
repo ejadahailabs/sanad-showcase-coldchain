@@ -8,10 +8,11 @@
   5 index            : every node has INDEX.md, and it shows every picture in its pictures/ folder
 Usage (repo root): python3 tools/level-check.py [--selftest]. Exit 1 on any violation. MANUAL (F-126)."""
 import pathlib, re, sys, yaml
+import fwload  # framework.yaml + tools/levels.yaml (run-local fields, 2026-09-29)
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 def load():
-    fw = yaml.safe_load((ROOT / ".ejadah/rew/framework.yaml").read_text())
+    fw = fwload.load()
     reqs = {}
     for f in (ROOT / "03-requirements").rglob("MRTM-*.md"):
         up = re.search(r"^uplinks: (.*)$", f.read_text(), re.M).group(1)

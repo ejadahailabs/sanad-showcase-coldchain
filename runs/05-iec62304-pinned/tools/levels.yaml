@@ -1,0 +1,80 @@
+# Run-local documentation the tools read — moved out of .ejadah/rew/framework.yaml on 2026-09-29.
+# Sanad's framework reader (build in progress) warns on keys it has no place for, so framework.yaml keeps
+# only what Sanad reads and these values live here. tools/fwload.py lays this file over framework.yaml:
+# maps key by key, lists position by position (so `nodes:` below is in the same order as framework.yaml).
+# DRAFT — needs Masood's review.
+
+framework: iec62304-pinned
+version: 1
+flavour: medical-iec62304
+standards:                        # editions ASSUMED — to be confirmed against the customer's editions (A-39)
+  - "IEC 60601-1:2005+A2:2020 cl. 14 (programmable electrical medical system, PEMS)"
+  - "IEC 62304:2006+A1:2015 (software life cycle)"
+  - "ISO 14971:2019 (risk management)"
+  - "IEC 60601-1-8:2006+A2:2020 (alarm systems)"
+
+# ---- The pattern: one step, depth pinned ----------------------------------------------------
+step:
+  depth: pinned                   # the same step, a fixed number of floors; no per-branch depth
+  levels:                         # top to bottom; each level's parent is the level above it
+    - {level: 1, name: device,          standard: "IEC 60601-1 cl. 14 PEMS; ISO 14971 risk management file",
+       aspects: [requirements, structure, behaviour], views: [internal block, use case],
+       requirement_kinds: [stakeholder, system, safety, performance, environmental, maintainability, interface],
+       owes: "the medical device: intended use, device (system) requirements, risk management file"}
+    - {level: 2, name: software-system, standard: "IEC 62304 §5.2 software requirements, §5.3 architecture",
+       aspects: [requirements, structure, behaviour], views: [internal block, state machine, sequence],
+       requirement_kinds: [software-system], profile: SoftwareProfile,
+       owes: "the software requirements specification (SRS) and the architecture: items and their interfaces"}
+    - {level: 3, name: software-item,   standard: "IEC 62304 §5.3.1–5.3.5 items, §4.3 class per item, §5.3.5 segregation",
+       aspects: [requirements, structure, behaviour], views: [internal block, state machine],
+       requirement_kinds: [sensor-item, excursion-item, alarm-item, display-item, log-item, usb-item, power-item, supervisor-item],   # one template per item (was [software-item], no template)
+       owes: "one item per box of the architecture, its own class, and segregation where it is lower than C"}
+    - {level: 4, name: software-unit,   standard: "IEC 62304 §5.4 detailed design, §5.5 unit implementation and verification",
+       aspects: [requirements, structure, parameters], views: [block],
+       requirement_kinds: [sensor-sampler, limit-evaluator, alarm-mgr, display-mgr, event-log, history-ring, rtc-clock, usb-export, power-mon, wdt-kicker, diagnostics, config-mgr],   # one template per unit (was [software-unit], no template)
+       owes: "the unit contracts (detailed design), the code and the unit tests"}
+  hardware: {level: 2, name: hardware-item, parent: device,
+             standard: "IEC 60601-1 cl. 4.8 components, cl. 14.8 PEMS architecture",
+             note: "the hardware side is ONE item under the device; it is not decomposed further here"}
+bottom:                           # below the unit: code and tests, no new requirements
+  artefacts: [code, unit-test, integration-test, system-procedure]
+  links: ["@implements <unit id>", "@verifies <unit id>"]
+
+# ---- Rules (each one is a check in tools/level-check.py; max_boxes_per_view stays in framework.yaml) ----
+rules:
+  depth: pinned-4                 # every node sits on level 1..4; a node's parent sits exactly one level up
+  satisfy: own-node-only          # a node's model file satisfies that node's requirements, nothing else
+  derive: follows-parent          # `uplinks` name requirements of the PARENT node (device: its own STK)
+  derive_field: uplinks
+  derive_chain: complete-to-top   # every unit requirement reaches a stakeholder requirement
+  class: per-item                 # IEC 62304 §4.3: every software item carries its own class and reason
+  class_inherit: unit-from-item   # a unit has its item's class
+  segregation_below_parent_class: required   # §5.3.5: an item below C names its segregation (ruling A-48)
+  view_name: "<level>_<node>_<kind>"         # Sanad view names cannot hold '-' (F-128)
+  index_per_level: required       # 06-design/L<n>-<level>/INDEX.md; one per node below it too
+
+# Per node, same order as framework.yaml `nodes:`. class = IEC 62304 class; code = the unit's source file stem.
+nodes:
+  - {name: device, level: 1, class: C}
+  - {name: hardware-item, level: 2, class: C}
+  - {name: software-system, level: 2, class: C}
+  - {name: sensor-item, level: 3, class: C}
+  - {name: excursion-item, level: 3, class: C}
+  - {name: alarm-item, level: 3, class: C}
+  - {name: display-item, level: 3, class: C}
+  - {name: log-item, level: 3, class: C}
+  - {name: usb-item, level: 3, class: B, segregation: "ADR-0034 / A-48: own lowest-priority task on core 0, read-only accessor, owns no data another item reads, task watchdog, CRC-32 per record"}
+  - {name: power-item, level: 3, class: C}
+  - {name: supervisor-item, level: 3, class: C}
+  - {name: sensor-sampler, level: 4, class: C, code: sensor_sampler}
+  - {name: limit-evaluator, level: 4, class: C, code: limit_evaluator}
+  - {name: alarm-mgr, level: 4, class: C, code: alarm_mgr}
+  - {name: display-mgr, level: 4, class: C, code: display_mgr}
+  - {name: event-log, level: 4, class: C, code: event_log}
+  - {name: history-ring, level: 4, class: C, code: history_ring}
+  - {name: rtc-clock, level: 4, class: C, code: rtc_clock}
+  - {name: usb-export, level: 4, class: B, code: usb_export}
+  - {name: power-mon, level: 4, class: C, code: power_mon}
+  - {name: wdt-kicker, level: 4, class: C, code: wdt_kicker}
+  - {name: diagnostics, level: 4, class: C, code: diagnostics}
+  - {name: config-mgr, level: 4, class: C, code: config_mgr}

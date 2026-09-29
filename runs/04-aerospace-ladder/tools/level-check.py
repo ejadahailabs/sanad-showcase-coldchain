@@ -13,6 +13,7 @@
 The node of a requirement is its FOLDER: 03-requirements/{aircraft,system}/…, {hwr,hlr}/<item>, llr/<item> (F-4-005).
 Usage (run folder): python3 tools/level-check.py [--selftest]. Exit 1 on any violation. MANUAL (run 2 F-126)."""
 import pathlib, re, sys, yaml
+import fwload  # framework.yaml + tools/levels.yaml (run-local fields, 2026-09-29)
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 RUNGS = ["aircraft", "system", "item", "software-design"]
 
@@ -22,7 +23,7 @@ def node_of_path(rel):  # 03-requirements-relative folder parts -> node name
     if rel[0] == "llr": return rel[1] + "-design"
 
 def load():
-    fw = yaml.safe_load((ROOT / ".ejadah/rew/framework.yaml").read_text())
+    fw = fwload.load()
     reqs = {}
     for f in (ROOT / "03-requirements").rglob("MRTM-*.md"):
         s = f.read_text()

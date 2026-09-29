@@ -6,11 +6,12 @@ Usage (run folder):
   python3 tools/pinned-build.py markers     retarget run 2's code markers / SP rows (MAP) and add this run's ids
 Every write is idempotent. DRAFT — needs Masood's review."""
 import json, pathlib, re, sys, yaml
+import fwload  # framework.yaml + tools/levels.yaml (run-local fields, 2026-09-29)
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 from pinned_data import REQS, MAP
 
-FW = yaml.safe_load((ROOT / ".ejadah/rew/framework.yaml").read_text())
+FW = fwload.load()
 NODES = {n["name"]: n for n in FW["nodes"]}
 PREFIX = {p: n["name"] for n in FW["nodes"] for p in [n["prefix"]] if isinstance(p, str)}
 

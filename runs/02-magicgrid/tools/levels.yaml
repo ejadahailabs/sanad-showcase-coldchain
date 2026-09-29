@@ -1,0 +1,86 @@
+# Run-local documentation the tools read — moved out of .ejadah/rew/framework.yaml on 2026-09-29.
+# Sanad's framework reader (build in progress) warns on keys it has no place for, so framework.yaml keeps
+# only what Sanad reads and these values live here. tools/fwload.py lays this file over framework.yaml:
+# maps key by key, lists position by position (so `nodes:` below is in the same order as framework.yaml).
+# DRAFT — needs Masood's review.
+
+framework: magicgrid
+version: 1
+flavour: medical-iec62304        # the organisation's own flavour of the default
+standards:                        # editions ASSUMED — to be confirmed against the customer's editions (A-39)
+  - "IEC 62304:2006+A1:2015 (software life cycle)"
+  - "IEC 60601-1:2005+A2:2020 cl. 14 (programmable electrical medical system, PEMS)"
+  - "IEC 60601-1-8:2006+A2:2020 (alarm systems)"
+  - "ISO 14971:2019 (risk management)"
+
+top:
+  views: [use case, internal block]        # use cases; the product as one box among its neighbours
+step:
+  black_box:
+    views: [internal block]       # <node>_blackbox_interfaces: the node + its neighbours + wires
+  white_box:
+    views: [internal block, state machine, sequence]   # <node>_whitebox_interconnection (+ states/scenarios where it has them)
+leaf:
+  solution: [hardware-part, software-item]
+bottom:
+  artefacts: [software-unit, code, unit-test, bench-procedure]
+  links: ["@implements <leaf id>", "@verifies <leaf id>"]
+
+aspects: [requirements, behaviour, structure, parameters]
+
+node_kinds:
+  context:        { standard: "ISO 14971 cl. 5.2 intended use", requirement_kinds: {stakeholder: MRTM-STK} }
+  system:         { standard: "IEC 60601-1 cl. 14 PEMS; IEC 62304 software system",
+                    requirement_kinds: {system: MRTM-SYS, safety: MRTM-SAF, performance: MRTM-PRF,
+                                        environmental: MRTM-ENV, maintainability: MRTM-MNT, interface: MRTM-IFC} }
+  subsystem:      { standard: "IEC 60601-1 cl. 14.8 PEMS architecture", requirement_kinds: [sensing, alarm, display, logging, power, supervision], requirement_prefix: "MRTM-<NODE>" }
+  assembly:       { standard: "IEC 60601-1 cl. 14.8 (a subsystem that repeats the step)", requirement_kinds: [backup-alarm], requirement_prefix: "MRTM-<NODE>" }
+  hardware-part:  { standard: "IEC 60601-1 cl. 4.8 components", requirement_kinds: [probe, buzzer, indicators, backup-timer, backup-driver, hold-up, oled, rtc, battery, power-path, mcu], requirement_prefix: "MRTM-<NODE>" }
+  software-item:  { standard: "IEC 62304 §5.3.1 software item, §4.3 its own class", requirement_kinds: [sensor-item, excursion-item, alarm-item, display-item, log-item, usb-item, power-item, supervisor-item], requirement_prefix: "MRTM-<NODE>",
+                    units: "IEC 62304 §5.4 software units (bottom)" }
+
+rules:                            # the rules tools/level-check.py checks (max_boxes_per_view stays in framework.yaml)
+  satisfy: own-node-only          # a node's model file satisfies that node's requirements, nothing else
+  derive: follows-parent          # a requirement's `derive` (Sanad: `uplinks`) names requirements of its PARENT node only
+  derive_field: uplinks           # the Sanad field that carries it (Sanad's `derived:` flag means "no parent", DO-178C sense — not used)
+  derive_chain: complete-to-top   # every leaf requirement reaches a stakeholder requirement
+  leaf: declared-by-organisation  # only the `leaves:` list below makes a node a leaf
+  view_name: "<node>_<blackbox|whitebox|leaf>_<kind>"   # Sanad view names cannot hold '-' (F-128)
+  index_per_node: required        # 06-design/<node-path>/INDEX.md
+  segregation_below_parent_class: required   # IEC 62304 §5.3.5: an item below its parent's class names its segregation
+
+# Per node, same order as framework.yaml `nodes:`. class = IEC 62304 class.
+nodes:
+  - {name: context,         class: C}
+  - {name: system,          class: C}
+  - {name: sensing,         class: C}
+  - {name: alarm,           class: C, title: alarm-and-indication}
+  - {name: display,         class: C}
+  - {name: logging,         class: C, title: logging-and-history}
+  - {name: power,           class: C}
+  - {name: supervision,     class: C}
+  - {name: probe,           class: C}
+  - {name: sensor-item,     class: C, units: [sensorSampler]}
+  - {name: excursion-item,  class: C, units: [limitEvaluator]}
+  - {name: alarm-item,      class: C, units: [alarmMgr]}
+  - {name: buzzer,          class: C}
+  - {name: indicators,      class: C}
+  - {name: backup-alarm,    class: C}
+  - {name: backup-timer,    class: C}
+  - {name: backup-driver,   class: C}
+  - {name: hold-up,         class: C}
+  - {name: oled,            class: C}
+  - {name: display-item,    class: C, units: [displayMgr]}
+  - {name: rtc,             class: C}
+  - {name: log-item,        class: C, units: [eventLog, historyRing, rtcClock]}
+  - {name: usb-item,        class: B, units: [usbExport]}
+  - {name: battery,         class: C}
+  - {name: power-path,      class: C}
+  - {name: power-item,      class: C, units: [powerMon]}
+  - {name: mcu,             class: C}
+  - {name: supervisor-item, class: C, units: [wdtKicker, diagnostics, configMgr]}
+
+# Declared by the organisation (rule `leaf`). The alarm branch goes one step deeper than the others:
+# backup-alarm is NOT a leaf, so it gets its own black box and white box, and its three parts are the leaves.
+leaves: [probe, sensor-item, excursion-item, alarm-item, buzzer, indicators, backup-timer, backup-driver, hold-up,
+         oled, display-item, rtc, log-item, usb-item, battery, power-path, power-item, mcu, supervisor-item]

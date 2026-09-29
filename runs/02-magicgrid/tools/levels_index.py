@@ -1,8 +1,9 @@
 """Write 06-design/<node-path>/INDEX.md for every node of .ejadah/rew/framework.yaml: the node's pictures in
 reading order, its requirement ids, its class. Called by `python3 tools/levels-build.py index`. MANUAL (F-126)."""
 import os, pathlib, re, yaml
+import fwload  # framework.yaml + tools/levels.yaml (run-local fields, 2026-09-29)
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-FW = yaml.safe_load((ROOT / ".ejadah/rew/framework.yaml").read_text())
+FW = fwload.load()
 NODES = {n["name"]: n for n in FW["nodes"]}
 ORDER = ["usecases", "blackbox", "whitebox_interconnection", "whitebox_modes", "whitebox_excursion", "whitebox_powerloss", "whitebox_probefault", "leaf"]
 WHAT = {"usecases": "who uses the monitor and for what", "blackbox": "the node as ONE box, with the neighbours it is wired to (its promises face outward)",

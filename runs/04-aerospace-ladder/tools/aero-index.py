@@ -2,8 +2,9 @@
 """RUN-04: 06-design/<node>/INDEX.md for all 17 nodes and 06-design/DECOMPOSITION.md (the ladder in reading order).
 Usage (run folder): python3 tools/aero-index.py. MANUAL (run 2 F-125: Sanad has no Decomposition view)."""
 import pathlib, re, yaml
+import fwload  # framework.yaml + tools/levels.yaml (run-local fields, 2026-09-29)
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-FW = yaml.safe_load((ROOT / ".ejadah/rew/framework.yaml").read_text())
+FW = fwload.load()
 PIC = {
  "aircraft_context": "the monitor as one box among the fridge, the mains, the USB host and the staff",
  "aircraft_functions": "the five product functions (MRTM-FUN-001…005) and what flows between them",

@@ -4,6 +4,9 @@
 
 ## Phase log (newest first; one block per finished phase, the four lines verbatim)
 
+### Note — tools read `tools/levels.yaml` since 2026-09-29 (SHOWCASE-TOOLS worker)
+The run-local fields the cleanup below turned into comments now live in `tools/levels.yaml` (same values, same order). Every tool that read `.ejadah/rew/framework.yaml` now calls `tools/fwload.py`, which lays `tools/levels.yaml` over the framework file (like a clear sheet with notes laid on a map). `framework.yaml` is unchanged: Sanad's reader still gives **0 refusals, 0 unknown-key warnings**. Proof: every tool was run on a scratch copy with the old framework file and again with the new pair — every file they wrote and every line they printed is byte-identical (tracebacks of tools that already failed before differ only by one line number, from the added import). Self-check: `python3 tools/fwload.py`.
+
 ### Note — framework reader cleanup (2026-09-29, follow-up worker, Sanad `proto/fw-samples-2` @ `1f0611dc`)
 Sanad's framework reader now warns `framework-unknown-key` (path + line) for any `.ejadah/rew/framework.yaml` key it does not read. Fixed here: `framework:` renamed to the real key `name:`; every other flagged key (`version`, `flavour`, `standards`, `node_kinds`, rule-documentation keys, and `class`/`title`/`units` on tree nodes) turned into a YAML comment, most inline on the same line so the decomposition story still reads the same to a person. Reader now: **0 refusals, 0 unknown-key warnings** (was 59 warnings). Side effect not fixed here: `tools/level-check.py`, `tools/levels_index.py`, `tools/levels-build.py`, `tools/levels_model.py` read `n["class"]`/`n["title"]`/`n["units"]`/`node_kinds` straight from the YAML and will need their own update before their next run against this file (they'll KeyError or read defaults now that those keys are comments).
 

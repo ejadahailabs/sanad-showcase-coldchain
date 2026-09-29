@@ -5,8 +5,9 @@ The structure is written below as SysML text (MANUAL, F-127); the `satisfy` line
 requirement files: a node satisfies ITS OWN requirements only. Usage (run folder): python3 tools/pinned_model.py.
 DRAFT — needs Masood's review."""
 import pathlib, yaml
+import fwload  # framework.yaml + tools/levels.yaml (run-local fields, 2026-09-29)
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-FW = yaml.safe_load((ROOT / ".ejadah/rew/framework.yaml").read_text())
+FW = fwload.load()
 NODES = {n["name"]: n for n in FW["nodes"]}
 D = ROOT / "06-design"
 

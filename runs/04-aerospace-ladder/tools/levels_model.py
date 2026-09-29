@@ -4,8 +4,9 @@ The structure of each node (black box, its neighbours, white box) is written bel
 the `satisfy` lines are generated from the requirement files: a node satisfies ITS OWN requirements only.
 Usage (repo root): python3 tools/levels_model.py.  DRAFT — needs Masood's review."""
 import pathlib, re, sys, yaml
+import fwload  # framework.yaml + tools/levels.yaml (run-local fields, 2026-09-29)
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-FW = yaml.safe_load((ROOT / ".ejadah/rew/framework.yaml").read_text())
+FW = fwload.load()
 NODES = {n["name"]: n for n in FW["nodes"]}
 
 def pkg(name): return "Node" + "".join(w.capitalize() for w in name.split("-"))

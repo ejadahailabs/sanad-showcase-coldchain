@@ -11,11 +11,12 @@
 Usage (run folder): python3 tools/level-check.py [--selftest]. Exit 1 on any violation. MANUAL (F-3-001).
 The run-2 MagicGrid version is kept as tools/level-check-magicgrid.py."""
 import pathlib, re, sys, yaml
+import fwload  # framework.yaml + tools/levels.yaml (run-local fields, 2026-09-29)
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PKG = {"oa": "Oa", "sa": "Sa", "la": "La", "pa": "Pa", "epbs": "Epbs"}
 
 def load():
-    fw = yaml.safe_load((ROOT / ".ejadah/rew/framework.yaml").read_text())
+    fw = fwload.load()
     reqs = {f.stem: re.findall(r'"([^"]+)"', re.search(r"^uplinks: (.*)$", f.read_text(), re.M).group(1))
             for f in (ROOT / "03-requirements").rglob("MRTM-*.md")}
     sat, alloc, src = [], [], {}

@@ -3,8 +3,9 @@
 Grades are the picture review (the coordinator looked at every PNG; A = fit for a design review ... E = not usable).
 Usage (run folder): python3 tools/pinned-index.py"""
 import pathlib, re, yaml
+import fwload  # framework.yaml + tools/levels.yaml (run-local fields, 2026-09-29)
 ROOT = pathlib.Path(__file__).resolve().parent.parent; D = ROOT / "06-design"
-FW = yaml.safe_load((ROOT / ".ejadah/rew/framework.yaml").read_text()); N = {n["name"]: n for n in FW["nodes"]}
+FW = fwload.load(); N = {n["name"]: n for n in FW["nodes"]}
 G = {  # picture: (grade, what it shows / what is wrong)
  "L1_device_context": ("B", "the device as one box with fridge, mains, USB host, staff; port labels sit beside, not on, their ports (F-119)"),
  "L1_device_block": ("B", "hardware item + software system joined by ONE bundled HAL port; outside wires to the neighbours"),

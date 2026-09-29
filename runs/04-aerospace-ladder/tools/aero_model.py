@@ -4,10 +4,11 @@ Structure is written below as text (MANUAL, run 2 F-127); `satisfy` lines are ge
 folders: a node covers its own requirements only (framework rule "own node only").
 Usage (run folder): python3 tools/aero_model.py.  DRAFT — needs Masood's review."""
 import json, pathlib, re, sys, yaml
+import fwload  # framework.yaml + tools/levels.yaml (run-local fields, 2026-09-29)
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 from aero_data import REQS
-FW = yaml.safe_load((ROOT / ".ejadah/rew/framework.yaml").read_text())
+FW = fwload.load()
 IDS = json.loads((ROOT / "tools/aero-ids.json").read_text())
 D = ROOT / "06-design"
 

@@ -6,8 +6,9 @@ Usage (run folder):
   python3 tools/arcadia.py index         06-design/<layer>/INDEX.md (pictures in reading order + the requirement ids of the layer)
 Every write is idempotent. DRAFT — needs Masood's review."""
 import json, pathlib, re, sys, yaml
+import fwload  # framework.yaml + tools/levels.yaml (run-local fields, 2026-09-29)
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-FW = yaml.safe_load((ROOT / ".ejadah/rew/framework.yaml").read_text())
+FW = fwload.load()
 LAYERS = {l["name"]: l for l in FW["layers"]}
 SPEC = json.loads((ROOT / "tools/arcadia-spec.json").read_text())
 IDS = json.loads((ROOT / "03-requirements/allocation-log.json").read_text())

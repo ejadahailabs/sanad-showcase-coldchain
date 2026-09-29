@@ -7,11 +7,12 @@ Usage (repo root):
   python3 tools/levels-build.py index       06-design/<node-path>/INDEX.md for every node
 Every write is idempotent. DRAFT — needs Masood's review."""
 import json, pathlib, re, sys, yaml
+import fwload  # framework.yaml + tools/levels.yaml (run-local fields, 2026-09-29)
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 from levels_data import REQS
 
-FW = yaml.safe_load((ROOT / ".ejadah/rew/framework.yaml").read_text())
+FW = fwload.load()
 NODES = {n["name"]: n for n in FW["nodes"]}
 LEAVES = set(FW["leaves"])
 PREFIX = {n["prefix"]: n["name"] for n in FW["nodes"] if isinstance(n["prefix"], str)}

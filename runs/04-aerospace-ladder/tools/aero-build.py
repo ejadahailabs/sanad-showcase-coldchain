@@ -7,11 +7,12 @@ Usage (run folder):
 Ids come from Sanad's allocator; tools/aero-ids.json maps each key of tools/aero_data.py to its id.
 Every write is idempotent. DRAFT — needs Masood's review."""
 import json, pathlib, re, sys, yaml
+import fwload  # framework.yaml + tools/levels.yaml (run-local fields, 2026-09-29)
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 from aero_data import REQS, TESTS
 
-FW = yaml.safe_load((ROOT / ".ejadah/rew/framework.yaml").read_text())
+FW = fwload.load()
 NODES = {n["name"]: n for n in FW["nodes"]}
 IDS_PATH = ROOT / "tools/aero-ids.json"
 IDS = json.loads(IDS_PATH.read_text()) if IDS_PATH.exists() else {}

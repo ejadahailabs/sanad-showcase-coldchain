@@ -11,10 +11,11 @@ RUN-05 adds (pinned IEC 62304 stack):
   7 class            : a unit has its item's class; an item below its parent's class names its segregation (§5.3.5)
 Usage (repo root): python3 tools/level-check.py [--selftest]. Exit 1 on any violation. MANUAL (F-126)."""
 import pathlib, re, sys, yaml
+import fwload  # framework.yaml + tools/levels.yaml (run-local fields, 2026-09-29)
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 def load():
-    fw = yaml.safe_load((ROOT / ".ejadah/rew/framework.yaml").read_text())
+    fw = fwload.load()
     reqs = {}
     for f in (ROOT / "03-requirements").rglob("MRTM-*.md"):
         up = re.search(r"^uplinks: (.*)$", f.read_text(), re.M).group(1)
