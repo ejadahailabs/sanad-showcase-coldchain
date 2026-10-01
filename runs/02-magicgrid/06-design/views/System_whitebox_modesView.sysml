@@ -12,3 +12,32 @@ package System_whitebox_modesView {
         render asStateTransitionView;
     }
 }
+
+package 'Layout_Sanad' {
+
+    comment /* Layout only. Written and read by this workbench.
+       Every entry annotates an element by qualified name; no model element is modified.
+       Delete this package and the model is unchanged. */
+
+    private import ScalarValues::*;
+
+    metadata def 'Layout' {
+        attribute 'viewName' : String;
+        attribute 'x' : Real;
+        attribute 'y' : Real;
+        attribute 'w' : Real;
+        attribute 'h' : Real;
+    }
+
+    metadata def 'EdgeLayout' {
+        attribute 'viewName' : String;
+        attribute 'edge' : String;
+        attribute 'bends' : String;
+    }
+
+    metadata 'l1' : 'Layout' about 'MrtmSwStates'::'SystemModes' {
+        'viewName' = "system_whitebox_modes";
+        'x' = 24;
+        'y' = 44;
+    }
+}

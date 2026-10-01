@@ -12,3 +12,56 @@ package System_whitebox_probefaultView {
         render asSequenceView;
     }
 }
+
+package 'Layout_Sanad' {
+
+    comment /* Layout only. Written and read by this workbench.
+       Every entry annotates an element by qualified name; no model element is modified.
+       Delete this package and the model is unchanged. */
+
+    private import ScalarValues::*;
+
+    metadata def 'Layout' {
+        attribute 'viewName' : String;
+        attribute 'x' : Real;
+        attribute 'y' : Real;
+        attribute 'w' : Real;
+        attribute 'h' : Real;
+    }
+
+    metadata def 'EdgeLayout' {
+        attribute 'viewName' : String;
+        attribute 'edge' : String;
+        attribute 'bends' : String;
+    }
+
+    metadata 'l1' : 'Layout' about 'SystemProbeFault'::'alarmF' {
+        'viewName' = "system_whitebox_probefault";
+        'x' = 232;
+        'y' = 44;
+    }
+
+    metadata 'l2' : 'Layout' about 'SystemProbeFault'::'displayF' {
+        'viewName' = "system_whitebox_probefault";
+        'x' = 436;
+        'y' = 44;
+    }
+
+    metadata 'l3' : 'Layout' about 'SystemProbeFault'::'loggingF' {
+        'viewName' = "system_whitebox_probefault";
+        'x' = 644;
+        'y' = 44;
+    }
+
+    metadata 'l4' : 'Layout' about 'SystemProbeFault'::'sensingF' {
+        'viewName' = "system_whitebox_probefault";
+        'x' = 24;
+        'y' = 44;
+    }
+
+    metadata 'l5' : 'Layout' about 'SystemProbeFault'::'staffF' {
+        'viewName' = "system_whitebox_probefault";
+        'x' = 848;
+        'y' = 44;
+    }
+}
